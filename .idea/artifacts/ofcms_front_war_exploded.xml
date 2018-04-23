@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ofcms-front:war exploded">
+    <output-path>$PROJECT_DIR$/ofcms-front/target/ofcms-front</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ofcms-front" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/ofcms-front/target/ofcms-front/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="ofcms-front/web/Web" />
+    </root>
+  </artifact>
+</component>
