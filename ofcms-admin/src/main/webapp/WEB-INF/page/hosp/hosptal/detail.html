@@ -1,0 +1,77 @@
+ <#include "template/page/head_lib.html">
+<body>
+	<div class="layui-fluid">
+		 <div class="layui-tab">
+		  <ul class="layui-tab-title">
+		    <li class="layui-this">基本信息</li>
+		    <li>医院介绍</li>
+		    <li>来院导航</li>
+		    <li>挂号指南</li>
+		    <li>就医流程</li>
+		    <li>住院流程</li>
+		  </ul>
+		  <div class="layui-tab-content">
+		    <div class="layui-tab-item layui-show">
+		      <div class="layui-row" style = "line-height: 3;  padding-left: 30px;">
+			    <div class="layui-col-md12">
+			             <label class="layui-text">  医院名称：</label> 	${result.hosp_name}
+			    </div>
+			    <div class="layui-col-md12">
+			                医院简称：${result.hosp_short}   
+			    </div>
+			    <div class="layui-col-md12">
+			             地址：${result.hosp_post}   
+			    </div>
+			    <div class="layui-col-md12">
+			           电话：${result.hosp_post}   
+			    </div>
+			    <div class="layui-col-md12">
+			              邮编：      ${result.hosp_post}   
+			    </div>
+			    <div class="layui-col-md12">
+			             医院等级：${result.hosp_post}   
+			    </div>
+		    </div>
+		  </div>
+		    <div class="layui-tab-item">
+		    	<div class="layui-row" style = "line-height: 3;  padding-left: 30px;">
+			   	 <div class="layui-col-md12">
+					${result.hosp_introduce}   
+				  </div>
+			    </div>
+			</div>
+		    
+		    <div class="layui-tab-item">
+				<div class="layui-row" style = "line-height: 3;  padding-left: 30px;">
+			   	 <div class="layui-col-md12">
+					${result.hosp_line}   
+				  </div>
+			    </div>
+			    
+			</div>
+		    <div class="layui-tab-item">
+				<div class="layui-row" style = "line-height: 3;  padding-left: 30px;">
+			   	 <div class="layui-col-md12">
+					${result.hosp_guide}   
+				  </div>
+			    </div>
+			</div>
+		    <div class="layui-tab-item">
+				<div class="layui-row" style = "line-height: 3;  padding-left: 30px;">
+			   	 <div class="layui-col-md12">
+					${result.hosp_medical}   
+				  </div>
+			    </div>
+			</div>
+		    <div class="layui-tab-item">
+				<div class="layui-row" style = "line-height: 3;  padding-left: 30px;">
+			   	 <div class="layui-col-md12">
+					${result.hosp_inpatient}   
+				  </div>
+			    </div>
+				</div>
+		  </div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<#--配置页面面板属性-->
+<#assign pannel_config>
+{       "page_config":{
+		"page_name":"代码生成",
+		"module_name":"shop/accompany"
+		},
+		"queryform":{
+	          "form_id":"query_form",	
+	          "sqlid":"shop.accompany.query",
+	          "fields":[
+						 {"name":"mobile","type":"text","label":"手机号","dict":"shop_store","div_width":"200","placeholder":"请输入手机号"}
+						], 
+			   "tab_buttons":[
+			  					 {"button_id":"s1","type":"submit","button_name":"查询" } 
+			  				 ]
+			  },
+		"queryresult":{ 
+	            "table_id":"adminDatagrid", 
+	            "is_load":"true", 
+	            "is_page":"true",
+	            "width":"680px",
+	            "height":"500px",
+	            "inputs":"id",
+	            "delkey":"id",
+	            "del_sqlid":"shop.accompany.delete",
+	            "add_url":"shop/accompany/add.html",
+	            "edit_url":"shop/accompany/edit.html",
+	            "columnlist":[
+					           	{"title":"#","field":"","sort":"","style":"","type":"numbers","fixed":"left"},
+					           	{"title":"","field":"","sort":"","style":"","checkbox":"true","fixed":"left"},
+							 	{"title":"编号","field":"id","width":"90" },
+							 	{"title":"姓名","field":"name","width":"110" },
+							 	{"title":"年龄(岁)","field":"age","width":"90" },
+							 	{"title":"护龄(年)","field":"protect_age","width":"90" },
+							 	{"title":"头像","field":"head_photo","width":"120","templet":"<div><img src='${http_image_url}{{d.head_photo}}' width='300px' height='180px' /></div>" },
+							 	{"title":"手机号","field":"mobile","width":"130" },
+							 	{"title":"微信号","field":"wx_no","width":"130" },
+							 	{"title":"QQ号","field":"qq_no","width":"130" },
+							 	{"title":"地址","field":"address","width":"160" },
+							 	{"title":"位置","field":"location","width":"160" },
+							 	{"title":"特长","field":"special_areas","width":"200" },
+							 	{"title":"收费(元/每小时)","field":"money","width":"140" },
+							 	{"title":"服务名称","field":"service_name","width":"160" },
+							 	{"title":"服务时间","field":"service_time","width":"160" },
+							 	{"title":"个人介绍","field":"introduce","width":"200" },
+							 	{"title":"申请时间","field":"create_time","width":"160" },
+								{"title":"操作","width":"180","align":"center","fixed":"right","toolbar":"#barTools"}
+							],
+			  "tab_buttons":[
+			    				{"button_id":"b1","button_name":"增加","event":"add","title":"增加","icon":"&#xe654;"},
+			    				{"button_id":"b2","button_name":"批量删除","event":"bathdel","icon":"&#xe640;"},
+			    				{"button_id":"b4","button_name":"刷新","event":"refresh","url":"#","icon":"&#x1002;"}
+			    			],      
+			    "tools_buttons":[
+			    				{"tool_button_id":"t1","button_name":"查看","event":"detail","title":"查看"},
+			    				{"tool_button_id":"t2","button_name":"编辑","event":"edit","title":"编辑"},
+			    				{"tool_button_id":"t3","button_name":"删除","event":"del"}
+			    			]          
+        	 } 
+}
+</#assign>
+<#--为table 转换需要的qryresult-->
+<#assign pannelConfig=pannel_config?eval>
+<#include "template/page/comn_query.html">

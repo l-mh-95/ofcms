@@ -1,0 +1,55 @@
+<#--配置页面面板属性-->
+<#assign pannel_config>
+{       "page_config":{
+		"page_name":"代码生成",
+		"module_name":"shop/product_category"
+		},
+		"queryform":{
+	          "form_id":"query_form",	
+	          "sqlid":"shop.product_category.query",
+	          "fields":[
+						 {"name":"hosp_no","type":"select","label":"所属医院","dict":"shop_store","div_width":"200","placeholder":""},
+						 {"name":"shop_name","type":"select","label":"所属商家","dict":"shop_category","div_width":"200","placeholder":""},
+						 {"name":"cat_name","type":"text","label":"分类名称","div_width":"200","placeholder":"请输入信息"} 
+						 
+						], 
+			   "tab_buttons":[
+			  					 {"button_id":"s1","type":"submit","button_name":"查询" } 
+			  				 ]
+			  },
+		"queryresult":{ 
+	            "table_id":"adminDatagrid", 
+	            "is_load":"true", 
+	            "is_page":"true",
+	            "width":"580px",
+	            "height":"500px",
+	            "inputs":"cat_id",
+	            "delkey":"cat_id",
+	            "del_sqlid":"shop.product_category.delete",
+	            "add_url":"shop/product_category/add.html",
+	            "edit_url":"shop/product_category/edit.html",
+	            "columnlist":[
+					           	{"title":"#","field":"","sort":"","style":"","type":"numbers","fixed":"left"},
+					           	{"title":"","field":"","sort":"","style":"","checkbox":"true","fixed":"left"},
+							 	{"title":"商家","field":"shop_name","width":"160" },
+							 	{"title":"分类编号","field":"cat_id","width":"100" },
+							 	{"title":"分类名称","field":"cat_name","width":"160" },
+							 	{"title":"状态","field":"status","dict":"status","width":"160" },
+								{"title":"操作","width":"180","align":"center","fixed":"right","toolbar":"#barTools"}
+							],
+			  "tab_buttons":[
+			    				{"button_id":"b1","button_name":"增加","event":"add","title":"增加分类","icon":"&#xe654;"},
+			    				{"button_id":"b2","button_name":"批量删除","event":"bathdel","icon":"&#xe640;"},
+			    				{"button_id":"b4","button_name":"刷新","event":"refresh","url":"#","icon":"&#x1002;"}
+			    			],      
+			    "tools_buttons":[
+			    				{"tool_button_id":"t1","button_name":"查看","event":"detail","title":"查看"},
+			    				{"tool_button_id":"t2","button_name":"编辑","event":"edit","title":"编辑"},
+			    				{"tool_button_id":"t3","button_name":"删除","event":"del"}
+			    			]          
+        	 } 
+}
+</#assign>
+<#--为table 转换需要的qryresult-->
+<#assign pannelConfig=pannel_config?eval>
+<#include "template/page/comn_query.html">

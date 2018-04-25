@@ -1,0 +1,58 @@
+<#--配置页面面板属性-->
+<#assign pannel_config>
+{       "page_config":{
+		"menu_id":"M001",
+		"page_name":"送餐员列表",
+		"module_name":"shop/delivery",
+		"bread_name":"送餐员列表",
+		"page_color":"box-primary" 
+		},
+		"queryform":{
+	          "form_id":"query_form",	
+	          "sqlid":"shop.delivery.query",
+	          
+	          "fields":[
+						 {"name":"staff_id","type":"text","label":"编号","div_width":"200","placeholder":"请输入商家名称"},
+						 {"name":"staff_name","type":"text","label":"姓名","div_width":"150","verify":"required","placeholder":"请输入商家id"}
+					   ],
+			   "tab_buttons":[
+			  					 {"button_id":"s1","type":"submit","button_name":"查询"} 
+			  				 ]
+			  },
+		"queryresult":{ 
+	            "table_id":"adminDatagrid", 
+	            "is_load":"true", 
+	            "is_page":"true",
+	            "width":"650px",
+	            "height":"350px",
+	            "inputs":"staff_id:",
+	            "delkey":"staff_id",
+	            "del_sqlid":"shop.delivery.status",
+	            "add_url":"shop/delivery/add.html",
+	            "edit_url":"shop/delivery/edit.html",
+	            "columnlist":[
+	            				{"title":"#","field":"","sort":"","style":"","type":"numbers"},
+	            				{"title":"","field":"","sort":"","style":"","checkbox":"true"},
+					           	{"title":"商家","field":"shop_name","width":"180" },
+					           	{"title":"送餐员编号","field":"staff_id","width":"120" },
+					           	{"title":"姓名","field":"staff_name","width":"120"},
+								{"title":"手机","field":"staff_mobile","width":"120"},
+								{"title":"地址","field":"staff_address","width":"120"},
+								{"title":"操作","field":"update_time","width":"200","align":"center","fixed":"right","toolbar":"#barTools"}
+							],
+			    "tab_buttons":[
+			    				{"button_id":"b1","button_name":"增加","event":"add","title":"添加送餐员","icon":"&#xe654;"},
+			    				{"button_id":"b2","button_name":"批量删除","event":"bathdel","icon":"&#xe640;"},
+			    				{"button_id":"b4","button_name":"刷新","event":"refresh","url":"#","icon":"&#x1002;"}
+			    			],      
+			    "tools_buttons":[
+			    				{"tool_button_id":"t1","button_name":"查看","event":"detail","title":"查看详情"},
+			    				{"tool_button_id":"t2","button_name":"编辑","event":"edit","title":"编辑分类"},
+			    				{"tool_button_id":"t3","button_name":"删除","event":"del"}
+			    			]           
+        	 } 
+}
+</#assign>
+<#--为table 转换需要的qryresult-->
+<#assign pannelConfig=pannel_config?eval>
+<#include "template/page/comn_query.html">

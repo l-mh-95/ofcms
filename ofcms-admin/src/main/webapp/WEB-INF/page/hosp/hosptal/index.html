@@ -1,0 +1,51 @@
+<#--配置页面面板属性-->
+<#assign pannel_config>
+{       "page_config":{
+		"menu_id":"M001",
+		"page_name":"医院查询",
+		"module_name":"hosp/hosptal",
+		"bread_name":"医院查询",
+		"page_color":"box-primary" 
+		},
+		"queryform":{
+	          "form_id":"query_form",	
+	          "action":"hosp/hospital/getHospitalList.json",
+	          "fields":[
+						 {"name":"hosp_id","type":"text","label":"医院编号","div_width":"150","placeholder":"请输入医院编号"},
+						 {"name":"hosp_name","type":"text","label":"医院名称","div_width":"150","verify":"required","placeholder":"请输入医院名称"}
+					   ],
+			   "tab_buttons":[
+			  					 {"button_id":"s1","type":"submit","button_name":"查询"} 
+			  				 ]
+			  },
+		"queryresult":{ 
+	            "table_id":"adminDatagrid", 
+	            "is_load":"true", 
+	            "is_page":"true",
+	            "width":"680px",
+	            "height":"500px",
+	            "inputs":"menu_id:",
+	            "delkey":"menu_id",
+	            "edit_action":"hosp/hospital/getHospitalDetail.html",
+	            "columnlist":[
+					           	{"title":"#","field":"","sort":"","style":"","type":"numbers"},
+					           	{"title":"","field":"","sort":"","style":"","checkbox":"true"},
+					           	{"title":"医院编号","field":"hosp_no","width":"120"},
+					           	{"title":"医院名称","field":"hosp_name","width":"200"},
+					           	{"title":"简称","field":"hosp_short","width":"200"},
+					           	{"title":"地址","field":"hosp_address","width":"120"},
+								{"title":"电话","field":"hosp_tel","width":"120"},
+								{"title":"操作","field":"update_time","width":"100","align":"center", "toolbar":"#barTools"}
+							],
+			    "tab_buttons":[
+			    				{"button_id":"b4","button_name":"刷新","event":"refresh","url":"#","icon":"&#x1002;"}
+			    			],      
+			    "tools_buttons":[
+			    				{"tool_button_id":"t1","button_name":"查看","event":"detail","title":"查看医院信息"}
+			    			]           
+        	 } 
+}
+</#assign>
+<#--为table 转换需要的qryresult-->
+<#assign pannelConfig=pannel_config?eval>
+<#include "template/page/comn_query.html">

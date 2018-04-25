@@ -1,0 +1,56 @@
+<#--配置页面面板属性-->
+<#assign pannel_config>
+{       "page_config":{
+		"page_name":"商家管理",
+		"module_name":"shop/store"
+		},
+		"queryform":{
+	          "form_id":"query_form",	
+	          "sqlid":"shop.store.query",
+	          "fields":[
+						 {"name":"hosp_no","type":"select","label":"所属医院","dict":"shop_store","div_width":"200","placeholder":""},
+						 {"name":"shop_name","type":"text","label":"商家名称","div_width":"200","placeholder":"请输入商家名称"},
+						 {"name":"shop_id","type":"text","label":"商家编号","div_width":"150","verify":"required","placeholder":"请输入商家id"}
+					   ],
+			   "tab_buttons":[
+			  					 {"button_id":"s1","type":"submit","button_name":"查询"} 
+			  				 ]
+			  },
+		"queryresult":{ 
+	            "table_id":"adminDatagrid", 
+	            "is_load":"true", 
+	            "is_page":"true",
+	            "width":"600px",
+	            "height":"400px",
+	            "inputs":"shop_id:",
+	            "delkey":"shop_id",
+	            "del_sqlid":"shop.store.delete",
+	            "add_url":"shop/store/add.html",
+	            "edit_url":"shop/store/edit.html",
+	            "columnlist":[
+	            				{"title":"#","field":"","sort":"","style":"","type":"numbers"},
+	            				{"title":"","field":"","sort":"","style":"","checkbox":"true"},
+					           	{"title":"商家编号","field":"shop_id","width":"100" },
+					           	{"title":"所属医院","field":"hosp_name","width":"120" },
+					           	{"title":"商家名称","field":"shop_name","width":"180"},
+								{"title":"商家分类","field":"shop_category","width":"120","dict":"shop_category"},
+								{"title":"营业时间","field":"shop_hours","width":"180"},
+								{"title":"商家地址","field":"shop_address","width":"280"},
+								{"title":"操作","field":"update_time","width":"200","align":"center","fixed":"right","toolbar":"#barTools"}
+							],
+			    "tab_buttons":[
+			    				{"button_id":"b1","button_name":"增加","event":"add","title":"增加商家","icon":"&#xe654;"},
+			    				{"button_id":"b2","button_name":"批量删除","event":"bathdel","icon":"&#xe640;"},
+			    				{"button_id":"b4","button_name":"刷新","event":"refresh","url":"#","icon":"&#x1002;"}
+			    			],      
+			    "tools_buttons":[
+			    				{"tool_button_id":"t1","button_name":"查看","event":"detail","title":"查看商家"},
+			    				{"tool_button_id":"t2","button_name":"编辑","event":"edit","title":"编辑商家"},
+			    				{"tool_button_id":"t3","button_name":"删除","event":"del"}
+			    			]           
+        	 } 
+}
+</#assign>
+<#--为table 转换需要的qryresult-->
+<#assign pannelConfig=pannel_config?eval>
+<#include "template/page/comn_query.html">

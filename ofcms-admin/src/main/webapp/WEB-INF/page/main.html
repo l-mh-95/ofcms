@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<!--<link rel="stylesheet" href="./main.css" />-->
+		<title>Document</title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		
+		.box {
+			width: 90%;
+			/*margin: 0 auto;*/
+			padding-left: 30px;
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}
+		
+		.content_1,
+		.content_2 {
+			overflow: hidden;
+		}
+		
+		.content_1 .cont1 {
+			width: 48%;
+			/*height: 200px;*/
+			border: solid 1px #ddd;
+			float: left;
+		}
+		
+		.content_1 .cont1 .title {
+			height: 40px;
+			line-height: 40px;
+			border-bottom: solid 1px #ddd;
+			font-size: 18px;
+			padding-left: 20px;
+		}
+		
+		.content_1 .cont1 .status_div {
+			overflow: hidden;
+			text-align: center;
+			padding-bottom: 15px;
+		}
+		
+		.content_1 .cont1 .status_div .div1,
+		.content_1 .cont1 .status_div .div2,
+		.content_1 .cont1 .status_div .div3,
+		.content_1 .cont1 .status_div .div4,
+		.content_1 .cont1 .status_div .div5 {
+			float: left;
+			width: 190px;
+			height: 60px;
+			background-color: #f8f8f8;
+			padding-left: 15px;
+			margin-top: 15px;
+			margin-left: 20px;
+			padding-top: 10px;
+			box-sizing: border-box;
+			color: #999;
+			font-size: 14px;
+		}
+		
+		.content_1 .cont1 .status_div span {
+			color: #009688;
+			font-size: 20px;
+		}
+		
+		.content_1 .cont2 {
+			width: 48%;
+			height: 200px;
+			border: solid 1px #ddd;
+			float: left;
+			margin-left: 15px;
+			box-sizing: border-box;
+		}
+		
+		.content_1 .cont2 .title {
+			height: 40px;
+			line-height: 40px;
+			border-bottom: solid 1px #ddd;
+			font-size: 18px;
+			padding-left: 20px;
+		}
+		
+		.content_1 .cont2 .status_div {
+			padding-top: 10px;
+			padding-left: 20px;
+			box-sizing: border-box;
+		}
+		
+		.content_1 .cont2 .status_div li {
+			margin-top: 10px;
+			color: #666;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.content_1 .cont2 .status_div li span{
+			color:blue;
+		}
+		
+		.content_2 {
+			margin-top: 50px;
+		}
+		
+		.content_2 .cont4 {
+			width: 48%;
+			height: 500px;
+			border: solid 1px #ddd;
+			float: left;
+		}
+		
+		.content_2 .cont4>div {
+			width: 100%;
+		}
+		
+		.content_2 .cont5 {
+			width: 48%;
+			height: 500px;
+			border: solid 1px #ddd;
+			float: left;
+			margin-left: 15px;
+		}
+		
+		.content_2 .cont5>div {
+			width: 100%;
+		}
+	</style>
+	<script type="text/javascript" src="${webroot}/static/plugins/echarts/echarts.min.js"></script>
+
+	<body>
+		<section class='box'>
+			<div class="content_1">
+				<div class="cont1">
+					<p class='title'>待办事项</p>
+					<div class="status_div">
+						<div class="div1">待支付<br><span>${order.deal_pay}</span></div>
+						<div class="div2">待发货<br><span>${order.deal_ship}</span></div>
+						<div class="div3">待收货<br><span>${order.deal_receive}</span></div>
+						<div class="div4">已完成<br><span>${order.completed}</span></div>
+						<div class="div5">已取消<br><span>${order.cancelled}</span></div>
+					</div>
+				</div>
+				<div class="cont2">
+					<p class='title'>通知公告</p>
+					<ol class="status_div">
+						<#list announce as data>
+							<li>
+								<span >${data.title}</span> &nbsp;&nbsp;&nbsp;&nbsp;${data.content}
+							</li>
+						</#list>
+					</ol>
+				</div>
+			</div>
+			<div class="content_2">
+				<div class="cont4" id='cont4'></div>
+				<div class="cont5" id='cont5'></div>
+			</div>
+			<script type="text/javascript">
+				// 基于准备好的dom，初始化echarts实例
+				var myChart = echarts.init(document.getElementById('cont4'));
+				var user = ${user};
+				// 指定图表的配置项和数据
+				var option = {
+					title: {
+						text: '用户人数统计',
+						left: 20,
+						top: 10
+					},
+					xAxis: {
+						type: 'category',
+						data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+					},
+					yAxis: {
+						type: 'value'
+					},
+					series: [{
+						data: user,
+						type: 'line'
+					}]
+				};
+
+				// 使用刚指定的配置项和数据显示图表。
+				myChart.setOption(option);
+			</script>
+			<script type="text/javascript">
+				// 基于准备好的dom，初始化echarts实例
+				var myChart = echarts.init(document.getElementById('cont5'));
+				var orderMonth = ${order_month};
+				// 指定图表的配置项和数据
+				var option = {
+					title: {
+						text: '月统计（订单）',
+						left: 20,
+						top: 10
+					},
+					xAxis: {
+						type: 'category',
+						data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+					},
+					yAxis: {
+						type: 'value'
+					},
+					series: [{
+						data: orderMonth,
+						type: 'bar'
+					}]
+				};
+
+				// 使用刚指定的配置项和数据显示图表。
+				myChart.setOption(option);
+			</script>
+		</section>
+
+	</body>
+
+</html>

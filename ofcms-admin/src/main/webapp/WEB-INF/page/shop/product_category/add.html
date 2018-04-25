@@ -1,0 +1,33 @@
+<#--配置页面面板属性-->
+<#assign pannel_config>
+{       "page_config":{
+		"page_name":"代码生成",
+		"module_name":"shop/product_category"
+		},
+		"queryform":{
+	          "form_id":"query_form",	
+	          "sqlid":"shop.product_category.save",
+	          "ver_type":"msg",
+	          "fields":[
+						  {"name":"hosp_name","type":"hidden","div_width":"400","placeholder":""},
+						  {"name":"hosp_no","type":"select","label":"所属医院","dict":"shop_store","verify":"required","div_width":"400","select_name":"true","id":"hosp_name"},
+						  {"name":"shop_category","type":"select","label":"商家类型","verify":"required","dict":"shop_category","div_width":"400","placeholder":""},
+							  {"name":"cat_name","type":"text","label":"分类名称","verify":"required","placeholder":"请输入信息"}, 
+							  {"name":"sort","type":"text","label":"排序","verify":"required","placeholder":"请输入信息"}, 
+							  <!--{"name":"status","type":"text","label":"状态","dict":"status","verify":"required","placeholder":"请输入信息"},-->
+						  {"name":"status","type":"select","label":"状态","dict":"status","verify":"required","div_width":"400","select_name":"true","id":"hosp_name"}
+
+						  
+							  
+					   ],
+	       "tab_buttons":[
+		    				{"button_id":"s1","button_name":"新增","event":"add"  },
+		    				{"button_id":"s2","button_name":"关闭","event":"close" }
+			    		]
+			  }
+}
+</#assign>
+<#--为table 转换需要的qryresult-->
+<#assign pannelConfig=pannel_config?eval>
+<#include "template/page/comn_update.html">
+ 

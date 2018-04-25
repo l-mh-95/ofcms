@@ -1,0 +1,228 @@
+ <#include "template/page/head_lib.html">
+<body>
+	<div class="layui-fluid">
+		<div class="layui-tab">
+			<ul class="layui-tab-title">
+				<li class="layui-this">基本信息</li>
+				<li>缴费信息</li>
+				<li>入转出记录</li>
+				<li>治疗与护理</li>
+				<li>每日病情</li>
+				<li>预约/挂号</li>
+			</ul>
+			<div class="layui-tab-content">
+				<div class="layui-tab-item layui-show">
+					<div class="layui-row" style="line-height: 3;  padding-left: 30px;">
+						<div class="layui-col-md12">
+							<div class="layui-inline">
+								<label class="layui-form-mid" style="width: 300px">住院号：${result.cure_no}</label>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-mid" style="width: 300px">
+									患者编号：${result.patient_id}</label>
+							</div>
+						</div>
+
+
+						<div class="layui-col-md12">
+							<div class="layui-inline">
+								<label class="layui-form-mid" style="width: 300px">
+									患者姓名：${result.patient_name} </label>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-mid" style="width: 300px">
+									医保卡号：${result.card_no} </label>
+							</div>
+						</div>
+						<div class="layui-col-md12">
+							<div class="layui-inline">
+								<label class="layui-form-mid" style="width: 300px">性别：${result.patient_sex}
+								</label>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-mid" style="width: 300px">年龄：${result.patient_age} 岁</label>
+							</div>
+						</div>
+						<div class="layui-col-md12">
+							<div class="layui-inline">
+								<label class="layui-form-mid" style="width: 300px">
+									科室名称：${result.dept_name} </label>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-mid" style="width: 300px">
+									病区名称：${result.ward_name} </label>
+							</div>
+						</div>
+						<div class="layui-col-md12">
+							<div class="layui-inline">
+								<label class="layui-form-mid" style="width: 300px">房间号：${result.room_no}
+								</label>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-mid" style="width: 300px">床位号：${result.bed_no}
+								</label>
+							</div>
+						</div>
+						<div class="layui-col-md12">
+							<div class="layui-inline">
+								<label class="layui-form-mid" style="width: 300px">入院日期：${result.enter_date}
+								</label>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-mid" style="width: 300px">出院日期：${result.out_date}</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-tab-item">
+					<div class="layui-fluid">
+						<div class="layui-col-md12">
+							<div class="layui-row grid-demo">
+								<div class="layui-col-md3">
+									<button class="layui-btn layui-btn-sm" tableId="adminDatagrid2"
+										function="refresh">
+										<i class="layui-icon">&#x1002;</i>刷新
+									</button>
+								</div>
+								<div class="layui-col-md12">
+									<table id="adminDatagrid2" lay-filter="adminDatagrid2"
+										class="adminDatagrid" isLoad="1"
+										url="comn/service/query.json?sqlid=hosp.hosp.account_query&hosp_no=10001&id_no=${result.id_no}"
+										isPage="1" sortType="1" defaultForm="query_form"
+										height="full-130"></table>
+									<div class="adminDatagridCols">
+										<p type="numbers" title="#" />
+										<p field="order_no" title="订单编号" width="180" sort="true" />
+										<p field="nickname" title="微信昵称" width="100"  />
+										<p field="pay_time" title="创建时间" width="160"   />
+										<p field="pay_type" title="支付类型" width="100" dict="pay_type" />
+										<p field="pay_money" title="挂号金额" width="120" />
+										<p field="pay_result" title="支付结果" width="120" dict="pay_status"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-tab-item">
+					<div class="layui-fluid">
+						<div class="layui-col-md12">
+							<div class="layui-row grid-demo">
+								<div class="layui-col-md3">
+									<button class="layui-btn layui-btn-sm" tableId="adminDatagrid3"
+										function="refresh">
+										<i class="layui-icon">&#x1002;</i>刷新
+									</button>
+								</div>
+								<div class="layui-col-md12">
+									<table id="adminDatagrid3" lay-filter="adminDatagrid3"
+										class="adminDatagrid" isLoad="1"
+										url="hosp/patient/getTurnirData.json?dept_id=${dept_id}&id_no=${result.id_no}"
+										isPage="1" sortType="1" defaultForm="query_form"
+										height="full-130"></table>
+									<div class="adminDatagridCols">
+										<p type="numbers" title="#" />
+										<p field="create_time" title="入转时间" width="160"  />
+										<p field="dept_name" title="源科室" width="120"   />
+										<p field="ward_name" title="源病区" width="120" />
+										<p field="bed_no" title="源床号" width="100" />
+										<p field="des_dept_name" title="目标科室" width="120"   />
+										<p field="des_ward_name" title="目标病区" width="120" />
+										<p field="des_bed_no" title="目标床号" width="100" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-tab-item">
+					<div class="layui-fluid">
+						<div class="layui-col-md12">
+							<div class="layui-row grid-demo">
+								<div class="layui-col-md3">
+									<button class="layui-btn layui-btn-sm" tableId="adminDatagrid4"
+										function="refresh">
+										<i class="layui-icon">&#x1002;</i>刷新
+									</button>
+								</div>
+								<div class="layui-col-md12">
+									<table id="adminDatagrid4" lay-filter="adminDatagrid4"
+										class="adminDatagrid" isLoad="1"
+										url="hosp/patient/getTrenurrData.json?dept_id=${dept_id}&id_no=${result.id_no}"
+										isPage="1" sortType="1" defaultForm="query_form"
+										height="full-130"></table>
+									<div class="adminDatagridCols">
+										<p type="numbers" title="#" />
+										<p field="execute_item" title="执行项目" width="120"   />
+										<p field="create_time" title="发布时间" width="160"  />
+										<p field="execute_time" title="执行时间" width="160"   />
+										<p field="execute_doctor" title="执行人" width="140" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-tab-item">
+					<div class="layui-fluid">
+						<div class="layui-col-md12">
+							<div class="layui-row grid-demo">
+								<div class="layui-col-md3">
+									<button class="layui-btn layui-btn-sm" tableId="adminDatagrid5"
+										function="refresh">
+										<i class="layui-icon">&#x1002;</i>刷新
+									</button>
+								</div>
+								<div class="layui-col-md12">
+									<table id="adminDatagrid5" lay-filter="adminDatagrid5"
+										class="adminDatagrid" isLoad="1"
+										url="hosp/patient/getEveryillrData.json?dept_id=${dept_id}&id_no=${result.id_no}"
+										isPage="1" sortType="1" defaultForm="query_form"
+										height="full-130"></table>
+									<div class="adminDatagridCols">
+										<p type="numbers" title="#" />
+										<p field="nursing_time" title="时间" width="160"   />
+										<p field="nursing_content" title="患者情况" width="200" />
+										<p field="nurse_name" title="来源" width="120"   />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-tab-item">
+					<div class="layui-fluid">
+						<div class="layui-col-md12">
+							<div class="layui-row grid-demo">
+								<div class="layui-col-md3">
+									<button class="layui-btn layui-btn-sm" tableId="adminDatagrid6"
+										function="refresh">
+										<i class="layui-icon">&#x1002;</i>刷新
+									</button>
+								</div>
+								<div class="layui-col-md12">
+									<table id="adminDatagrid6" lay-filter="adminDatagrid6"
+										class="adminDatagrid" isLoad="1"
+										url="comn/service/query.json?sqlid=hosp.hosp.reg_query&id_no=${result.id_no}"
+										isPage="1" sortType="1" defaultForm="query_form"
+										height="full-130"></table>
+									<div class="adminDatagridCols">
+										<p type="numbers" title="#" />
+										<p field="order_id" title="挂号编号" width="180" sort="true" />
+										<p field="patient_name" title="患者姓名" width="100"  />
+										<p field="office_name" title="科室" width="140" />
+										<p field="reg_time" title="挂号时间" width="120"   />
+										<p field=reg_type title="挂号类型" width="100" dict="reg_type"/>
+										<p field="reg_free" title="挂号金额" width="120" />
+										<p field="doctor_name" title="挂号医生" width="120" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

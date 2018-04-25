@@ -1,0 +1,72 @@
+#namespace("system.user")
+	#include("system/user.sql")
+#end
+
+#namespace("system.role")
+	#include("system/role.sql")
+#end
+
+#namespace("system.announce")
+	#include("system/announce.sql")
+#end
+#namespace("system.menu")
+	#include("system/menu.sql")
+#end
+#namespace("system.dict")
+	#include("system/dict.sql")
+#end
+#namespace("system.param")
+	#include("system/param.sql")
+#end
+
+#namespace("system.generate")
+	#include("system/generate.sql")
+#end
+#namespace("system.task")
+	#include("system/task.sql")
+#end
+
+#namespace("system.log")
+	#include("system/log.sql")
+#end
+#namespace("info.category")
+	#include("info/category.sql")
+#end
+
+#namespace("info.article")
+	#include("info/article.sql")
+#end
+#namespace("shop.store")
+	#include("shop/store.sql")
+#end
+#namespace("shop.user")
+	#include("shop/user.sql")
+#end
+#namespace("shop.delivery")
+	#include("shop/delivery.sql")
+#end
+#namespace("shop.product_category")
+	#include("shop/product_category.sql")
+#end
+#namespace("shop.accompany")
+	#include("shop/accompany.sql")
+#end
+#namespace("shop.product")
+	#include("shop/product.sql")
+#end
+#namespace("shop.order")
+	#include("shop/order.sql")
+#end
+#namespace("weixin.auto")
+	#include("weixin/auto.sql")
+#end
+#namespace("weixin.menu")
+	#include("weixin/menu.sql")
+#end
+#namespace("weixin.reply")
+	#include("weixin/reply.sql")
+#end
+#namespace("hosp.hosp")
+	#include("hosp/hosp.sql")
+#end
+

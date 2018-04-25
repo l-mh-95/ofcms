@@ -1,0 +1,46 @@
+<#--配置页面面板属性-->
+<#assign pannel_config>
+{       "page_config":{
+		"page_name":"代码生成",
+		"module_name":"shop/order"
+		},
+		"queryform":{
+	          "form_id":"query_form",	
+	          "sqlid":"shop.order.save",
+	          "ver_type":"msg",
+	          "fields":[
+								  {"name":"shop_id","type":"text","label":"","verify":"required","placeholder":"请输入"}, 
+								  {"name":"open_id","type":"text","label":"","verify":"required","placeholder":"请输入"}, 
+								  {"name":"order_total_amount","type":"text","label":"","verify":"required","placeholder":"请输入"}, 
+								  {"name":"iffe_total_amount","type":"text","label":"","verify":"required","placeholder":"请输入"}, 
+								  {"name":"shipping_price","type":"text","label":"","verify":"required","placeholder":"请输入"}, 
+								  {"name":"shipping_mode","type":"text","label":"","verify":"required","placeholder":"请输入"}, 
+								  {"name":"order_status","type":"text","label":"订单状态：00、已取消、01、已提交 02、已支付 03、已发货  04、已完成  05、退款申请  99、已删除","verify":"required","placeholder":"请输入订单状态：00、已取消、01、已提交 02、已支付 03、已发货  04、已完成  05、退款申请  99、已删除"}, 
+								  {"name":"pay_mode","type":"text","label":"配送方式：0、在线支付 1、第三方支付","verify":"required","placeholder":"请输入配送方式：0、在线支付 1、第三方支付"}, 
+								  {"name":"pay_status","type":"text","label":"支付状态;00未支付;01已支付;02支付失败;","verify":"required","placeholder":"请输入支付状态;00未支付;01已支付;02支付失败;"}, 
+								  {"name":"pay_trans_no","type":"text","label":"","verify":"required","placeholder":"请输入"}, 
+									{"name":"order_create_time","type":"date","label":"","verify":"required","datetype":"datetime","placeholder":"请输入"}, 
+									{"name":"order_pay_time","type":"date","label":"","verify":"required","datetype":"datetime","placeholder":"请输入"}, 
+									{"name":"order_cancel_time","type":"date","label":"","verify":"required","datetype":"datetime","placeholder":"请输入"}, 
+								  {"name":"staff_id","type":"text","label":"","verify":"required","placeholder":"请输入"}, 
+								  {"name":"staff_mobile","type":"text","label":"","verify":"required","placeholder":"请输入"}, 
+								  {"name":"staff_name","type":"text","label":"","verify":"required","placeholder":"请输入"}, 
+								  {"name":"receiver_detail_address","type":"text","label":"","verify":"required","placeholder":"请输入"}, 
+								  {"name":"receiver_mobile","type":"text","label":"","verify":"required","placeholder":"请输入"}, 
+								  {"name":"receiver_name","type":"text","label":"收货人","verify":"required","placeholder":"请输入收货人"}, 
+								  {"name":"estimated_delivery_time","type":"text","label":"","verify":"required","placeholder":"请输入"}, 
+								  {"name":"review_status","type":"text","label":"","verify":"required","placeholder":"请输入"}, 
+								  {"name":"status","type":"text","label":"","verify":"required","placeholder":"请输入"}, 
+								  {"name":"remark","type":"text","label":"","verify":"required","placeholder":"请输入"} 
+					   ],
+	       "tab_buttons":[
+		    				{"button_id":"s1","button_name":"新增","event":"add"  },
+		    				{"button_id":"s2","button_name":"关闭","event":"close" }
+			    		]
+			  }
+}
+</#assign>
+<#--为table 转换需要的qryresult-->
+<#assign pannelConfig=pannel_config?eval>
+<#include "template/page/comn_update.html">
+ 

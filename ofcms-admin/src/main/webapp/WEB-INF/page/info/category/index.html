@@ -1,0 +1,56 @@
+<#--配置页面面板属性-->
+<#assign pannel_config>
+{       "page_config":{
+		"menu_id":"M001",
+		"page_name":"分类管理",
+		"module_name":"info/category",
+		"bread_name":"分类管理",
+		"page_color":"box-primary" 
+		},
+		"queryform":{
+	          "form_id":"query_form",	
+	          "sqlid":"info.category.query",
+	          "fields":[
+						 {"name":"cat_name","type":"text","label":"分类名称","div_width":"200","placeholder":"请输入分类名称"},
+						 {"name":"cat_id","type":"text","label":"分类Id","div_width":"150","verify":"required","placeholder":"请输入分类Id"}
+					   ],
+			   "tab_buttons":[
+			  					 {"button_id":"s1","type":"submit","button_name":"查询"} 
+			  				 ]
+			  },
+		"queryresult":{ 
+	            "table_id":"adminDatagrid", 
+	            "is_load":"true", 
+	            "is_page":"true",
+	            "width":"550px",
+	            "height":"300px",
+	            "inputs":"cat_id:",
+	            "delkey":"cat_id",
+	            "del_sqlid":"info.category.delete",
+	            "add_url":"info/category/add.html",
+	            "edit_url":"info/category/edit.html",
+	            "columnlist":[
+	            				{"title":"#","field":"","sort":"","style":"","type":"numbers"},
+	            				{"title":"","field":"","sort":"","style":"","checkbox":"true"},
+					           	{"title":"分类名称","field":"cat_name","width":"120" },
+					           	{"title":"分类描述","field":"cat_desc","width":"120" },
+					           	{"title":"分类图标","field":"cat_image","width":"120","templet":"<div><img src='${http_image_url}{{d.cat_image}}' width='350px' /></div>"},
+								{"title":"发布时间","field":"create_time","width":"180"},
+								{"title":"操作","field":"update_time","width":"200","align":"center","fixed":"right","toolbar":"#barTools"}
+							],
+			    "tab_buttons":[
+			    				{"button_id":"b1","button_name":"增加","event":"add","title":"增加分类","icon":"&#xe654;"},
+			    				{"button_id":"b2","button_name":"批量删除","event":"bathdel","icon":"&#xe640;"},
+			    				{"button_id":"b4","button_name":"刷新","event":"refresh","url":"#","icon":"&#x1002;"}
+			    			],      
+			    "tools_buttons":[
+			    				{"tool_button_id":"t1","button_name":"查看","event":"detail","title":"查看分类"},
+			    				{"tool_button_id":"t2","button_name":"编辑","event":"edit","title":"编辑分类"},
+			    				{"tool_button_id":"t3","button_name":"删除","event":"del"}
+			    			]           
+        	 } 
+}
+</#assign>
+<#--为table 转换需要的qryresult-->
+<#assign pannelConfig=pannel_config?eval>
+<#include "template/page/comn_query.html">

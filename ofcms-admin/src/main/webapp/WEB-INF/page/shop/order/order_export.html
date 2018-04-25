@@ -1,0 +1,53 @@
+<#--配置页面面板属性-->
+<#assign pannel_config>
+{       "page_config":{
+		"page_name":"代码生成",
+		"module_name":"shop/order",
+		"function_name":"edit",
+		"load_sqlid":"shop.order.detail"
+		},
+		"queryform":{
+	          "form_id":"edit_form",	
+	          "sqlid":"shop.order.update",
+	          "ver_type":"msg",
+	          "fields":[
+							 	{"name":"order_id","type":"hidden"},
+							 	 {"name":"hosp_no","type":"select","label":"所属医院","dict":"shop_store","div_width":"200","placeholder":""},
+						 {"name":"shop_name","type":"text","label":"商家名称","div_width":"200","placeholder":"请输入商家名称"},
+							  <!--{"name":"iffe_total_amount","type":"text","label":"","verify":"required","placeholder":"请输入"},--> 
+							  <!--{"name":"shipping_price","type":"text","label":"单价","verify":"required","placeholder":"请输入单价"},--> 
+							  <!--{"name":"shipping_mode","type":"text","label":"","verify":"required","placeholder":"请输入"},--> 
+							  {"name":"order_status","type":"select","label":"订单状态","verify":"required","placeholder":"","dict":"order_status","div_width":"183"},
+							  <!--"right_list":[{"name":"pay_mode","type":"select","label":"配送方式","verify":"required","placeholder":"","dict":"distribution_mode","div_width":"183"}]},--> 
+							  <!--{"name":"pay_mode","type":"text","label":"配送方式","verify":"required","placeholder":"","dict":"distribution_mode"},--> 
+							  <!--{"name":"pay_status","type":"select","label":"支付状态","verify":"required","placeholder":"","dict":"pay_status"}-->
+							  <!--{"name":"pay_trans_no","type":"text","label":"","verify":"required","placeholder":"请输入"},--> 
+								<!--{"name":"order_create_time","type":"date","label":"订单创建时间","verify":"required","datetype":"datetime","placeholder":""},--> 
+								<!--{"name":"order_pay_time","type":"date","label":"订单支付时间","verify":"required","datetype":"datetime","placeholder":""},--> 
+								<!--{"name":"order_cancel_time","type":"date","label":"订单取消时间","verify":"required","datetype":"datetime","placeholder":""},--> 
+							  <!--{"name":"staff_id","type":"text","label":"","verify":"required","placeholder":"请输入"},--> 
+							  <!--{"name":"staff_mobile","type":"text","label":"","verify":"required","placeholder":"请输入"},--> 
+							  <!--{"name":"staff_name","type":"text","label":"","verify":"required","placeholder":"请输入"},--> 
+							  <!--{"name":"receiver_detail_address","type":"text","label":"收货地址","verify":"required","placeholder":"请输入收货地址"},--> 
+							  <!--{"name":"receiver_mobile","type":"text","label":"收货人电话","verify":"required","placeholder":"请输入收货人电话"},--> 
+							  <!--{"name":"receiver_name","type":"text","label":"收货人","verify":"required","placeholder":"请输入收货人"}-->
+							  <!--{"name":"estimated_delivery_time","type":"text","label":"","verify":"required","placeholder":"请输入"},--> 
+							  <!--{"name":"review_status","type":"text","label":"","verify":"required","placeholder":"请输入"},--> 
+							  <!--{"name":"status","type":"text","label":"","verify":"required","placeholder":"请输入"},--> 
+							  <!--{"name":"remark","type":"text","label":"","verify":"required","placeholder":"请输入"}--> 
+							  {"name":"datea","type":"date","label":"开始时间","div_width":"150","id":"date",
+						 	"right_list":[ {"name":"dateb","type":"date","label":"结束时间","div_width":"150","id":"datetime"}]},
+						 	{"name":"datea","type":"date","label":"结束时间","div_width":"150","id":"date","margin-top":"10",
+						 	"right_list":[ {"name":"dateb","type":"date","label":"结束时间","div_width":"150","id":"datetime"}]}
+					   ],
+	       "tab_buttons":[
+		    				{"button_id":"s1","button_name":"保存","event":"add"  },
+		    				{"button_id":"s2","button_name":"关闭","event":"close" }
+			    		]
+			  }
+}
+</#assign>
+<#--为table 转换需要的qryresult-->
+<#assign pannelConfig=pannel_config?eval>
+<#include "template/page/comn_update.html">
+ 
