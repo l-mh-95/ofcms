@@ -22,17 +22,21 @@ layui.define([], function (exports) {
 	 * 项目中需要调用到的常量、变量这里配置
 	 */
 	adminConfig["global"] = {
-		"servletUrl":"/ofcms-admin/", //异步请求地址,本地工程可以不填
-		"loginUrl" : "/login.html", //登录url
+		"servletUrl":"/ofcms-admin/admin/", //异步请求地址,本地工程可以不填
+		"loginUrl" : "/admin/login.html", //登录url
 		"comnQuery" : "comn/service/query.json", //字典接口
 		"comnUpate" : "comn/service/update.json", //字典接口
 		"editUrl" : "comn/service/editUploadImage.json", //上传附件url
 		"uploadUrl" : "comn/service/upload.json", //上传附件url
 		"uploadHtmlUrl" : "f.html?p=comn/upload.html", //上传附件html地址，默认/plugins/frame/views/upload.html
+		"dictUrl": "system/dict/get.json",//字典请求地址
+		"dictSingleUrl": "system/dict/getSingle.json",//字典请求地址
 		"loadDataType":"1",//加载数据类型，1：是，0：否，默认0  （编辑或查看是否取缓存数据）
 		"datagridSubmitType":"1",//数据表格提交类型，1：原数据提交，2：增删改标签提交（fsType）， 默认1
 		"result" : { //响应结果配置
 	    "statusName": "code", //数据状态的字段名称，默认：errorNo
+	    "labelField": "dict_name", //字典名称
+		"valueField": "dict_value",//字典值
 	    "msgName": "msg", //状态信息的字段名称，默认：errorInfo
 	    "dataName" : "data", //非表格数据的字段名称，默认：results.data
 	    "dataStatus" : "200", //非表格数据的字段名称，默认：results.data

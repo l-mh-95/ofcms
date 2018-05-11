@@ -7,7 +7,7 @@ import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.activerecord.SqlPara;
 import com.ofsoft.cms.admin.controller.BaseController;
-import com.ofsoft.cms.admin.core.config.ErrorCode;
+import com.ofsoft.cms.core.config.ErrorCode;
 import com.ofsoft.cms.core.annotation.Action;
 import com.sanyka.weixin.utils.strutil.StringUtil;
 

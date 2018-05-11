@@ -1,7 +1,7 @@
 package com.ofsoft.cms.admin.controller;
 
 import com.jfinal.kit.PathKit;
-import com.ofsoft.cms.admin.core.config.SysBeans;
+import com.ofsoft.cms.core.config.SysBeans;
 import com.ofsoft.cms.core.annotation.Action;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;

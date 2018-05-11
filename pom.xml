@@ -36,10 +36,11 @@
         <servlet_version>3.0.1</servlet_version>
         <aspectj-version>1.6.8</aspectj-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
         <java_source_version>1.8</java_source_version>
         <java_target_version>1.8</java_target_version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
     </properties>
     <dependencies>
         <dependency>

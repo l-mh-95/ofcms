@@ -11,7 +11,7 @@
 		 	 remark,
 		 	 status
 	from
-		  syk_sys_announce where status = '1'
+		  of_sys_announce where status = '1'
 	#if (id?? ) and  id = #para(id)#end
 	#if (title??) and  title like concat('%', #para(title), '%')#end
 	#if (sort?? && field) order by order_field order_sort  #else order by id desc #end
@@ -30,11 +30,11 @@
 		 	 remark,
 		 	 status
 	  from
-		 syk_sys_announce where  id  = #para(id)
+		 of_sys_announce where  id  = #para(id)
 #end
 
 #sql("save")
-	insert into syk_sys_announce (
+	insert into of_sys_announce (
 		 	 title, 
 		 	 content, 
 		 	 type, 
@@ -56,16 +56,16 @@
 #end
 
 #sql("delete")
-	delete from syk_sys_announce where  id  = #para(id)
+	delete from of_sys_announce where  id  = #para(id)
 #end
 
 #sql("status")
-	update  syk_sys_announce set status = '0'  where id  = #para(id)
+	update  of_sys_announce set status = '0'  where id  = #para(id)
 #end
 
 #sql("update")
 	update  
-		syk_sys_announce set 
+		of_sys_announce set
 			   title = #para(title), 
 			   content = #para(content), 
 			   type = #para(type), 

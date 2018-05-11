@@ -1,15 +1,15 @@
 package com.ofsoft.cms.admin.controller.system;
 
-import java.util.Map;
-
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.activerecord.SqlPara;
 import com.ofsoft.cms.admin.controller.BaseController;
-import com.ofsoft.cms.admin.core.config.ErrorCode;
+import com.ofsoft.cms.core.config.ErrorCode;
 import com.ofsoft.cms.core.annotation.Action;
 import com.sanyka.weixin.utils.strutil.StringUtil;
+
+import java.util.Map;
 
 /**
  * 系统字典
@@ -30,6 +30,12 @@ public class SystemDictController extends BaseController {
 		Page<Record> page = Db.paginate(getPageNum(), getPageSize(), sql);
 		rendSuccessJson(page.getList(), page.getTotalRow(),
 				page.getPageNumber());
+	}
+	public void get() {
+		rendSuccessJson(SystemUtile.getDictGroup(getPara("dict_value")));
+	}
+	public void getSingle() {
+		rendSuccessJson(SystemUtile.getDict(getPara("dict_value")));
 	}
 
 	public void add() {

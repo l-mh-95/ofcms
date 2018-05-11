@@ -7,9 +7,6 @@
           <element id="module-output" name="ofcms-front" />
         </element>
         <element id="directory" name="lib">
-          <element id="archive" name="ofcms-model-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="ofcms-model" />
-          </element>
           <element id="library" level="project" name="Maven: com.jfinal:jfinal:3.2" />
           <element id="library" level="project" name="Maven: cglib:cglib-nodep:3.2.5" />
           <element id="library" level="project" name="Maven: com.jfinal:cos:2017.5" />

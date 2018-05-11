@@ -7,7 +7,7 @@
 		 	 dict_group,
 		 	 status
 	from
-		  syk_sys_dict where status = '1'
+		  of_sys_dict where status = '1'
 	#if (dict_id?? ) and  dict_id = #para(dict_id)#end
 	#if (dict_group??) and  dict_group like concat('%', #para(dict_group), '%')#end
 	#if (dict_name??) and  dict_name like concat('%', #para(dict_name), '%')#end
@@ -23,11 +23,11 @@
 		 	 dict_group,
 		 	 status
 	  from
-		 syk_sys_dict where  dict_id  = #para(dict_id)
+		 of_sys_dict where  dict_id  = #para(dict_id)
 #end
 
 #sql("save")
-	insert into syk_sys_dict (
+	insert into of_sys_dict (
 		 	 dict_name, 
 		 	 dict_value, 
 		 	 dict_desc, 
@@ -43,16 +43,16 @@
 #end
 
 #sql("delete")
-	update  syk_sys_dict set status = '0'  where dict_id  = #para(dict_id)
+	update  of_sys_dict set status = '0'  where dict_id  = #para(dict_id)
 #end
 
 #sql("status")
-	update  syk_sys_dict set status = '0'  where dict_id  = #para(dict_id)
+	update  of_sys_dict set status = '0'  where dict_id  = #para(dict_id)
 #end
 
 #sql("update")
 	update  
-		syk_sys_dict set 
+		of_sys_dict set
 			   dict_name = #para(dict_name), 
 			   dict_value = #para(dict_value), 
 			   dict_desc = #para(dict_desc), 

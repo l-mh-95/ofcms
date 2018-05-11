@@ -1,15 +1,15 @@
 package com.ofsoft.cms.core.route;
 
-import java.util.List;
-
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.jfinal.config.Routes;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.StrKit;
-import com.jfinal.log.Log;
 import com.ofsoft.cms.core.annotation.Action;
 import com.ofsoft.cms.core.annotation.ClassSearcher;
+import org.apache.log4j.Logger;
+
+import java.util.List;
 
 /**
  * 注解路由处理
@@ -34,7 +34,7 @@ public class AutoBindRoutes extends Routes {
 	 */
 	private List<String> includeJars = Lists.newArrayList();
 
-	protected final Log logger = Log.getLog(getClass());
+	private Logger logger = Logger.getLogger(AutoBindRoutes.class);
 	/**
 	 * 默认后缀名
 	 */
@@ -76,32 +76,32 @@ public class AutoBindRoutes extends Routes {
 	}
 
 	/**
-	 * @param BaseViewPath
+	 * @param baseViewPath
 	 *            默认路径
 	 * @param packageName
 	 *            扫描包路径
 	 */
-	public AutoBindRoutes(String BaseViewPath, String packageName) {
-		this.baseViewPath = BaseViewPath;
+	public AutoBindRoutes(String baseViewPath, String packageName) {
+		this.baseViewPath = baseViewPath;
 		this.packagePath = packageName;
 	}
 
 	/**
-	 * @param BaseViewPath
+	 * @param baseViewPath
 	 *            默认路径
 	 * @param packageName
 	 *            扫描包路径
 	 * @param suffix
 	 *            默认类后缀名
 	 */
-	public AutoBindRoutes(String BaseViewPath, String packageName, String suffix) {
-		this.baseViewPath = BaseViewPath;
+	public AutoBindRoutes(String baseViewPath, String packageName, String suffix) {
+		this.baseViewPath = baseViewPath;
 		this.packagePath = packageName;
 		this.suffix = suffix;
 	}
 
 	/**
-	 * @param BaseViewPath
+	 * @param baseViewPath
 	 *            默认路径
 	 * @param packageName
 	 *            扫描包路径
@@ -110,9 +110,9 @@ public class AutoBindRoutes extends Routes {
 	 * @param suffix
 	 *            默认类后缀名
 	 */
-	public AutoBindRoutes(String BaseViewPath, String packageName,
+	public AutoBindRoutes(String baseViewPath, String packageName,
 			boolean autoScan, String suffix) {
-		this.baseViewPath = BaseViewPath;
+		this.baseViewPath = baseViewPath;
 		this.packagePath = packageName;
 		this.autoScan = autoScan;
 		this.suffix = suffix;
@@ -169,15 +169,15 @@ public class AutoBindRoutes extends Routes {
 					continue;
 				}
 				this.add(baseViewPath+controllerKey(controller), controller);
-				logger.debug("routes.add(" + baseViewPath+controllerKey(controller) + ", "
+				System.out.println("routes.add(" + baseViewPath+controllerKey(controller) + ", "
 						+ controller.getName() + ")");
 			} else if (StrKit.isBlank(action.viewPath())) {
 				this.add(baseViewPath+action.path(), controller);
-				logger.debug("routes.add(" + baseViewPath+ action.path() + ", "
+				System.out.println("routes.add(" + baseViewPath+ action.path() + ", "
 						+ controller.getName() + ")");
 			} else {
 				this.add(baseViewPath+action.path(), controller, action.viewPath());
-				logger.debug("routes.add(" + baseViewPath+ action.path() + ", " + controller
+				System.out.println("routes.add(" + baseViewPath+ action.path() + ", " + controller
 						+ "," + action.viewPath() + ")");
 			}
 		}

@@ -29,14 +29,14 @@
 	            "columnlist":[
 					           	{"title":"#","field":"","sort":"","style":"","type":"numbers","fixed":"left"},
 					           	{"title":"","field":"","sort":"","style":"","checkbox":"true","fixed":"left"},
-					           <#list column_list as column>
-								 <#if (!column_has_next)>
-								 	{"title":"${column.column_comment!'字段'}","field":"${column.column_name}","width":"160" },
-								 <#else>
-								 	{"title":"${column.column_comment!'字段'}","field":"${column.column_name}","width":"160" },
-							  	</#if>
-							</#list>	
-								{"title":"操作","width":"180","align":"center","fixed":"right","toolbar":"#barTools"}
+					       <#list column_list as column>
+							 <#if (!column_has_next)>
+							 	{"title":"${column.column_comment!'字段'}","field":"${column.column_name}","width":"160" },
+							 <#else>
+							 	{"title":"${column.column_comment!'字段'}","field":"${column.column_name}","width":"160" },
+						  	 </#if>
+						   </#list>	
+								{"title":"操作","width":"210","align":"center","fixed":"right","toolbar":"#barTools"}
 							],
 			  "tab_buttons":[
 			    				{"button_id":"b1","button_name":"增加","event":"add","title":"增加","icon":"&#xe654;"},
@@ -44,9 +44,9 @@
 			    				{"button_id":"b4","button_name":"刷新","event":"refresh","url":"#","icon":"&#x1002;"}
 			    			],      
 			    "tools_buttons":[
-			    				{"tool_button_id":"t1","button_name":"查看","event":"detail","title":"查看"},
-			    				{"tool_button_id":"t2","button_name":"编辑","event":"edit","title":"编辑"},
-			    				{"tool_button_id":"t3","button_name":"删除","event":"del"}
+			    				{"tool_button_id":"t1","button_name":"查看","event":"detail","title":"查看","icon":"&#xe615;"},
+			    				{"tool_button_id":"t2","button_name":"编辑","event":"edit","title":"编辑","icon":"&#xe642;"},
+			    				{"tool_button_id":"t3","button_name":"删除","event":"del","icon":"&#xe640;"}
 			    			]          
         	 } 
 }

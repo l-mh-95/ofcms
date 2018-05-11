@@ -13,7 +13,7 @@
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-3.0.xsd"
        default-autowire="byName">
-    <context:component-scan base-package="com.ofsoft.cms.admin.core"/>
+    <context:component-scan base-package="com.ofsoft.cms.core"/>
     <context:component-scan base-package="com.ofsoft.cms.admin.service"/>
 	<context:property-placeholder location="classpath:conf/admin.properties" ignore-unresolvable="true" />
 		
@@ -70,7 +70,7 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	<bean id="springContextUtil" class="com.ofsoft.cms.core.spring.SpringContextUtil" />
-	<bean id="sysBeans" class="com.ofsoft.cms.admin.core.config.SysBeans" />
+	<bean id="sysBeans" class="com.ofsoft.cms.core.config.SysBeans" />
 	
 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
 	<aop:aspectj-autoproxy />

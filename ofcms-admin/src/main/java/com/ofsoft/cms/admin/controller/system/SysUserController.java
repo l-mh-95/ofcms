@@ -1,13 +1,14 @@
 package com.ofsoft.cms.admin.controller.system;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
+import com.jfinal.plugin.activerecord.Db;
+import com.jfinal.plugin.activerecord.Page;
+import com.jfinal.plugin.activerecord.Record;
+import com.jfinal.plugin.activerecord.SqlPara;
+import com.jfinal.plugin.ehcache.CacheKit;
 import com.ofsoft.cms.admin.controller.BaseController;
-import com.ofsoft.cms.admin.core.config.AdminConst;
-import com.ofsoft.cms.admin.core.config.ErrorCode;
-import com.ofsoft.cms.admin.core.uitle.CookieUtil;
+import com.ofsoft.cms.core.config.AdminConst;
+import com.ofsoft.cms.core.config.ErrorCode;
+import com.ofsoft.cms.core.uitle.CookieUtil;
 import com.ofsoft.cms.admin.domain.UserOnline;
 import com.ofsoft.cms.core.annotation.Action;
 import com.ofsoft.cms.model.SysUser;
@@ -15,11 +16,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.session.Session;
 
-import com.jfinal.plugin.activerecord.Db;
-import com.jfinal.plugin.activerecord.Page;
-import com.jfinal.plugin.activerecord.Record;
-import com.jfinal.plugin.activerecord.SqlPara;
-import com.jfinal.plugin.ehcache.CacheKit;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 系统用户功能
@@ -112,7 +111,7 @@ public class SysUserController extends BaseController {
 		try {
 			Record record = Db
 					.findFirst(
-							"select u.*,r.role_id from syk_sys_user u left join syk_sys_user_role ur on u.user_id = ur.user_id left join syk_sys_role r on ur.role_id = r.role_id   where u.user_id = ?",
+							"select u.*,r.role_id from of_sys_user u left join of_sys_user_role ur on u.user_id = ur.user_id left join of_sys_role r on ur.role_id = r.role_id   where u.user_id = ?",
 							userId);
 			rendSuccessJson(record);
 		} catch (Exception e) {

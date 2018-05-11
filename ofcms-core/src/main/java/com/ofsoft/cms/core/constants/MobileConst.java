@@ -26,7 +26,7 @@ public final class MobileConst {
 
 	public final static String NET_ERROR_MSG = "请求接口失败，请检查网络，或者刷新重连";
 
-	public final static String MOBILE_CONFIG = "/conf/mobile.properties";
+	public final static String MOBILE_CONFIG = "/conf/front.properties";
 	public final static String WEIXIN_CONFIG = "/conf/weixin.sdk.properties";
 	public final static String STRING_CONFIG = "classpath:conf/applicationContext.xml";
 	public final static String ERROR_500 = "/comn/500.html";

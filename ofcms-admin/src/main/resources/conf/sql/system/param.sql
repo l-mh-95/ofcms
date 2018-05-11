@@ -10,7 +10,7 @@
 		 	 status,
 		 	 remark
 	from
-		  syk_sys_param where status = '1'
+		  of_sys_param where status = '1'
 	#if (param_id?? )  and  param_id = #para(param_id)#end
 	#if (param_name??) and  param_name like concat('%', #para(param_name), '%')#end
 	#if (sort?? && field) order by order_field order_sort  #else order by param_id desc #end
@@ -27,7 +27,7 @@
 		 	 status,
 		 	 remark
 	from
-		  syk_sys_param where status = '1' and param_group = 'weixin' order by param_id desc 
+		  of_sys_param where status = '1' and param_group = 'weixin' order by param_id desc
 #end
  
 #sql("detail")
@@ -37,16 +37,16 @@
 		 	 param_value,
 		 	 param_desc,
 		 	 param_group,
-		 	 param_ype,
+		 	 param_type,
 		 	 is_show,
 		 	 status,
 		 	 remark
 	  from
-		 syk_sys_param where  param_id  = #para(param_id)
+		 of_sys_param where  param_id  = #para(param_id)
 #end
 
 #sql("save")
-	insert into syk_sys_param (
+	insert into of_sys_param (
 		 	 param_name, 
 		 	 param_value, 
 		 	 param_desc, 
@@ -68,16 +68,16 @@
 #end
 
 #sql("delete")
-	update  syk_sys_param set status = '0'  where param_id  = #para(param_id)
+	update  of_sys_param set status = '0'  where param_id  = #para(param_id)
 #end
 
 #sql("status")
-	update  syk_sys_param set status = '0'  where param_id  = #para(param_id)
+	update  of_sys_param set status = '0'  where param_id  = #para(param_id)
 #end
 
 #sql("update")
 	update  
-		syk_sys_param set 
+		of_sys_param set
 			   param_name = #para(param_name), 
 			   param_value = #para(param_value), 
 			   param_desc = #para(param_desc), 

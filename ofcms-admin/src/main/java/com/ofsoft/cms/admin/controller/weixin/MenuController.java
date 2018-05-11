@@ -11,7 +11,7 @@ import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.weixin.sdk.api.ApiResult;
 import com.jfinal.weixin.sdk.api.MenuApi;
 import com.ofsoft.cms.admin.controller.BaseController;
-import com.ofsoft.cms.admin.core.config.ErrorCode;
+import com.ofsoft.cms.core.config.ErrorCode;
 import com.ofsoft.cms.admin.domain.WeixinMenuDTO;
 import com.ofsoft.cms.core.annotation.Action;
 

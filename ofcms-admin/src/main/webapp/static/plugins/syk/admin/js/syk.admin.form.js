@@ -188,8 +188,44 @@ layui.define(['layer',"syk.admin.common","form",'laydate',"syk.admin.config",'la
     if(addNull == "1"){
     	_this.append("<option></option>");
     }
+    var dictType = _this.attr("dict_type");
     var dict = _this.attr("dict");
     if($.isEmpty(dict)){
+    	return false;
+    }
+    //如果是字典从后台获取
+    if(!$.isEmpty(dictType) &&　dictType === "dict" ){
+    	var dataParam = {'dict_value':dict}; 
+    	adminCommon.invoke($.result(adminConfig,"global.dictUrl"), dataParam, function(data) {
+			if (data[statusName] == dataStatus) {
+				var list = $.result(data, dataName);
+				thisForm.selectDataRender(_this,
+						$.result(adminConfig,"global.result.labelField","name") , $.result(adminConfig,"global.result.valueField","code"), list);
+			} else {
+				// 提示错误消息
+				adminCommon.errorMsg(data[msgName]);
+			}
+		});
+    	return false;
+    }
+    //如果是字典从后台获取
+    if(!$.isEmpty(dictType) &&　dictType === "data" ){
+    	var sqlid = _this.attr("sqlid");
+    	if($.isEmpty(sqlid)){
+        	return false;
+        }
+    	var dataParam = {'dict_value':dict,'sqlid':sqlid}; 
+    	
+    	adminCommon.invoke($.result(adminConfig,"global.comnQuery"), dataParam, function(data) {
+			if (data[statusName] == dataStatus) {
+				var list = $.result(data, dataName);
+				thisForm.selectDataRender(_this,
+						$.result(adminConfig,"global.result.labelField","name") , $.result(adminConfig,"global.result.valueField","code"), list);
+			} else {
+				// 提示错误消息
+				adminCommon.errorMsg(data[msgName]);
+			}
+		});
     	return false;
     }
     
@@ -201,7 +237,7 @@ layui.define(['layer',"syk.admin.common","form",'laydate',"syk.admin.config",'la
     
     var labelField = dictObj["labelField"];
 		var valueField = dictObj["valueField"];
-    
+		
     var formatType = dictObj["formatType"];//格式化类型
     if($.isEmpty(formatType) || formatType == "server"){
     	var funcNo = dictObj["loadFuncNo"];
@@ -222,7 +258,7 @@ layui.define(['layer',"syk.admin.common","form",'laydate',"syk.admin.config",'la
     				{
     					_vaule = value;
     				}else if($.startsWith(_vaule,"#")){
-	            _vaule = $(_vaule).val();
+    					_vaule = $(_vaule).val();
 	          }
     				param[paramArr[0]] = _vaule;
     			}
@@ -495,6 +531,30 @@ layui.define(['layer',"syk.admin.common","form",'laydate',"syk.admin.config",'la
 				  });
 			});
 	   }
+		 /**
+		  * 解决关闭时不提交数据
+		  */
+		 $(thisForm.config.elem).find("input[type='checkbox']").each(function(){
+			 var lay_filter = $(this).attr("name");
+			 if(lay_filter!= undefined && lay_filter != ''){
+				 //初始化值
+				 var value = $(this).attr("checkbox_value");
+				 if(value!= undefined && value != ''){
+					var value = value.split('|');
+				 	$(this).attr('type', 'hidden').val(this.checked ? value[0] : value[1]);
+				 }else{
+					 $(this).attr('type', 'hidden').val(this.checked ? 1 : 0);
+				 }
+				 //事件处理
+			     form.on("switch("+lay_filter+")", function (data) {
+			    	 if(value!= undefined && value != ''){
+							 $(data.elem).attr('type', 'hidden').val(this.checked ? value[0] : value[1]);
+						 }else{
+							 $(data.elem).attr('type', 'hidden').val(this.checked ? 1 : 0);
+						 }
+			 	 })
+			 }
+		 });
 	}
 	
 	/**

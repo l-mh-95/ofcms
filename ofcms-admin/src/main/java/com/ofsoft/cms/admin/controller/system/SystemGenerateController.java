@@ -8,8 +8,8 @@ import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.activerecord.SqlPara;
 import com.ofsoft.cms.admin.controller.BaseController;
-import com.ofsoft.cms.admin.core.config.ErrorCode;
-import com.ofsoft.cms.admin.core.uitle.GenUtils;
+import com.ofsoft.cms.core.config.ErrorCode;
+import com.ofsoft.cms.core.uitle.GenUtils;
 import com.ofsoft.cms.core.annotation.Action;
 
 /**

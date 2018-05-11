@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>商城首页</title>
+<#include "comn/head_lib.html" >
+</head>
+<body>
+<div id="content">
+    外层div元素
+    <span>内层span元素</span>
+    外层div元素
+</div>
+<div id="msg"></div>
+	<div class="content home">
+		<div class="weui_tab_bd">
+	 <#assign x> 
+      <#list ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期天"] as n> 
+      ${n} 
+      </#list> 
+      </#assign> 
+      	<span  >${x}</span>
+      	<#assign user>
+	00000
+	</#assign>
+     ${webroot}-${reroot}-${version}
+				[#list list as data]
+					<div class="swiper-slide"><a href="${webctx}/product">${data.nickname}<img style="height: 150px;" src="#" alt=""></a></div>
+				[/#list]
+				
+				<script type="text/javascript">
+$(function(){
+    // 为span元素绑定click事件
+    $('span').bind("click",function(){
+        var txt = $('#msg').html() + "<p>内层span元素被点击.<p/>";//获取html信息
+        $('#msg').html(txt);// 设置html信息
+        event.stopPropagation(); 
+    });
+    // 为div元素绑定click事件
+    $('#content').bind("click",function(){
+        var txt = $('#msg').html() + "<p>外层div元素被点击.<p/>";
+        $('#msg').html(txt);
+        event.stopPropagation(); 
+    });
+    // 为body元素绑定click事件
+    $("body").bind("click",function(){
+        var txt = $('#msg').html() + "<p>body元素被点击.<p/>";
+        $('#msg').html(txt);
+    });
+})
+</script>
+</body>
+</html>

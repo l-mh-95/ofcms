@@ -10,8 +10,9 @@ import com.jfinal.weixin.sdk.api.ApiConfig;
 import com.jfinal.weixin.sdk.jfinal.ApiController;
 import com.jfinal.weixin.sdk.jfinal.ApiInterceptor;
 import com.jfinal.weixin.sdk.utils.JsonUtils;
-import com.ofsoft.cms.admin.core.config.SykRenderFactoryImpl;
-import com.ofsoft.cms.admin.core.config.WeiXinConfig;
+import com.ofsoft.cms.core.config.RenderFactoryImpl;
+import com.ofsoft.cms.core.config.WeiXinConfig;
+import com.ofsoft.cms.core.annotation.Action;
 import com.ofsoft.cms.core.constants.MobileConst;
 import com.ofsoft.cms.core.spring.IocInterceptor;
 import com.ofsoft.cms.core.utils.CalendarUtil;
@@ -289,7 +290,7 @@ public abstract class BaseController extends ApiController {
 		return getSeq("syk_order", "SYK" + busType, true, 6);
 	}
 
-	public static final SykRenderFactoryImpl sykRender = new SykRenderFactoryImpl();
+	public static final RenderFactoryImpl sykRender = new RenderFactoryImpl();
 
 	@Override
 	public ApiConfig getApiConfig() {

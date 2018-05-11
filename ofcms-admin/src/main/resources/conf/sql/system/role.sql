@@ -1,27 +1,27 @@
 #sql("query")
-	select * from syk_sys_role where status = '1' 
+	select * from of_sys_role where status = '1'
 	#if (role_id??) and role_id  = #para(role_id)#end
 	#if (role_name??) and role_name like concat('%', #para(role_name), '%')#end
 	#if (sort?? && field) order by order_field order_sort #end
 #end
 #sql("detail")
-	select * from syk_sys_role where role_id = #para(role_id)
+	select * from of_sys_role where role_id = #para(role_id)
 #end
 #sql("save")
-	insert into syk_sys_role (role_name,role_desc,role_type,create_time, update_time,status) values( #para(role_name), #para(role_desc), #para(role_type),now(),now(),#para(status))
+	insert into of_sys_role (role_name,role_desc,role_type,create_time, update_time,status) values( #para(role_name), #para(role_desc), #para(role_type),now(),now(),#para(status))
 #end
 #sql("delete")
-	delete from syk_sys_role where role_id = #para(role_id)
+	delete from of_sys_role where role_id = #para(role_id)
 #end
 #sql("update")
-	update  syk_sys_role set role_name = #para(role_name),role_type = #para(role_type),role_desc = #para(role_desc),status = #para(status) where role_id = #para(role_id)
+	update  of_sys_role set role_name = #para(role_name),role_type = #para(role_type),role_desc = #para(role_desc),status = #para(status) where role_id = #para(role_id)
 #end
 
 #sql("delete_role_menu")
-	delete from syk_sys_role_menu where role_id = ?
+	delete from of_sys_role_menu where role_id = ?
 #end
 #sql("save_role_menu")
-	INSERT INTO syk_sys_role_menu ( role_id , menu_id ) VALUES (?, ?);
+	INSERT INTO of_sys_role_menu ( role_id , menu_id ) VALUES (?, ?);
 #end
 
 #sql("role_permission")
@@ -43,7 +43,7 @@ select
 		end
 	) checked
 from
-	syk_sys_menu m
-left join syk_sys_role_menu rm on m.menu_id = rm.menu_id
+	of_sys_menu m
+left join of_sys_role_menu rm on m.menu_id = rm.menu_id
 and rm.role_id = ?
 #end

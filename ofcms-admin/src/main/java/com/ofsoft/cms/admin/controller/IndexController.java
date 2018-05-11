@@ -1,26 +1,20 @@
 package com.ofsoft.cms.admin.controller;
 
+import com.jfinal.core.ActionKey;
+import com.jfinal.plugin.activerecord.Record;
+import com.ofsoft.cms.admin.controller.system.SystemUtile;
+import com.ofsoft.cms.core.config.AdminConst;
+import com.ofsoft.cms.core.config.ShiroUtils;
+import com.ofsoft.cms.core.annotation.Action;
+import com.sanyka.weixin.utils.strutil.StringUtil;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.crypto.hash.Sha256Hash;
+import org.apache.shiro.subject.Subject;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import com.ofsoft.cms.admin.core.config.AdminConst;
-import com.ofsoft.cms.admin.core.config.ShiroUtils;
-import com.ofsoft.cms.core.annotation.Action;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.DisabledAccountException;
-import org.apache.shiro.authc.ExcessiveAttemptsException;
-import org.apache.shiro.authc.ExpiredCredentialsException;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.LockedAccountException;
-import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.crypto.hash.Sha256Hash;
-import org.apache.shiro.subject.Subject;
-import com.jfinal.core.ActionKey;
-import com.jfinal.plugin.activerecord.Db;
-import com.jfinal.plugin.activerecord.Record;
-import com.jfinal.plugin.activerecord.SqlPara;
-import com.sanyka.weixin.utils.strutil.StringUtil;
 
 /**
  * 页面配置
@@ -30,15 +24,15 @@ import com.sanyka.weixin.utils.strutil.StringUtil;
  */
 @Action(path = "/")
 public class IndexController extends BaseController {
-
+	@ActionKey(value = "/admin/index")
 	public void index() {
-		render("/index.html");
+		render("/admin/index.html");
 	}
 
 	// @RequiresPermissions(value = "123")
-
+	@ActionKey(value = "/admin/login")
 	public void login() {
-		render("login.html");
+		render("/admin/login.html");
 	}
 
 	public void help() {
@@ -52,10 +46,9 @@ public class IndexController extends BaseController {
 	/**
 	 * 公共页面跳转请求处理
 	 * 
-	 * @param p
 	 *            返回显示页面
 	 */
-	@ActionKey(value = "f")
+	@ActionKey(value = "/admin/f")
 	public void f() {
 		String uuid = getPara("_fsUuid");
 		String mode = getPara("_mode");
@@ -73,7 +66,7 @@ public class IndexController extends BaseController {
 	 * 
 	 * @return
 	 */
-	@ActionKey(value = "/dologin")
+	@ActionKey(value = "/admin/dologin")
 	public void dologin() {
 		String msg = "处理成功";
 		String userName = getParaJson("username");
@@ -129,17 +122,21 @@ public class IndexController extends BaseController {
 	/**
 	 * 退出
 	 */
-	@ActionKey(value = "logout")
+	@ActionKey(value = "/admin/logout")
 	public void logout() {
 		logService(ShiroUtils.getSysUser().getUserId().toString(), ShiroUtils
 				.getSysUser().getUserName(), "用户退出");
 		SecurityUtils.getSubject().logout();
 		// CookieUtil.setLogoutCookie(response);
 		ShiroUtils.getSession().removeAttribute(AdminConst.USER_MENU_SESSION);
-		redirect("/login.html");
+		redirect("/admin/login.html");
 	}
-
-	@ActionKey(value = "main")
+	@ActionKey(value = "/admin/setSite")
+	public void setSite() {
+		SystemUtile.setSite(getPara("site_id"));
+		redirect("/admin/index.html");
+	}
+	@ActionKey(value = "/admin/main")
 	public void main() {
 		Map<String, Object> params = getParamsMap();
 		try {
@@ -158,10 +155,10 @@ public class IndexController extends BaseController {
 			// 用户人数统计
 			List<Record> user = Db.find(Db.getSql("shop.user.user_count"));
 			setAttr("user", monthHandler(user));*/
-			render("main.html");
+			render("/admin/main.html");
 		} catch (Exception e) {
 			e.printStackTrace();
-			render("main.html");
+			render("/admin/main.html");
 		}
 	}
 

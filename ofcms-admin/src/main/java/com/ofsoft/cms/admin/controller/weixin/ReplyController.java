@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.ofsoft.cms.admin.controller.BaseController;
 import com.ofsoft.cms.admin.controller.system.SystemUtile;
-import com.ofsoft.cms.admin.core.config.ErrorCode;
+import com.ofsoft.cms.core.config.ErrorCode;
 import com.ofsoft.cms.core.annotation.Action;
 import com.ofsoft.cms.core.utils.okhttp.OkHttp3;
 import org.apache.commons.lang3.StringUtils;

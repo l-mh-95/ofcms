@@ -8,7 +8,7 @@ import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.activerecord.SqlPara;
 import com.jfinal.upload.UploadFile;
 import com.ofsoft.cms.admin.controller.system.SystemUtile;
-import com.ofsoft.cms.admin.core.config.ErrorCode;
+import com.ofsoft.cms.core.config.ErrorCode;
 import com.ofsoft.cms.admin.service.meesage.MsgServerPool;
 import com.ofsoft.cms.core.annotation.Action;
 import com.sanyka.weixin.utils.strutil.StringUtil;

@@ -213,16 +213,14 @@ layui.utile.toDict = function(dict,value){
 	  			if(!$.isEmpty(_this.attr("event"))){
 	  				col["event"] = _this.attr("event");
 	  			}
-	  			
+	  			//数据表格字典转换
 	  			var dict = _this.attr("dict");
-	  			
 	  			if(!$.isEmpty(dict)){
-	  				
-	  				formatArr.push(dict);
-	  				
+	  				var dict_type = _this.attr("dict_type");
+	  				formatArr.push({'dict':dict,'dict_type':dict_type});
 	  				//自定义模板
+//	  				col["templet"] = "<div>{{ ${sysUtile.getDictToData('"+dict+"',d."+field+")} }}</div>";
 	  				col["templet"] = "<div>{{ layui.utile.toDict('"+dict+"',d."+field+") }}</div>";
-	  				
 	  			}
 	  			colsArr.push(col);
 	      			

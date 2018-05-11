@@ -36,27 +36,7 @@
 #namespace("info.article")
 	#include("info/article.sql")
 #end
-#namespace("shop.store")
-	#include("shop/store.sql")
-#end
-#namespace("shop.user")
-	#include("shop/user.sql")
-#end
-#namespace("shop.delivery")
-	#include("shop/delivery.sql")
-#end
-#namespace("shop.product_category")
-	#include("shop/product_category.sql")
-#end
-#namespace("shop.accompany")
-	#include("shop/accompany.sql")
-#end
-#namespace("shop.product")
-	#include("shop/product.sql")
-#end
-#namespace("shop.order")
-	#include("shop/order.sql")
-#end
+
 #namespace("weixin.auto")
 	#include("weixin/auto.sql")
 #end
@@ -66,7 +46,22 @@
 #namespace("weixin.reply")
 	#include("weixin/reply.sql")
 #end
-#namespace("hosp.hosp")
-	#include("hosp/hosp.sql")
-#end
 
+
+#namespace("cms.link")
+	#include("cms/link.sql")
+#end#namespace("cms.comment")
+	#include("cms/comment.sql")
+#end#namespace("cms.column")
+	#include("cms/column.sql")
+#end#namespace("cms.ad")
+	#include("cms/ad.sql")
+#end#namespace("cms.site")
+	#include("cms/site.sql")
+#end#namespace("cms.announce")
+	#include("cms/announce.sql")
+#end#namespace("cms.content")
+	#include("cms/content.sql")
+#end#namespace("cms.form")
+	#include("cms/form.sql")
+#end
