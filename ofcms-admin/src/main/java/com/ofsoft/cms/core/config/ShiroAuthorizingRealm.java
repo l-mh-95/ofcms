@@ -61,8 +61,6 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
 		setSession(AdminConst.USER_IN_SESSION, user);
 		BaseController.logService(user.getUserId().toString(),
 				user.getUserName(), "用户登录");
-		//站点设置
-		SystemUtile.setSite(null);
 		return info;
 	}
 

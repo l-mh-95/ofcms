@@ -136,15 +136,15 @@ public class GenUtils {
 		}
 		// 首页
 		templates.add(new GreatePathPojo("index.html", basePath
-				+ "/webapp/WEB-INF/page/" + moduleName + "/" + fuctionName
+				+ "/webapp/WEB-INF/page/admin/" + moduleName + "/" + fuctionName
 				+ "/index.html"));
 		// 增加
 		templates.add(new GreatePathPojo("add.html", basePath
-				+ "/webapp/WEB-INF/page/" + moduleName + "/" + fuctionName
+				+ "/webapp/WEB-INF/page/admin/" + moduleName + "/" + fuctionName
 				+ "/add.html"));
 		// 编辑
 		templates.add(new GreatePathPojo("edit.html", basePath
-				+ "/webapp/WEB-INF/page/" + moduleName + "/" + fuctionName
+				+ "/webapp/WEB-INF/page/admin/" + moduleName + "/" + fuctionName
 				+ "/edit.html"));
 		return templates;
 	}

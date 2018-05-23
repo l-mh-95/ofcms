@@ -12,6 +12,7 @@
 						<#if button.event == 'add' >
 						class="${button.class!'layui-btn layui-btn-sm'}"
 							function="top" isMaximize="0"
+							<#if queryresult.add_inputs??>inputs="${queryresult.add_inputs!''}"</#if>
 							topUrl="f.html?p=${queryresult.add_url!''}"  <#if button.width??> topWidth="${button.width}" <#else> topWidth="${queryresult.width!'680px'}" </#if> <#if button.height??> topHeight="${button.height}" <#else> topHeight="${queryresult.height!'400px'}" </#if> topTitle="${button.title!'新增'}"
 						<#elseif button.event == 'refresh' >
 						class="${button.class!'layui-btn layui-btn-sm'}"

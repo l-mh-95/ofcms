@@ -78,17 +78,22 @@ layui.sykDict = {
 			      {"code":3,"name":"其他","css":"layui-badge layui-bg-cyan"},
 			      ]
 		},
-		
 		//类型
-		type : {
-			formatType : "local",
-			labelField : "name",
-			valueField : "code",
-			spaceMode : " ",//展示多个数据分隔符，默认,
-			data:[{"code":"write","name":"写作","css":"layui-badge layui-bg-orange"},
-				{"code":"read","name":"阅读","css":"layui-badge layui-bg-green"},
-				{"code":"dai","name":"发呆","css":"layui-badge layui-bg-cyan"}]
-		}
-		 
+		form_data : {
+			formatType : "server",
+            sqlid:"cms.form.query",
+            labelField : "form_name",
+            valueField : "form_id"
+		},
+    //类型
+    type : {
+        formatType : "local",
+        labelField : "name",
+        valueField : "code",
+        spaceMode : " ",//展示多个数据分隔符，默认,
+        data:[{"code":"write","name":"写作","css":"layui-badge layui-bg-orange"},
+            {"code":"read","name":"阅读","css":"layui-badge layui-bg-green"},
+            {"code":"dai","name":"发呆","css":"layui-badge layui-bg-cyan"}]
+    }
 		 
 };

@@ -3,9 +3,9 @@ package com.ofsoft.cms.admin.controller;
 import com.jfinal.core.ActionKey;
 import com.jfinal.plugin.activerecord.Record;
 import com.ofsoft.cms.admin.controller.system.SystemUtile;
+import com.ofsoft.cms.core.annotation.Action;
 import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.ShiroUtils;
-import com.ofsoft.cms.core.annotation.Action;
 import com.sanyka.weixin.utils.strutil.StringUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -26,6 +26,7 @@ import java.util.Map;
 public class IndexController extends BaseController {
 	@ActionKey(value = "/admin/index")
 	public void index() {
+
 		render("/admin/index.html");
 	}
 
@@ -58,6 +59,7 @@ public class IndexController extends BaseController {
 					.append("&_mode = ").append(mode);
 		}
 		String p = getPara("p");
+		setAttr("result",getParamsMap());
 		renderHTML(p);
 	}
 
@@ -83,6 +85,8 @@ public class IndexController extends BaseController {
 			subject.login(token);
 			if (subject.isAuthenticated()) {
 				// CookieUtil.setLoginnameCookie(userName, response);
+				//设置默认站点
+				SystemUtile.setSite(getRequest());
 				rendSuccessJson(msg);
 				return;
 			} else {

@@ -13,6 +13,7 @@ import freemarker.template.Configuration;
 import freemarker.template.TemplateModelException;
 import org.apache.commons.lang3.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -270,5 +271,42 @@ public class SystemUtile {
             }
         }
         return null;
+    }
+    /**
+     * 站点默认设置
+     */
+    public static void setSite(HttpServletRequest request) {
+        String serverName = request.getServerName();
+        List<Record> list = getSitCache();
+        Record site = null ;
+        for (Record record : list) {
+            if (serverName.equals(record.getStr("domain_name"))) {
+                site = record;
+            }
+        }
+        //获取默认主网站
+        if(site == null){
+            site =  getDefualSitCache();
+        }
+        if(site != null){
+            ShiroUtils.setSessionAttribute(AdminConst.SITE_SESSION, site);
+        }
+    }
+
+    /**
+     * 获取当前站点编号
+     * @return
+     */
+    public static String getSiteId() {
+        ShiroUtils.getSessionAttribute(AdminConst.SITE_SESSION);
+        return getSite().getStr("site_id");
+    }
+
+    /**
+     * 获取当前站点
+     * @return
+     */
+    public static Record getSite() {
+        return (Record) ShiroUtils.getSessionAttribute(AdminConst.SITE_SESSION);
     }
 }

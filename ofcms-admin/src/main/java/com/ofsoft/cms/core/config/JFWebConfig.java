@@ -26,6 +26,7 @@ import com.ofsoft.cms.core.route.AutoBindRoutes;
 import com.ofsoft.cms.core.spring.SpringDataSourcePlugin;
 import com.ofsoft.cms.core.spring.SpringPlugin;
 import com.ofsoft.cms.core.utils.Tools;
+import com.ofsoft.cms.front.template.freemarker.FreemarkerUtile;
 import com.ofsoft.cms.model._MappingKit;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateModelException;
@@ -134,7 +135,7 @@ public final class JFWebConfig extends JFinalConfig {
 	public void configHandler(Handlers me) {
 		// 该处理器将request.getContextPath()存储在root中，可以解决路径问题
 		me.add(new ActionHandler());
-		me.add(new DruidStatViewHandler("/druid"));
+		me.add(new DruidStatViewHandler("/admin/druid"));
 		me.add(new WebSocketHandler());
 	}
 
@@ -166,6 +167,7 @@ public final class JFWebConfig extends JFinalConfig {
 			cf.setSharedVaribles(map);
 			cf.setSharedVariable("tools", new Tools());
 			cf.setSharedVariable("system_util", new SystemUtile());
+			cf.setSharedVariable(FrontConst.DIRECTIVE_PREFIX,FreemarkerUtile.initTemplate());
 		} catch (TemplateModelException e) {
 			e.printStackTrace();
 		}
