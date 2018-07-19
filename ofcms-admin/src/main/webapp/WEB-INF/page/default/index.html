@@ -1,0 +1,39 @@
+<#assign column_name='/'/>
+<#include "default/common/head.html" />
+<div class="of-banner">
+    <div class="layui-carousel" id="banner">
+        <div carousel-item="">
+            <@of.ad site_id=site.site_id edition="banner">
+                <#list ad as data >
+                    <div><a href="${ad_jump_url!'javascript:;'}"><img src="${http_image_url}${data.ad_image_url}" alt="${data.ad_name}"></a></div>
+                </#list>
+            </@of.ad>
+        </div>
+    </div>
+</div>
+<div class="of-content">
+
+    <div class="of-crad">
+        <div class="of-crad-content">
+            <div class="of-crad-title">关于我们 About</div>
+            <div class="of-crad-body">中天网络科技是一家专注于从事网站建设以及企业营销活动策划的创新型互联网服务公司。我们以“创新发展，合作共赢”为经营理念！为企业、政府以及广大互联网用户提供专业的服务和易用的产品。客户包括世界500强企业等实力雄厚的企业。中天科技这个建站品牌已经慢慢深入企业的认识中，建网站，中天科技！在新世纪里，盘石网络科技将会在现有的基础上，为客户提供更全面、更优质的电子商务服务，为中国互联网走向世界贡献出自己的微薄之力！</div>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['carousel','element'], function () {
+        var carousel = layui.carousel;
+        var element = layui.element;
+        //图片轮播
+        carousel.render({
+            elem: '#banner'
+            , width: '100%' //设置容器宽度
+            , arrow: 'always' //始终显示箭头
+            , height: '350px'
+            , autoplay:true
+            , full:false
+            , interval: 3000
+        });
+    });
+</script>
+<#include "default/common/footer.html" />

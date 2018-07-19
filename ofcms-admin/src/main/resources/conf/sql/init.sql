@@ -72,3 +72,6 @@
 #namespace("cms.field")
 	#include("cms/field.sql")
 #end
+#namespace("cms.recover")
+	#include("cms/recover.sql")
+#end

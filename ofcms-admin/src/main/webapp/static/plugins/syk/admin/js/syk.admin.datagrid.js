@@ -183,7 +183,31 @@ layui.define(["syk.admin.common","table",'laypage','syk.admin.config','form','sy
   AdminDatagrid.prototype.formatDataQuery = function(formatArr){
   	if(!$.isEmpty(formatArr)){
   		$.each(formatArr,function(index,dict){
-  			
+  			var dictType = dict['dict_type'];
+  			dict = dict['dict'];
+  		    if($.isEmpty(dict)){
+  		    	return false;
+  		    }
+  		    //如果是字典从后台获取
+  		    if(!$.isEmpty(dictType) &&　dictType === "dict" ){
+  		    	var dataParam = {'dict_value':dict}; 
+  		    	adminCommon.invoke($.result(adminConfig,"global.dictUrl"), dataParam, function(data) {
+  					if (data[statusName] == dataStatus) {
+  						var list = $.result(data, dataName);
+  						layui.sykDict[dict]={
+  								'labelField':$.result(adminConfig,"global.result.labelField","name"),
+  								'valueField':$.result(adminConfig,"global.result.valueField","code"),
+  								formatType : "local",
+  								data:list
+  						}
+  					} else {
+  						// 提示错误消息
+  						adminCommon.errorMsg(data[msgName]);
+  					}
+  				});
+  		    	return false;
+  		    }
+  		    
   			var elem = layui.sykDict[dict];
   			
   			if($.isEmpty(elem)){

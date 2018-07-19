@@ -129,7 +129,7 @@ public class GenUtils {
 				+ "/resources/conf/sql/" + moduleName + "/" + fuctionName
 				+ ".sql"));
 		// 创建目录
-		File page = new File(basePath + "/webapp/WEB-INF/page/" + moduleName
+		File page = new File(basePath + "/webapp/WEB-INF/page/admin/" + moduleName
 				+ "/" + fuctionName);
 		if (!page.exists()) {
 			page.mkdirs();

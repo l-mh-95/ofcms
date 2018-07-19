@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>首页</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="${reroot}/static/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="${reroot}/static/assets/css/index.css" media="all">
+    <script src="${webroot}/resource/default/static/plugins/layui/layui.js"></script>
+</head>
+<body>
+<div class="of-heand layui-bg-cyan">
+    <div class="layui-container layui-bg-cyan "  >
+        <div class="of-login">
+            OFCMS
+        </div>
+        <ul class="layui-nav layui-bg-cyan of-nav" lay-filter="">
+            <@of.column site_id=site.site_id >
+            <li class="layui-nav-item <#if '/' == column_name> layui-this</#if>"><a href="${webroot}">首页</a>
+                <#list column as data >
+            <li class="layui-nav-item <#if data.columnEnglish == column_name> layui-this</#if>"><a href="<#if data.children?? && (data.children?size>0)  > javascript:;<#else>${webroot}${data.columnEnglish}</#if>">${data.name}</a>
+                <#if data.children?? && (data.children?size>0)  >
+                    <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                        <#list data.children as child >
+                            <dd><a href="${webroot}${child.columnEnglish}">${child.name}</a></dd>
+                        </#list >
+                    </dl>
+                </#if>
+            </li>
+            </#list>
+        </@of.column>
+        </ul>
+    </div>
+</div>

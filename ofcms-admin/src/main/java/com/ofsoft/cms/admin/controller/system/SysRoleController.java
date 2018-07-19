@@ -1,13 +1,13 @@
 package com.ofsoft.cms.admin.controller.system;
 
-import java.util.List;
-import java.util.Map;
-
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.weixin.sdk.utils.JsonUtils;
 import com.ofsoft.cms.admin.controller.BaseController;
 import com.ofsoft.cms.core.annotation.Action;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * 系统角色功能
@@ -27,7 +27,7 @@ public class SysRoleController extends BaseController {
 		List<Record> list = Db.find(sql,roleId);
 		setAttr("ztree", JsonUtils.toJson(list));
 		setAttr("roleid", roleId);
-		render("/system/role/permission.html");
+		render("/admin/system/role/permission.html");
 	}
 
 	/**

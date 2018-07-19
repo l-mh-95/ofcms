@@ -44,10 +44,28 @@ layui.sykDict = {
 			formatType : "local",
 			labelField : "name",
 			valueField : "code",
-			data:[{"code":0,"name":"禁止 "},
+			data:[{"code":0,"name":"禁止"},
 					{"code":1,"name":"启用"}
 			]
 		},
+    //是否启用
+    is_start : {
+        formatType : "local",
+        labelField : "name",
+        valueField : "code",
+        data:[{"code":2,"name":"禁止","css":"layui-badge layui-bg-orange"},
+            {"code":1,"name":"启用","style":"color:#F00;","css":"layui-badge layui-bg-green"}
+        ]
+    },
+    //是否显示
+    is_show : {
+        formatType : "local",
+        labelField : "name",
+        valueField : "code",
+        data:[{"code":0,"name":"不显 ","css":"layui-badge layui-bg-orange"},
+            {"code":1,"name":"显示","style":"color:#F00;","css":"layui-badge layui-bg-green"}
+        ]
+    },
 		//是否
 		is_status : {
 			formatType : "local",

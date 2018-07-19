@@ -1,0 +1,33 @@
+<#assign column_name='/page/contact'>
+<#include "default/common/head.html" />
+    <style>
+
+    </style>
+<div class="of-banner">
+    <div class="layui-carousel" id="test">
+        <div carousel-item="">
+            <img src="${reroot}/static/assets/image/cantact.jpg"  >
+    </div>
+    </div>
+</div>
+<div class="of-content">
+    <div class="of-crad">
+        <div class="of-crad-content" style="width: 1000px;">
+            <div class="page_head clearfix">
+                <div class="nr_title">
+                    <div class="ResTitle_a1"><span>联系我们</span><em>Contact Us</em></div>
+                </div>
+                <div class="nr_position">
+                    <div id="posT" class="clearfix">
+                        <div id="PosList_c1">当前位置：<a href="${webroot}">首页</a> - <a href="${webroot}/page/contact.html">联系我们</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="of-crad-body">
+                <@of.content content_id = '46'>
+                 ${content.content}
+                </@of.content>
+        </div>
+    </div>
+</div>
+<#include "default/common/footer.html" />

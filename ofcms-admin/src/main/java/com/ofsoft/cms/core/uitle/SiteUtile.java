@@ -1,9 +1,11 @@
 package com.ofsoft.cms.core.uitle;
 
+import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
 import com.ofsoft.cms.core.config.FrontConst;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * 站点工具类
@@ -65,5 +67,16 @@ public class SiteUtile {
 
     public static String getSiteId() {
         return getSite().getStr("site_id");
+    }
+
+    /**
+     * 获取当前栏目对像
+     *
+     * @param column
+     * @return
+     */
+    public static Record getColumn(Map column) {
+
+        return Db.findFirst(Db.getSqlPara("cms.column.front_column",column));
     }
 }
