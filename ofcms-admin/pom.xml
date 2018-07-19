@@ -75,21 +75,6 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>com.sanyka</groupId>
-            <artifactId>syk-weixin-api</artifactId>
-            <version>0.0.1-RELEASES</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>logback-core</artifactId>
-                    <groupId>ch.qos.logback</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>logback-classic</artifactId>
-                    <groupId>ch.qos.logback</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
             <groupId>com.ofsoft.cms</groupId>
             <artifactId>ofcms-model</artifactId>
             <version>1.0-SNAPSHOT</version>

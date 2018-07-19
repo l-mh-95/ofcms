@@ -186,7 +186,7 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="14" isBold="true" isItalic="false"/>
 				</textElement>
-				<text><![CDATA[一特员工工资信息表]]></text>
+				<text><![CDATA[员工工资信息表]]></text>
 			</staticText>
 		</band>
 	</title>

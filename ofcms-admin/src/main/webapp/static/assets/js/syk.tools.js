@@ -4,7 +4,6 @@
  * @author OF
  * @date 2018年01月03日
  * @versin 0.0.1
- * @copyright 尚医康医疗科技有限公司
  * @description
  */
 !function (){

@@ -4,7 +4,7 @@
  * @author OF
  * @date 2018年01月03日
  * @versin 1.0.0
- * @copyright 尚医康医疗科技有限公司
+ * @copyright
  * @description
  */
 var syk = function() {

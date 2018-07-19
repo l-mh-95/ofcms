@@ -17,7 +17,7 @@ import com.ofsoft.cms.core.spring.IocInterceptor;
 import com.ofsoft.cms.core.utils.CalendarUtil;
 import com.ofsoft.cms.core.utils.ResultUtil;
 import com.ofsoft.cms.model.SysUser;
-import com.sanyka.weixin.utils.strutil.StringUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -329,7 +329,7 @@ public abstract class BaseController extends ApiController {
      * 动态增加order by参数
      */
     public void setPageOrderByParams(SqlPara sql, String field, String sort) {
-        if (!StringUtil.isEmpty(field) && !StringUtil.isEmpty(sort)) {
+        if (!StringUtils.isEmpty(field) && !StringUtils.isEmpty(sort)) {
             sql.setSql(sql.getSql().replace("order_sort", sort));
             sql.setSql(sql.getSql().replace("order_field", field));
         }

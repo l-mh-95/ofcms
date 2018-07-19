@@ -5,9 +5,9 @@ import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.activerecord.SqlPara;
 import com.ofsoft.cms.admin.controller.BaseController;
-import com.ofsoft.cms.core.config.ErrorCode;
 import com.ofsoft.cms.core.annotation.Action;
-import com.sanyka.weixin.utils.strutil.StringUtil;
+import com.ofsoft.cms.core.config.ErrorCode;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;
 
@@ -56,7 +56,7 @@ public class SystemDictController extends BaseController {
 			Map<String, Object> params = getParamsMap();
 			String sqlid = getPara("sqlid");
 			String delkey = getPara("delkey");
-			if (!StringUtil.isBlank(delkey)) {
+			if (!StringUtils.isBlank(delkey)) {
 				String id = getPara(delkey);
 				String[] ids = id.split(",");
 				for (int i = 0; i < ids.length; i++) {

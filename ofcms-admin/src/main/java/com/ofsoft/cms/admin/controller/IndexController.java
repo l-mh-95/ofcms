@@ -6,7 +6,7 @@ import com.ofsoft.cms.admin.controller.system.SystemUtile;
 import com.ofsoft.cms.core.annotation.Action;
 import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.ShiroUtils;
-import com.sanyka.weixin.utils.strutil.StringUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.crypto.hash.Sha256Hash;
@@ -54,7 +54,7 @@ public class IndexController extends BaseController {
 		String uuid = getPara("_fsUuid");
 		String mode = getPara("_mode");
 		StringBuilder sb = new StringBuilder();
-		if (!StringUtil.isBlank(uuid)) {
+		if (!StringUtils.isBlank(uuid)) {
 			sb.append("?").append("_fsUuid = ").append(uuid.trim())
 					.append("&_mode = ").append(mode);
 		}

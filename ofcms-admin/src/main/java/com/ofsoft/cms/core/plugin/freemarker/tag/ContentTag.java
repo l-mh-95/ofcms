@@ -1,10 +1,8 @@
 package com.ofsoft.cms.core.plugin.freemarker.tag;
 
-import java.math.BigInteger;
-
 import org.apache.commons.lang3.StringUtils;
-import org.jdom.Content;
 
+import java.math.BigInteger;
 public class ContentTag extends BaseTag {
 	
 	public static final String TAG_NAME = "syk.content";
@@ -20,7 +18,7 @@ public class ContentTag extends BaseTag {
 			return;
 		}
 
-		Content content = null;
+		ContentTag content = null;
 		if (id != null) {
 //			content = ContentQuery.me().findById(id);
 		}

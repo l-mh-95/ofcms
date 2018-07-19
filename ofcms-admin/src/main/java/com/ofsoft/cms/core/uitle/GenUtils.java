@@ -3,12 +3,12 @@ package com.ofsoft.cms.core.uitle;
 import com.jfinal.core.JFinal;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.Record;
+import com.ofsoft.cms.admin.domain.GreatePathPojo;
 import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.plugin.freemarker.TempleteUtile;
 import com.ofsoft.cms.core.plugin.shiro.freemarker.ShiroTags;
-import com.ofsoft.cms.admin.domain.GreatePathPojo;
-import com.sanyka.weixin.utils.strutil.StringUtil;
 import freemarker.template.TemplateException;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -49,7 +49,7 @@ public class GenUtils {
 			String tableKeyComment = null;
 			for (Record r : columnList) {
 				tableKey = r.get("column_key");
-				if (StringUtil.isNotBlank(tableKey)
+				if (StringUtils.isNotBlank(tableKey)
 						&& "PRI".equalsIgnoreCase(tableKey)) {
 					tableKey = r.get("column_name");
 					tableKeyComment = r.get("column_comment");
@@ -57,7 +57,7 @@ public class GenUtils {
 				}
 			}
 			// 没有主键用第一个字段
-			if (StringUtil.isNotBlank(tableKey)) {
+			if (StringUtils.isNotBlank(tableKey)) {
 				tableKey = columnList.get(0).get("column_name");
 				tableKeyComment = columnList.get(0).get("column_comment");
 			}

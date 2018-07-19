@@ -8,7 +8,7 @@ import com.ofsoft.cms.admin.controller.system.SystemUtile;
 import com.ofsoft.cms.core.annotation.Action;
 import com.ofsoft.cms.core.config.ErrorCode;
 import com.ofsoft.cms.core.config.ShiroUtils;
-import com.sanyka.weixin.utils.strutil.StringUtil;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -95,7 +95,7 @@ public class ContentController extends BaseController {
             Map<String, Object> params = getParamsMap();
             String sqlid = getPara("sqlid");
             String delkey = getPara("delkey");
-            if (!StringUtil.isBlank(delkey)) {
+            if (!StringUtils.isBlank(delkey)) {
                 String id = getPara(delkey);
                 String[] ids = id.split(",");
                 for (int i = 0; i < ids.length; i++) {

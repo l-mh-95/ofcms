@@ -4,7 +4,7 @@ import com.jfinal.plugin.activerecord.Db;
 import com.ofsoft.cms.admin.controller.BaseController;
 import com.ofsoft.cms.admin.controller.system.SystemUtile;
 import com.ofsoft.cms.model.SysUser;
-import com.sanyka.weixin.utils.strutil.StringUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -86,7 +86,7 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
 		// 用户权限列表
 		Set<String> permsSet = new HashSet<String>();
 		for (String perms : permsList) {
-			if (StringUtil.isBlank(perms)) {
+			if (StringUtils.isBlank(perms)) {
 				continue;
 			}
 			permsSet.addAll(Arrays.asList(perms.trim().split(",")));

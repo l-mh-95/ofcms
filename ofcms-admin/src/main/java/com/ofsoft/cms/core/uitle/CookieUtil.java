@@ -3,8 +3,6 @@ package com.ofsoft.cms.core.uitle;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sanyka.weixin.utils.security.MD5;
-
 public class CookieUtil {
 	/**
 	 * 提供添加登录名称到客户端cookie的方法<br />

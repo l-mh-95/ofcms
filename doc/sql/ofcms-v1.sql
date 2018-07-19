@@ -345,7 +345,7 @@ INSERT INTO `of_cms_content_field` VALUES ('214', '45', '1', 'author', 'of', nul
 INSERT INTO `of_cms_content_field` VALUES ('215', '45', '1', 'form_id', '1', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('216', '45', '1', 'site_id', '1', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('217', '45', '1', 'title_name', '关于我们', null, null);
-INSERT INTO `of_cms_content_field` VALUES ('218', '45', '1', 'content', '<p style=\"text-align: left;\"><span>中天网络科技是一家专注于从事网站建设以及企业营销活动策划的创新型互联网服务公司。我们以“创新发展，合作共赢”为经营理念！为企业、政府以及广大互联网用户提供专业的服务和易用的产品。客户包括世界500强企业等实力雄厚的企业。中天科技这个建站品牌已经慢慢深入企业的认识中，建网站，中天科技！在新世纪里，盘石网络科技将会在现有的基础上，为客户提供更全面、更优质的电子商务服务，为中国互联网走向世界贡献出自己的微薄之力！</span></p><p style=\"text-align: left;\"><span style=\"text-align: justify;\">湖南尚医康医疗科技有限公司办公室地址位于长江中游地区重要的中心城市、湖南省长沙市高新开发区麓天路21号，于2017年02月06日在长沙市工商行政管理局高新技术产业开发分局注册成立，在公司发展壮大的1年里，我们始终为客户提供好的产品和技术支持、健全的售后服务，我公司主要经营一类医疗器械、二类医疗器械、电子产品、通信产品、机电产品、空气净化机的研发；健康医疗产业项目的管理、运营、建设；电气设备服务、修理；一类医疗器械、医疗诊断、监护及治疗设备、开关、插座、接线板、电线电缆、绝缘材料...，我们有好的产品和专业的销售和技术团队，我公司属于长沙医疗仪器设备及器械厂黄页行业，如果您对我公司的产品服务有兴趣，期待您在线留言或者来电咨询</span></p>', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('218', '45', '1', 'content', '<p style=\"text-align: left;\"><span>中天网络科技是一家专注于从事网站建设以及企业营销活动策划的创新型互联网服务公司。我们以“创新发展，合作共赢”为经营理念！为企业、政府以及广大互联网用户提供专业的服务和易用的产品。客户包括世界500强企业等实力雄厚的企业。中天科技这个建站品牌已经慢慢深入企业的认识中，建网站，中天科技！在新世纪里，盘石网络科技将会在现有的基础上，为客户提供更全面、更优质的电子商务服务，为中国互联网走向世界贡献出自己的微薄之力！</span></p><p style=\"text-align: left;\"><span style=\"text-align: justify;\"> 有限公司办公室地址位于长江中游地区重要的中心城市、湖南省长沙市高新开发区麓天路21号，于2017年02月06日在长沙市工商行政管理局高新技术产业开发分局注册成立，在公司发展壮大的1年里，我们始终为客户提供好的产品和技术支持、健全的售后服务，我公司主要经营一类医疗器械、二类医疗器械、电子产品、通信产品、机电产品、空气净化机的研发；健康医疗产业项目的管理、运营、建设；电气设备服务、修理；一类医疗器械、医疗诊断、监护及治疗设备、开关、插座、接线板、电线电缆、绝缘材料...，我们有好的产品和专业的销售和技术团队，我公司属于长沙医疗仪器设备及器械厂黄页行业，如果您对我公司的产品服务有兴趣，期待您在线留言或者来电咨询</span></p>', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('219', '46', '1', 'column_id', '6', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('220', '46', '1', 'thumbnail', '/upload/info/qrcode_for_gh_0332c07a94d7_2583.jpg', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('221', '46', '1', 'file', '', null, null);
@@ -854,7 +854,7 @@ INSERT INTO `of_sys_param` VALUES ('6', 'system', 'params', '参数缓存', 'cac
 INSERT INTO `of_sys_param` VALUES ('7', 'system', 'nenu', '菜单缓存', 'cache', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('8', 'system', 'prme', '权限缓存', 'cache', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('9', 'http_image_url', 'http://localhost:8081/ofcms-admin', '图片访问地址', 'system', null, '1', '1', '');
-INSERT INTO `of_sys_param` VALUES ('10', 'weixin_processInFollowEvent', '感谢关注尚医康医疗服务平台!', '关注时回复', 'weixin', '', '1', '1', '');
+INSERT INTO `of_sys_param` VALUES ('10', 'weixin_processInFollowEvent', '感谢关注服务平台!', '关注时回复', 'weixin', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('11', 'weixin_processInFollowEvent_two', '欢迎您再次回来!', '再次关注后回复', 'weixin', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('12', 'weixin_seach_no_info', '未搜索到信息!', '搜索没有数据时', 'weixin', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('13', 'weixin_auto_no_info', '没有匹配的关键字!', '没有匹配的关键字', 'weixin', '', '1', '1', '');
