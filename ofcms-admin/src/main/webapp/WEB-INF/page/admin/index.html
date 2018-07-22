@@ -16,7 +16,7 @@
 	href="${webroot}/static/plugins/contextMenu/jquery.contextMenu.min.css"
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css"
-	href="${webroot}/static/assets/css/fs.css?v=1.6.3" media="all" />
+	href="${webroot}/static/assets/css/admin.css?v=1.6.3" media="all" />
 <!-- <script type="text/javascript"
 	src="${webroot}/static/lib/jquery-3.0.0.min.js"></script> -->
 <script type="text/javascript" src="${webroot}/static/plugins/jquery/jquery.min.js"></script>
@@ -32,9 +32,11 @@
 			 <a href="javascript:;" class="layui-hide-xs"><div class="sykSwitchMenu"><i class="fa fa-outdent"></i></div></a>  
 			<!-- 头部区域（可配合layui已有的水平导航） -->
 			<!-- top left   -->
-			<ul class="layui-nav layui-layout-left fsTopMenu" id="fsTopMenu"
-				lay-filter="fsTopMenu">
+
+			<ul class="layui-nav layui-layout-left admin-top-menu" id="adminTopMenu"
+				lay-filter="adminTopMenu">
 			</ul>
+
 			<!-- top right  -->
 			<ul class="layui-nav layui-layout-right">
 			<li class="layui-nav-item"><a target="_blank" href="${session.site.access_protocol}://${session.site.access_path}" ><i class="layui-icon">&#xe68e;</i>网站首页</a></li>
@@ -51,17 +53,20 @@
 				</li>
 				
 				<li class="layui-nav-item"><a href="javascript:;"> <img
-						src="${webroot}/static/assets/image/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img"> OF
+						src="${webroot}/static/assets/image/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img"> ${session.ofcms_user.user_name}
 				</a>
 					<dl class="layui-nav-child">
-						<dd >
-							<a class="open" href="javascript:;" function="top" topUrl="f.html?p=system/user/respwd.html" topWidth="450px" isMaximize="0" topHeight="300px" toptitle="基本资料"><i class="layui-icon">&#xe612;</i>基本资料</a>
+						<dd>
+							<a class="open" href="javascript:;" function="top"
+							   topUrl="f.html?p=system/user/edit.html&topMode=readonly&user_id=${session.ofcms_user.user_id}" topWidth="680px"
+							   isMaximize="0" topHeight="470px" toptitle="基本资料"><i
+									class="layui-icon">&#xe612;</i>基本资料</a>
 						</dd>
 						<dd>
-							<a class="open" href="javascript:;" function="top" topUrl="f.html?p=system/user/respwd.html" topWidth="450px" isMaximize="0" topHeight="300px" toptitle="修改密码"><i class="layui-icon">&#xe614;</i>修改密码</a>
-						</dd>
-						<dd>
-							<a class="open" href="javascript:;" function="top" topUrl="f.html?p=system/user/respwd.html" topWidth="450px" isMaximize="0" topHeight="300px" toptitle="更换主题"><i class="layui-icon">&#xe614;</i>更换主题</a>
+							<a class="open" href="javascript:;" function="top"
+							   topUrl="f.html?p=system/user/respwd.html" topWidth="450px"
+							   isMaximize="0" topHeight="300px" toptitle="修改密码"><i
+									class="layui-icon">&#xe614;</i>修改密码</a>
 						</dd>
 						<dd>
 							<a href="logout.html"><i class="layui-icon">&#x1007;</i>离开</a>
@@ -73,21 +78,21 @@
 		<div class="layui-side layui-bg-cyan ">
 			<div class="layui-side-scroll">
 				<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-				<ul class="layui-nav layui-nav-tree layui-bg-cyan  layui-inline fsLeftMenu"
-					lay-filter="fsLeftMenu" id="fsLeftMenu">
+				<ul class="layui-nav layui-nav-tree layui-bg-cyan  layui-inline"
+					lay-filter="adminLeftMenu" id="adminLeftMenu">
 				</ul>
 			</div>
 		</div>
 		<div class="layui-body">
-			<div class="layui-tab layui-tab-card fsTab" lay-filter="fsTab" lay-allowClose="true">
-		  		<!-- 菜单导航 -->
-				<ul class="layui-tab-title" id="fsTabMenu">
+			<div class="layui-tab layui-tab-card admin-main-tab" lay-filter="adminMainTab" lay-allowClose="true">
+				<!-- 菜单导航 -->
+				<ul class="layui-tab-title" id="adminMainTab">
 					<li class="layui-this" lay-id="1"><i class="layui-icon">&#xe68e;</i><cite>首页</cite><p class="layui-tab-close" style="display: none;"></p></li>
 				</ul>
 				<!-- 内容 -->
 				<div class="layui-tab-content" id="main">
 					<div class="layui-tab-item layui-show" lay-id="1">
-	 						<iframe src="main.html"></iframe>
+						<iframe src="main.html"></iframe>
 					</div>
 				</div>
 			</div>
@@ -106,17 +111,17 @@
 		</div>
 	</div>
 	<script src="${webroot}/static/plugins/layui/layui.js"></script>
-	<script src="${webroot}/static/assets/js/syk.js"></script>
-	<script src="${webroot}/static/assets/js/syk.tools.js"></script>
+	<script src="${webroot}/static/assets/js/admin.js"></script>
+	<script src="${webroot}/static/assets/js/tools.js"></script>
 	<script type="text/javascript"
-		src="${webroot}/static/plugins/syk/admin/js/syk.admin.core.js"></script>
+		src="${webroot}/static/plugins/of/admin/js/admin.core.js"></script>
 	<script type="text/javascript"
-		src="${webroot}/static/plugins/syk/admin/js/syk.admin.index.js"></script>
+		src="${webroot}/static/plugins/of/admin/js/admin.index.js"></script>
 	<script>
-		layui.use([  'layer', 'form', 'element',"syk.admin.tab" ],function() {
+		layui.use([  'layer', 'form', 'element',"admin.tab" ],function() {
 			var layer = layui.layer, 
 			form = layui.form, 
-			element = layui.element,tab =  layui['syk.admin.tab'] ;
+			element = layui.element,tab =  layui['admin.tab'] ;
 			layer.msg('欢迎光临!');
 		});
 		

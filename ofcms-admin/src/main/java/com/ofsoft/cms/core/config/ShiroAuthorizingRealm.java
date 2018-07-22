@@ -77,10 +77,10 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
 		SysUser user = (SysUser) principals.getPrimaryPrincipal();
 		List<String> permsList = null;
 		if (SystemUtile.isAdmin()) {
-			permsList = Db.query("select m.perms from syk_sys_menu m");
+			permsList = Db.query("select m.perms from of_sys_menu m");
 		} else {
 			permsList = Db
-					.query("select m.perms from  syk_sys_role_menu r right join syk_sys_menu m on r.menu_id = m.menu_id where r.role_id=?",
+					.query("select m.perms from  of_sys_role_menu r right join of_sys_menu m on r.menu_id = m.menu_id where r.role_id=?",
 							user.getRoleId());
 		}
 		// 用户权限列表

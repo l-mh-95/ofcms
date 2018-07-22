@@ -6,13 +6,13 @@
     
  */
  
-layui.define(['laytpl', 'laypage', 'layer', 'form','syk.admin.config'], function(exports){
+layui.define(['laytpl', 'laypage', 'layer', 'form','admin.config'], function(exports){
   "use strict";
   
   var laytpl = layui.laytpl
   ,laypage = layui.laypage
   ,layer = layui.layer
-  ,adminConfig = layui['syk.admn.config']
+  ,adminConfig = layui['admn.config']
   ,form = layui.form
   ,hint = layui.hint()
   ,device = layui.device()

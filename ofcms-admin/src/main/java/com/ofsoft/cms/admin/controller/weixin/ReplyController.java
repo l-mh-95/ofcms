@@ -1,18 +1,17 @@
 package com.ofsoft.cms.admin.controller.weixin;
 
-import java.util.List;
-
-import com.ofsoft.cms.admin.controller.BaseController;
-import com.ofsoft.cms.admin.controller.system.SystemUtile;
-import com.ofsoft.cms.core.config.ErrorCode;
-import com.ofsoft.cms.core.annotation.Action;
-import com.ofsoft.cms.core.utils.okhttp.OkHttp3;
-import org.apache.commons.lang3.StringUtils;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
+import com.ofsoft.cms.admin.controller.BaseController;
+import com.ofsoft.cms.admin.controller.system.SystemUtile;
+import com.ofsoft.cms.core.annotation.Action;
+import com.ofsoft.cms.core.config.ErrorCode;
+import com.ofsoft.cms.core.utils.okhttp.OkHttp3;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.List;
 
 /**
  * 微信默认回复
@@ -31,7 +30,7 @@ public class ReplyController extends BaseController {
 	public void index() {
 		List<Record> list = Db.find(Db.getSqlPara("system.param.query_weixin"));
 		setAttr("list", list);
-		render("/weixin/reply/index.html");
+		render("/admin/weixin/reply/index.html");
 	}
 
 	public void config() {

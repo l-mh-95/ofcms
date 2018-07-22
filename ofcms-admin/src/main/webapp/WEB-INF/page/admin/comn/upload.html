@@ -19,11 +19,11 @@
 	</div>
 </body>
 <script>
-layui.use(['upload','layer','syk.admin.config','syk.admin.common'], function(){
+layui.use(['upload','layer','admin.config','admin.common'], function(){
   var upload = layui.upload,
-  fsConfig = layui['syk.admin.config'],
+  fsConfig = layui['admin.config'],
   layer = layui.layer,
-  fsCommon = layui['syk.admin.common'],
+  fsCommon = layui['admin.common'],
   isSelectFile = false,//是否选择文件，默认false
   statusName = $.result(fsConfig,"global.result.statusName"),
   msgName = $.result(fsConfig,"global.result.msgName"),

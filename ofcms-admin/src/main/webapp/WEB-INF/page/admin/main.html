@@ -141,11 +141,11 @@
 				<div class="cont1">
 					<p class='title'>待办事项</p>
 					<div class="status_div">
-						<div class="div1">待支付<br><span>${order.deal_pay}</span></div>
-						<div class="div2">待发货<br><span>${order.deal_ship}</span></div>
-						<div class="div3">待收货<br><span>${order.deal_receive}</span></div>
-						<div class="div4">已完成<br><span>${order.completed}</span></div>
-						<div class="div5">已取消<br><span>${order.cancelled}</span></div>
+						<div class="div1">待支付<br><span></span></div>
+						<div class="div2">待发货<br><span></span></div>
+						<div class="div3">待收货<br><span></span></div>
+						<div class="div4">已完成<br><span></span></div>
+						<div class="div5">已取消<br><span></span></div>
 					</div>
 				</div>
 				<div class="cont2">
@@ -166,7 +166,7 @@
 			<script type="text/javascript">
 				// 基于准备好的dom，初始化echarts实例
 				var myChart = echarts.init(document.getElementById('cont4'));
-				var user = ${user};
+				var user = "${user}";
 				// 指定图表的配置项和数据
 				var option = {
 					title: {
@@ -193,11 +193,11 @@
 			<script type="text/javascript">
 				// 基于准备好的dom，初始化echarts实例
 				var myChart = echarts.init(document.getElementById('cont5'));
-				var orderMonth = ${order_month};
+				var orderMonth = "${order_month}";
 				// 指定图表的配置项和数据
 				var option = {
 					title: {
-						text: '月统计（订单）',
+						text: '文章统计',
 						left: 20,
 						top: 10
 					},

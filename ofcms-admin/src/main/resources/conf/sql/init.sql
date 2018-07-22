@@ -29,13 +29,6 @@
 #namespace("system.log")
 	#include("system/log.sql")
 #end
-#namespace("info.category")
-	#include("info/category.sql")
-#end
-
-#namespace("info.article")
-	#include("info/article.sql")
-#end
 
 #namespace("weixin.auto")
 	#include("weixin/auto.sql")

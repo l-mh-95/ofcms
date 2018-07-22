@@ -5,7 +5,7 @@
         <div carousel-item="">
             <@of.ad site_id=site.site_id edition="banner">
                 <#list ad as data >
-                    <div><a href="${ad_jump_url!'javascript:;'}"><img src="${http_image_url}${data.ad_image_url}" alt="${data.ad_name}"></a></div>
+                    <div><a href="${data.ad_jump_url!'javascript:;'}"><img src="${http_image_url}${data.ad_image_url}" alt="${data.ad_name}"></a></div>
                 </#list>
             </@of.ad>
         </div>
