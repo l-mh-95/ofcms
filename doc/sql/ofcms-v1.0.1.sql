@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50613
 File Encoding         : 65001
 
-Date: 2018-07-24 21:30:53
+Date: 2018-07-24 21:54:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -682,7 +682,7 @@ CREATE TABLE `of_sys_oper_log` (
   `status` char(1) NOT NULL COMMENT '1 在用\r\n            0 不在用',
   `remark` varchar(64) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`logid`)
-) ENGINE=InnoDB AUTO_INCREMENT=200 DEFAULT CHARSET=utf8 COMMENT='操作日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=205 DEFAULT CHARSET=utf8 COMMENT='操作日志表';
 
 -- ----------------------------
 -- Records of of_sys_oper_log
@@ -886,6 +886,11 @@ INSERT INTO `of_sys_oper_log` VALUES ('196', '1', '管理员', '用户登录', n
 INSERT INTO `of_sys_oper_log` VALUES ('197', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 19:55:11', '用户登录', '1', null);
 INSERT INTO `of_sys_oper_log` VALUES ('198', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 20:02:31', '用户登录', '1', null);
 INSERT INTO `of_sys_oper_log` VALUES ('199', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 20:19:11', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('200', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 21:36:38', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('201', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 21:37:58', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('202', '1', '管理员', '用户退出', null, null, '2018-07-24', '2018-07-24 21:45:16', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('203', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 21:45:20', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('204', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 21:53:09', '用户登录', '1', null);
 
 -- ----------------------------
 -- Table structure for of_sys_param
@@ -909,7 +914,7 @@ CREATE TABLE `of_sys_param` (
 -- ----------------------------
 INSERT INTO `of_sys_param` VALUES ('1', 'system_name', 'OFCMS', '系统名称', 'system', null, '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('2', 'version', '1.0.1', '版本号', 'system', null, '1', '1', '1');
-INSERT INTO `of_sys_param` VALUES ('3', 'copyright', '© www.ofosft.com', '版权', 'system', null, '1', '1', '');
+INSERT INTO `of_sys_param` VALUES ('3', 'copyright', '© www.ofosft.cn', '版权', 'system', null, '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('4', 'api', 'hosp', '医院信息缓存', 'cache', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('5', 'system', 'dict', '字典缓存', 'cache', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('6', 'system', 'params', '参数缓存', 'cache', '', '1', '1', '');
@@ -918,7 +923,7 @@ INSERT INTO `of_sys_param` VALUES ('8', 'system', 'prme', '权限缓存', 'cache
 INSERT INTO `of_sys_param` VALUES ('9', 'http_image_url', 'http://localhost:8081/ofcms-admin', '图片访问地址', 'system', null, '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('10', 'weixin_processInFollowEvent', '感谢关注OF公众平台!', '关注时回复', 'weixin', null, '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('11', 'weixin_processInFollowEvent_two', '欢迎您再次回来!', '再次关注后回复', 'weixin', '', '1', '1', '');
-INSERT INTO `of_sys_param` VALUES ('12', 'weixin_seach_no_info', '未搜索到信息!', '搜索没有数据时', 'weixin', '', '1', '1', '');
+INSERT INTO `of_sys_param` VALUES ('12', 'weixin_seach_no_info', '未搜索到信息!', '搜索没有数据时', 'weixin', null, '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('13', 'weixin_auto_no_info', '没有匹配的关键字!', '没有匹配的关键字', 'weixin', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('14', 'mobile_api_href', 'http://localhost:8080/syk-wx-web-mobile', '手机接口地址', 'system', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('15', 'weixin_unsubscribe', '感谢关注', '取消关注', 'weixin', '', '1', '1', '');

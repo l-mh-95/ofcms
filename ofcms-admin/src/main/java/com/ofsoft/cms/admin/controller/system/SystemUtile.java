@@ -10,6 +10,7 @@ import com.jfinal.render.FreeMarkerRender;
 import com.ofsoft.cms.admin.domain.TreeGird;
 import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.ShiroUtils;
+import com.ofsoft.cms.core.plugin.shiro.freemarker.ShiroTags;
 import com.ofsoft.cms.core.utils.Tools;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateModelException;
@@ -214,16 +215,18 @@ public class SystemUtile {
         Configuration cf = FreeMarkerRender.getConfiguration();
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("webroot", JFinal.me().getContextPath());
+        map.put("reroot", JFinal.me().getContextPath() +  "/static" );
         map.put("http_image_url", SystemUtile.getParam("http_image_url"));
         map.put("system", SystemUtile.getParamGroup("system"));
         try {
             cf.setSharedVaribles(map);
             cf.setSharedVariable("tools", new Tools());
+            cf.setSharedVariable("system_util", new SystemUtile());
+            cf.setSharedVariable("shiro", new ShiroTags());
         } catch (TemplateModelException e) {
             e.printStackTrace();
         }
     }
-
 
     /**
      * 站点默认设置
