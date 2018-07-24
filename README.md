@@ -9,7 +9,7 @@ java 版CMS系统、基于java技术研发的内容管理系统、功能：栏�
 
 模板采用：freemarker  标签会在官风发布。
 
-项目地址：https://gitee.com/oufu/ofcms
+项目地址：https://gitee.com/oufu/ofcms   QQ 群: ①185948055
 #### 软件功能
 
 1. 用户管理：
