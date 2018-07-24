@@ -518,7 +518,7 @@ CREATE TABLE `of_cms_site` (
 -- Records of of_cms_site
 -- ----------------------------
 INSERT INTO `of_cms_site` VALUES ('1', '主站演示', '主站默认', '默认主站演示', 'localhost', 'http', 'localhost:8081/ofcms-admin', 'default', 'default', '0', '1', '2018-05-09 08:44:55', '2018-07-24 17:46:21', '1', '1');
-INSERT INTO `of_cms_site` VALUES ('2', '子站演示', '子站演示', '子站演示', '127.0.0.1', 'https', 'localhost:8081', 'mobile', 'blog', '1', '1', '2018-05-09 10:11:54', '2018-05-11 09:15:28', '1', '1');
+INSERT INTO `of_cms_site` VALUES ('2', '子站演示', '子站演示', '子站演示', '127.0.0.1', 'https', 'localhost:8081', 'mobile', 'mobile', '1', '1', '2018-05-09 10:11:54', '2018-05-11 09:15:28', '1', '1');
 
 -- ----------------------------
 -- Table structure for of_sys_announce
