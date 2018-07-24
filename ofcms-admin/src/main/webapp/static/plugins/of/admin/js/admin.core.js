@@ -4,7 +4,7 @@
  * @version 1.0.0
  */
 layui.config({
-  base : "/ofcms-admin/static/plugins/of/admin/js/",//设定扩展的Layui模块的所在目录，一般用于外部模块扩展
+  base : webroot + "/static/plugins/of/admin/js/",//设定扩展的Layui模块的所在目录，一般用于外部模块扩展
 	version : '1.0.0'
 });
 

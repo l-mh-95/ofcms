@@ -17,7 +17,7 @@
         </div>
         <ul class="layui-nav layui-bg-cyan of-nav" lay-filter="">
             <@of.column site_id=site.site_id >
-            <li class="layui-nav-item <#if '/' == column_name> layui-this</#if>"><a href="${webroot}">首页</a>
+            <li class="layui-nav-item <#if '/' == column_name> layui-this</#if>"><a href="${session.site.access_protocol}://${session.site.access_path}">首页</a>
                 <#list column as data >
             <li class="layui-nav-item <#if data.columnEnglish == column_name> layui-this</#if>"><a href="<#if data.children?? && (data.children?size>0)  > javascript:;<#else>${webroot}${data.columnEnglish}</#if>">${data.name}</a>
                 <#if data.children?? && (data.children?size>0)  >

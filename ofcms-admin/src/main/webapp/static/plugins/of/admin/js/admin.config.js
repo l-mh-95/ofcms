@@ -22,7 +22,7 @@ layui.define([], function (exports) {
 	 * 项目中需要调用到的常量、变量这里配置
 	 */
 	adminConfig["global"] = {
-		"servletUrl":"/ofcms-admin/admin/", //异步请求地址,本地工程可以不填
+		"servletUrl":webroot+"/admin/", //异步请求地址,本地工程可以不填
 		"loginUrl" : "/admin/login.html", //登录url
 		"comnQuery" : "comn/service/query.json", //查询接口
 		"comnUpate" : "comn/service/update.json", //修改接口

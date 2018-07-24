@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50613
 File Encoding         : 65001
 
-Date: 2018-07-22 09:14:40
+Date: 2018-07-24 17:52:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -39,10 +39,10 @@ CREATE TABLE `of_cms_ad` (
 -- ----------------------------
 -- Records of of_cms_ad
 -- ----------------------------
-INSERT INTO `of_cms_ad` VALUES ('1', '2', 'banner1', 'banner', '/upload/info/banner02.jpg', '1', '#', null, null, null, '1', '1', '');
-INSERT INTO `of_cms_ad` VALUES ('2', '2', 'banner2', 'banner', '/upload/info/banner01.jpg', '1', '#', null, null, null, '2', '1', '');
-INSERT INTO `of_cms_ad` VALUES ('3', '2', 'banner3', 'banner', '/upload/info/banner03.jpg', '1', '#', null, null, null, '3', '1', '');
-INSERT INTO `of_cms_ad` VALUES ('4', '2', 'banner4', 'banner', '/upload/info/58ca03df0ed39.jpg', '1', '#', null, null, null, '4', '1', '');
+INSERT INTO `of_cms_ad` VALUES ('1', '2', 'banner1', 'banner', '/upload/image/banner02.jpg', '1', '#', null, null, null, '1', '1', '');
+INSERT INTO `of_cms_ad` VALUES ('2', '2', 'banner2', 'banner', '/upload/image/banner01.jpg', '1', '#', null, null, null, '2', '1', '');
+INSERT INTO `of_cms_ad` VALUES ('3', '2', 'banner3', 'banner', '/upload/image/banner03.jpg', '1', '#', null, null, null, '3', '1', '');
+INSERT INTO `of_cms_ad` VALUES ('4', '2', 'banner4', 'banner', '/upload/image/58ca03df0ed39.jpg', '1', '#', null, null, null, '4', '1', '');
 
 -- ----------------------------
 -- Table structure for of_cms_announce
@@ -324,7 +324,7 @@ INSERT INTO `of_cms_content_field` VALUES ('193', '43', '1', 'column_id', '4', n
 INSERT INTO `of_cms_content_field` VALUES ('194', '43', '1', 'file', '', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('195', '43', '1', 'site_id', '1', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('196', '43', '1', 'title_name', '文件系统的设计', null, null);
-INSERT INTO `of_cms_content_field` VALUES ('197', '44', '1', 'thumbnail', '/upload/info/qrcode_for_gh_0332c07a94d7_2582.jpg', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('197', '44', '1', 'thumbnail', 'upload/image/20180724171640.png', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('198', '44', '1', 'create_time', '2018-05-29 18:02:02', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('199', '44', '1', 'keywords', '', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('200', '44', '1', 'author', 'of', null, null);
@@ -345,18 +345,18 @@ INSERT INTO `of_cms_content_field` VALUES ('214', '45', '1', 'author', 'of', nul
 INSERT INTO `of_cms_content_field` VALUES ('215', '45', '1', 'form_id', '1', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('216', '45', '1', 'site_id', '1', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('217', '45', '1', 'title_name', '关于我们', null, null);
-INSERT INTO `of_cms_content_field` VALUES ('218', '45', '1', 'content', '<p style=\"text-align: left;\"><span>中天网络科技是一家专注于从事网站建设以及企业营销活动策划的创新型互联网服务公司。我们以“创新发展，合作共赢”为经营理念！为企业、政府以及广大互联网用户提供专业的服务和易用的产品。客户包括世界500强企业等实力雄厚的企业。中天科技这个建站品牌已经慢慢深入企业的认识中，建网站，中天科技！在新世纪里，盘石网络科技将会在现有的基础上，为客户提供更全面、更优质的电子商务服务，为中国互联网走向世界贡献出自己的微薄之力！</span></p><p style=\"text-align: left;\"><span style=\"text-align: justify;\">湖南中天科技有限公司办公室地址位于长江中游地区重要的中心城市、，在公司发展壮大的1年里，我们始终为客户提供好的产品和技术支持、健全的售后服务，中天网络科技是一家专注于从事网站建设以及企业营销活动策划的创新型互联网服务公司。我们以“创新发展，合作共赢”为经营理念！为企业、政府以及广大互联网用户提供专业的服务和易用的产品。客户包括世界500强企业等实力雄厚的企业</span></p>', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('218', '45', '1', 'content', '<p style=\"text-align: left;\"><span>中天网络科技是一家专注于从事网站建设以及企业营销活动策划的创新型互联网服务公司。我们以“创新发展，合作共赢”为经营理念！为企业、政府以及广大互联网用户提供专业的服务和易用的产品。客户包括世界500强企业等实力雄厚的企业。中天科技这个建站品牌已经慢慢深入企业的认识中，建网站，中天科技！在新世纪里，中天网络科技将会在现有的基础上，为客户提供更全面、更优质的电子商务服务，为中国互联网走向世界贡献出自己的微薄之力！</span></p><p style=\"text-align: left;\">中天网络科技是一家专注于从事网站建设以及企业营销活动策划的创新型互联网服务公司。我们以“创新发展，合作共赢”为经营理念！为企业、政府以及广大互联网用户提供专业的服务和易用的产品。客户包括世界500强企业等实力雄厚的企业。中天科技这个建站品牌已经慢慢深入企业的认识中，建网站，中天科技！在新世纪里，中天网络科技将会在现有的基础上，为客户提供更全面、更优质的电子商务服务，为中国互联网走向世界贡献出自己的微薄之力</p>', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('219', '46', '1', 'column_id', '6', null, null);
-INSERT INTO `of_cms_content_field` VALUES ('220', '46', '1', 'thumbnail', '/upload/info/qrcode_for_gh_0332c07a94d7_2583.jpg', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('220', '46', '1', 'thumbnail', '/upload/image/20180724171640.png', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('221', '46', '1', 'file', '', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('222', '46', '1', 'create_time', '', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('223', '46', '1', 'author', 'of', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('224', '46', '1', 'form_id', '1', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('225', '46', '1', 'site_id', '1', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('226', '46', '1', 'title_name', '联系我们', null, null);
-INSERT INTO `of_cms_content_field` VALUES ('227', '46', '1', 'content', '<p><b><span>中天网络</span>科技有限公司</b></p><p>地址:&nbsp;湖南**************号</p><p>座机: +86-0731-8*******8</p><p>手机: +86-1******0</p><p>传真: +86-0731-******08</p><p>邮箱: 15******800@qq.com</p><p><span>网站: www.ofsoft.cn</span></p><p><span><br></span></p><p><img src="http://demo2.jeecms.com/u/cms/www/201803/29132823a0bp.jpg" alt="lxwm.jpg"></p>', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('227', '46', '1', 'content', '<p><b><span>中天网络</span>科技有限公司</b></p><p>地址:&nbsp;湖南**************号</p><p>座机: +86-0731-8*******8</p><p>手机: +86-1******0</p><p>传真: +86-0731-******08</p><p>邮箱: 15******800@qq.com</p><p><span>网站: www.ofsoft.cn</span></p><p><span><br></span></p><p><img src=\"http://demo2.jeecms.com/u/cms/www/201803/29132823a0bp.jpg\" alt=\"lxwm.jpg\"></p>', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('228', '47', '1', 'column_id', '12', null, null);
-INSERT INTO `of_cms_content_field` VALUES ('229', '47', '1', 'thumbnail', '/upload/info/qrcode_for_gh_0332c07a94d7_2583.jpg', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('229', '47', '1', 'thumbnail', '/upload/image/20180724171640.png', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('230', '47', '1', 'file', '', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('231', '47', '1', 'create_time', '2018-06-07 00:00:00', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('232', '47', '1', 'author', 'of', null, null);
@@ -365,7 +365,7 @@ INSERT INTO `of_cms_content_field` VALUES ('234', '47', '1', 'site_id', '1', nul
 INSERT INTO `of_cms_content_field` VALUES ('235', '47', '1', 'title_name', '公司上市', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('236', '47', '1', 'content', '自1985年创立以来，Macworld博览会已经成为全球最具影响力的苹果生态圈的盛会。本届博览会以“创新定义未来”为主题，将于8月21日在北京国家会议中心拉开帷幕。届时，Parallels也会参加此次博览会，向消费者展示其创新的产品与技术。      “在技术更迭如此快速的今天，创新是企业可持续发展的驱动力。” Parallel', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('237', '48', '1', 'column_id', '13', null, null);
-INSERT INTO `of_cms_content_field` VALUES ('238', '48', '1', 'thumbnail', '/upload/info/qrcode_for_gh_0332c07a94d7_2583.jpg', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('238', '48', '1', 'thumbnail', '/upload/image/20180724171640.png', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('239', '48', '1', 'file', '', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('240', '48', '1', 'create_time', '', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('241', '48', '1', 'author', '', null, null);
@@ -374,7 +374,7 @@ INSERT INTO `of_cms_content_field` VALUES ('243', '48', '1', 'site_id', '1', nul
 INSERT INTO `of_cms_content_field` VALUES ('244', '48', '1', 'title_name', '祝贺：SUNYCARE荣获安全教育大奖', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('245', '48', '1', 'content', '自1985年创立以来，Macworld博览会已经成为全球最具影响力的苹果生态圈的盛会。本届博览会以“创新定义未来”为主题，将于8月21日在北京国家会议中心拉开帷幕。届时，Parallels也会参加此次博览会，向消费者展示其创新的产品与技术。      “在技术更迭如此快速的今天，创新是企业可持续发展的驱动力。” Parallel', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('246', '49', '1', 'column_id', '13', null, null);
-INSERT INTO `of_cms_content_field` VALUES ('247', '49', '1', 'thumbnail', '/upload/info/1515650352.jpg', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('247', '49', '1', 'thumbnail', '/upload/image/20180724171640.png', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('248', '49', '1', 'file', '', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('249', '49', '1', 'create_time', '2018-06-08 00:00:00', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('250', '49', '1', 'author', '', null, null);
@@ -517,7 +517,7 @@ CREATE TABLE `of_cms_site` (
 -- ----------------------------
 -- Records of of_cms_site
 -- ----------------------------
-INSERT INTO `of_cms_site` VALUES ('1', '主站演示', '主站默认', '默认主站演示', 'localhost', 'http', 'localhost:8081/ofcms-admin', 'default', 'default', '0', '1', '2018-05-09 08:44:55', '2018-05-21 16:42:07', '1', '1');
+INSERT INTO `of_cms_site` VALUES ('1', '主站演示', '主站默认', '默认主站演示', 'localhost', 'http', 'localhost:8081/ofcms-admin', 'default', 'default', '0', '1', '2018-05-09 08:44:55', '2018-07-24 17:46:21', '1', '1');
 INSERT INTO `of_cms_site` VALUES ('2', '子站演示', '子站演示', '子站演示', '127.0.0.1', 'https', 'localhost:8081', 'mobile', 'blog', '1', '1', '2018-05-09 10:11:54', '2018-05-11 09:15:28', '1', '1');
 
 -- ----------------------------
@@ -672,13 +672,204 @@ CREATE TABLE `of_sys_oper_log` (
   `status` char(1) NOT NULL COMMENT '1 在用\r\n            0 不在用',
   `remark` varchar(64) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`logid`)
-) ENGINE=InnoDB AUTO_INCREMENT=176 DEFAULT CHARSET=utf8 COMMENT='操作日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=194 DEFAULT CHARSET=utf8 COMMENT='操作日志表';
 
 -- ----------------------------
 -- Records of of_sys_oper_log
 -- ----------------------------
 INSERT INTO `of_sys_oper_log` VALUES ('1', '1', '管理员', '用户登录', null, null, '2018-04-23', '2018-04-23 11:27:18', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('2', '1', '管理员', '用户登录', null, null, '2018-04-23', '2018-04-23 11:45:02', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('3', '1', '管理员', '用户登录', null, null, '2018-04-24', '2018-04-24 16:55:44', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('4', '1', '管理员', '用户登录', null, null, '2018-04-24', '2018-04-24 16:56:47', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('5', '1', '管理员', '用户退出', null, null, '2018-04-24', '2018-04-24 17:03:22', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('6', '1', '管理员', '用户登录', null, null, '2018-04-24', '2018-04-24 17:03:27', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('7', '1', '管理员', '用户登录', null, null, '2018-04-24', '2018-04-24 17:05:11', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('8', '1', '管理员', '用户登录', null, null, '2018-04-24', '2018-04-24 17:08:18', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('9', '1', '管理员', '用户登录', null, null, '2018-04-24', '2018-04-24 17:12:00', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('10', '1', '管理员', '用户登录', null, null, '2018-04-24', '2018-04-24 17:40:54', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('11', '1', '管理员', '用户登录', null, null, '2018-04-24', '2018-04-24 17:45:15', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('12', '1', '管理员', '用户登录', null, null, '2018-04-25', '2018-04-25 10:29:52', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('13', '1', '管理员', '用户登录', null, null, '2018-04-25', '2018-04-25 10:43:48', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('14', '1', '管理员', '用户登录', null, null, '2018-04-25', '2018-04-25 22:19:18', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('15', '1', '管理员', '用户退出', null, null, '2018-04-25', '2018-04-25 22:21:10', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('16', '1', '管理员', '用户登录', null, null, '2018-04-25', '2018-04-25 22:21:17', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('17', '1', '管理员', '用户登录', null, null, '2018-04-26', '2018-04-26 00:09:41', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('18', '1', '管理员', '用户登录', null, null, '2018-04-26', '2018-04-26 21:22:26', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('19', '1', '管理员', '用户登录', null, null, '2018-05-01', '2018-05-01 22:20:50', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('20', '1', '管理员', '用户登录', null, null, '2018-05-03', '2018-05-03 23:29:15', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('21', '1', '管理员', '用户登录', null, null, '2018-05-06', '2018-05-06 12:14:58', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('22', '1', '管理员', '用户登录', null, null, '2018-05-08', '2018-05-08 21:54:55', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('23', '1', '管理员', '用户登录', null, null, '2018-05-08', '2018-05-08 22:54:09', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('24', '1', '管理员', '用户登录', null, null, '2018-05-08', '2018-05-08 23:00:51', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('25', '1', '管理员', '用户退出', null, null, '2018-05-08', '2018-05-08 23:34:18', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('26', '1', '管理员', '用户登录', null, null, '2018-05-08', '2018-05-08 23:34:23', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('27', '1', '管理员', '用户登录', null, null, '2018-05-08', '2018-05-08 23:41:47', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('28', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 08:36:23', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('29', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 09:49:21', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('30', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 10:50:54', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('31', '1', '管理员', '用户退出', null, null, '2018-05-09', '2018-05-09 10:51:22', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('32', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 10:51:36', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('33', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 11:01:26', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('34', '1', '管理员', '用户退出', null, null, '2018-05-09', '2018-05-09 11:07:17', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('35', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 11:07:34', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('36', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 12:49:37', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('37', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 12:49:39', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('38', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 12:52:07', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('39', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 12:52:30', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('40', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 12:53:16', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('41', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 12:53:32', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('42', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 12:54:33', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('43', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 12:54:48', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('44', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 12:56:06', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('45', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 13:15:23', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('46', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 13:43:18', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('47', '1', '管理员', '用户登录', null, null, '2018-05-09', '2018-05-09 18:40:12', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('48', '1', '管理员', '用户登录', null, null, '2018-05-10', '2018-05-10 20:57:06', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('49', '1', '管理员', '用户登录', null, null, '2018-05-10', '2018-05-10 21:47:48', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('50', '1', '管理员', '用户登录', null, null, '2018-05-10', '2018-05-10 21:49:43', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('51', '1', '管理员', '用户登录', null, null, '2018-05-10', '2018-05-10 21:54:42', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('52', '1', '管理员', '用户登录', null, null, '2018-05-10', '2018-05-10 22:01:22', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('53', '1', '管理员', '用户登录', null, null, '2018-05-10', '2018-05-10 22:15:21', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('54', '1', '管理员', '用户登录', null, null, '2018-05-10', '2018-05-10 22:56:26', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('55', '1', '管理员', '用户登录', null, null, '2018-05-10', '2018-05-10 22:58:43', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('56', '1', '管理员', '用户登录', null, null, '2018-05-10', '2018-05-10 23:05:33', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('57', '1', '管理员', '用户登录', null, null, '2018-05-11', '2018-05-11 00:07:06', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('58', '1', '管理员', '用户登录', null, null, '2018-05-11', '2018-05-11 00:19:26', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('59', '1', '管理员', '用户登录', null, null, '2018-05-11', '2018-05-11 00:42:13', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('60', '1', '管理员', '用户登录', null, null, '2018-05-11', '2018-05-11 09:15:13', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('61', '1', '管理员', '用户登录', null, null, '2018-05-12', '2018-05-12 21:15:33', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('62', '1', '管理员', '用户登录', null, null, '2018-05-12', '2018-05-12 21:27:58', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('63', '1', '管理员', '用户登录', null, null, '2018-05-14', '2018-05-14 08:57:41', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('64', '1', '管理员', '用户登录', null, null, '2018-05-15', '2018-05-15 08:59:17', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('65', '1', '管理员', '用户登录', null, null, '2018-05-16', '2018-05-16 15:09:57', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('66', '1', '管理员', '用户登录', null, null, '2018-05-16', '2018-05-16 15:20:43', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('67', '1', '管理员', '用户登录', null, null, '2018-05-16', '2018-05-16 15:52:01', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('68', '1', '管理员', '用户登录', null, null, '2018-05-16', '2018-05-16 15:57:19', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('69', '1', '管理员', '用户登录', null, null, '2018-05-16', '2018-05-16 16:07:09', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('70', '1', '管理员', '用户登录', null, null, '2018-05-16', '2018-05-16 16:22:18', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('71', '1', '管理员', '用户登录', null, null, '2018-05-16', '2018-05-16 17:44:56', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('72', '1', '管理员', '用户登录', null, null, '2018-05-17', '2018-05-17 19:55:09', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('73', '1', '管理员', '用户登录', null, null, '2018-05-19', '2018-05-19 10:02:29', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('74', '1', '管理员', '用户登录', null, null, '2018-05-19', '2018-05-19 10:34:06', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('75', '1', '管理员', '用户登录', null, null, '2018-05-21', '2018-05-21 09:16:02', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('76', '1', '管理员', '用户登录', null, null, '2018-05-21', '2018-05-21 15:56:29', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('77', '1', '管理员', '用户登录', null, null, '2018-05-21', '2018-05-21 16:17:53', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('78', '1', '管理员', '用户登录', null, null, '2018-05-21', '2018-05-21 16:35:18', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('79', '1', '管理员', '用户登录', null, null, '2018-05-21', '2018-05-21 16:47:04', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('80', '1', '管理员', '用户登录', null, null, '2018-05-22', '2018-05-22 11:53:11', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('81', '1', '管理员', '用户登录', null, null, '2018-05-22', '2018-05-22 13:48:43', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('82', '1', '管理员', '用户登录', null, null, '2018-05-22', '2018-05-22 20:34:58', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('83', '1', '管理员', '用户登录', null, null, '2018-05-22', '2018-05-22 21:23:43', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('84', '1', '管理员', '用户登录', null, null, '2018-05-22', '2018-05-22 21:32:48', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('85', '1', '管理员', '用户登录', null, null, '2018-05-22', '2018-05-22 22:10:40', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('86', '1', '管理员', '用户登录', null, null, '2018-05-23', '2018-05-23 08:53:16', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('87', '1', '管理员', '用户登录', null, null, '2018-05-23', '2018-05-23 11:50:44', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('88', '1', '管理员', '用户登录', null, null, '2018-05-23', '2018-05-23 13:54:58', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('89', '1', '管理员', '用户登录', null, null, '2018-05-23', '2018-05-23 20:04:19', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('90', '1', '管理员', '用户登录', null, null, '2018-05-23', '2018-05-23 20:10:20', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('91', '1', '管理员', '用户登录', null, null, '2018-05-23', '2018-05-23 22:46:54', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('92', '1', '管理员', '用户登录', null, null, '2018-05-23', '2018-05-23 22:51:18', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('93', '1', '管理员', '用户登录', null, null, '2018-05-23', '2018-05-23 22:56:17', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('94', '1', '管理员', '用户登录', null, null, '2018-05-23', '2018-05-23 23:04:32', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('95', '1', '管理员', '用户登录', null, null, '2018-05-23', '2018-05-23 23:06:06', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('96', '1', '管理员', '用户登录', null, null, '2018-05-23', '2018-05-23 23:11:16', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('97', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 08:29:38', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('98', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 11:56:34', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('99', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 13:41:16', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('100', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 14:03:14', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('101', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 14:09:37', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('102', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 14:20:31', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('103', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 16:51:08', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('104', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 18:09:50', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('105', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 18:33:27', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('106', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 21:41:55', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('107', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 21:57:10', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('108', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 21:58:09', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('109', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 21:59:23', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('110', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 22:01:35', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('111', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 22:13:08', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('112', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 22:18:15', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('113', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 22:29:22', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('114', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 22:33:04', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('115', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 22:36:31', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('116', '1', '管理员', '用户登录', null, null, '2018-05-24', '2018-05-24 22:49:08', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('117', '1', '管理员', '用户登录', null, null, '2018-05-25', '2018-05-25 08:53:19', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('118', '1', '管理员', '用户登录', null, null, '2018-05-25', '2018-05-25 09:16:05', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('119', '1', '管理员', '用户登录', null, null, '2018-05-25', '2018-05-25 11:51:52', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('120', '1', '管理员', '用户登录', null, null, '2018-05-25', '2018-05-25 13:41:40', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('121', '1', '管理员', '用户登录', null, null, '2018-05-25', '2018-05-25 14:03:37', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('122', '1', '管理员', '用户登录', null, null, '2018-05-25', '2018-05-25 16:38:17', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('123', '1', '管理员', '用户登录', null, null, '2018-05-28', '2018-05-28 10:36:25', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('124', '1', '管理员', '用户登录', null, null, '2018-05-28', '2018-05-28 13:51:05', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('125', '1', '管理员', '用户登录', null, null, '2018-05-28', '2018-05-28 13:53:31', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('126', '1', '管理员', '用户登录', null, null, '2018-05-28', '2018-05-28 15:43:23', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('127', '1', '管理员', '用户登录', null, null, '2018-05-29', '2018-05-29 10:17:49', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('128', '1', '管理员', '用户登录', null, null, '2018-05-29', '2018-05-29 10:32:50', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('129', '1', '管理员', '用户登录', null, null, '2018-05-29', '2018-05-29 10:54:51', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('130', '1', '管理员', '用户登录', null, null, '2018-05-29', '2018-05-29 11:35:26', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('131', '1', '管理员', '用户登录', null, null, '2018-05-29', '2018-05-29 13:54:39', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('132', '1', '管理员', '用户登录', null, null, '2018-05-29', '2018-05-29 14:19:17', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('133', '1', '管理员', '用户登录', null, null, '2018-05-29', '2018-05-29 15:32:26', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('134', '1', '管理员', '用户登录', null, null, '2018-05-29', '2018-05-29 16:23:55', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('135', '1', '管理员', '用户登录', null, null, '2018-05-29', '2018-05-29 16:55:23', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('136', '1', '管理员', '用户登录', null, null, '2018-06-04', '2018-06-04 22:44:30', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('137', '1', '管理员', '用户登录', null, null, '2018-06-06', '2018-06-06 21:18:01', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('138', '1', '管理员', '用户登录', null, null, '2018-06-06', '2018-06-06 22:23:33', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('139', '1', '管理员', '用户登录', null, null, '2018-06-06', '2018-06-06 22:30:16', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('140', '1', '管理员', '用户登录', null, null, '2018-06-07', '2018-06-07 22:41:59', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('141', '1', '管理员', '用户登录', null, null, '2018-06-07', '2018-06-07 23:38:39', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('142', '1', '管理员', '用户登录', null, null, '2018-06-08', '2018-06-08 00:29:45', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('143', '1', '管理员', '用户登录', null, null, '2018-06-11', '2018-06-11 22:01:11', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('144', '1', '管理员', '用户登录', null, null, '2018-06-11', '2018-06-11 22:04:52', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('145', '1', '管理员', '用户登录', null, null, '2018-06-22', '2018-06-22 23:10:39', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('146', '1', '管理员', '用户登录', null, null, '2018-06-22', '2018-06-22 23:23:12', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('147', '1', '管理员', '用户登录', null, null, '2018-06-28', '2018-06-28 20:38:08', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('148', '1', '管理员', '用户登录', null, null, '2018-07-09', '2018-07-09 15:02:54', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('149', '1', '管理员', '用户登录', null, null, '2018-07-19', '2018-07-19 21:17:13', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('150', '1', '管理员', '用户登录', null, null, '2018-07-21', '2018-07-21 22:49:17', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('151', '1', '管理员', '用户登录', null, null, '2018-07-21', '2018-07-21 23:22:22', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('152', '1', '管理员', '用户退出', null, null, '2018-07-22', '2018-07-22 00:00:52', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('153', '1', '管理员', '用户退出', null, null, '2018-07-22', '2018-07-22 00:00:52', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('154', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 00:03:33', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('155', '1', '管理员', '用户退出', null, null, '2018-07-22', '2018-07-22 00:03:35', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('156', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 00:03:39', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('157', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 00:06:09', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('158', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 00:12:46', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('159', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 00:29:31', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('160', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 07:21:41', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('161', '1', '管理员', '用户退出', null, null, '2018-07-22', '2018-07-22 07:55:38', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('162', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 07:55:54', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('163', '1', '管理员', '用户退出', null, null, '2018-07-22', '2018-07-22 08:03:22', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('164', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 08:03:30', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('165', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 08:11:33', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('166', '1', '管理员', '用户退出', null, null, '2018-07-22', '2018-07-22 08:11:47', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('167', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 08:12:56', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('168', '1', '管理员', '用户退出', null, null, '2018-07-22', '2018-07-22 08:13:31', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('169', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 08:13:36', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('170', '1', '管理员', '用户退出', null, null, '2018-07-22', '2018-07-22 08:13:38', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('171', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 08:13:47', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('172', '1', '管理员', '用户退出', null, null, '2018-07-22', '2018-07-22 08:18:03', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('173', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 08:18:07', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('174', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 08:18:58', '用户登录', '1', null);
 INSERT INTO `of_sys_oper_log` VALUES ('175', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 08:59:55', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('176', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 09:19:48', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('177', '1', '管理员', '用户登录', null, null, '2018-07-22', '2018-07-22 09:27:55', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('178', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 15:14:32', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('179', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 15:54:37', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('180', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 16:04:39', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('181', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 16:10:23', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('182', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 16:57:45', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('183', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 17:04:22', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('184', '1', '管理员', '用户退出', null, null, '2018-07-24', '2018-07-24 17:09:27', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('185', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 17:09:31', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('186', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 17:32:23', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('187', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 17:41:25', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('188', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 17:46:08', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('189', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 17:48:31', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('190', '1', '管理员', '用户退出', null, null, '2018-07-24', '2018-07-24 17:48:35', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('191', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 17:48:39', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('192', '1', '管理员', '用户退出', null, null, '2018-07-24', '2018-07-24 17:49:56', '用户退出', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('193', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 17:50:08', '用户登录', '1', null);
 
 -- ----------------------------
 -- Table structure for of_sys_param
@@ -709,7 +900,7 @@ INSERT INTO `of_sys_param` VALUES ('6', 'system', 'params', '参数缓存', 'cac
 INSERT INTO `of_sys_param` VALUES ('7', 'system', 'nenu', '菜单缓存', 'cache', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('8', 'system', 'prme', '权限缓存', 'cache', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('9', 'http_image_url', 'http://localhost:8081/ofcms-admin', '图片访问地址', 'system', null, '1', '1', '');
-INSERT INTO `of_sys_param` VALUES ('10', 'weixin_processInFollowEvent', '感谢关注OF公众平台!', '关注时回复', 'weixin', '', '1', '1', '');
+INSERT INTO `of_sys_param` VALUES ('10', 'weixin_processInFollowEvent', '感谢关注OF公众平台!', '关注时回复', 'weixin', null, '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('11', 'weixin_processInFollowEvent_two', '欢迎您再次回来!', '再次关注后回复', 'weixin', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('12', 'weixin_seach_no_info', '未搜索到信息!', '搜索没有数据时', 'weixin', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('13', 'weixin_auto_no_info', '没有匹配的关键字!', '没有匹配的关键字', 'weixin', '', '1', '1', '');

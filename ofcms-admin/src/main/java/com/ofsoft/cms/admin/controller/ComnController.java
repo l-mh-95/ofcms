@@ -100,10 +100,10 @@ public class ComnController extends BaseController {
 	@Clear
 	public void upload() {
 		try {
-			UploadFile file = this.getFile("file", "info");
+			UploadFile file = this.getFile("file", "image");
 			file.getFile().createNewFile();
 			Map<String, Object> data = new HashMap<String, Object>();
-			data.put("filePath", "/upload/info/" + file.getFileName());
+			data.put("filePath", "/upload/image/" + file.getFileName());
 			data.put("fileName", file.getFileName());
 			rendSuccessJson(data);
 		} catch (Exception e) {
@@ -114,12 +114,12 @@ public class ComnController extends BaseController {
 	@Clear
 	public void editUploadImage() {
 		try {
-			UploadFile file = this.getFile("file", "info");
+			UploadFile file = this.getFile("file", "image");
 			file.getFile().createNewFile();
 			Map<String, Object> msg = new HashMap<String, Object>();
 			Map<String, Object> data = new HashMap<String, Object>();
 			data.put("src", SystemUtile.getParam("http_image_url")
-					+ "/upload/info/" + file.getFileName());
+					+ "/upload/image/" + file.getFileName());
 			data.put("title", file.getFileName());
 			msg.put("data", data);
 			msg.put("code", 0);
