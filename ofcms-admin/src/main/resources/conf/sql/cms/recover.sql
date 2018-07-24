@@ -17,7 +17,7 @@
 		 	 t.status,
 		 	 t.remark
 	from
-		  of_cms_content t  left join of_cms_column c on t.column_id = c.column_id where t.status = '2'
+		  of_cms_content t  left join of_cms_column c on t.column_id = c.column_id where t.status = '2' and t.site_id = #para(site_id)
 	#if (title_name?? ) and  t.title_name like concat ('%',#para(title_name),'%')#end
 	#if (sort?? && field) order by order_field order_sort  #else order by t.content_id desc #end
 #end

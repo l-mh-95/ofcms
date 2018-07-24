@@ -7,7 +7,7 @@
 		"queryform":{
 	          "form_id":"query_form",	
 	          "sqlid":"cms.comment.query",
-	          "fields":[
+	          "fields":[ {"name":"site_id","type":"hidden","value":"${session.site.site_id}"},
 						 {"name":"comment_id","type":"text","label":"评论编号","div_width":"200","placeholder":"请输入评论编号"} 
 						], 
 			   "tab_buttons":[

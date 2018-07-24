@@ -22,7 +22,7 @@
 		};
 	//加载菜单树
 	var ztree ;
-	$.get(webroot +"system/menu/tree.json?sqlid=weixin.menu.query", function(data){
+	$.get(webroot +"/admin/system/menu/tree.json?sqlid=weixin.menu.query", function(data){
 		ztree = $.fn.zTree.init($("#menuTree"), setting,data.data);
 	})
 	</script>

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50613
 File Encoding         : 65001
 
-Date: 2018-07-24 17:52:35
+Date: 2018-07-24 21:30:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -39,10 +39,10 @@ CREATE TABLE `of_cms_ad` (
 -- ----------------------------
 -- Records of of_cms_ad
 -- ----------------------------
-INSERT INTO `of_cms_ad` VALUES ('1', '2', 'banner1', 'banner', '/upload/image/banner02.jpg', '1', '#', null, null, null, '1', '1', '');
-INSERT INTO `of_cms_ad` VALUES ('2', '2', 'banner2', 'banner', '/upload/image/banner01.jpg', '1', '#', null, null, null, '2', '1', '');
-INSERT INTO `of_cms_ad` VALUES ('3', '2', 'banner3', 'banner', '/upload/image/banner03.jpg', '1', '#', null, null, null, '3', '1', '');
-INSERT INTO `of_cms_ad` VALUES ('4', '2', 'banner4', 'banner', '/upload/image/58ca03df0ed39.jpg', '1', '#', null, null, null, '4', '1', '');
+INSERT INTO `of_cms_ad` VALUES ('1', '1', 'banner1', 'banner', '/upload/image/banner02.jpg', '1', '#', null, null, null, '1', '1', '');
+INSERT INTO `of_cms_ad` VALUES ('2', '1', 'banner2', 'banner', '/upload/image/banner01.jpg', '1', '#', null, null, null, '2', '1', '');
+INSERT INTO `of_cms_ad` VALUES ('3', '1', 'banner3', 'banner', '/upload/image/banner03.jpg', '1', '#', null, null, null, '3', '1', '');
+INSERT INTO `of_cms_ad` VALUES ('4', '1', 'banner4', 'banner', '/upload/image/58ca03df0ed39.jpg', '1', '#', null, null, null, '4', '1', '');
 
 -- ----------------------------
 -- Table structure for of_cms_announce
@@ -105,7 +105,7 @@ CREATE TABLE `of_cms_column` (
 -- ----------------------------
 -- Records of of_cms_column
 -- ----------------------------
-INSERT INTO `of_cms_column` VALUES ('1', '2', '首页', '0', '2', '首页', 'index', '2', null, '', null, null, null, null, null, null, null, null, null, '1', '1', '2018-05-19 10:44:17', '2018-05-22 20:40:18', '1', null);
+INSERT INTO `of_cms_column` VALUES ('1', '2', '首页', '0', '1', '首页', 'index', '首页', null, null, null, null, null, null, null, null, null, null, null, '1', '1', null, null, '1', null);
 INSERT INTO `of_cms_column` VALUES ('2', '1', '关于我们', '0', '1', '关于我们', 'about', '关于我们', null, '', null, null, null, null, null, null, null, null, null, '1', '1', '2018-05-19 11:10:39', '2018-06-06 21:20:07', '1', null);
 INSERT INTO `of_cms_column` VALUES ('3', '1', '解决方案', '0', '1', '解决方案', 'product', '解决方案', null, '', '/product', null, null, null, null, null, null, null, null, '1', '2', '2018-05-19 11:11:19', '2018-06-11 22:05:55', '1', null);
 INSERT INTO `of_cms_column` VALUES ('4', '1', '新闻中心', '0', '1', '新闻中心', 'news', '新闻中心', null, '', null, null, null, null, null, null, null, null, null, '1', '3', '2018-05-19 11:11:48', '2018-05-19 11:14:07', '1', null);
@@ -173,7 +173,7 @@ CREATE TABLE `of_cms_content` (
   `status` tinyint(2) DEFAULT NULL COMMENT '状态:0、删除 1、正常 2、回收站',
   `remark` varchar(64) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`content_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COMMENT='内容表';
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COMMENT='内容表';
 
 -- ----------------------------
 -- Records of of_cms_content
@@ -184,6 +184,7 @@ INSERT INTO `of_cms_content` VALUES ('46', null, '1', '6', '1', null, null, '联
 INSERT INTO `of_cms_content` VALUES ('47', null, '1', '12', '1', null, null, '公司上市', null, null, null, null, null, null, null, null, null, '0', 'admin', '2018-06-07 22:42:31', null, '1', '1', null);
 INSERT INTO `of_cms_content` VALUES ('48', null, '1', '13', '1', null, null, '出大事了国', null, null, null, null, null, null, null, null, null, '0', 'admin', '2018-06-07 23:39:04', null, '1', '1', null);
 INSERT INTO `of_cms_content` VALUES ('49', null, '1', '13', '1', null, null, 'Parallels即将亮相2014 Macworld博览会', null, null, null, null, null, null, null, null, null, '0', 'admin', '2018-06-08 00:30:36', null, '1', '1', null);
+INSERT INTO `of_cms_content` VALUES ('50', null, '2', '1', '1', null, null, '23', null, null, null, null, null, null, null, null, null, '0', 'admin', '2018-07-24 19:24:08', null, '1', '1', null);
 
 -- ----------------------------
 -- Table structure for of_cms_content_field
@@ -198,7 +199,7 @@ CREATE TABLE `of_cms_content_field` (
   `sort` tinyint(2) DEFAULT NULL COMMENT '排序',
   `remark` varchar(64) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`field_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=255 DEFAULT CHARSET=utf8 COMMENT='内容字段表';
+) ENGINE=InnoDB AUTO_INCREMENT=264 DEFAULT CHARSET=utf8 COMMENT='内容字段表';
 
 -- ----------------------------
 -- Records of of_cms_content_field
@@ -382,6 +383,15 @@ INSERT INTO `of_cms_content_field` VALUES ('251', '49', '1', 'form_id', '1', nul
 INSERT INTO `of_cms_content_field` VALUES ('252', '49', '1', 'site_id', '1', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('253', '49', '1', 'title_name', 'Parallels即将亮相2014 Macworld博览会', null, null);
 INSERT INTO `of_cms_content_field` VALUES ('254', '49', '1', 'content', '<span>&nbsp;&nbsp;自1985年创立以来，Macworld博览会已经成为全球最具影响力的苹果生态圈的盛会。本届博览会以“创新定义未来”为主题，将于8月21日在北京国家会议中心拉开帷幕。届时，Parallels也会参加此次博览会，向消费者展示其创新的产品与技术。</span></p><p><span>&nbsp; &nbsp; &nbsp; “在技术更迭如此快速的今天，创新是企业可持续发展的驱动力。” Parallels大中华区跨平台应用销售总监赵信荣先生表示：“在此次博览会上，Parallels将向消费者展示我们在提升用户体验方面所做的不懈努力。此外，博览会也为我们与消费者之间建立了一个很好的平台，以倾听他们的心声，让我们持续地为他们带来创新的产品与技术。”<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 此次Parallels展台位于国家会议中心A110。为了使消费者更加近距离地了解旗下产品并回答消费者的问题，Parallels还将在8月22-24日期间在会场中央展示区上进行四场产品咨询与技术创新成果的展示。具体展示时间分别为：<br>　　8月22日13:40—14:00<br>　　8月23日11:30—11:50；15:20-15:40<br>　　8月24日11:00—11:20<br>&nbsp; &nbsp; &nbsp; 同时，Parallels也为参访Parallels展台的媒体和观众朋友准备精美的礼品包，先到先得。欢迎大家前去参与领取。想要了解更多关于Parallels的相关信息，不妨8月21日前往国家会议中心Parallels Macworld展台一探究竟。</span>', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('255', '50', '1', 'column_id', '1', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('256', '50', '1', 'thumbnail', '', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('257', '50', '1', 'file', '', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('258', '50', '1', 'create_time', '2018-07-24 00:00:00', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('259', '50', '1', 'author', 'of', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('260', '50', '1', 'form_id', '1', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('261', '50', '1', 'site_id', '2', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('262', '50', '1', 'title_name', '23', null, null);
+INSERT INTO `of_cms_content_field` VALUES ('263', '50', '1', 'content', '123', null, null);
 
 -- ----------------------------
 -- Table structure for of_cms_field
@@ -518,7 +528,7 @@ CREATE TABLE `of_cms_site` (
 -- Records of of_cms_site
 -- ----------------------------
 INSERT INTO `of_cms_site` VALUES ('1', '主站演示', '主站默认', '默认主站演示', 'localhost', 'http', 'localhost:8081/ofcms-admin', 'default', 'default', '0', '1', '2018-05-09 08:44:55', '2018-07-24 17:46:21', '1', '1');
-INSERT INTO `of_cms_site` VALUES ('2', '子站演示', '子站演示', '子站演示', '127.0.0.1', 'https', 'localhost:8081', 'mobile', 'mobile', '1', '1', '2018-05-09 10:11:54', '2018-05-11 09:15:28', '1', '1');
+INSERT INTO `of_cms_site` VALUES ('2', '子站演示', '子站演示', '子站演示', '127.0.0.1', 'http', '127.0.0.1:8081/ofcms-admin', 'mobile', 'mobile', '1', '1', '2018-05-09 10:11:54', '2018-07-24 20:36:14', '1', '1');
 
 -- ----------------------------
 -- Table structure for of_sys_announce
@@ -627,7 +637,7 @@ INSERT INTO `of_sys_menu` VALUES ('109', '56', '回收站', 'cms/recover/index.h
 INSERT INTO `of_sys_menu` VALUES ('112', '1', '模板设置', '1', '1', '1', '<i class=\"layui-icon\">&#xe656;</i>', '4', '1', '1');
 INSERT INTO `of_sys_menu` VALUES ('113', '0', '运营管理', '1', '1', '1', '<i class=\"layui-icon\">&#xe62c;</i>', '3', '1', '1');
 INSERT INTO `of_sys_menu` VALUES ('114', '0', '数据统计', '1', '1', '1', '<i class=\"layui-icon\">&#xe629;</i>', '5', '0', '1');
-INSERT INTO `of_sys_menu` VALUES ('115', '113', '营销管理', '#', '#', '1', '<i class=\"layui-icon\">&#xe62c;</i>', '1', '1', null);
+INSERT INTO `of_sys_menu` VALUES ('115', '113', '运营管理', '#', '#', '1', '<i class=\"layui-icon\">&#xe62c;</i>', '1', '1', null);
 INSERT INTO `of_sys_menu` VALUES ('116', '115', '广告管理', 'cms/ad/index.html', 'cms/ad', '1', '<i class=\"layui-icon\">&#xe62c;</i>', '1', '1', null);
 INSERT INTO `of_sys_menu` VALUES ('117', '115', '友情链接', 'cms/link/index.html', 'cms/link', '1', '<i class=\"layui-icon\">&#xe62c;</i>', '2', '1', null);
 INSERT INTO `of_sys_menu` VALUES ('118', '115', '评论管理', 'cms/comment/index.html', 'cms/comment', '1', '<i class=\"layui-icon\">&#xe62c;</i>', '3', '1', null);
@@ -672,7 +682,7 @@ CREATE TABLE `of_sys_oper_log` (
   `status` char(1) NOT NULL COMMENT '1 在用\r\n            0 不在用',
   `remark` varchar(64) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`logid`)
-) ENGINE=InnoDB AUTO_INCREMENT=194 DEFAULT CHARSET=utf8 COMMENT='操作日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=200 DEFAULT CHARSET=utf8 COMMENT='操作日志表';
 
 -- ----------------------------
 -- Records of of_sys_oper_log
@@ -870,6 +880,12 @@ INSERT INTO `of_sys_oper_log` VALUES ('190', '1', '管理员', '用户退出', n
 INSERT INTO `of_sys_oper_log` VALUES ('191', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 17:48:39', '用户登录', '1', null);
 INSERT INTO `of_sys_oper_log` VALUES ('192', '1', '管理员', '用户退出', null, null, '2018-07-24', '2018-07-24 17:49:56', '用户退出', '1', null);
 INSERT INTO `of_sys_oper_log` VALUES ('193', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 17:50:08', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('194', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 19:07:53', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('195', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 19:12:01', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('196', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 19:30:52', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('197', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 19:55:11', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('198', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 20:02:31', '用户登录', '1', null);
+INSERT INTO `of_sys_oper_log` VALUES ('199', '1', '管理员', '用户登录', null, null, '2018-07-24', '2018-07-24 20:19:11', '用户登录', '1', null);
 
 -- ----------------------------
 -- Table structure for of_sys_param

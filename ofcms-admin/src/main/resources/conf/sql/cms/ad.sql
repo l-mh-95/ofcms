@@ -14,8 +14,8 @@
 		 	 status,
 		 	 remark
 	from
-		  of_cms_ad 
-	#if (ad_edition?? ) where  ad_edition = #para(ad_edition)#end
+		  of_cms_ad where site_id = #para(site_id)
+	#if (ad_edition?? )  and  ad_edition = #para(ad_edition)#end
 	#if (sort?? && field) order by order_field order_sort  #else order by sort_order desc #end
 #end
 
@@ -35,7 +35,7 @@
 		 	 status,
 		 	 remark
 	from
-		  of_cms_ad where status = '1'
+		  of_cms_ad where status = '1'  and  site_id = #para(site_id)
 	#if (edition?? ) and ad_edition = #para(edition)#end
 	#if (sort?? && field) order by order_field order_sort  #else order by sort_order desc #end
 #end

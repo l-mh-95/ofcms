@@ -49,7 +49,7 @@
             adminCommon.confirm("提示", "是否确定删除当前记录？", function(index)
             {
                 layer.close(index);
-                utile.ajaxSubmit({"url": webroot + "admin/cms/column/del.json","data":{"column_id":columnId}}, function (result) {
+                utile.ajaxSubmit({"url": webroot + "/admin/cms/column/del.json","data":{"column_id":columnId}}, function (result) {
 
                 });
             });
@@ -71,7 +71,7 @@
                 },
             ];
             var tree ;
-            utile.ajaxSubmit({"url": webroot + "admin/cms/column/menu.json"}, function (result) {
+            utile.ajaxSubmit({"url": webroot + "/admin/cms/column/menu.json"}, function (result) {
                 tree = layui.treeGird({
                     elem: '#adminDatagrid', //传入元素选择器
                     spreadable: false, //设置是否全展开，默认不展开

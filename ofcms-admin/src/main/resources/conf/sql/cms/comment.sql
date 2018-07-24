@@ -15,8 +15,8 @@
 		 	 status,
 		 	 remark
 	from
-		  of_cms_comment 
-	#if (comment_id?? ) where  comment_id = #para(comment_id)#end
+		  of_cms_comment where site_id = #para(site_id)
+	#if (comment_id?? ) and  comment_id = #para(comment_id)#end
 	#if (sort?? && field) order by order_field order_sort  #else order by comment_id desc #end
 #end
  
