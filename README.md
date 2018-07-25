@@ -9,7 +9,20 @@ java 版CMS系统、基于java技术研发的内容管理系统、功能：栏�
 
 模板采用：freemarker  标签会在官风发布。
 
-项目地址：https://gitee.com/oufu/ofcms   QQ 群: ①185948055
+项目地址：https://gitee.com/oufu/ofcms   QQ 群: ①185948055 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=9c5f0bdc44402195be254668a80a6c5eeebb06f0336e8c5be26878930b88c672"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="OFCMS技术交流" title="OFCMS技术交流"></a> 
+
+#### 项目团队
+
+firechou ([https://gitee.com/firechou](https://gitee.com/firechou))
+ 
+王雪峰 ([https://gitee.com/wangxfsh](https://gitee.com/wangxfsh))
+
+大寶   ([https://gitee.com/zhouzhangl](https://gitee.com/zhouzhangl))
+ 
+姚杰  ([https://gitee.com/yaojiecd](https://gitee.com/yaojiecd))
+
+abpai ([https://gitee.com/abpai](https://gitee.com/abpai))
+
 #### 软件功能
 
 1. 用户管理：
@@ -35,7 +48,7 @@ java 版CMS系统、基于java技术研发的内容管理系统、功能：栏�
 2. 微信配置文件 resource/conf/weixin.properties
 3. shior 文件 resource/shior.ini
 4. 缓存 resource/ehcache.xml
-5. 后台账号 admin 密码 123456
+5. 后台账号 http://localhost:8080/ofcms-admin/admin admin 密码 123456
 6. 目前功能未全部完成，后续进行版本升级补充。
 
 ###  项目依赖
@@ -69,8 +82,8 @@ java 版CMS系统、基于java技术研发的内容管理系统、功能：栏�
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2018/0715/184626_9f85d46f_634828.png "屏幕截图.png")
 #### 技术交流
-官 网: [https://gitee.com/oufu](https://gitee.com/oufu)   QQ 群: ①185948055
+官 网: [https://gitee.com/oufu](https://gitee.com/oufu)   QQ 群:  ①185948055 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=9c5f0bdc44402195be254668a80a6c5eeebb06f0336e8c5be26878930b88c672"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="OFCMS技术交流" title="OFCMS技术交流"></a> 
  
+#### 相关文档
+IDEA 部署手册：[ https://blog.csdn.net/oufua/article/details/81210008](https://blog.csdn.net/oufua/article/details/81210008)
 
-#### 项目支持
-![](https://images.gitee.com/uploads/images/2018/0715/184845_3dee628a_634828.png "屏幕截图.png")
