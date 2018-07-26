@@ -68,6 +68,33 @@ select
 		  of_cms_column t  where t.status = '1' and t.site_id = #para(site_id)  and t.column_english = #para(column_english)
 #end
 
+#sql("front_index_column")
+select
+			t.column_id,
+		 	t.site_id,
+		 	t.column_code,
+		 	t.up_column_id,
+		 	t.form_id,
+		 	t.column_name,
+		 	t.column_english,
+		 	t.template_path,
+		 	t.column_desc,
+		 	t.content_url,
+		 	t.column_content,
+		 	t.column_image,
+		 	t.column_index_page,
+		 	t.column_list_page,
+		 	t.column_content_page,
+		 	t.is_show,
+		 	t.sort,
+		 	t.create_time,
+		 	t.upate_time,
+		 	t.status,
+		 	t.remark
+	from
+		  of_cms_column t  where t.status = '1' and t.is_show = '1' and t.site_id = #para(site_id)
+#end
+
 #sql("detail")
 	select 
 		 	 column_id,

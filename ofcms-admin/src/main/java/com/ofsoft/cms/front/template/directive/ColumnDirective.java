@@ -15,7 +15,7 @@ import java.util.Map;
  * Created by OF on 2018/5/12.
  */
 public class ColumnDirective extends TagBase {
-    public static final String sqlid = "cms.column.query";
+    public static final String sqlid = "cms.column.front_index_column";
     /**上级编号*/
     public static final String parent = "0";
     @Override
