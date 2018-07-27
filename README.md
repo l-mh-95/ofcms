@@ -87,3 +87,6 @@ abpai ([https://gitee.com/abpai](https://gitee.com/abpai))
 #### 相关文档
 IDEA 部署手册：[ https://blog.csdn.net/oufua/article/details/81210008](https://blog.csdn.net/oufua/article/details/81210008)
 
+项目发展离不开你的支持：
+
+![捐赠](https://images.gitee.com/uploads/images/2018/0727/110232_49d5dc17_634828.png "项目成长离不开你的支持")
