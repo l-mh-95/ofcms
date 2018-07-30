@@ -43,7 +43,7 @@
 		var data = {
 				'role_id': '${roleid}','nodes':nodejson
 		}
-		utile.ajaxSubmit({"url":webroot+"/admin/system/role/setPermission.json",data:data}, function(data) {
+		utile.ajaxSubmit({"url":webrootAdmin+"/system/role/setPermission.json",data:data}, function(data) {
 			if (data.code == '200') {
 				var index = parent.layer.getFrameIndex(window.name);
 				parent.layer.close(index);

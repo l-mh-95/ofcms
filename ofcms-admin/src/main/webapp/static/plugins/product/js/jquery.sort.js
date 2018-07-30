@@ -11,7 +11,7 @@ function intProvince() {
     var data = {'up_column_id': '0'};
     //请求一级目录
     utile.ajaxSubmit({
-        "url": webroot + "/admin/cms/column/query.json",
+        "url": webrootAdmin + "/cms/column/query.json",
         "data": data, 'layer': false
     }, function (result) {
         var areaCont = "";
@@ -28,7 +28,7 @@ function selectP(p,formId) {
     var areaCont = "";
     var data = {'up_column_id': p};
     utile.ajaxSubmit({
-        "url": webroot + "/admin/cms/column/query.json",
+        "url": webrootAdmin + "/cms/column/query.json",
         "data": data, 'layer': false
     }, function (result) {
         $.each(result.data, function (index, value) {
@@ -56,7 +56,7 @@ function selectC(p,formId) {
     expressC = "";
     var data = {'up_column_id': p};
     utile.ajaxSubmit({
-        "url": webroot + "/admin/cms/column/query.json",
+        "url": webrootAdmin + "/cms/column/query.json",
         "data": data, 'layer': false
     }, function (result) {
         $.each(result.data, function (index, value) {
