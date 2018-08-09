@@ -28,7 +28,7 @@
 		 	 create_time,
 		 	 update_time
 	from
-		  of_cms_announce where  status = '1' and  site_id = #para(site_id)  order by sort desc
+		  of_cms_announce where  status = '1' and  site_id = #para(site_id)  order by sort asc
 #end
 
 #sql("detail")
