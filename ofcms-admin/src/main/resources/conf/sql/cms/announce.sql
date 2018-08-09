@@ -17,7 +17,20 @@
 	#if (title?? ) and title like concat ('%',#para(title),'%' )#end
 	#if (sort?? && field) order by order_field order_sort  #else order by id desc #end
 #end
- 
+
+#sql("front_query")
+	select
+			 id,
+		 	 title,
+		 	 content,
+		 	 type,
+		 	 release_terminal,
+		 	 create_time,
+		 	 update_time
+	from
+		  of_cms_announce where  status = '1' and  site_id = #para(site_id)  order by sort desc
+#end
+
 #sql("detail")
 	select 
 		 	 id,

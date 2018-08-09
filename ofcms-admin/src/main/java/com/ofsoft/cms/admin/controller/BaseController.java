@@ -10,9 +10,9 @@ import com.jfinal.weixin.sdk.api.ApiConfig;
 import com.jfinal.weixin.sdk.jfinal.ApiController;
 import com.jfinal.weixin.sdk.jfinal.ApiInterceptor;
 import com.jfinal.weixin.sdk.utils.JsonUtils;
+import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.RenderFactoryImpl;
 import com.ofsoft.cms.core.config.WeiXinConfig;
-import com.ofsoft.cms.core.constants.MobileConst;
 import com.ofsoft.cms.core.spring.IocInterceptor;
 import com.ofsoft.cms.core.utils.CalendarUtil;
 import com.ofsoft.cms.core.utils.ResultUtil;
@@ -207,7 +207,7 @@ public abstract class BaseController extends ApiController {
      * @return User
      */
     protected SysUser getUser() {
-        return (SysUser) getSession().getAttribute(MobileConst.USER_IN_SESSION);
+        return (SysUser) getSession().getAttribute(AdminConst.USER_IN_SESSION);
     }
 
     /**
@@ -247,7 +247,7 @@ public abstract class BaseController extends ApiController {
 
     protected void redirect500(String msg) {
         setAttr("error", msg);
-        super.render(MobileConst.ERROR_500);
+        super.render(AdminConst.ERROR_500);
     }
 
     protected void rendSuccessJson(Object data) {

@@ -37,7 +37,7 @@
 	from
 		  of_cms_ad where status = '1'  and  site_id = #para(site_id)
 	#if (edition?? ) and ad_edition = #para(edition)#end
-	#if (sort?? && field) order by order_field order_sort  #else order by sort_order desc #end
+	#if (sort?? && field) order by order_field order_sort  #else order by sort_order asc #end
 #end
 
 #sql("detail")

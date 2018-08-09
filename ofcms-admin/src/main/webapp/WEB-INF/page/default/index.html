@@ -4,24 +4,81 @@
     <div class="layui-carousel" id="banner">
         <div carousel-item="">
             <@of.ad site_id=site.site_id edition="banner">
-                <#list ad as data >
-                    <div><a href="${data.ad_jump_url!'javascript:;'}"><img src="${session.site.access_protocol}://${session.site.access_path}${data.ad_image_url}" alt="${data.ad_name}" style="width: 100%;"></a></div>
-                </#list>
-            </@of.ad>
-        </div>
+            <#list ad as data >
+                <div><a href="${data.ad_jump_url!'javascript:;'}"><img
+                        src="${session.site.access_protocol}://${session.site.access_path}${data.ad_image_url}"
+                        alt="${data.ad_name}" style="width: 100%;"></a></div>
+            </#list>
+           </@of.ad>
     </div>
 </div>
+</div>
 <div class="of-content">
+    <div class="of-crad" style="height: 250px;width: 1200px;margin: 0 auto;">
+        <!--新闻-->
+        <div class="announce" style="float: left;">
+            <p class="title">最新新闻</p>
+            <ul>
+                <li><span>2017-03-29</span>· <a href="/Info/9/2989/index.aspx" title="易点内容管理系统（DianCMS）多用户在线交流系统">易点内容管理系统（DianCMS）多用户在线交流系统</a>
+                </li>
+                <li><span>2017-03-27</span>· <a href="/Info/9/2988/index.aspx" title="易点CMS增加文件索引字段">易点CMS增加文件索引字段</a>
+                </li>
+                <li><span>2017-03-06</span>· <a href="/Info/9/2971/index.aspx" title="易点CMS  v6.0.0升级到v6.1.0方法">易点CMS
+                    v6.0.0升级到v6.1.0方法</a></li>
+                <li><span>2016-10-29</span>· <a href="/Info/9/2950/index.aspx" title="DianCMS后台管理目录如何更改">DianCMS后台管理目录如何更改</a>
+                </li>
+                <li><span>2016-06-18</span>· <a href="/Info/9/2935/index.aspx" title="易点CMS sql 版本 v5.3.0升级到v6.0.0方法">易点CMS
+                    sql 版本 v5.3.0升级到v6.0.0方法</a></li>
+            </ul>
+        </div>
+        <!--公告-->
+        <div class="announce">
+            <p class="title">系统公告</p>
+            <ul>
+                <li><span>2017-03-29</span>· <a href="/Info/9/2989/index.aspx" title="易点内容管理系统（DianCMS）多用户在线交流系统">易点内容管理系统（DianCMS）多用户在线交流系统</a>
+                </li>
+                <li><span>2017-03-27</span>· <a href="/Info/9/2988/index.aspx" title="易点CMS增加文件索引字段">易点CMS增加文件索引字段</a>
+                </li>
+                <li><span>2017-03-06</span>· <a href="/Info/9/2971/index.aspx" title="易点CMS  v6.0.0升级到v6.1.0方法">易点CMS
+                    v6.0.0升级到v6.1.0方法</a></li>
+                <li><span>2016-10-29</span>· <a href="/Info/9/2950/index.aspx" title="DianCMS后台管理目录如何更改">DianCMS后台管理目录如何更改</a>
+                </li>
+                <li><span>2016-06-18</span>· <a href="/Info/9/2935/index.aspx" title="易点CMS sql 版本 v5.3.0升级到v6.0.0方法">易点CMS
+                    sql 版本 v5.3.0升级到v6.0.0方法</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="of-crad" style="height: 370px;width: 1200px;margin: 0 auto;text-align: center;">
+        <img src="${reroot}/static/assets/image/app.png">
+    </div>
+    <div class="of-crad" style="height: 300px;width: 1200px;margin: 0 auto;">
+        <!--案例-->
+        <div class="case">
+            <p class="title">客户案例 Case</p>
+            <ul>
+                <li><a href="/Info/9/2989/index.aspx" ><img src="${reroot}/static/assets/image/cast01.png">易点内容管理系统（DianCMS）多用户在线交流系统</a></li>
+                <li><a href="/Info/9/2988/index.aspx" ><img src="${reroot}/static/assets/image/cast01.png">易点CMS增加文件索引字段</a></li>
+                <li><a href="/Info/9/2971/index.aspx" ><img src="${reroot}/static/assets/image/cast01.png">易点CMSv6.0.0升级到v6.1.0方法</a></li>
+                <li><a href="/Info/9/2950/index.aspx" ><img src="${reroot}/static/assets/image/cast01.png">DianCMS后台管理目录如何更改</a></li>
+                <li><a href="/Info/9/2935/index.aspx" ><img src="${reroot}/static/assets/image/cast01.png">易点CMSsql 版本 v5.3.0升级到v6.0.0方法</a></li>
+                <li><a href="/Info/9/2935/index.aspx" ><img src="${reroot}/static/assets/image/cast01.png">易点CMSsql 版本 v5.3.0升级到v6.0.0方法</a></li>
+                <li><a href="/Info/9/2935/index.aspx" ><img src="${reroot}/static/assets/image/cast01.png">易点CMSsql 版本 v5.3.0升级到v6.0.0方法</a></li>
+                <li><a href="/Info/9/2935/index.aspx" ><img src="${reroot}/static/assets/image/cast01.png">易点CMSsql 版本 v5.3.0升级到v6.0.0方法</a></li>
+            </ul>
+        </div>
 
+    </div>
     <div class="of-crad">
         <div class="of-crad-content">
             <div class="of-crad-title">关于我们 About</div>
-            <div class="of-crad-body">中天网络科技是一家专注于从事网站建设以及企业营销活动策划的创新型互联网服务公司。我们以“创新发展，合作共赢”为经营理念！为企业、政府以及广大互联网用户提供专业的服务和易用的产品。客户包括世界500强企业等实力雄厚的企业。中天科技这个建站品牌已经慢慢深入企业的认识中，建网站，中天科技！在新世纪里，中天网络科技将会在现有的基础上，为客户提供更全面、更优质的电子商务服务，为中国互联网走向世界贡献出自己的微薄之力！</div>
+            <div class="of-crad-body">
+                中天网络科技是一家专注于从事网站建设以及企业营销活动策划的创新型互联网服务公司。我们以“创新发展，合作共赢”为经营理念！为企业、政府以及广大互联网用户提供专业的服务和易用的产品。客户包括世界500强企业等实力雄厚的企业。中天科技这个建站品牌已经慢慢深入企业的认识中，建网站，中天科技！在新世纪里，中天网络科技将会在现有的基础上，为客户提供更全面、更优质的电子商务服务，为中国互联网走向世界贡献出自己的微薄之力！
+            </div>
         </div>
     </div>
 </div>
 <script>
-    layui.use(['carousel','element'], function () {
+    layui.use(['carousel', 'element'], function () {
         var carousel = layui.carousel;
         var element = layui.element;
         //图片轮播
@@ -30,8 +87,8 @@
             , width: '100%' //设置容器宽度
             , arrow: 'always' //始终显示箭头
             , height: '350px'
-            , autoplay:true
-            , full:false
+            , autoplay: true
+            , full: false
             , interval: 3000
         });
     });

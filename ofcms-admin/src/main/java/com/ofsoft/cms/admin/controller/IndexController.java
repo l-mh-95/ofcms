@@ -26,7 +26,6 @@ import java.util.Map;
 public class IndexController extends BaseController {
 	@ActionKey(value = "/admin/index")
 	public void index() {
-
 		render("/admin/index.html");
 	}
 

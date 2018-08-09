@@ -99,7 +99,7 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
 	/**
 	 * 将一些数据放到ShiroSession中,以便于其它地方使用
 	 * 
-	 * @deprecated  比如Controller,使用时直接用HttpSession.getAttribute(key)就可以取到
+	 *  比如Controller,使用时直接用HttpSession.getAttribute(key)就可以取到
 	 */
 	private void setSession(Object key, Object value) {
 		Subject currentUser = SecurityUtils.getSubject();
