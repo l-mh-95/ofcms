@@ -17,7 +17,9 @@ public class FreemarkerUtile {
         data.put("content",new ContentDirective());
         data.put("content_list",new ContentListDirective());
         data.put("ad",new AdDirective());
+        data.put("announce_list",new AnnounceListDirective());
         data.put("announce",new AnnounceDirective());
+        data.put("page",new PageDirective());
         return  data;
     }
 }

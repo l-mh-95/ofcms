@@ -93,6 +93,8 @@ select
 		 	t.remark
 	from
 		  of_cms_column t  where t.status = '1' and t.is_show = '1' and t.site_id = #para(site_id)
+		  #if (up_column_id?? ) and  t.up_column_id = #para(up_column_id)#end
+
 #end
 
 #sql("detail")
@@ -173,6 +175,7 @@ select
 			   column_content = #para(column_content), 
 			   column_image = #para(column_image), 
 			   template_path = #para(template_path),
+			   column_content_page = #para(column_content_page),
 			   is_show = #para(is_show),
 			   sort = #para(sort), 
 			   upate_time = now()

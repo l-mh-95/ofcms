@@ -7,8 +7,8 @@ import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.render.JsonRender;
 import com.jfinal.weixin.sdk.utils.JsonUtils;
+import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.RenderFactoryImpl;
-import com.ofsoft.cms.core.constants.MobileConst;
 import com.ofsoft.cms.core.spring.IocInterceptor;
 import com.ofsoft.cms.core.utils.CalendarUtil;
 import com.ofsoft.cms.core.utils.ResultUtil;
@@ -36,7 +36,7 @@ public abstract class BaseController extends Controller {
 	 */
 	private static ThreadLocal<Map<String, Object>> params = new ThreadLocal<Map<String, Object>>();
 
-	public String getPara() {
+	public String getParaString() {
 		return HttpKit.readData(getRequest());
 	}
 
@@ -135,7 +135,7 @@ public abstract class BaseController extends Controller {
 	 * @return User
 	 */
 	protected SysUser getUser() {
-		return (SysUser) getSession().getAttribute(MobileConst.USER_IN_SESSION);
+		return (SysUser) getSession().getAttribute(AdminConst.USER_IN_SESSION);
 	}
 
 	/**
@@ -176,7 +176,7 @@ public abstract class BaseController extends Controller {
 
 	protected void redirect500(String msg) {
 		setAttr("error", msg);
-		super.render(MobileConst.ERROR_500);
+		super.render(AdminConst.ERROR_500);
 	}
 
 	protected void rendSuccessJson(Object data) {

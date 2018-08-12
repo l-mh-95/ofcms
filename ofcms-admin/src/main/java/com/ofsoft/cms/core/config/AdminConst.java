@@ -27,6 +27,7 @@ public final class AdminConst {
 	public final static String WEIXIN_CONFIG = "conf/weixin.sdk.properties";
 	public final static String STRING_CONFIG = "classpath:conf/applicationContext.xml";
 	public final static String ERROR_500 = "/comn/500.html";
+	public final static String ERROR_404 = "/comn/404.html";
 	public final static String DEF = "1";
 	/** 业务缓存名 */
 	public final static String API = "api";

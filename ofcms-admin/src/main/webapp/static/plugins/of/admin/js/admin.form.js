@@ -97,7 +97,7 @@ layui.define(['layer',"admin.common","form",'laydate',"admin.config",'layedit'],
 		//lay编辑器设置
     layedit.set({
       uploadImage: {
-        url: $.result(adminConfig,"global.editUrl") //接口url
+        url: $.result(adminConfig,"global.servletUrl")+$.result(adminConfig,"global.editUrl") //接口url
         ,type: 'post' //默认post
       }
     });

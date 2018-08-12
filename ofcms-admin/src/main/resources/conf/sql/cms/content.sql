@@ -40,6 +40,7 @@ where
 #sql("list")
   select
 			 t.content_id,
+			 c.column_english,
 		 	 t.template_path,
 		 	 t.content_url,
 		 	 t.title_name,
@@ -51,11 +52,20 @@ where
 		 	 t.check_status,
 		 	 t.remark
 	from
-		  of_cms_content t  where t.status = '1' and t.site_id = #para(site_id)
-	#if (column_id?? ) and  t.column_id = #para(column_id) #end
+		  of_cms_content t left join of_cms_column c on t.column_id = c.column_id where t.status = '1' and t.site_id = #para(site_id)
+	#if (column_id?? ) and  t.column_id in (#(column_id)) #end
 	#if (title_name?? ) and  t.title_name like concat ('%',#para(title_name),'%')#end
 	#if (sort?? && field) order by order_field order_sort  #else order by t.content_id desc #end
 #end
+
+#sql("column_name")
+select
+			t.column_id
+	from
+		  of_cms_column t  where t.status = '1' and t.site_id = #para(site_id)  and t.column_english in (#para(column_name))
+#end
+
+
 #sql("detail")
 	select 
 		 	 content_id,
@@ -140,6 +150,12 @@ insert into of_cms_content_field(content_id,form_id,name,value)values(#para(cont
 			   check_status = #para(check_status), 
 			   status = #para(status), 
 			   remark = #para(remark) 
+	where  content_id  = #para(content_id)
+#end
+#sql("front_update")
+	update
+		of_cms_content set
+			   clicks = (clicks + 1)
 	where  content_id  = #para(content_id)
 #end
  

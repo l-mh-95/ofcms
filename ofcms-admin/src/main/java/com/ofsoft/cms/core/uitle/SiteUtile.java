@@ -79,4 +79,18 @@ public class SiteUtile {
 
         return Db.findFirst(Db.getSqlPara("cms.column.front_column",column));
     }
+
+    public static String getTemplatePath(String templatePath, String defulatPath) {
+        if (templatePath == null) {
+            templatePath = defulatPath;
+        } else {
+            if (!templatePath.startsWith("/")) {
+                templatePath = "/" + templatePath;
+            }
+            if (!templatePath.endsWith(".html")) {
+                templatePath = templatePath + ".html";
+            }
+        }
+        return templatePath;
+    }
 }

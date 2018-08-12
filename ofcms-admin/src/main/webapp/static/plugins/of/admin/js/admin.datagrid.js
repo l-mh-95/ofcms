@@ -375,7 +375,7 @@ layui.define(["admin.common","table",'laypage','admin.config','form','admin.butt
         	var funcNO = _this.attr("funcNo");
             var url = _this.attr("url");//请求url
             if($.isEmpty(funcNO) && $.isEmpty(url)){
-            	adminCommon.warnMsg("功能号或请求地址为空！");
+            	adminCommon.warnMsg("请求地址为空！");
               return;
             }
             if($.isEmpty(url)){

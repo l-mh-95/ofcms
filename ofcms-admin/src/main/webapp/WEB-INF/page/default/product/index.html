@@ -1,0 +1,35 @@
+<#include "default/common/head.html" />
+<link rel="stylesheet" href="${reroot}/static/assets/css/product.css" media="all">
+<div class="of-banner">
+    <div class="layui-carousel" id="test">
+        <div carousel-item="">
+            <img src="${reroot}/static/assets/image/product.jpg"  >
+        </div>
+    </div>
+</div>
+    <div class="of-content">
+        <div class="of-crad" style="height: 300px;width: 900px;margin: 0 auto;">
+            <h2 class="content-title"> ${content.title_name}</h2>
+            <div class="content-txt">${columns.column_content}</div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+<script>
+    layui.use(['carousel','element'], function () {
+        var carousel = layui.carousel;
+        var element = layui.element;
+        //图片轮播
+        carousel.render({
+            elem: '#test'
+            , width: '100%' //设置容器宽度
+            , arrow: 'always' //始终显示箭头
+            , height: '250px'
+            , autoplay:true
+            , full:false
+            , interval: 3000
+        });
+
+    });
+</script>
+</body>
+</html>

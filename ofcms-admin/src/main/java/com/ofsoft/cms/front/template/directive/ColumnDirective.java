@@ -2,8 +2,6 @@ package com.ofsoft.cms.front.template.directive;
 
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
-import com.ofsoft.cms.admin.controller.system.SystemUtile;
-import com.ofsoft.cms.admin.domain.TreeGird;
 import com.ofsoft.cms.front.template.freemarker.TagBase;
 
 import java.util.HashMap;
@@ -22,9 +20,10 @@ public class ColumnDirective extends TagBase {
     public void onRender() {
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("site_id", getParam("site_id"));
+        params.put("up_column_id", getParam("parent_id","0"));
         List <Record> list = Db.find(Db.getSqlPara(sqlid,params));
-        List<TreeGird> result = SystemUtile.ColumnTree(list,parent);
-        setVariable("column", result);
+//        List<TreeGird> result = SystemUtile.ColumnTree(list,parent);
+        setVariable("column", list);
         renderBody();
     }
 }
