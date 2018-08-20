@@ -109,8 +109,21 @@ layui.use(['layim','admin.menu','layer','admin.tab','admin.common'], function(){
             $(this).addClass("layui-this");
         }
     });
-	
-	/**
+    $(".open").on("click",	function() {
+        var _this =  $(this);
+        var _url = _this.attr("topUrl");
+        if ($.isEmpty(_url)) {
+            adminCommon.warnMsg("url地址为空！");
+            return false;
+        }
+        var _title = _this.attr("topTitle");
+        var _width = _this.attr("topWidth");
+        var _height = _this.attr("topHeight");
+        var isMaximize = _this.attr("isMaximize");
+        adminCommon.open(_title, _width, _height, _url, null, isMaximize);
+
+    })
+    /**
 	 * 右边菜单
 	 */
 	$.contextMenu({
@@ -188,7 +201,60 @@ layui.use(['layim','admin.menu','layer','admin.tab','admin.common'], function(){
 		});
 		
 	});
-	//演示自动回复
+    // 判断是否显示锁屏
+    if(window.sessionStorage.getItem("isLock") == "true"){
+        lockPage();
+    }
+    //锁屏
+    $('#lockScreen').on('click',function lockScreen(){
+        window.sessionStorage.setItem("isLock",true);
+        lockPage();
+    });
+    function lockPage() {
+        layer.open({
+            title : false,
+            area: ['1980', '1080'],
+            type : 1,
+            content : '<div class="admin-header-lock" id="lock-box"><div class="admin-header-lock-img"><img src="'+webroot+'/static/assets/image/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"  class="layui-nav-img userAvatar"></div><div class="input_btn"><input type="password" class="admin-header-lock-input layui-input" autocomplete="off" placeholder="请输入密码解锁.." name="lockPwd" id="lockPwd"><button class="layui-btn" id="unlock">解锁</button></div><p>请输入“123456”，否则不会解锁成功哦！！！</p></div>',
+            closeBtn : 0,
+            shade : 0.9
+        })
+        $(".admin-header-lock-input").focus();
+    }
+    // 解锁
+    $("body").on("click","#unlock",function(){
+        if($(this).siblings(".admin-header-lock-input").val() == ''){
+            layer.msg("请输入解锁密码!", {icon: 5,time: 2000,offset: '100px'} );
+            $(this).siblings(".admin-header-lock-input").focus();
+        }else{
+            //验证密码是否正确
+            if($(this).siblings(".admin-header-lock-input").val() == "123456"){
+                window.sessionStorage.setItem("isLock",false);
+                $(this).siblings(".admin-header-lock-input").val('');
+                layer.closeAll("page");
+            }else{
+                layer.msg("密码错误，请重新输入！",{icon: 5,time: 2000,offset: '100px'} );
+                $(this).siblings(".admin-header-lock-input").val('').focus();
+            }
+        }
+    });
+    $(document).on('keydown', function() {
+        if(event.keyCode == 13) {
+            $("#unlock").click();
+        }
+    });
+
+    //打赏作者
+    $('#reward').on('click', function() {
+        layer.open({
+            title: '',
+            type: 1,
+            area: ['600px', '448px'], //宽高
+            content: '<img src="'+webroot +'/static/assets/image/reward.png">'
+        });
+    });
+
+    //演示自动回复
 	  var autoReplay = [
 	    '您好，我现在有事不在，一会再和您联系。', 
 	    '你没发错吧？face[微笑] ',

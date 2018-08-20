@@ -42,8 +42,14 @@
 
 			<!-- top right  -->
 			<ul class="layui-nav layui-layout-right">
-			<li class="layui-nav-item"><a target="_blank" href="${session.site.access_protocol}://${session.site.access_path}" ><i class="layui-icon">&#xe68e;</i>网站首页</a></li>
-			<li class="layui-nav-item"><a href="javascript:;" id="notic">通知</a></li>
+
+				<li class="layui-nav-item" lay-unselect>
+					<a href="javascript:;" id = "reward">捐赠作者</a>
+				</li>
+				<li class="layui-nav-item" lay-unselect>
+					<a href="javascript:;" id = "lockScreen"><i class="fa fa-lock"></i>锁屏</a>
+				</li>
+				<li class="layui-nav-item"><a target="_blank" href="${session.site.access_protocol}://${session.site.access_path}" ><i class="layui-icon">&#xe68e;</i>网站首页</a></li>
 			<li class="layui-nav-item"><a href="javascript:;">选择站点</a>
 					<dl class="layui-nav-child">
 						<#list system_util.getSitCache()  as data>
@@ -127,50 +133,6 @@
 			element = layui.element,tab =  layui['admin.tab'] ;
 			layer.msg('欢迎光临!');
 		});
-		
-		var socket = new WebSocket('ws://localhost:9999/websocket'); 
-        //创建Socket 
-        var data = {'user_id':'1','trans_code':'1000'};
-        var natindex = 0;
-        socket.onopen = function(event) { 
-          console.log("WebSocket:已连接");  
-          //向服务器发送数据
-          send(data);
-          //接收数据事件
-          socket.onmessage = function(event) {
-        	  var data = JSON.parse(event.data);
-        	  if(data.msg_type =="1"){
-        		  ++natindex;
-        		  var str = "通知<span class='layui-badge'>"+natindex+"</span></span>";
-        		  $("#notic").html(str);
-        	  }else{
-        		  
-        	  }
-              console.log("WebSocket:收到一条消息-norm", data);  
-              layer.msg("收到一条消息"+event.data);  
-          }; 
-          // socket关闭事件
-          socket.onclose = function(event) {
-            console.log("WebSocket:已关闭");  
-          }; 
-          socket.onerror = function(event) {  
-              console.log("WebSocket:发生错误 ");  
-          };  
-          socket.onclose = function(event) {  
-              console.log("WebSocket:已关闭");  
-              console.log(event);  
-          }  
-          //关闭socket
-          //socket.close()
-        };
-        function send(obj){
-        	socket.send(JSON.stringify(obj)); 
-        }
-
-        function reset(){
-            document.getElementById("content").value="";
-        }
-        
 	</script>
 </body>
 </html>

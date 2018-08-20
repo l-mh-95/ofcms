@@ -15,7 +15,6 @@ import com.jfinal.template.Engine;
 import com.jfinal.weixin.sdk.api.ApiConfigKit;
 import com.ofsoft.cms.admin.controller.system.SystemUtile;
 import com.ofsoft.cms.admin.service.meesage.MsgWebSocketServer;
-import com.ofsoft.cms.core.constants.MobileConst;
 import com.ofsoft.cms.core.handler.ActionHandler;
 import com.ofsoft.cms.core.handler.WebSocketHandler;
 import com.ofsoft.cms.core.plugin.quartz.QuartzPlugin;
@@ -53,7 +52,7 @@ public final class JFWebConfig extends JFinalConfig {
     @Override
     public void configConstant(Constants me) {
         loadPropertyFile(AdminConst.ADMIN_CONFIG);
-        PropKit.use(MobileConst.WEIXIN_CONFIG);
+        PropKit.use(AdminConst.WEIXIN_CONFIG);
         PropKit.use(AdminConst.ADMIN_CONFIG);
         me.setEncoding("UTF-8");
         me.setI18nDefaultBaseName("i18n");
@@ -110,9 +109,9 @@ public final class JFWebConfig extends JFinalConfig {
         // 缓存插件
         ShiroPlugin shiroPlugin = new ShiroPlugin(route);
         shiroPlugin.setExtName(".html");
-        shiroPlugin.setLoginUrl("/login.html");
-        shiroPlugin.setSuccessUrl("/comn/404.html");
-        shiroPlugin.setUnauthorizedUrl("/comn/500.html");
+        shiroPlugin.setLoginUrl(AdminConst.loginHtml);
+        shiroPlugin.setSuccessUrl(AdminConst.indexHtml);
+        shiroPlugin.setUnauthorizedUrl(AdminConst.loginHtml);
         me.add(shiroPlugin);
         // 缓存插件
         me.add(new EhCachePlugin());

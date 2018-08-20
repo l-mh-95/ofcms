@@ -3,7 +3,6 @@ package com.ofsoft.cms.front.controller;
 import com.jfinal.core.ActionKey;
 import com.jfinal.plugin.activerecord.Record;
 import com.ofsoft.cms.core.annotation.Action;
-import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.FrontConst;
 import com.ofsoft.cms.core.uitle.SiteUtile;
 
@@ -47,27 +46,37 @@ public class IndexController extends BaseController {
         params.put("column_english", page);
         params.put("page", page);
         Record record = SiteUtile.getColumn(params);
+        String isContent = getPara(1);
         if(record == null){
-            render(AdminConst.ERROR_404);
+            setAttr("params", params);
+            if("c".equals(isContent)){
+                params.put("content_id", getParaToInt(2,0));
+
+                render(FrontConst.TEMPLATE_PATE + SiteUtile.getTemplatePath() + "/article.html");
+                return ;
+            }
+            int pageNum = getParaToInt(1, 1);
+            setAttr("pageNum", pageNum);
+            render(FrontConst.TEMPLATE_PATE + SiteUtile.getTemplatePath() + "/list.html");
             return ;
         }
         setAttr("columns", record);
         setAttr("params", params);
         //是否是单页
-        if("1".equals(record.get("is_open","0"))){
-            String templatePath =  SiteUtile.getTemplatePath(record.getStr("column_content_page"),"/article.html");
+        if("1".equals(record.get("is_open","1"))){
+            String templatePath =  SiteUtile.getTemplatePath(record.getStr("template_path"),"/sing.html");
             render(FrontConst.TEMPLATE_PATE + SiteUtile.getTemplatePath() + templatePath);
             return;
         }
         //是否是内容
-        String isContent = getPara(1);
+
         if("c".equals(isContent)){
             params.put("content_id", getParaToInt(2,0));
             String templatePath = SiteUtile.getTemplatePath(record.getStr("column_content_page"),"/article.html");
             render(FrontConst.TEMPLATE_PATE + SiteUtile.getTemplatePath() + templatePath);
             return;
         }
-        //当前页码
+        //当前页码 栏目页
         int pageNum = getParaToInt(1, 1);
         setAttr("pageNum", pageNum);
         String templatePath = SiteUtile.getTemplatePath(record.getStr("template_path"),"/list.html");

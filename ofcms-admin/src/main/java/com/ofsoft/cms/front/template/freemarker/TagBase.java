@@ -365,7 +365,7 @@ public abstract class TagBase implements TemplateDirectiveModel {
      * @return
      */
     public  int getPageNum() {
-        return getGlobalVarInt("pageNum", 1);
+         return getGlobalVarInt("pageNum", 1);
     }
     /**
      * 获取全局参数

@@ -8,14 +8,14 @@ import org.apache.shiro.subject.Subject;
 
 /**
  * shiro 工具类
- * 
+ *
  * @author OF
- * 
+ *
  */
 public class ShiroUtils {
 	/**
 	 * 返回当前登录的认证实体AdminId
-	 * 
+	 *
 	 * @return
 	 */
 	public static String getLoginAdminId() {
@@ -27,7 +27,7 @@ public class ShiroUtils {
 
 	/**
 	 * 返回当前登录的认证实体Admin
-	 * 
+	 *
 	 * @return
 	 */
 	public static SysUser getLoginAdmin() {
@@ -40,7 +40,7 @@ public class ShiroUtils {
 
 	/**
 	 * 获取当前登录的Admin认证实体
-	 * 
+	 *
 	 * @return
 	 */
 	public static ShiroPrincipal getAdminPrincipal() {
@@ -50,7 +50,7 @@ public class ShiroUtils {
 
 	/**
 	 * 获取当前认证Admin实体的中文名称
-	 * 
+	 *
 	 * @return
 	 */
 	public static String getAdminFullname() {
@@ -62,7 +62,7 @@ public class ShiroUtils {
 
 	/**
 	 * 获取当前认证Admin实体的登录名称
-	 * 
+	 *
 	 * @return
 	 */
 	public static String getLoginAdminName() {

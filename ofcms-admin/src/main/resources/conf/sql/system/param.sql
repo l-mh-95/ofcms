@@ -87,4 +87,10 @@
 			   remark = #para(remark) 
 	where  param_id  = #para(param_id)
 #end
+#sql("update_param_name")
+	update
+		of_sys_param set
+			   param_value = #para(param_value)
+	where  param_name  = #para(param_name)
+#end
  

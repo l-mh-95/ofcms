@@ -67,4 +67,10 @@
 #end
 #namespace("cms.recover")
 	#include("cms/recover.sql")
+#end#namespace("cms.bbs")
+	#include("cms/bbs.sql")
+#end#namespace("cms.topic")
+	#include("cms/topic.sql")
+#end#namespace("cms.single")
+	#include("cms/single.sql")
 #end

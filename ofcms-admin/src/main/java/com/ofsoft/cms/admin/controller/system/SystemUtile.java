@@ -1,6 +1,7 @@
 package com.ofsoft.cms.admin.controller.system;
 
 import com.jfinal.core.JFinal;
+import com.jfinal.kit.Kv;
 import com.jfinal.kit.PathKit;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.Db;
@@ -10,6 +11,7 @@ import com.jfinal.render.FreeMarkerRender;
 import com.ofsoft.cms.admin.domain.TreeGird;
 import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.ShiroUtils;
+import com.ofsoft.cms.core.plugin.shiro.ShiroKit;
 import com.ofsoft.cms.core.plugin.shiro.freemarker.ShiroTags;
 import com.ofsoft.cms.core.utils.Tools;
 import freemarker.template.Configuration;
@@ -32,6 +34,8 @@ public class SystemUtile {
     public final static String DEFAULT_ADMIN = "admin";
     public final static String COLUMN_BASE = "/column/";
     public final static String FRONT_SUFFIX = ".html";
+    public final static String INDEX = "index.html";
+    public final static String INDEX2 = "index2.html";
 
     /**
      * 是否是管理员
@@ -117,8 +121,8 @@ public class SystemUtile {
      * @param paramName 参数名
      *                  <p>
      *                  <pre>
-     *                                                                                                                                                                                                                              系统启动时自动加载数据
-     *                                                                                                                                                                                                                              </pre>
+     *                                                                                                                                                                                                                                                                                                                                                                                                        系统启动时自动加载数据
+     *                                                                                                                                                                                                                                                                                                                                                                                                        </pre>
      */
     public static String getParam(String paramName) {
         List<Record> list = getCache(AdminConst.SYSTEM, AdminConst.SYSTEM_PARAM);
@@ -133,7 +137,9 @@ public class SystemUtile {
         }
         return "";
     }
-
+    public static void setParam(String key, String value) {
+        Db.update(Db.getSqlPara("system.param.update_param_name", Kv.by("param_name",key).set("param_value",value)));
+    }
     /**
      * 获取某个参数
      *
@@ -182,6 +188,8 @@ public class SystemUtile {
         initParam();
         // 缓存站点
         initSite();
+        String index = getParam("index");
+        SystemUtile.initAdminIndex(index);
     }
 
     /**
@@ -215,7 +223,7 @@ public class SystemUtile {
         Configuration cf = FreeMarkerRender.getConfiguration();
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("webroot", JFinal.me().getContextPath());
-        map.put("reroot", JFinal.me().getContextPath() +  "/static" );
+        map.put("reroot", JFinal.me().getContextPath() + "/static");
         map.put("http_image_url", SystemUtile.getParam("http_image_url"));
         map.put("system", SystemUtile.getParamGroup("system"));
         try {
@@ -366,4 +374,29 @@ public class SystemUtile {
         }
         return result;
     }
+
+    /**
+     * 设置首页界面
+     *
+     * @param index
+     */
+    public static void initAdminIndex(String index) {
+        if (index.equals(INDEX)) {
+            AdminConst.indexHtml = "/admin/index.html";
+            AdminConst.loginHtml = "/admin/login.html";
+            ShiroKit.setLoginUrl(AdminConst.loginHtml);
+            ShiroKit.setSuccessUrl(AdminConst.indexHtml);
+            ShiroKit.setUnauthorizedUrl(AdminConst.loginHtml);
+            setParam("index",index);
+        } else {
+            AdminConst.indexHtml = "/admin/index2.html";
+            AdminConst.loginHtml = "/admin/login2.html";
+            ShiroKit.setLoginUrl(AdminConst.loginHtml);
+            ShiroKit.setSuccessUrl(AdminConst.indexHtml);
+            ShiroKit.setUnauthorizedUrl(AdminConst.loginHtml);
+            setParam("index",index);
+        }
+    }
+
+
 }

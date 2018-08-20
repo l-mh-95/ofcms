@@ -1,224 +1,353 @@
-<!DOCTYPE html>
-<html lang="zh">
-
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<!--<link rel="stylesheet" href="./main.css" />-->
-		<title>Document</title>
-	</head>
+ <#include "admin/template/page/head_lib.html">
+<script type="text/javascript"
+	src="${webroot}/static/plugins/echarts/echarts.min.js"></script>
 	<style>
-		* {
-			margin: 0;
-			padding: 0;
-			list-style: none;
-		}
-		
-		.box {
-			width: 90%;
-			/*margin: 0 auto;*/
-			padding-left: 30px;
-			padding-top: 50px;
-			padding-bottom: 50px;
-		}
-		
-		.content_1,
-		.content_2 {
-			overflow: hidden;
-		}
-		
-		.content_1 .cont1 {
-			width: 48%;
-			/*height: 200px;*/
-			border: solid 1px #ddd;
-			float: left;
-		}
-		
-		.content_1 .cont1 .title {
-			height: 40px;
-			line-height: 40px;
-			border-bottom: solid 1px #ddd;
-			font-size: 18px;
-			padding-left: 20px;
-		}
-		
-		.content_1 .cont1 .status_div {
-			overflow: hidden;
-			text-align: center;
-			padding-bottom: 15px;
-		}
-		
-		.content_1 .cont1 .status_div .div1,
-		.content_1 .cont1 .status_div .div2,
-		.content_1 .cont1 .status_div .div3,
-		.content_1 .cont1 .status_div .div4,
-		.content_1 .cont1 .status_div .div5 {
-			float: left;
-			width: 190px;
-			height: 60px;
-			background-color: #f8f8f8;
-			padding-left: 15px;
-			margin-top: 15px;
-			margin-left: 20px;
-			padding-top: 10px;
-			box-sizing: border-box;
-			color: #999;
-			font-size: 14px;
-		}
-		
-		.content_1 .cont1 .status_div span {
-			color: #009688;
-			font-size: 20px;
-		}
-		
-		.content_1 .cont2 {
-			width: 48%;
-			height: 200px;
-			border: solid 1px #ddd;
-			float: left;
-			margin-left: 15px;
-			box-sizing: border-box;
-		}
-		
-		.content_1 .cont2 .title {
-			height: 40px;
-			line-height: 40px;
-			border-bottom: solid 1px #ddd;
-			font-size: 18px;
-			padding-left: 20px;
-		}
-		
-		.content_1 .cont2 .status_div {
-			padding-top: 10px;
-			padding-left: 20px;
-			box-sizing: border-box;
-		}
-		
-		.content_1 .cont2 .status_div li {
-			margin-top: 10px;
-			color: #666;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-		.content_1 .cont2 .status_div li span{
-			color:blue;
-		}
-		
-		.content_2 {
-			margin-top: 50px;
-		}
-		
-		.content_2 .cont4 {
-			width: 48%;
-			height: 500px;
-			border: solid 1px #ddd;
-			float: left;
-		}
-		
-		.content_2 .cont4>div {
-			width: 100%;
-		}
-		
-		.content_2 .cont5 {
-			width: 48%;
-			height: 500px;
-			border: solid 1px #ddd;
-			float: left;
-			margin-left: 15px;
-		}
-		
-		.content_2 .cont5>div {
-			width: 100%;
-		}
+	.layui-col-space15 {
+    margin: 0px;
+}
 	</style>
-	<script type="text/javascript" src="${webroot}/static/plugins/echarts/echarts.min.js"></script>
-
-	<body>
-		<section class='box'>
-			<div class="content_1">
-				<div class="cont1">
-					<p class='title'>待办事项</p>
-					<div class="status_div">
-						<div class="div1">待支付<br><span></span></div>
-						<div class="div2">待发货<br><span></span></div>
-						<div class="div3">待收货<br><span></span></div>
-						<div class="div4">已完成<br><span></span></div>
-						<div class="div5">已取消<br><span></span></div>
+<body>
+	<div class="layui-fluid">
+		<div class="layui-row layui-col-space15">
+			<div class="layui-col-sm6 layui-col-md3">
+				<div class="layui-card">
+					<div class="layui-card-header">
+						访问量 <span class="layui-badge layui-bg-blue layuiadmin-badge">周</span>
+					</div>
+					<div class="layui-card-body layuiadmin-card-list">
+						<p class="layuiadmin-big-font">9,999,666</p>
+						<p>
+							总计访问量 <span class="layuiadmin-span-color">88万 <i
+								class="layui-inline layui-icon layui-icon-flag">&#xe66c;</i></span>
+						</p>
 					</div>
 				</div>
-				<div class="cont2">
-					<p class='title'>通知公告</p>
-					<ol class="status_div">
-						<#list announce as data>
-							<li>
-								<span >${data.title}</span> &nbsp;&nbsp;&nbsp;&nbsp;${data.content}
-							</li>
-						</#list>
-					</ol>
+			</div>
+			<div class="layui-col-sm6 layui-col-md3">
+				<div class="layui-card">
+					<div class="layui-card-header">
+						下载 <span class="layui-badge layui-bg-cyan layuiadmin-badge">月</span>
+					</div>
+					<div class="layui-card-body layuiadmin-card-list">
+						<p class="layuiadmin-big-font">34,3,666</p>
+						<p>
+							总下载量 <span class="layuiadmin-span-color">88万 <i
+								class="layui-inline layui-icon layui-icon-flag">&#xe66c;</i></span>
+						</p>
+					</div>
 				</div>
 			</div>
-			<div class="content_2">
-				<div class="cont4" id='cont4'></div>
-				<div class="cont5" id='cont5'></div>
+			<div class="layui-col-sm6 layui-col-md3">
+				<div class="layui-card">
+					<div class="layui-card-header">
+						收入 <span class="layui-badge layui-bg-green layuiadmin-badge">年</span>
+					</div>
+					<div class="layui-card-body layuiadmin-card-list">
+						<p class="layuiadmin-big-font">66,666</p>
+						<p>
+							总计收入 <span class="layuiadmin-span-color">88万 <i
+								class="layui-inline layui-icon layui-icon-flag">&#xe659;</i></span>
+						</p>
+					</div>
+				</div>
 			</div>
-			<script type="text/javascript">
-				// 基于准备好的dom，初始化echarts实例
-				var myChart = echarts.init(document.getElementById('cont4'));
-				var user = "${user}";
-				// 指定图表的配置项和数据
-				var option = {
-					title: {
-						text: '用户人数统计',
-						left: 20,
-						top: 10
-					},
-					xAxis: {
-						type: 'category',
-						data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
-					},
-					yAxis: {
-						type: 'value'
-					},
-					series: [{
-						data: user,
-						type: 'line'
-					}]
-				};
+			<div class="layui-col-sm6 layui-col-md3">
+				<div class="layui-card">
+					<div class="layui-card-header">
+						用户 <span class="layui-badge layui-bg-orange layuiadmin-badge">日</span>
+					</div>
+					<div class="layui-card-body layuiadmin-card-list">
+						<p class="layuiadmin-big-font">33,666</p>
+						<p>
+							总计访问量 <span class="layuiadmin-span-color">88万 <i
+								class="layui-inline layui-icon layui-icon-flag">&#xe770;</i></span>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="layui-col-md9">
+				<div class="layui-card" style="clear: both;">
+					<div class="layui-card-header">产品动态</div>
+					<div class="layui-card-body">
+						<div class="layui-carousel layadmin-carousel layadmin-news"
+							data-autoplay="true" lay-arrow="none">
+							<div carousel-item >
+								<div class="layui-this" style="background-color: #ffffff" >
+									  <div id="axis" style="width: 800px;height:300px;"></div>
+								</div>
+								<div  style="background-color: #ffffff">
+									 <div id="vertical" style="width: 800px;height:300px;"></div>
+								</div>
+								<div  style="background-color: #ffffff">
+									 <div id="continuous" style="width: 800px;height:250px;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-col-sm12 layui-col-md3">
+				<div class="layui-card">
+					<div class="layui-card-header">
+						本周活跃用户排名  
+					</div>
+					<div class="layui-card-body layuiadmin-card-list">
+						<table class="layui-table layuiadmin-page-table" lay-skin="line">
+                  <thead>
+                    <tr>
+                      <th>用户名</th>
+                      <th>状态</th>
+                      <th>获得赞</th>
+                    </tr> 
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="first">胡歌</span></td>
+                      <td><span>在线</span></td>
+                      <td>22 <i class="layui-icon layui-icon-praise">&#xe6c6;</i></td>
+                    </tr>
+                    <tr>
+                      <td><span class="second">彭于晏</span></td>
+                      <td><span>在线</span></td>
+                      <td>21 <i class="layui-icon layui-icon-praise">&#xe6c6;</i></td>
+                    </tr>
+                    <tr>
+                      <td><span class="third">靳东</span></td>
+                      <td><i>离线</i></td>
+                      <td>66 <i class="layui-icon layui-icon-praise">&#xe6c6;</i></td>
+                    </tr>
+                    <tr>
+                      <td>吴尊</td>
+                      <td><i>离线</i></td>
+                      <td>45 <i class="layui-icon layui-icon-praise">&#xe6c6;</i></td>
+                    </tr>
+                    <tr>
+                      <td>许上进</td>
+                      <td><span>在线</span></td>
+                      <td>21 <i class="layui-icon layui-icon-praise">&#xe6c6;</i></td>
+                    </tr>
+                    <tr>
+                      <td>小蚊子</td>
+                      <td><i>在线</i></td>
+                      <td>45 <i class="layui-icon layui-icon-praise">&#xe6c6;</i></td>
+                    </tr>
+                  </tbody>
+                </table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		layui
+				.use(
+						[ 'layer', 'form', 'element', 'carousel',
+								"admin.tab" ],
+						function() {
+							var layer = layui.layer, carousel = layui.carousel, form = layui.form, element = layui.element, tab = layui['admin.tab'];
+							carousel.render({
+								elem : '.layadmin-news',
+								interval : 1800,
+								anim : 'fade',
+								autoplay : false,
+								arrow : 'none',
+								height : '260px',
+								width : '100%'
+							});
+						});
+		var myChart = echarts.init(document.getElementById('vertical'));
+		var option = {
+		    tooltip: {
+		        trigger: 'item',
+		        formatter: "{a} <br/>{b}: {c} ({d}%)"
+		    },
+		    legend: {
+		        orient: 'vertical',
+		        x: 'left',
+		        data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+		    },
+		    series: [
+		        {
+		            name:'访问来源',
+		            type:'pie',
+		            radius: ['50%', '70%'],
+		            avoidLabelOverlap: false,
+		            label: {
+		                normal: {
+		                    show: false,
+		                    position: 'center'
+		                },
+		                emphasis: {
+		                    show: true,
+		                    textStyle: {
+		                        fontSize: '30',
+		                        fontWeight: 'bold'
+		                    }
+		                }
+		            },
+		            labelLine: {
+		                normal: {
+		                    show: false
+		                }
+		            },
+		            data:[
+		                {value:335, name:'直接访问'},
+		                {value:310, name:'邮件营销'},
+		                {value:234, name:'联盟广告'},
+		                {value:135, name:'视频广告'},
+		                {value:1548, name:'搜索引擎'}
+		            ]
+		        }
+		    ]
+		};
+		// 使用刚指定的配置项和数据显示图表。
+		myChart.setOption(option);
+		
+		
+		myChart = echarts.init(document.getElementById('continuous'));
+		data = [["2000-06-05",116],["2000-06-06",129],["2000-06-07",135],["2000-06-08",86],["2000-06-09",73],["2000-06-10",85],["2000-06-11",73],["2000-06-12",68],["2000-06-13",92],["2000-06-14",130],["2000-06-15",245],["2000-06-16",139],["2000-06-17",115],["2000-06-18",111],["2000-06-19",309],["2000-06-20",206],["2000-06-21",137],["2000-06-22",128],["2000-06-23",85],["2000-06-24",94],["2000-06-25",71],["2000-06-26",106],["2000-06-27",84],["2000-06-28",93],["2000-06-29",85],["2000-06-30",73],["2000-07-01",83],["2000-07-02",125],["2000-07-03",107],["2000-07-04",82],["2000-07-05",44],["2000-07-06",72],["2000-07-07",106],["2000-07-08",107],["2000-07-09",66],["2000-07-10",91],["2000-07-11",92],["2000-07-12",113],["2000-07-13",107],["2000-07-14",131],["2000-07-15",111],["2000-07-16",64],["2000-07-17",69],["2000-07-18",88],["2000-07-19",77],["2000-07-20",83],["2000-07-21",111],["2000-07-22",57],["2000-07-23",55],["2000-07-24",60]];
 
-				// 使用刚指定的配置项和数据显示图表。
-				myChart.setOption(option);
-			</script>
-			<script type="text/javascript">
-				// 基于准备好的dom，初始化echarts实例
-				var myChart = echarts.init(document.getElementById('cont5'));
-				var orderMonth = "${order_month}";
-				// 指定图表的配置项和数据
-				var option = {
-					title: {
-						text: '文章统计',
-						left: 20,
-						top: 10
-					},
-					xAxis: {
-						type: 'category',
-						data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
-					},
-					yAxis: {
-						type: 'value'
-					},
-					series: [{
-						data: orderMonth,
-						type: 'bar'
-					}]
-				};
+		var dateList = data.map(function (item) {
+		    return item[0];
+		});
+		var valueList = data.map(function (item) {
+		    return item[1];
+		});
 
-				// 使用刚指定的配置项和数据显示图表。
-				myChart.setOption(option);
-			</script>
-		</section>
+		option = {
+			    title: {
+			        text: '折线图堆叠'
+			    },
+			    tooltip: {
+			        trigger: 'axis'
+			    },
+			    legend: {
+			        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+			    },
+			    grid: {
+			        left: '3%',
+			        right: '4%',
+			        bottom: '3%',
+			        containLabel: true
+			    },
+			    xAxis: {
+			        type: 'category',
+			        boundaryGap: false,
+			        data: ['周一','周二','周三','周四','周五','周六','周日']
+			    },
+			    yAxis: {
+			        type: 'value'
+			    },
+			    series: [
+			        {
+			            name:'邮件营销',
+			            type:'line',
+			            stack: '总量',
+			            data:[120, 132, 101, 134, 90, 230, 210]
+			        },
+			        {
+			            name:'联盟广告',
+			            type:'line',
+			            stack: '总量',
+			            data:[220, 182, 191, 234, 290, 330, 310]
+			        },
+			        {
+			            name:'视频广告',
+			            type:'line',
+			            stack: '总量',
+			            data:[150, 232, 201, 154, 190, 330, 410]
+			        },
+			        {
+			            name:'直接访问',
+			            type:'line',
+			            stack: '总量',
+			            data:[320, 332, 301, 334, 390, 330, 320]
+			        },
+			        {
+			            name:'搜索引擎',
+			            type:'line',
+			            stack: '总量',
+			            data:[820, 932, 901, 934, 1290, 1330, 1320]
+			        }
+			    ]
+			};
+		// 使用刚指定的配置项和数据显示图表。
+		myChart.setOption(option);
+		myChart = echarts.init(document.getElementById('axis'));
+		option = {
+			    title: {
+			        text: '未来一周气温变化',
+			        subtext: '纯属虚构'
+			    },
+			    tooltip: {
+			        trigger: 'axis'
+			    },
+			    legend: {
+			        data:['最高气温','最低气温']
+			    },
+			    xAxis:  {
+			        type: 'category',
+			        boundaryGap: false,
+			        data: ['周一','周二','周三','周四','周五','周六','周日']
+			    },
+			    yAxis: {
+			        type: 'value',
+			        axisLabel: {
+			            formatter: '{value} °C'
+			        }
+			    },
+			    series: [
+			        {
+			            name:'最高气温',
+			            type:'line',
+			            data:[11, 11, 15, 13, 12, 13, 10],
+			            markPoint: {
+			                data: [
+			                    {type: 'max', name: '最大值'},
+			                    {type: 'min', name: '最小值'}
+			                ]
+			            },
+			            markLine: {
+			                data: [
+			                    {type: 'average', name: '平均值'}
+			                ]
+			            }
+			        },
+			        {
+			            name:'最低气温',
+			            type:'line',
+			            data:[1, -2, 2, 5, 3, 2, 0],
+			            markPoint: {
+			                data: [
+			                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+			                ]
+			            },
+			            markLine: {
+			                data: [
+			                    {type: 'average', name: '平均值'},
+			                    [{
+			                        symbol: 'none',
+			                        x: '90%',
+			                        yAxis: 'max'
+			                    }, {
+			                        symbol: 'circle',
+			                        label: {
+			                            normal: {
+			                                position: 'start',
+			                                formatter: '最大值'
+			                            }
+			                        },
+			                        type: 'max',
+			                        name: '最高点'
+			                    }]
+			                ]
+			            }
+			        }
+			    ]
+			};
+		// 使用刚指定的配置项和数据显示图表。
+		myChart.setOption(option);
+	</script>
 
-	</body>
-
+</body>
 </html>

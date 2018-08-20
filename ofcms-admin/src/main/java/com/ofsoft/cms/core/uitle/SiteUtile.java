@@ -81,7 +81,7 @@ public class SiteUtile {
     }
 
     public static String getTemplatePath(String templatePath, String defulatPath) {
-        if (templatePath == null) {
+        if (templatePath == null || "".equals(templatePath)) {
             templatePath = defulatPath;
         } else {
             if (!templatePath.startsWith("/")) {

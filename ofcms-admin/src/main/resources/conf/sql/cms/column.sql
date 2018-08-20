@@ -22,7 +22,7 @@ select
 		 	t.status,
 		 	t.remark
 	from
-		  of_cms_column t left join of_cms_form f on t.form_id = f.form_id  where t.status = '1' and t.site_id = #para(site_id)
+		  of_cms_column t left join of_cms_form f on t.form_id = f.form_id  where t.status = '1' and t.is_show = '1' and t.site_id = #para(site_id)
 	#if (column_name?? ) and  t.column_name = #para(column_name)#end
 	#if (sort?? && field) order by order_field order_sort  #else order by t.sort asc #end
 #end
@@ -37,7 +37,7 @@ select
 		 	t.column_name,
 		 	t.remark
 	from
-		  of_cms_column t  where t.status = '1' and t.site_id = #para(site_id) and t.up_column_id =#para(up_column_id)
+		  of_cms_column t  where t.status = '1' and t.is_show = '1' and t.is_open != '1' and t.site_id = #para(site_id) and t.up_column_id =#para(up_column_id)
 	#if (column_name?? ) and  t.column_name = #para(column_name)#end
 	#if (sort?? && field) order by order_field order_sort  #else order by t.sort asc #end
 #end
@@ -51,6 +51,9 @@ select
 		 	t.column_name,
 		 	t.column_english,
 		 	t.template_path,
+		 	t.title,
+		 	t.keywords,
+		 	t.description,
 		 	t.column_desc,
 		 	t.content_url,
 		 	t.column_content,
@@ -113,6 +116,7 @@ select
 		 	 column_list_page,
 		 	 column_content_page,
 		 	 is_show,
+		 	 is_open,
 		 	 sort,
 		 	 create_time,
 		 	 upate_time,
@@ -135,7 +139,8 @@ select
 		 	 template_path,
 		 	 column_image,
 		 	 is_show,
-		 	 sort, 
+		 	 is_open,
+		 	 sort,
 		 	 create_time,
 		 	 status
 	) values(
@@ -150,7 +155,8 @@ select
 		 	 #para(template_path),
 		 	 #para(column_image),
 		 	 #para(is_show),
-		 	 #para(sort), 
+		 	 #para(is_open),
+		 	 #para(sort),
 		 	 now(),
 		 	 '1'
 	)
@@ -177,7 +183,8 @@ select
 			   template_path = #para(template_path),
 			   column_content_page = #para(column_content_page),
 			   is_show = #para(is_show),
-			   sort = #para(sort), 
+			   is_open = #para(is_open),
+			   sort = #para(sort),
 			   upate_time = now()
 	where  column_id  = #para(column_id)
 #end
