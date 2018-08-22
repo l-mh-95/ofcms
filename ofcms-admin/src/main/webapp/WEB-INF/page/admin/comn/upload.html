@@ -21,14 +21,14 @@
 <script>
 layui.use(['upload','layer','admin.config','admin.common'], function(){
   var upload = layui.upload,
-  fsConfig = layui['admin.config'],
+      adminConfig = layui['admin.config'],
   layer = layui.layer,
-  fsCommon = layui['admin.common'],
+  adminCommon = layui['admin.common'],
   isSelectFile = false,//是否选择文件，默认false
-  statusName = $.result(fsConfig,"global.result.statusName"),
-  msgName = $.result(fsConfig,"global.result.msgName"),
-  uploadUrl = $.result(fsConfig,"global.uploadUrl",""),
-  dataName = $.result(fsConfig,"global.result.dataName");
+  statusName = $.result(adminConfig,"global.result.statusName"),
+  msgName = $.result(adminConfig,"global.result.msgName"),
+  uploadUrl = $.result(adminConfig,"global.uploadUrl",""),
+  dataName = $.result(adminConfig,"global.result.dataName");
   
   var uploadFilePath = top.$('meta[name="uploadFilePath"]');
   if(uploadFilePath.length==0)
@@ -40,7 +40,7 @@ layui.use(['upload','layer','admin.config','admin.common'], function(){
   
   
   //获取参数
-  var paramUrl = fsCommon.getUrlParam();
+  var paramUrl = adminCommon.getUrlParam();
   
   var fileAccept,fileExts,fileSize;
   
@@ -54,7 +54,7 @@ layui.use(['upload','layer','admin.config','admin.common'], function(){
   delete paramUrl["fileParam"];
   
   //绑定默认按钮
-  fsCommon.buttionEvent();
+    adminCommon.buttionEvent();
   
   var loadIndex;
   
@@ -69,7 +69,7 @@ layui.use(['upload','layer','admin.config','admin.common'], function(){
     ,auto: false
     ,before: function(){
     	if(!isSelectFile){
-    		fsCommon.warnMsg("请选择文件！");
+            adminCommon.warnMsg("请选择文件！");
     		return;
     	}
     	
@@ -86,7 +86,7 @@ layui.use(['upload','layer','admin.config','admin.common'], function(){
     ,done: function(result){
 		layer.closeAll(loadIndex); //关闭loading
 		if(result[statusName] != "200"){
-			var filters = fsConfig["filters"];
+			var filters = adminConfig["filters"];
 		   	if(!$.isEmpty(filters)){
 	     	  var otherFunction = filters[result[statusName]];
 	      	  if($.isFunction(otherFunction)){
@@ -94,7 +94,7 @@ layui.use(['upload','layer','admin.config','admin.common'], function(){
 	      	      return;
 	     	   }
 		    }
-	   		fsCommon.errorMsg(result[msgName]);
+            adminCommon.errorMsg(result[msgName]);
 	   		return;
 		}
 		

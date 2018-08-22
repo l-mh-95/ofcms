@@ -2,13 +2,13 @@
 <#assign pannel_config>
 {       "page_config":{
 		"page_name":"代码生成",
-		"module_name":"cms/form"
+		"module_name":"cms/topic"
 		},
 		"queryform":{
 	          "form_id":"query_form",	
-	          "sqlid":"cms.form.query",
-	          "fields":[
-						 {"name":"form_name","type":"text","label":"表单名称","div_width":"200","placeholder":"请输入表单名称"}
+	          "sqlid":"cms.topic.query",
+	          "fields":[ {"name":"site_id","type":"hidden","value":"${session.site.site_id}"},
+						 {"name":"topic_name","type":"text","label":"专题名称","div_width":"200","placeholder":"请输入专题名称"}
 						], 
 			   "tab_buttons":[
 			  					 {"button_id":"s1","type":"submit","button_name":"查询" } 
@@ -20,22 +20,22 @@
 	            "is_page":"true",
 	            "width":"680px",
 	            "height":"500px",
-	            "inputs":"form_id",
-	            "delkey":"form_id",
-	            "del_sqlid":"cms.form.delete",
-	            "add_url":"cms/form/add.html",
-	            "edit_url":"cms/form/edit.html",
+	            "inputs":"topic_id",
+	            "delkey":"topic_id",
+	            "del_sqlid":"cms.topic.status",
+	            "add_url":"cms/topic/add.html",
+	            "edit_url":"cms/topic/edit.html",
 	            "columnlist":[
 					           	{"title":"#","field":"","sort":"","style":"","type":"numbers","fixed":"left"},
 					           	{"title":"","field":"","sort":"","style":"","checkbox":"true","fixed":"left"},
-							 	{"title":"表单编号","field":"form_id","width":"100" },
-							 	{"title":"表单名称","field":"form_name","width":"120" },
-							 	{"title":"表单描述","field":"form_desc","width":"120" },
-							 	{"title":"表单参数","field":"form_params","width":"120" },
+							 	{"title":"专题编号","field":"topic_id","width":"100" },
+							 	{"title":"专题名称","field":"topic_name","width":"120" },
+							 	{"title":"专题图标","field":"topic_image","width":"120" },
+							 	{"title":"专题模板","field":"topic_template","width":"120" },
 							 	{"title":"创建时间","field":"create_time","width":"160" },
 							 	{"title":"修改时间","field":"update_time","width":"160" },
-							 	{"title":"是否启用","field":"status","width":"100","dict":"is_start" },
-							 	{"title":"备注","field":"remark","width":"120" },
+							 	{"title":"排序","field":"sort","width":"100" },
+							 	{"title":"是否显示","field":"is_show","width":"100","dict":"is_show"  },
 								{"title":"操作","width":"210","align":"center","fixed":"right","toolbar":"#barTools"}
 							],
 			  "tab_buttons":[
@@ -45,7 +45,6 @@
 			    			],      
 			    "tools_buttons":[
 			    				{"tool_button_id":"t1","button_name":"查看","event":"detail","title":"查看","icon":"&#xe615;"},
-	                            {"tool_button_id":"t4","button_name":"字段管理","url":"cms/field/index.html","width":"880px","height":"550px","title":"字段管理"},
 			    				{"tool_button_id":"t2","button_name":"编辑","event":"edit","title":"编辑","icon":"&#xe642;"},
 			    				{"tool_button_id":"t3","button_name":"删除","event":"del","icon":"&#xe640;"}
 			    			]          

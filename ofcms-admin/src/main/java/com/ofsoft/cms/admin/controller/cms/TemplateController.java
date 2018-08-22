@@ -31,7 +31,7 @@ public class TemplateController extends BaseController {
         //上级目录
         String upDirName = getPara("up_dir","/");
         //类型区分
-        String resPath = getPara("res_path");
+            String resPath = getPara("res_path");
         //文件目录
         String dir = null;
         if(!"/".equals(upDirName)){
@@ -94,75 +94,11 @@ public class TemplateController extends BaseController {
                 setAttr("file_path", editFile);
             }
         }
-
-        render("/admin/cms/template/index.html");
-    }
-
-    /**
-     * 资源文件处理
-     */
-    public void getTemplateResource() {
-        //当前目录
-        String dirName = getPara("dir","");
-        //上级目录
-        String upDirName = getPara("up_dir","/");
-        //文件目录
-        String dir = null;
-        if(!"/".equals(upDirName)){
-              dir = upDirName+dirName;
+        if("res".equals(resPath)) {
+            render("/admin/cms/template/resource.html");
         }else{
-              dir = dirName;
+        render("/admin/cms/template/index.html");
         }
-        File pathFile = new File(SystemUtile.getSiteTemplateResourcePath(),dir);
-        File[] dirs = pathFile.listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File file) {
-                return file.isDirectory();
-            }
-        });
-        if(StringUtils.isBlank (dirName)){
-            upDirName = upDirName.substring(upDirName.indexOf("/"),upDirName.lastIndexOf("/"));
-        }
-        setAttr("up_dir_name",upDirName);
-        setAttr("up_dir","".equals(dir)?"/":dir);
-        setAttr("dir_name",dirName.equals("")?SystemUtile.getSiteTemplatePathName():dirName);
-        setAttr("dirs", dirs);
-        /*if (dirName != null) {
-            pathFile = new File(pathFile, dirName);
-        }*/
-        File[] files = pathFile.listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File file) {
-                return !file.isDirectory() && (file.getName().endsWith(".css") || file.getName().endsWith(".js"));
-            }
-        });
-        setAttr("files", files);
-        String fileName = getPara("file_name", "");
-        File editFile = null;
-        if (fileName != null && files != null && files.length > 0) {
-            for (File f : files) {
-                if (fileName.equals(f.getName())) {
-                    editFile = f;
-                    break;
-                }
-            }
-            if (editFile == null) {
-                editFile = files[0];
-                fileName = editFile.getName();
-            }
-        }
-
-        setAttr("file_name", fileName);
-        if (editFile != null) {
-            String fileContent = FileUtils.readString(editFile);
-            if (fileContent != null) {
-                fileContent = fileContent.replace("<", "&lt;").replace(">", "&gt;");
-                setAttr("file_content", fileContent);
-                setAttr("file_path", editFile);
-            }
-        }
-
-        render("/admin/cms/template/resource.html");
     }
 
     /**

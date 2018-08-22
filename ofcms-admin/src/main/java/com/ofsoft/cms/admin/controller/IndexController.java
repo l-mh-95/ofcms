@@ -109,29 +109,24 @@ public class IndexController extends BaseController {
                 return;
             }
         } catch (IncorrectCredentialsException e) {
-            msg = "登录密码错误. Password for account " + token.getPrincipal()
-                    + " was incorrect.";
+            msg = "登录密码错误.";
             e.printStackTrace();
             rendFailedJson(msg);
         } catch (ExcessiveAttemptsException e) {
             msg = "登录失败次数过多,账户锁定10分钟";
             rendFailedJson(msg);
         } catch (LockedAccountException e) {
-            msg = "帐号已被锁定. The account for username " + token.getPrincipal()
-                    + " was locked.";
+            msg = "帐号已被锁定.";
             rendFailedJson(msg);
         } catch (DisabledAccountException e) {
-            msg = "帐号已被禁用. The account for username " + token.getPrincipal()
-                    + " was disabled.";
+            msg = "帐号已被禁用.";
             rendFailedJson(msg);
         } catch (ExpiredCredentialsException e) {
-            msg = "帐号已过期. the account for username " + token.getPrincipal()
-                    + "  was expired.";
+            msg = "帐号已过期.";
             rendFailedJson(msg);
         } catch (UnknownAccountException e) {
             System.out.println(e.getMessage());
-            msg = "帐号不存在. There is no user with username of "
-                    + token.getPrincipal();
+            msg = "帐号不存在.";
             rendFailedJson(msg);
         }
 

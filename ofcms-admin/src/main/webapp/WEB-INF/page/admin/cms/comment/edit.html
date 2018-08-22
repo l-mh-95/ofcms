@@ -11,20 +11,12 @@
 	          "sqlid":"cms.comment.update",
 	          "ver_type":"msg",
 	          "fields":[
-							 	{"name":"comment_id","type":"hidden"},
-							  {"name":"site_id","type":"text","label":"站点编号","verify":"required","placeholder":"请输入站点编号"}, 
-							  {"name":"content_code","type":"text","label":"内容编码","verify":"required","placeholder":"请输入内容编码"}, 
-							  {"name":"comment_type","type":"text","label":"评论类型","verify":"required","placeholder":"请输入评论类型"}, 
-							  {"name":"comment_title","type":"text","label":"评论标题","verify":"required","placeholder":"请输入评论标题"}, 
-							  {"name":"comment_url","type":"text","label":"评论图片","verify":"required","placeholder":"请输入评论图片"}, 
-							  {"name":"comment_content","type":"text","label":"评论内容","verify":"required","placeholder":"请输入评论内容"}, 
-							  {"name":"comment_name","type":"text","label":"评论人","verify":"required","placeholder":"请输入评论人"}, 
-								{"name":"comment_time","type":"date","label":"评论时间","verify":"required","datetype":"datetime","placeholder":"请输入评论时间"}, 
-							  {"name":"comment_ip","type":"text","label":"ip地址","verify":"required","placeholder":"请输入ip地址"}, 
-								{"name":"create_time","type":"date","label":"发布时间","verify":"required","datetype":"datetime","placeholder":"请输入发布时间"}, 
-							  {"name":"check_status","type":"text","label":"审核状态0、待审核  1、通过 2、未通过","verify":"required","placeholder":"请输入审核状态0、待审核  1、通过 2、未通过"}, 
-							  {"name":"status","type":"text","label":"状态:0、删除 1、正常 2、禁止","verify":"required","placeholder":"请输入状态:0、删除 1、正常 2、禁止"}, 
-							  {"name":"remark","type":"text","label":"备注","verify":"required","placeholder":"请输入备注"} 
+							  {"name":"comment_id","type":"hidden"},
+							  {"name":"comment_title","type":"text","label":"评论标题","div_width":"183", "placeholder":"请输入评论标题",
+							  "right_list":[ {"name":"comment_name","type":"text","label":"评论人","div_width":"183", "placeholder":"请输入评论人"}]},
+							  {"name":"comment_ip","type":"text","label":"IP地址","div_width":"183","placeholder":"请输入IP地址",
+	                          "right_list":[  {"name":"check_status","type":"select","label":"审核","div_width":"183","dict_type":"dict","dict":"check_status"}]},
+							  {"name":"comment_content","type":"textarea","label":"评论内容","width":"500","verify":"required","placeholder":"请输入评论内容"}
 					   ],
 	       "tab_buttons":[
 		    				{"button_id":"s1","button_name":"保存","event":"add","icon":"&#xe610;" },

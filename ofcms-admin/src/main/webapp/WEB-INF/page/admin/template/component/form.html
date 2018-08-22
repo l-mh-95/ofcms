@@ -6,10 +6,10 @@
 			 <div class="layui-form-item">
 				    <label class="layui-form-label">${item.label}</label>
 				    <div class="layui-input-inline">
-		   				<input type="text" id="filePath" name="${(item.name)!''}" autocomplete="off" disabled="disabled" class="${item.class!'layui-input'}"/>
+		   				<input type="text" id="${item.id!'filePath'}" name="${(item.name)!''}" autocomplete="off" disabled="disabled" class="${item.class!'layui-input'}"/>
 				    </div>
 				    <div class="layui-input-inline">
-				 		<button type="button"  class="layui-btn" function="upload" fileElem="#filePath" fileAccept="file" fileExts="" fileSize="${item.file_size!'1024'}" inputs="${item.inputs!'type:test'}">${time.title!'上传'}</button>
+				 		<button type="button"  class="layui-btn" function="upload" fileElem="#${item.id!'filePath'}" fileAccept="file" fileExts="" fileSize="${item.file_size!'1024'}" inputs="${item.inputs!'type:test'}">${time.title!'上传'}</button>
 				    </div>
 			 </div>
 		<#else>

@@ -7,26 +7,25 @@
 			<input type="hidden" name="site_id" value="${session.site.site_id}">
 			<input type="hidden" name="column_id" value="${params.column_id}">
 			<#list  result as data >
-				<div class="layui-form-item">
+				<div class="layui-form-item"  >
 					<label class="layui-form-label">${data.field_desc}</label>
 					<div class="<#if data.field_type == 'image' || data.field_type == 'file'>layui-input-inline <#else> layui-input-block </#if>"  >
 						<#if data.field_type == 'select'>
 							<select class="sykSelect"  name="${data.field_name}"
-							  dict_type="dict" dict="${data.field_dict}" addNull="1"
+							  dict_type="${data.dict_type!''}" dict="${data.field_name}" addNull="1" required="" lay-verType="msg"
 							<#if data.id?exists>  lay-filter="${data.id}"  childrenSelectId="${data.id}" </#if>
 							<#if data.field_name?exists>  select_name="${data.field_name}"   </#if>
-							<#if data.field_verification?exists> required="" lay-verType="msg" lay-verify="${data.field_verification}"</#if>
-							<#if data.is_required?exists> required="" lay-verType="msg" lay-verify="required" </#if>
-							<#if data.dict == "">
-								<#list data.option as options>
-									<option value="${options.value}">${options.label}</option>
-								</#list>
-							</#if>
+
+							<#if data.field_verification?? && data.field_verification!="" >  lay-verify="1${data.field_verification}"
+								<#elseif data.is_required=="1">  lay-verify="required" </#if>
+							>
 							</select>
+
 						<#elseif data.field_type == 'image' || data.field_type == 'file'>
 							<div class="layui-input-inline">
-								<input <#if data.field_verification?exists> required="" lay-verType="msg" lay-verify="${data.field_verification}"</#if>
-								<#if data.is_required?exists> required="" lay-verType="msg" lay-verify="required" </#if>
+								<input required="" lay-verType="msg"
+								<#if data.field_verification?? && data.field_verification!="" >  lay-verify="1${data.field_verification}"
+									<#elseif data.is_required=="1">  lay-verify="required" </#if>
 
 										type="text" id="filePath" name="${data.field_name}" autocomplete="off" disabled="disabled" class="layui-input"/>
 							</div>
@@ -36,15 +35,17 @@
 								   class="sykLayedit" height="400" width="400"></textarea>
 						<#elseif data.field_type == 'datetime' >
 							<input type="text" name='${data.field_name}'  datetype="datetime"
-							<#if data.field_verification?exists> required="" lay-verType="msg" lay-verify="${data.field_verification}"</#if>
-							<#if data.is_required?exists> required="" lay-verType="msg" lay-verify="required" </#if>
+								   required="" lay-verType="msg"
+							<#if data.field_verification?? && data.field_verification!="" >  lay-verify="1${data.field_verification}"
+								<#elseif data.is_required=="1">  lay-verify="required" </#if>
 							placeholder="${data.placeholder}" autocomplete="off" class="layui-input sykDate">
 
 						<#elseif data.field_type == 'radio' >
 						<#else>
 							<input type="${data.field_type}" name="${data.field_name}"
-							<#if data.field_verification?exists> required="" lay-verType="msg" lay-verify="${data.field_verification}"</#if>
-							<#if data.is_required?exists> required="" lay-verType="msg" lay-verify="required" </#if>
+								   required="" lay-verType="msg"
+							<#if data.field_verification?? && data.field_verification!="" >  lay-verify="1${data.field_verification}"
+								<#elseif data.is_required=="1">  lay-verify="required" </#if>
 								   value="${data.field_default_value}"  placeholder="${data.field_default_value}" autocomplete="off" class="layui-input"/>
 						</#if>
 					</div>

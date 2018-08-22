@@ -1,30 +1,31 @@
 #sql("query")
 	select  
-			 	 comment_id,
-		 	 site_id,
-		 	 content_code,
-		 	 comment_type,
-		 	 comment_title,
-		 	 comment_url,
-		 	 comment_content,
-		 	 comment_name,
-		 	 comment_time,
-		 	 comment_ip,
-		 	 create_time,
-		 	 check_status,
-		 	 status,
-		 	 remark
+			 t.comment_id,
+		 	 t.site_id,
+		 	 t.content_id,
+		 	 c.title_name,
+		 	 t.comment_type,
+		 	 t.comment_title,
+		 	 t.comment_url,
+		 	 t.comment_content,
+		 	 t.comment_name,
+		 	 t.comment_time,
+		 	 t.comment_ip,
+		 	 t.create_time,
+		 	 t.check_status,
+		 	 t.status,
+		 	 t.remark
 	from
-		  of_cms_comment where site_id = #para(site_id)
-	#if (comment_id?? ) and  comment_id = #para(comment_id)#end
-	#if (sort?? && field) order by order_field order_sort  #else order by comment_id desc #end
+		  of_cms_comment t left join of_cms_content c on t.content_id = c.content_id where t.site_id = #para(site_id) and t.status = '1'
+	#if (title_name?? ) and  c.title_name like concat ('%', #para(title_name) ,'%')#end
+	#if (sort?? && field) order by order_field order_sort  #else order by t.comment_id desc #end
 #end
  
 #sql("detail")
 	select 
 		 	 comment_id,
 		 	 site_id,
-		 	 content_code,
+		 	 content_id,
 		 	 comment_type,
 		 	 comment_title,
 		 	 comment_url,
@@ -44,7 +45,7 @@
 	insert into of_cms_comment (
 		 	 comment_id, 
 		 	 site_id, 
-		 	 content_code, 
+		 	 content_id, 
 		 	 comment_type, 
 		 	 comment_title, 
 		 	 comment_url, 
@@ -59,7 +60,7 @@
 	) values(
 		 	 #para(comment_id), 
 		 	 #para(site_id), 
-		 	 #para(content_code), 
+		 	 #para(content_id), 
 		 	 #para(comment_type), 
 		 	 #para(comment_title), 
 		 	 #para(comment_url), 
@@ -85,20 +86,11 @@
 #sql("update")
 	update  
 		of_cms_comment set 
-			   comment_id = #para(comment_id), 
-			   site_id = #para(site_id), 
-			   content_code = #para(content_code), 
-			   comment_type = #para(comment_type), 
-			   comment_title = #para(comment_title), 
-			   comment_url = #para(comment_url), 
-			   comment_content = #para(comment_content), 
+			   comment_title = #para(comment_title),
+			   comment_content = #para(comment_content),
 			   comment_name = #para(comment_name), 
-			   comment_time = #para(comment_time), 
-			   comment_ip = #para(comment_ip), 
-			   create_time = #para(create_time), 
-			   check_status = #para(check_status), 
-			   status = #para(status), 
-			   remark = #para(remark) 
+			   comment_ip = #para(comment_ip),
+			   check_status = #para(check_status)
 	where  comment_id  = #para(comment_id)
 #end
  

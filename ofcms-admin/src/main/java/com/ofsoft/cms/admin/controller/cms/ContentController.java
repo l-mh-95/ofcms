@@ -8,6 +8,7 @@ import com.ofsoft.cms.admin.controller.system.SystemUtile;
 import com.ofsoft.cms.core.annotation.Action;
 import com.ofsoft.cms.core.config.ErrorCode;
 import com.ofsoft.cms.core.config.ShiroUtils;
+import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -59,6 +60,7 @@ public class ContentController extends BaseController {
             record.set("template_path", params.get("template_path"));
             record.set("form_id", params.get("form_id"));
             record.set("title_name", params.get("title_name"));
+            record.set("topic_id", MapUtils.getIntValue(params,"topic_id",0));
             record.set("column_id", params.get("column_id"));
             record.set("check_status", "1");
             record.set("create_people", ShiroUtils.getSysUser().getLoginName());

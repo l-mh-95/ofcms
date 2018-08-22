@@ -96,12 +96,19 @@ layui.sykDict = {
 			      {"code":3,"name":"其他","css":"layui-badge layui-bg-cyan"},
 			      ]
 		},
-		//类型
+		//数据模型
 		form_data : {
 			formatType : "server",
             sqlid:"cms.form.query",
             labelField : "form_name",
             valueField : "form_id"
+		},
+	  //专题列表
+		topic_id : {
+			formatType : "server",
+            sqlid:"cms.topic.list",
+            labelField : "topic_name",
+            valueField : "topic_id"
 		},
     //类型
     type : {

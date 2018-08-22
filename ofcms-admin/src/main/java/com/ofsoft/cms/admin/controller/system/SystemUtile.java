@@ -316,7 +316,7 @@ public class SystemUtile {
     }
 
     public static String getFrontTemplatePath() {
-        return PathKit.getWebRootPath() + "/" + PropKit.use(AdminConst.ADMIN_CONFIG).get("template.loader_path") + "/front/";
+        return PathKit.getWebRootPath() + "/" + PropKit.use(AdminConst.ADMIN_CONFIG).get("template.loader_path") + "/";
     }
 
     /**
