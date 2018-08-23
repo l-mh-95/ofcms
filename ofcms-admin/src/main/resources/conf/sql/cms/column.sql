@@ -62,6 +62,7 @@ select
 		 	t.column_list_page,
 		 	t.column_content_page,
 		 	t.is_show,
+		 	t.is_open,
 		 	t.sort,
 		 	t.create_time,
 		 	t.upate_time,

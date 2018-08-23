@@ -12,7 +12,7 @@ import com.jfinal.weixin.sdk.jfinal.ApiInterceptor;
 import com.jfinal.weixin.sdk.utils.JsonUtils;
 import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.RenderFactoryImpl;
-import com.ofsoft.cms.core.config.WeiXinConfig;
+import com.ofsoft.cms.admin.controller.weixin.WeiXinConfig;
 import com.ofsoft.cms.core.spring.IocInterceptor;
 import com.ofsoft.cms.core.utils.CalendarUtil;
 import com.ofsoft.cms.core.utils.ResultUtil;

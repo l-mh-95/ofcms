@@ -8,6 +8,7 @@ import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.ehcache.CacheKit;
 import com.jfinal.render.FreeMarkerRender;
+import com.ofsoft.cms.admin.controller.weixin.WxConfigInfo;
 import com.ofsoft.cms.admin.domain.TreeGird;
 import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.ShiroUtils;
@@ -119,27 +120,60 @@ public class SystemUtile {
      * 获取某个参数
      *
      * @param paramName 参数名
-     *                  <p>
-     *                  <pre>
-     *                                                                                                                                                                                                                                                                                                                                                                                                        系统启动时自动加载数据
-     *                                                                                                                                                                                                                                                                                                                                                                                                        </pre>
+     * @return  String                                                                                                                                                                                                                                                                                                                                                                                                                                        </pre>
      */
     public static String getParam(String paramName) {
         List<Record> list = getCache(AdminConst.SYSTEM, AdminConst.SYSTEM_PARAM);
         if (list == null) {
             SystemUtile.initParam();
-            return "";
+            return null;
         }
         for (Record r : list) {
             if (r.getStr("param_name").equalsIgnoreCase(paramName)) {
                 return r.getStr("param_value");
             }
         }
-        return "";
+        return null;
+    }
+
+    /**
+     * 获取某个参数
+     * @param paramName  参数名
+     * @param defaultValue 默认值
+     * @return String
+     */
+    public static String getParam(String paramName, String defaultValue) {
+        String value = getParam(paramName);
+        if (StringUtils.isBlank(value)) {
+            return defaultValue;
+        } else {
+            return value;
+        }
+
+    }
+    /**
+     * 获取某个参数
+     * @param paramName  参数名
+     * @param defaultValue 默认值
+     * @return Boolean
+     */
+    public static  Boolean getParamBoolean(String paramName, Boolean defaultValue) {
+        String value = getParam(paramName);
+        if (value != null) {
+            value = value.toLowerCase().trim();
+            if ("true".equals(value)) {
+                return true;
+            } else if ("false".equals(value)) {
+                return false;
+            }
+            throw new RuntimeException("The value can not parse to Boolean : " + value);
+        }
+        return defaultValue;
     }
     public static void setParam(String key, String value) {
-        Db.update(Db.getSqlPara("system.param.update_param_name", Kv.by("param_name",key).set("param_value",value)));
+        Db.update(Db.getSqlPara("system.param.update_param_name", Kv.by("param_name", key).set("param_value", value)));
     }
+
     /**
      * 获取某个参数
      *
@@ -188,8 +222,11 @@ public class SystemUtile {
         initParam();
         // 缓存站点
         initSite();
+        //初始化首页
         String index = getParam("index");
         SystemUtile.initAdminIndex(index);
+        //初始化微信配置
+        WxConfigInfo.getInstance().init();
     }
 
     /**
@@ -387,14 +424,14 @@ public class SystemUtile {
             ShiroKit.setLoginUrl(AdminConst.loginHtml);
             ShiroKit.setSuccessUrl(AdminConst.indexHtml);
             ShiroKit.setUnauthorizedUrl(AdminConst.loginHtml);
-            setParam("index",index);
+            setParam("index", index);
         } else {
             AdminConst.indexHtml = "/admin/index2.html";
             AdminConst.loginHtml = "/admin/login2.html";
             ShiroKit.setLoginUrl(AdminConst.loginHtml);
             ShiroKit.setSuccessUrl(AdminConst.indexHtml);
             ShiroKit.setUnauthorizedUrl(AdminConst.loginHtml);
-            setParam("index",index);
+            setParam("index", index);
         }
     }
 

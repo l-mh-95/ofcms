@@ -1,0 +1,38 @@
+<#include "admin/template/page/head_lib.html">
+<body>
+	<div class="layui-fluid">
+		<div class="layui-row layui-col-space15">
+			<div class="layui-col-md12">
+				<form class="layui-form" id="edit_form" isLoad="1" loadUrl="product/info/detail.json" >
+				<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+					<ul class="layui-tab-title">
+						<li class="layui-this">公众号设置</li>
+						<li>支付设置</li>
+						<li>小程序设置</li>
+					</ul>
+					<div class="layui-tab-content">
+						<div class="layui-tab-item layui-show">内容1</div>
+						<div class="layui-tab-item">内容2</div>
+						<div class="layui-tab-item">内容3</div>
+					</div>
+				</div>
+					<hr/>
+					<div class="layui-form-item" style="text-align: center;">
+						<button class="layui-btn" lay-submit="" lay-filter="edit" url="product/info/update.json?sqlid=product.info.update">保存</button>
+					</div>
+			</div>
+
+			</form>
+			</div>
+		</div>
+	</div>
+	
+<script>
+layui.use([ 'layer' ,'element'], function(){
+    var element = layui.element;
+});
+</script>
+
+
+</body>
+</html>

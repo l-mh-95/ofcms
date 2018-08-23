@@ -14,6 +14,8 @@ import com.jfinal.render.ViewType;
 import com.jfinal.template.Engine;
 import com.jfinal.weixin.sdk.api.ApiConfigKit;
 import com.ofsoft.cms.admin.controller.system.SystemUtile;
+import com.ofsoft.cms.admin.controller.weixin.MessageController;
+import com.ofsoft.cms.admin.controller.weixin.WeiXinConfig;
 import com.ofsoft.cms.admin.service.meesage.MsgWebSocketServer;
 import com.ofsoft.cms.core.handler.ActionHandler;
 import com.ofsoft.cms.core.handler.WebSocketHandler;
@@ -52,7 +54,7 @@ public final class JFWebConfig extends JFinalConfig {
     @Override
     public void configConstant(Constants me) {
         loadPropertyFile(AdminConst.ADMIN_CONFIG);
-        PropKit.use(AdminConst.WEIXIN_CONFIG);
+//        PropKit.use(AdminConst.WEIXIN_CONFIG);
         PropKit.use(AdminConst.ADMIN_CONFIG);
         me.setEncoding("UTF-8");
         me.setI18nDefaultBaseName("i18n");
@@ -75,6 +77,9 @@ public final class JFWebConfig extends JFinalConfig {
     public void configRoute(Routes me) {
         this.route = new AutoBindRoutes("/admin", "com.ofsoft.cms.admin.controller");
         me.add(new AutoBindRoutes("com.ofsoft.cms.front.controller"));
+        me.add(new AutoBindRoutes("/api/v1", "com.ofsoft.cms.api.v1"));
+        me.add(new AutoBindRoutes("/api/v2", "com.ofsoft.cms.api.v2"));
+        me.add("/weixin", MessageController.class);
         me.add(route);
     }
 

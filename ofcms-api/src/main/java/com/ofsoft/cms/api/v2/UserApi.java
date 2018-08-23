@@ -1,7 +1,7 @@
-package com.ofsoft.cms.api.user;
+package com.ofsoft.cms.api.v2;
 
-import com.ofsoft.cms.core.annotation.Action;
 import com.ofsoft.cms.api.ApiBase;
+import com.ofsoft.cms.core.annotation.Action;
 
 
 /**
@@ -10,8 +10,8 @@ import com.ofsoft.cms.api.ApiBase;
  * @author OF
  * @date 2017年12月14日
  */
-@Action(path = "/visit")
-public class VisitApi extends ApiBase {
+@Action(path = "/user")
+public class UserApi extends ApiBase {
 
 	/**
 	 * 获取就诊人列表
@@ -25,7 +25,7 @@ public class VisitApi extends ApiBase {
 		try {
 //			List<UserFriendsInfo> list = userFriendsInfoService.queryList(
 //					openId, hospNo);
-//			rendSuccessJson(list);
+			rendSuccessJson("测试");
 		} catch (Exception e) {
 			e.printStackTrace();
 			rendFailedJson();

@@ -12,6 +12,7 @@
         <module>ofcms-core</module>
         <module>ofcms-front</module>
         <module>ofcms-model</module>
+        <module>ofcms-api</module>
     </modules>
     <packaging>pom</packaging>
 

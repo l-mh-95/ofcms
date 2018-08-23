@@ -3,6 +3,8 @@ package com.ofsoft.cms.front.template.freemarker;
 import com.jfinal.log.Log;
 import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.render.FreeMarkerRender;
+import com.ofsoft.cms.core.config.FrontConst;
+import com.ofsoft.cms.core.uitle.SiteUtile;
 import freemarker.core.Environment;
 import freemarker.template.*;
 
@@ -12,7 +14,6 @@ import java.math.BigInteger;
 import java.util.Map;
 
 public abstract class TagBase implements TemplateDirectiveModel {
-
     private static final Log log = Log.getLog(TagBase.class);
 
     protected Environment env;
@@ -20,7 +21,6 @@ public abstract class TagBase implements TemplateDirectiveModel {
 
     private TemplateModel[] mTemplateModels;
     private TemplateDirectiveBody body;
-
 
 
     @SuppressWarnings("rawtypes")
@@ -342,12 +342,13 @@ public abstract class TagBase implements TemplateDirectiveModel {
 
         return null;
     }
+
     /**
      * 获得全局站点
      *
      * @return Site
      */
-    public   Record getSite()
+    public Record getSite()
             throws TemplateModelException {
         TemplateModel model = env.getGlobalVariable("site");
         if (model instanceof AdapterTemplateModel) {
@@ -364,9 +365,10 @@ public abstract class TagBase implements TemplateDirectiveModel {
      *
      * @return
      */
-    public  int getPageNum() {
-         return getGlobalVarInt("pageNum", 1);
+    public int getPageNum() {
+        return getGlobalVarInt("pageNum", 1);
     }
+
     /**
      * 获取全局参数
      *
@@ -408,4 +410,25 @@ public abstract class TagBase implements TemplateDirectiveModel {
         return defaultValue;
     }
 
+    /**
+     * 返回html页面
+     *
+     * @param htmlPath 路径
+     */
+    protected void renderHtml(String htmlPath) {
+        try {
+            env.include(htmlPath, "utf-8", true);
+        } catch (TemplateException e) {
+            log.error("JTag renderBody(Writer writer) is error!", e);
+        } catch (IOException e) {
+            log.error("JTag renderBody(Writer writer) is error!", e);
+        }
+    }
+
+    /**
+     * 错误页面
+     */
+    protected void renderError() {
+        renderHtml(FrontConst.TEMPLATE_PATE +SiteUtile.getTemplatePath() + FrontConst.pageError);
+    }
 }

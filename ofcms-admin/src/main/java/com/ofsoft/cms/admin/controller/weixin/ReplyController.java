@@ -1,56 +1,41 @@
 package com.ofsoft.cms.admin.controller.weixin;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
 import com.ofsoft.cms.admin.controller.BaseController;
-import com.ofsoft.cms.admin.controller.system.SystemUtile;
 import com.ofsoft.cms.core.annotation.Action;
 import com.ofsoft.cms.core.config.ErrorCode;
-import com.ofsoft.cms.core.utils.okhttp.OkHttp3;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
 /**
  * 微信默认回复
- * 
+ *
  * @author OF
  * @date 2018年3月15日
  */
 @Action(path = "/weixin/reply")
 public class ReplyController extends BaseController {
-	public final static String SUCESS_CODE = "200";
-	public final static String API_URL = "/api/v1/config/init.json";
+    public final static String SUCESS_CODE = "200";
+    public final static String API_URL = "/api/v1/config/init.json";
 
-	/**
-	 * 首页
-	 */
-	public void index() {
-		List<Record> list = Db.find(Db.getSqlPara("system.param.query_weixin"));
-		setAttr("list", list);
-		render("/admin/weixin/reply/index.html");
-	}
+    /**
+     * 首页
+     */
+    public void index() {
+        List<Record> list = Db.find(Db.getSqlPara("system.param.query_weixin"));
+        setAttr("list", list);
+        render("/admin/weixin/reply/index.html");
+    }
 
-	public void config() {
-		try {
-			String result = OkHttp3.okHttpGet(
-					SystemUtile.getParam("mobile_api_href") + API_URL, null);
-			JSONObject data = JSON.parseObject(result);
-			if (StringUtils.isBlank(result)) {
-				rendFailedJson(ErrorCode.get("9999"));
-				return;
-			}
-			if (SUCESS_CODE.equals(data.getString("code"))) {
-				rendSuccessJson();
-			} else {
-				rendFailedJson(ErrorCode.get("9999"));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			rendFailedJson(ErrorCode.get("9999"));
-		}
-
-	}
+    //更新缓存
+    public void config() {
+        try {
+            WxConfigInfo.getInstance().init();
+            rendSuccessJson();
+        } catch (Exception e) {
+            e.printStackTrace();
+            rendFailedJson(ErrorCode.get("9999"));
+        }
+    }
 }

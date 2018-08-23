@@ -26,6 +26,10 @@ public class ContentDirective extends TagBase {
         Db.update(Db.getSqlPara(update, params));
         //查询内容
         Record  record =  Db.findFirst(Db.getSqlPara(detail,params));
+        if(record == null ){
+            renderError();
+            return;
+        }
         params.putAll(record.getColumns());
         //获取每个字段
         List<Record> list = Db.find(Db.getSqlPara(sqlid, params));
