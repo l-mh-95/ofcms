@@ -20,6 +20,7 @@ public class FreemarkerUtile {
         data.put("announce_list",new AnnounceListDirective());
         data.put("announce",new AnnounceDirective());
         data.put("page",new PageDirective());
+        data.put("topic",new TopicDirective());
         return  data;
     }
 }

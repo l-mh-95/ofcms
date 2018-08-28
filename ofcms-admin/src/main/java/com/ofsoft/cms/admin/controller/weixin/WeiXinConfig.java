@@ -9,7 +9,7 @@ import com.ofsoft.cms.admin.controller.system.SystemUtile;
  * @author OF
  * @date 2017年12月4日
  */
-public class WeiXinConfig {
+public class WeiXinConfig  {
     public static ApiConfig ac = null;
     /**
      * 是否是开发模式

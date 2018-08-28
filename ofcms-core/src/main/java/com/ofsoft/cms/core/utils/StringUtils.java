@@ -1,14 +1,14 @@
 package com.ofsoft.cms.core.utils;
 
+import com.jfinal.core.JFinal;
+import com.jfinal.log.Log;
+
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import com.jfinal.core.JFinal;
-import com.jfinal.log.Log;
 
 public class StringUtils {
 	private static final Log log = Log.getLog(StringUtils.class);
@@ -115,6 +115,27 @@ public class StringUtils {
 		Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
 		Matcher matcher = pattern.matcher(string);
 		return matcher.matches();
+	}
+
+	public static boolean isNull(Object obj)
+	{
+		if(obj == null)
+			return true;
+		if(obj.equals(""))
+			return true;
+		return obj.toString() == null || obj.toString().length() == 0 || obj.toString().trim().equals("");
+	}
+
+	public static Object isBlank(Object obj)
+	{
+		if(obj == null)
+			return "";
+		if(obj.equals(""))
+			return "";
+		if(obj.toString() == null || obj.toString().length() == 0 || obj.toString().trim().equals(""))
+			return "";
+		else
+			return obj;
 	}
 
 }

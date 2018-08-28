@@ -2,6 +2,7 @@ package com.ofsoft.cms.api.v1;
 
 import com.ofsoft.cms.api.ApiBase;
 import com.ofsoft.cms.core.annotation.Action;
+import com.ofsoft.cms.core.api.GetApiMapping;
 
 
 /**
@@ -16,12 +17,8 @@ public class UserApi extends ApiBase {
 	/**
 	 * 获取就诊人列表
 	 */
+	@GetApiMapping
 	public void get() {
-		String method = getRequest().getMethod();
-		if (!"GET".equals(method)) {
-			rendFailedJson("not is get method");
-			return;
-		}
 		try {
 //			List<UserFriendsInfo> list = userFriendsInfoService.queryList(
 //					openId, hospNo);
