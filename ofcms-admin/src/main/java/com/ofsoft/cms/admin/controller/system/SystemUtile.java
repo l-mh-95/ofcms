@@ -6,6 +6,7 @@ import com.jfinal.kit.PathKit;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
+import com.jfinal.plugin.activerecord.SqlPara;
 import com.jfinal.plugin.ehcache.CacheKit;
 import com.jfinal.render.FreeMarkerRender;
 import com.ofsoft.cms.admin.controller.weixin.WxConfigInfo;
@@ -14,12 +15,15 @@ import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.ShiroUtils;
 import com.ofsoft.cms.core.plugin.shiro.ShiroKit;
 import com.ofsoft.cms.core.plugin.shiro.freemarker.ShiroTags;
+import com.ofsoft.cms.core.utils.IpKit;
 import com.ofsoft.cms.core.utils.Tools;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateModelException;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -435,5 +439,36 @@ public class SystemUtile {
         }
     }
 
+    public static String getLocalHostIp() {
+        try {
+            return    InetAddress.getLocalHost().getHostAddress();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
 
+    public static String getHostName() {
+        try {
+            return InetAddress.getLocalHost().getHostName();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    /**
+     * 增加访问日志
+     * @param request
+     * @param site
+     */
+    public static void addAccessLog(HttpServletRequest request, Record site) {
+        site.set("access_ip", IpKit.getRealIp(request));
+        site.set("access_entry_page", request.getRequestURL().toString());
+        site.set("access_last_page", request.getRequestURL().toString());
+        site.set("access_referer", request.getHeader("Referer")==null?"本站":request.getHeader("Referer"));
+        site.set("user_agent", request.getHeader("User-Agent"));
+        SqlPara sql = Db.getSqlPara("cms.count.save_access",site);
+        Db.update(sql );
+    }
 }

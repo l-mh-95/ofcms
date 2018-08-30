@@ -12,12 +12,12 @@
 			<div class="layui-col-sm6 layui-col-md3">
 				<div class="layui-card">
 					<div class="layui-card-header">
-						今日访问量 <span class="layui-badge layui-bg-blue layuiadmin-badge">周</span>
+						今日访问 <span class="layui-badge layui-bg-blue layuiadmin-badge">日</span>
 					</div>
 					<div class="layui-card-body layuiadmin-card-list">
-						<p class="layuiadmin-big-font">9,999,666</p>
+						<p class="layuiadmin-big-font">${data.day_access_count!''}</p>
 						<p>
-							累计访问量 <span class="layuiadmin-span-color">88万 <i
+							累计访问 <span class="layuiadmin-span-color">${data.total_access_count!''} <i
 								class="layui-inline layui-icon layui-icon-flag">&#xe66c;</i></span>
 						</p>
 					</div>
@@ -26,12 +26,12 @@
 			<div class="layui-col-sm6 layui-col-md3">
 				<div class="layui-card">
 					<div class="layui-card-header">
-						今日发布 <span class="layui-badge layui-bg-cyan layuiadmin-badge">月</span>
+						今日发布 <span class="layui-badge layui-bg-cyan layuiadmin-badge">日</span>
 					</div>
 					<div class="layui-card-body layuiadmin-card-list">
-						<p class="layuiadmin-big-font">3666</p>
+						<p class="layuiadmin-big-font">${data.day_content_count!''}</p>
 						<p>
-							累计发布 <span class="layuiadmin-span-color">8888条 <i
+							累计发布 <span class="layuiadmin-span-color">${data.total_content_count!''}条 <i
 								class="layui-inline layui-icon layui-icon-flag">&#xe66c;</i></span>
 						</p>
 					</div>
@@ -40,12 +40,12 @@
 			<div class="layui-col-sm6 layui-col-md3">
 				<div class="layui-card">
 					<div class="layui-card-header">
-						今日留言 <span class="layui-badge layui-bg-green layuiadmin-badge">年</span>
+						今日留言 <span class="layui-badge layui-bg-green layuiadmin-badge">日</span>
 					</div>
 					<div class="layui-card-body layuiadmin-card-list">
-						<p class="layuiadmin-big-font">66,666</p>
+						<p class="layuiadmin-big-font">${data.day_bbs_count!''}</p>
 						<p>
-							累计留言 <span class="layuiadmin-span-color">88条 <i
+							累计留言 <span class="layuiadmin-span-color">${data.total_bbs_count!''}条 <i
 								class="layui-inline layui-icon layui-icon-flag">&#xe66c;</i></span>
 						</p>
 					</div>
@@ -57,9 +57,9 @@
 						今日评论 <span class="layui-badge layui-bg-orange layuiadmin-badge">日</span>
 					</div>
 					<div class="layui-card-body layuiadmin-card-list">
-						<p class="layuiadmin-big-font">33,666</p>
+						<p class="layuiadmin-big-font">${data.day_comment_count!''}</p>
 						<p>
-							累计评论 <span class="layuiadmin-span-color">88条 <i
+							累计评论 <span class="layuiadmin-span-color">${data.total_comment_count!''}条 <i
 								class="layui-inline layui-icon layui-icon-flag">&#xe770;</i></span>
 						</p>
 					</div>
@@ -67,7 +67,7 @@
 			</div>
 			<div class="layui-col-md9">
 				<div class="layui-card" style="clear: both;">
-					<div class="layui-card-header">产品动态</div>
+					<div class="layui-card-header">数据统计</div>
 					<div class="layui-card-body">
 						<div class="layui-carousel layadmin-carousel layadmin-news"
 							data-autoplay="true" lay-arrow="none">
@@ -89,48 +89,40 @@
 			<div class="layui-col-sm12 layui-col-md3">
 				<div class="layui-card">
 					<div class="layui-card-header">
-						本周活跃用户排名  
+						系统信息
 					</div>
 					<div class="layui-card-body layuiadmin-card-list">
-						<table class="layui-table layuiadmin-page-table" lay-skin="line">
-                  <thead>
-                    <tr>
-                      <th>用户名</th>
-                      <th>状态</th>
-                      <th>获得赞</th>
-                    </tr> 
-                  </thead>
+			 <table class="layui-table layuiadmin-page-table"  >
+				 <colgroup>
+					 <col width="100">
+					 <col>
+				 </colgroup>
                   <tbody>
                     <tr>
-                      <td><span class="first">胡歌</span></td>
-                      <td><span>在线</span></td>
-                      <td>22 <i class="layui-icon layui-icon-praise">&#xe6c6;</i></td>
+                      <td><span class="second">主机名</span></td>
+                      <td><span>${data.host_name}</span></td>
+                    </tr>
+					<tr>
+						<td>IP本地</td>
+						<td><span>${data.local_ip}</span></td>
+					</tr>
+                    <tr>
+                      <td><span class="third">系统名称</span></td>
+                      <td>${data.os_name}</td>
                     </tr>
                     <tr>
-                      <td><span class="second">彭于晏</span></td>
-                      <td><span>在线</span></td>
-                      <td>21 <i class="layui-icon layui-icon-praise">&#xe6c6;</i></td>
+                      <td>系统构架</td>
+                      <td><span>${data.os_arch}</span></td>
                     </tr>
                     <tr>
-                      <td><span class="third">靳东</span></td>
-                      <td><i>离线</i></td>
-                      <td>66 <i class="layui-icon layui-icon-praise">&#xe6c6;</i></td>
+                      <td>系统版本</td>
+                      <td><span>${data.os_version}</span></td>
                     </tr>
-                    <tr>
-                      <td>吴尊</td>
-                      <td><i>离线</i></td>
-                      <td>45 <i class="layui-icon layui-icon-praise">&#xe6c6;</i></td>
-                    </tr>
-                    <tr>
-                      <td>许上进</td>
-                      <td><span>在线</span></td>
-                      <td>21 <i class="layui-icon layui-icon-praise">&#xe6c6;</i></td>
-                    </tr>
-                    <tr>
-                      <td>小蚊子</td>
-                      <td><i>在线</i></td>
-                      <td>45 <i class="layui-icon layui-icon-praise">&#xe6c6;</i></td>
-                    </tr>
+
+					<tr>
+						<td><span class="first">JAVA版本</span></td>
+						<td><span>${data.java_version}</span></td>
+					</tr>
                   </tbody>
                 </table>
 					</div>

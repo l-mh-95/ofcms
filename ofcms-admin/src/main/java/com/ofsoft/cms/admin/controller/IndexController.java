@@ -1,20 +1,21 @@
 package com.ofsoft.cms.admin.controller;
 
 import com.jfinal.core.ActionKey;
+import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
 import com.ofsoft.cms.admin.controller.system.SystemUtile;
 import com.ofsoft.cms.core.annotation.Action;
 import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.ShiroUtils;
+import com.ofsoft.cms.core.utils.CalendarUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.subject.Subject;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * 页面配置
@@ -155,31 +156,22 @@ public class IndexController extends BaseController {
     public void main() {
         Map<String, Object> params = getParamsMap();
         try {
+            params.put("site_id",SystemUtile.getSiteId());
+            params.put("count_date", CalendarUtil.getNowTime("yyyy-MM-dd"));
+            Record record =  Db.findFirst(Db.getSqlPara("cms.count.query",params));
+            // 系统属性
+            Properties props = System.getProperties();
+            record.set("java_version", props.getProperty("java.version"));
+            record.set("host_name",SystemUtile.getHostName());
+            record.set("os_name", props.getProperty("os.name"));
+            record.set("os_arch", props.getProperty("os.arch"));
+            record.set("os_version", props.getProperty("os.version"));
+            record.set("local_ip", SystemUtile.getLocalHostIp());
+            setAttr("data",record);
             render("/admin/main.html");
         } catch (Exception e) {
             e.printStackTrace();
             render("/admin/main.html");
         }
-    }
-
-    public List<String> monthHandler(List<Record> user) {
-        boolean flag = false;
-        List<String> str = new ArrayList<String>();
-        for (int i = 1; i <= 12; i++) {
-            for (Record map : user) {
-                if (i == map.getInt("month")) {
-                    str.add(map.getStr("count"));
-                    flag = true;
-                    break;
-                } else {
-                    flag = false;
-                }
-            }
-            if (!flag) {
-                str.add("0");
-            }
-        }
-        return str;
-
     }
 }

@@ -47,6 +47,8 @@ public class FrontInterceptor implements Interceptor {
             }
 //            controller.setAttr("p",controller.getRequest().getRequestURI());
 //            controller.redirect("/comn/service/page.html");
+            //增加访问记录
+            SystemUtile.addAccessLog(request,site);
             ai.invoke();
         }
     }

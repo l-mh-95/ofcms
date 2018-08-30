@@ -14,7 +14,7 @@ fieldset {
 .layui-fluid {
 	position: relative;
 	margin: 0 auto;
-	padding: 15px;
+	padding: 13px;
 }
 
 .layui-table-view {
@@ -354,4 +354,7 @@ fieldset {
 
 .admin-header-lock input::-webkit-input-placeholder{
 	color: #fff;opacity:1;
+}
+.layui-form-switch em {
+	width: 27px!important;
 }
