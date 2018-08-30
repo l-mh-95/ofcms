@@ -736,6 +736,21 @@ public class CalendarUtil {
 	}
 
 	/**
+	 * 获取与当日日期偏移量的日期 参数可以为负数
+	 *
+	 * @param offset
+	 * @return
+	 */
+	public static String getDayOffsetDate(String format,int offset) {
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DATE, offset);
+		Date date = cal.getTime();
+		SimpleDateFormat dateFormat = new SimpleDateFormat(format);// 可以方便地修改日期格式
+		String hehe = dateFormat.format(date);
+		return hehe;
+	}
+
+	/**
 	 * 获取与指定日期偏移量的日期 offset可以为负数
 	 * 
 	 * @param date

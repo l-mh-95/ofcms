@@ -33,9 +33,6 @@ select
 	#if (sort?? && field) order by order_field order_sort  #else order by id desc #end
 #end
 
-
-
-
 #sql("save_access")
 	insert into of_cms_access (
 		 	 site_id,
@@ -57,4 +54,53 @@ select
 		 	 #para(user_agent)
 	)
 #end
+#sql("save_count")
+	insert into of_cms_count (
+		 	 site_id,
+		 	 total_content_count,
+		 	 total_access_count,
+		 	 total_comment_count,
+		 	 total_bbs_count,
+		 	 day_content_count,
+		 	 day_access_count,
+		 	 day_comment_count,
+		 	 day_bbs_count,
+		 	 create_time,
+		 	 count_time,
+		 	 count_date
+	) values(
+	     #para(site_id),
+		 	 #para(day_content_count+total_content_count),
+		 	 #para(day_access_count+total_access_count),
+		 	 #para(day_comment_count+total_comment_count),
+		 	 #para(day_bbs_count+total_bbs_count),
+		 	 0,
+		 	 0,
+		 	 0,
+		 	 0,
+		 	 now(),
+		 	 curtime(),
+		 	 curdate()
+	)
+#end
 
+#sql("update_count")
+  update of_cms_count
+  set day_content_count =#para(content),
+      day_access_count =#para(access),
+      day_comment_count =#para(comment),
+      day_bbs_count = #para(bbs)
+  where site_id = #para(site_id) and count_date = #para(count_date)
+#end
+#sql("update_total_count")
+  update of_cms_count
+  set total_content_count = (total_content_count+day_content_count),
+      total_access_count = (total_access_count+day_access_count),
+      total_comment_count = (total_comment_count+day_comment_count),
+      total_bbs_count = (total_bbs_count+day_bbs_count),
+      day_content_count =0,
+      day_access_count =0,
+      day_comment_count =0,
+      day_bbs_count = 0
+  where site_id = #para(site_id) and count_date = #para(count_date)
+#end

@@ -5,16 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
-import org.quartz.CronScheduleBuilder;
-import org.quartz.CronTrigger;
-import org.quartz.Job;
-import org.quartz.JobBuilder;
-import org.quartz.JobDetail;
-import org.quartz.JobKey;
-import org.quartz.Scheduler;
-import org.quartz.SchedulerException;
-import org.quartz.TriggerBuilder;
-import org.quartz.TriggerKey;
+import org.quartz.*;
 
 import com.jfinal.log.Log;
 import com.jfinal.plugin.activerecord.Record;
@@ -28,7 +19,7 @@ import com.jfinal.plugin.activerecord.Record;
 public class JobUtile {
 	public static Log log = Log.getLog(JobUtile.class);
 	public static String formart = "yyyy-MM-dd HH:mm:ss";
-	public static String basePath = "com.sanyka.web.admin.task.";
+	public static String basePath = "com.ofsoft.cms.admin.task.";
 	private final static String JOB_NAME = "TASK_";
 
 	/**
@@ -91,8 +82,9 @@ public class JobUtile {
 						.withSchedule(scheduleBuilder).build();
 				try {
 					scheduler.scheduleJob(jobDetail, trigger);
+				} catch (ObjectAlreadyExistsException e) {
+					throw new RuntimeException("任务已经启动!");
 				} catch (Exception e) {
-					e.printStackTrace();
 					throw new RuntimeException(e.getMessage());
 				}
 			} else {

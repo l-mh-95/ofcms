@@ -8,14 +8,14 @@ import com.ofsoft.cms.core.annotation.Action;
 import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.ShiroUtils;
 import com.ofsoft.cms.core.utils.CalendarUtil;
+import com.ofsoft.cms.core.utils.JsonUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.subject.Subject;
 
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * 页面配置
@@ -159,6 +159,9 @@ public class IndexController extends BaseController {
             params.put("site_id",SystemUtile.getSiteId());
             params.put("count_date", CalendarUtil.getNowTime("yyyy-MM-dd"));
             Record record =  Db.findFirst(Db.getSqlPara("cms.count.query",params));
+            if(record == null){
+                record = new Record();
+            }
             // 系统属性
             Properties props = System.getProperties();
             record.set("java_version", props.getProperty("java.version"));
@@ -167,11 +170,23 @@ public class IndexController extends BaseController {
             record.set("os_arch", props.getProperty("os.arch"));
             record.set("os_version", props.getProperty("os.version"));
             record.set("local_ip", SystemUtile.getLocalHostIp());
+           List<Record> count =  Db.find("select * from of_cms_count where date_sub(curdate(), INTERVAL 7 DAY) <= count_date");
+           Map access = new HashMap();
+           access.put("date",recordToStringArrary(count,"count_date") );
+           access.put("data",recordToStringArrary(count,"day_access_count") );
+           record.set("access", JsonUtil.objectToJson(access));
             setAttr("data",record);
             render("/admin/main.html");
         } catch (Exception e) {
             e.printStackTrace();
             render("/admin/main.html");
         }
+    }
+    public  List <String>   recordToStringArrary(List <Record> list,String key){
+        List <String> s = new ArrayList<String>(list.size());
+        for (Record record  :list){
+            s.add(record.getStr(key));
+        }
+        return s;
     }
 }
