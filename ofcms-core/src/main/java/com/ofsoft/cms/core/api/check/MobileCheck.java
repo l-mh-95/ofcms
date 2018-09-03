@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
  * @className MobileCheck
  * @date 2018/8/24
  */
-public class MobileCheck implements CheckInterface{
+public class MobileCheck extends AbstractCheck{
     @Override
     public boolean check(String value) {
 

@@ -7,7 +7,7 @@ package com.ofsoft.cms.core.api.check;
  * @className EmailCheck
  * @date 2018/8/25
  */
-public class DefaultCheck implements CheckInterface {
+public class DefaultCheck extends AbstractCheck {
     @Override
     public boolean check(String value) {
         return true;

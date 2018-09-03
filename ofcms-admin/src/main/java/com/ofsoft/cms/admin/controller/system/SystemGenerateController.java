@@ -1,16 +1,15 @@
 package com.ofsoft.cms.admin.controller.system;
 
-import java.util.List;
-import java.util.Map;
-
 import com.jfinal.plugin.activerecord.Db;
-import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.activerecord.SqlPara;
 import com.ofsoft.cms.admin.controller.BaseController;
+import com.ofsoft.cms.core.annotation.Action;
 import com.ofsoft.cms.core.config.ErrorCode;
 import com.ofsoft.cms.core.uitle.GenUtils;
-import com.ofsoft.cms.core.annotation.Action;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * 系统代码生成
@@ -20,16 +19,6 @@ import com.ofsoft.cms.core.annotation.Action;
  */
 @Action(path = "/system/generate", viewPath = "system/generate/")
 public class SystemGenerateController extends BaseController {
-
-	/**
-	 * 公共查询方法
-	 */
-	public void query() {
-		Page<Record> page = Db.paginate(getPageNum(), getPageSize(),
-				"select * ", " from syk_sys_user");
-		rendSuccessJson(page.getList(), page.getTotalRow(),
-				page.getPageNumber());
-	}
 
 	/**
 	 * 生成

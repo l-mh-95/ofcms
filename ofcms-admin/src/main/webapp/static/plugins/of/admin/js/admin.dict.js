@@ -21,13 +21,6 @@ layui.sykDict = {
 			labelField : "role_name",
 			valueField : "role_id"
 		},
-		//文章分类
-		info_category : {
-			formatType : "server",
-			sqlid:"info.category.query",
-			labelField : "cat_name",
-			valueField : "cat_id"
-		},
 		//微信菜单类型
 		weixin_menu_type : {
 			formatType : "local",
@@ -111,14 +104,12 @@ layui.sykDict = {
             valueField : "topic_id"
 		},
     //类型
-    type : {
+    index : {
         formatType : "local",
         labelField : "name",
         valueField : "code",
-        spaceMode : " ",//展示多个数据分隔符，默认,
-        data:[{"code":"write","name":"写作","css":"layui-badge layui-bg-orange"},
-            {"code":"read","name":"阅读","css":"layui-badge layui-bg-green"},
-            {"code":"dai","name":"发呆","css":"layui-badge layui-bg-cyan"}]
+        data:[{"code":"index.html","name":"首页1","css":"layui-badge layui-bg-orange"},
+            {"code":"index1.html","name":"首页2","css":"layui-badge layui-bg-cyan"}]
     }
 		 
 };

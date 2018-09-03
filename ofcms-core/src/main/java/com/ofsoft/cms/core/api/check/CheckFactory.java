@@ -10,12 +10,12 @@ import com.ofsoft.cms.core.api.ApiException;
  * @date 2018/8/24
  */
 public class CheckFactory {
-    public static CheckInterface getStrategy(Class  value) throws ApiException {
-        CheckInterface check = null;
+    public static AbstractCheck getStrategy(Class  value) throws ApiException {
+        AbstractCheck check = null;
         try {
           Object object =   value.newInstance();
-            if(object instanceof  CheckInterface){
-                check = (CheckInterface) object;
+            if(object instanceof  AbstractCheck){
+                check = (AbstractCheck) object;
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -170,7 +170,7 @@ public class IndexController extends BaseController {
             record.set("os_arch", props.getProperty("os.arch"));
             record.set("os_version", props.getProperty("os.version"));
             record.set("local_ip", SystemUtile.getLocalHostIp());
-           List<Record> count =  Db.find("select * from of_cms_count where date_sub(curdate(), INTERVAL 7 DAY) <= count_date");
+           List<Record> count =  Db.find(Db.getSqlPara("cms.count.index_query",params));
            Map access = new HashMap();
            access.put("date",recordToStringArrary(count,"count_date") );
            access.put("data",recordToStringArrary(count,"day_access_count") );

@@ -21,6 +21,8 @@ public class FreemarkerUtile {
         data.put("announce",new AnnounceDirective());
         data.put("page",new PageDirective());
         data.put("topic",new TopicDirective());
+        data.put("system",new SystemDirective());
+        data.put("bbs",new BbsListDirective());
         return  data;
     }
 }

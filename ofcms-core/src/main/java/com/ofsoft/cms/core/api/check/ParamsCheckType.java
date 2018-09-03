@@ -20,6 +20,7 @@ public @interface ParamsCheckType {
     boolean isDecrypt() default false;
     //检验类型
     Class checkType() default DefaultCheck.class;
-
+    //错误信息
+    String checkErrorMsg() default "";
 
 }

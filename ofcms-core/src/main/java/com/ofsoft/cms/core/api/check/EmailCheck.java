@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
  * @className EmailCheck
  * @date 2018/8/25
  */
-public class EmailCheck implements CheckInterface {
+public class EmailCheck extends AbstractCheck {
     @Override
     public boolean check(String email) {
         return Pattern.matches("^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$", email);

@@ -173,10 +173,10 @@ public abstract class AbstractsApi implements Interceptor {
         // 验证类型
         if (!StringUtils.isNull(checkType.checkType() )) {
             //策略加工厂方式实现自定义验证类型
-            CheckInterface checkMain = CheckFactory.getStrategy(checkType.checkType());
+            AbstractCheck checkMain = CheckFactory.getStrategy(checkType.checkType());
             if(checkMain != null &&!checkMain.check(param.toString())){
                 throw new ApiException(ApiErrorCode.ERROR_CODE_1001,
-                        checkType.name() + "规定数据类型检验失败");
+                        checkType.name() +" "+ ( "".equals(checkType.checkErrorMsg())?checkMain.errorMsg():checkType.checkErrorMsg()));
             }
         }
     }

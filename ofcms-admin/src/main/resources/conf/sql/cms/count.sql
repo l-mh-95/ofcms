@@ -104,3 +104,23 @@ select
       day_bbs_count = 0
   where site_id = #para(site_id) and count_date = #para(count_date)
 #end
+#sql("total_query")
+	select
+			 id,
+		 	 site_id,
+		 	 day_content_count,
+		 	 total_content_count,
+		 	 day_access_count,
+		 	 total_access_count,
+		 	 day_comment_count,
+		 	 total_comment_count,
+		 	 day_bbs_count,
+		 	 total_bbs_count,
+		 	 count_date
+	from
+		  of_cms_count where   site_id = #para(site_id) order by count_date desc limit 1
+#end
+
+#sql("index_query")
+  select * from of_cms_count where date_sub(curdate(), INTERVAL 7 DAY) <= count_date and site_id=#para(site_id)
+#end

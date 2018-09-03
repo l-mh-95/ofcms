@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
  * @className MoneyCheck
  * @date 2018/8/25
  */
-public class MoneyCheck implements CheckInterface {
+public class MoneyCheck extends AbstractCheck{
 
     @Override
     public boolean check(String money) {

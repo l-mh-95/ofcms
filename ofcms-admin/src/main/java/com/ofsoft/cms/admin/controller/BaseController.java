@@ -79,15 +79,6 @@ public abstract class BaseController extends ApiController {
     }
 
     /**
-     * 获取订单序列
-     *
-     * @param busType 业务类型
-     */
-    protected static String getSeqOrder(String busType) {
-        return getSeq("syk_order", "SYK" + busType, true, 6);
-    }
-
-    /**
      * 日志服务
      *
      * @param userId

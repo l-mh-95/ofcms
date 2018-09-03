@@ -12,11 +12,13 @@ import com.jfinal.render.FreeMarkerRender;
 import com.ofsoft.cms.admin.controller.weixin.WxConfigInfo;
 import com.ofsoft.cms.admin.domain.TreeGird;
 import com.ofsoft.cms.core.config.AdminConst;
+import com.ofsoft.cms.core.config.FrontConst;
 import com.ofsoft.cms.core.config.ShiroUtils;
 import com.ofsoft.cms.core.plugin.shiro.ShiroKit;
 import com.ofsoft.cms.core.plugin.shiro.freemarker.ShiroTags;
 import com.ofsoft.cms.core.utils.IpKit;
 import com.ofsoft.cms.core.utils.Tools;
+import com.ofsoft.cms.front.template.freemarker.FreemarkerUtile;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateModelException;
 import org.apache.commons.lang3.StringUtils;
@@ -272,6 +274,7 @@ public class SystemUtile {
             cf.setSharedVariable("tools", new Tools());
             cf.setSharedVariable("system_util", new SystemUtile());
             cf.setSharedVariable("shiro", new ShiroTags());
+            cf.setSharedVariable(FrontConst.DIRECTIVE_PREFIX, FreemarkerUtile.initTemplate());
         } catch (TemplateModelException e) {
             e.printStackTrace();
         }

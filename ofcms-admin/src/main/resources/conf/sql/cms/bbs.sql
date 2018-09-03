@@ -16,7 +16,7 @@
 		 	 status,
 		 	 remark
 	from
-		  of_cms_bbs where status = '1'
+		  of_cms_bbs where status = '1' and site_id = #para(site_id)
 	#if (title?? ) and  title like concat ('%', #para(title),'%')#end
 	#if (sort?? && field) order by order_field order_sort  #else order by bbs_id desc #end
 #end
@@ -67,8 +67,8 @@
 		 	 '1',
 		 	 now(),
 		 	  '1',
-		 	 #para(is_check),
-		 '1'
+		 	 '0',
+		   '1'
 	)
 #end
 
@@ -94,3 +94,23 @@
 	where  bbs_id  = #para(bbs_id)
 #end
  
+#sql("list")
+	select
+			bbs_id,
+		 	 site_id,
+		 	 title,
+		 	 content,
+		 	 rev_content,
+		 	 mobile,
+		 	 email,
+		 	 qq,
+		 	 clicks,
+		 	 create_time,
+		 	 update_time,
+		 	 sort,
+		 	 is_check,
+		 	 status,
+		 	 remark
+	from
+		  of_cms_bbs where status = '1' and site_id = #para(site_id)  order by create_time desc
+#end

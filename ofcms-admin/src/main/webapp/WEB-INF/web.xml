@@ -48,7 +48,7 @@
         </init-param>
         <init-param>
             <param-name>principalSessionName</param-name>
-            <param-value>syk_user</param-value>
+            <param-value>ofcms_user</param-value>
         </init-param>
         <init-param>
             <param-name>sessionStatEnable</param-name>

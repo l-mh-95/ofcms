@@ -37,10 +37,10 @@ public class IndexController extends BaseController {
         String page = getPara(0);
         //是否是首页
         if("/".equals(page) || page == null || "index".equals(page)){
+            setAttr("site",  SiteUtile.getSite());
             render(FrontConst.TEMPLATE_PATE + SiteUtile.getTemplatePath() + "/index.html");
             return;
         }
-
         //获取当前栏目
         params.put("site_id", SiteUtile.getSiteId());
         params.put("column_english", page);
