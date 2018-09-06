@@ -92,7 +92,7 @@ abpai ([https://gitee.com/abpai](https://gitee.com/abpai))
 2. mysql 5.6+
 3. jdk 1.8
 4. tomcat 8
-
+5.通过war包直接放TOMCAT下面   到附件中下载
 
 #### 前台展示：
 首页
