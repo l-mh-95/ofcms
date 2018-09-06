@@ -190,7 +190,7 @@ public class InstallUtils {
 	 * @throws SQLException
 	 */
 	public static void setWebFirstUser(String username, String password) throws SQLException {
-		executeSQL("INSERT INTO of_sys_user (user_id,user_sex,user_email,login_name,user_name,user_password,status)VALUES ('1','1','523648919@qq.com','管理员',?,?,'1')", username, password );
+		executeSQL("INSERT INTO of_sys_user (user_id,user_sex,user_email,login_name,user_name,user_password,status)VALUES ('1','1','523648919@qq.com',?,'管理员',?,'1')", username, password );
 	}
 	public static void setSiteInfo(String name, String domain,String url) throws SQLException {
 		executeSQL("update of_cms_site  set site_name =? ,keywords=?,domain_name=?,access_path=? where site_id = '1' ", name, name, domain, url );
