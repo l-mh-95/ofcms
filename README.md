@@ -75,7 +75,6 @@ abpai ([https://gitee.com/abpai](https://gitee.com/abpai))
 
 ###  项目依赖
 
-
 - ofcms-core 核心
 - ofcms-model  数据源
 - ofcms-front  模板
@@ -85,6 +84,12 @@ abpai ([https://gitee.com/abpai](https://gitee.com/abpai))
 - ofcms-admin  -> ofcms-model
 - ofcms-admin  -> ofcms-front
 - ofcms-admin  -> ofcms-api
+
+### 项目框架
+
+#### api网关设计
+
+![输入图片说明](https://images.gitee.com/uploads/images/2018/0906/232938_7332bdee_634828.png "api.png")
 
 ###  部署说明
 
