@@ -61,7 +61,6 @@ abpai ([https://gitee.com/abpai](https://gitee.com/abpai))
 3. shior 文件 resource/shior.ini
 4. 缓存 resource/ehcache.xml
 5. 后台账号 http://localhost:8080/ofcms-admin/admin admin 密码 123456
-6. 目前功能未全部完成，后续进行版本升级补充。
 
 ###  项目依赖
 
