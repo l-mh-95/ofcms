@@ -1,4 +1,5 @@
 package com.ofsoft.cms.core.handler;
+
 import com.jfinal.handler.Handler;
 import com.ofsoft.cms.admin.controller.BaseController;
 
@@ -39,6 +40,7 @@ public class ActionHandler extends Handler {
 		BaseController.setRequestParams();
 //		RequestSupport.setLocalRequest(request);
 //		RequestSupport.setRequestParams();
+		//JFinal.me().getAction(target,null);
 		next.handle(target, request, response, isHandled);
 	}
 

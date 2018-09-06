@@ -1,38 +1,41 @@
-<#include "_inc/_layout.html"/> 
-<@layout>
-<!-- Main content -->
-<div class="container">
-	<div class="row ">
-		<div class="col-md-8  col-md-offset-2 ">
-			<div class="login-logo">
-				<a href="http://jpress.io" target="_blank">
-					<b>JPress安装向导</b>
-				</a>
-			</div>
-			<!-- Default box -->
-			<div class="box">
-				<div class="box-header with-border">
-					<h3 class="box-title">JPress安装第一步：安装必读。</h3>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>${system.system_name!'OFCMS'}内容管理系统</title>
+	<link rel="icon" type="image/png"
+		  href="${webroot}/static/assets/image/favicon.png">
+	<link rel="stylesheet"
+		  href="${webroot}/static/plugins/layui/css/layui.css">
+	<link rel="stylesheet" type="text/css"
+		  href="${webroot}/static/assets/css/admin.css"/>
 
+</head>
+<body>
+<div class="layui-fluid">
+	<div class="layui-row"  >
+			<div class="layui-card" style="width: 1000px;margin: 0 auto;font-size: 17px;">
+				<div class="layui-card-header"><span>OFCMS-安装向导</span>  <span style="width:70%;font-size: 17px;display: inline-block;text-align: center"><b>第一步：软件说明</b></span></div>
+				<div class="layui-card-body" style="line-height: 33px;padding: 30px">
+					<h3><b>项目介绍:</b></h3>
+					java 版CMS系统、基于java技术研发的内容管理系统、功能：栏目模板自定义、内容模型自定义、多个站点管理、在线模板页面编辑等功能、代码完全开源、MIT授权协议。<br />
+					技术选型：jfinal mybatis mysql freemarker redis spring 等 layui zTree bootstrap 。<br />
+					特点：支持多站点、可以根据需求添加手机站、pc站。<br />
+					模板采用：freemarker 标签会在官网发布。<br />
+					项目地址：https://gitee.com/oufu/ofcms QQ 群: ①185948055.<br />
+					<h3><b>使用说明:</b></h3>
+					配置文件 resource/conf/admin.properties<br />
+					微信配置文件 resource/conf/weixin.properties<br />
+					shior 文件 resource/shior.ini<br />
+					缓存 resource/ehcache.xml<br />
+					后台账号 http://localhost:端口/项目/admin admin 密码 123456<br />
+					<br />
+					<span style="width:100%;display: inline-block;text-align: center"><a href="${webroot}/install/step2.html"  class="layui-btn   "> <b>下一步</b></a></span>
 				</div>
-				<div class="box-body">
-					欢迎使用JPress。在开始前，我们需要您数据库的一些信息。请准备好如下信息。<br /> <br /> 1、数据库名<br /> 2、数据库用户名<br /> 3、数据库密码<br /> 4、数据库主机<br /> 5、数据表前缀（table prefix，特别是当您要在一个数据库中安装多个JPress时）<br /> <br />
-					我们会使用这些信息来创建一个名为db.properties的数据库信息文件。 如果自动创建未能成功，不用担心，您可以在文本编辑器中打开db-sample.properties，填入数据库信息，并将其另存为db.properties。 <br /> <br />
-					绝大多数时候，您的网站服务商会给您这些信息。如果您没有这些信息，在继续安装JPress之前您将需要联系他们。如果您准备好了，那么，愉快的玩耍吧...<br /> <br /> 需要更多帮助？点击
-					<a href="http://jpress.io" target="_blank">这里</a>
-					。 <br /> <br />
-				</div>
-				<!-- /.box-body -->
-				<div class="box-footer">
-					<a href="${CPATH}/install/step2" class="btn btn-primary pull-right">
-						<b>下一步</b>
-					</a>
-				</div>
-				<!-- /.box-footer-->
 			</div>
-			<!-- /.box -->
-		</div>
-		<!-- /.content -->
 	</div>
 </div>
-</@layout>
+</body>
+</html>

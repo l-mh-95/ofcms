@@ -85,32 +85,34 @@ public final class JFWebConfig extends JFinalConfig {
 
     @Override
     public void configPlugin(Plugins me) {
-        // spring plugin
-        String[] configurations = new String[]{AdminConst.STRING_CONFIG,
-                AdminConst.STRING_CONFIG + "-*"};
-        SpringPlugin springPlugin = new SpringPlugin(configurations);
-        me.add(springPlugin);
-        // 添加自动绑定model与表插件
-        ActiveRecordPlugin activeRecordPlugin = new ActiveRecordPlugin(
-                new SpringDataSourcePlugin());
-        activeRecordPlugin.setShowSql(true);
-        activeRecordPlugin.setDevMode(true);
-        activeRecordPlugin
-                .setContainerFactory(new CaseInsensitiveContainerFactory(true));
-        activeRecordPlugin.setBaseSqlTemplatePath(PathKit.getRootClassPath()
-                + "/conf/sql");
-        activeRecordPlugin.addSqlTemplate("init.sql");
-        _MappingKit.mapping(activeRecordPlugin);
-        me.add(activeRecordPlugin);
-        if (getPropertyToBoolean("jfinal.devmode")) {
-            AutoReloadSqlConfig auto = new AutoReloadSqlConfig();
-            auto.setSqlKit(activeRecordPlugin.getSqlKit());
-            auto.setInterval(15);
-            auto.start();
+        if (SystemUtile.isInstall()) {
+            // spring plugin
+            String[] configurations = new String[]{AdminConst.STRING_CONFIG,
+                    AdminConst.STRING_CONFIG + "-*"};
+            SpringPlugin springPlugin = new SpringPlugin(configurations);
+            me.add(springPlugin);
+            // 添加自动绑定model与表插件
+            ActiveRecordPlugin activeRecordPlugin = new ActiveRecordPlugin(
+                    new SpringDataSourcePlugin());
+            activeRecordPlugin.setShowSql(true);
+            activeRecordPlugin.setDevMode(true);
+            activeRecordPlugin
+                    .setContainerFactory(new CaseInsensitiveContainerFactory(true));
+            activeRecordPlugin.setBaseSqlTemplatePath(PathKit.getRootClassPath()
+                    + "/conf/sql");
+            activeRecordPlugin.addSqlTemplate("init.sql");
+            _MappingKit.mapping(activeRecordPlugin);
+            me.add(activeRecordPlugin);
+            if (getPropertyToBoolean("jfinal.devmode")) {
+                AutoReloadSqlConfig auto = new AutoReloadSqlConfig();
+                auto.setSqlKit(activeRecordPlugin.getSqlKit());
+                auto.setInterval(15);
+                auto.start();
+            }
+            // 定时任务插件
+            QuartzPlugin quartz = new QuartzPlugin("/conf/quartz.properties");
+            me.add(quartz);
         }
-        // 定时任务插件
-        QuartzPlugin quartz = new QuartzPlugin("/conf/quartz.properties");
-        me.add(quartz);
         // 缓存插件
         ShiroPlugin shiroPlugin = new ShiroPlugin(route);
         shiroPlugin.setExtName(".html");
@@ -144,7 +146,9 @@ public final class JFWebConfig extends JFinalConfig {
     public void afterJFinalStart() {
         // MobileConst.MOBILE_CONFIG = AdminConst.ADMIN_CONFIG;
         // 初始化系统数据
-        SystemUtile.init();
+        if (SystemUtile.isInstall()) {
+            SystemUtile.init();
+        }
         // 启动通知服务
         try {
             webSocket = new MsgWebSocketServer(9999);
@@ -160,10 +164,12 @@ public final class JFWebConfig extends JFinalConfig {
         Configuration cf = FreeMarkerRender.getConfiguration();
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("webroot", JFinal.me().getContextPath());
-        map.put("reroot", JFinal.me().getContextPath() +  "/static" );
-        map.put("http_image_url", SystemUtile.getParam("http_image_url"));
-        map.put("compress", StandardCompress.INSTANCE);
-        map.put("system", SystemUtile.getParamGroup("system"));
+        map.put("reroot", JFinal.me().getContextPath() + "/static");
+        if (SystemUtile.isInstall()) {
+            map.put("http_image_url", SystemUtile.getParam("http_image_url"));
+            map.put("compress", StandardCompress.INSTANCE);
+            map.put("system", SystemUtile.getParamGroup("system"));
+        }
         try {
             cf.setSharedVaribles(map);
             cf.setSharedVariable("tools", new Tools());

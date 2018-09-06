@@ -24,10 +24,13 @@ public final class AdminConst {
 	public final static String NET_ERROR_MSG = "请求接口失败，请检查网络，或者刷新重连";
 
 	public final static String ADMIN_CONFIG = "conf/admin.properties";
+	public final static String ADMIN_DB_CONFIG = "conf/db.properties";
 	public final static String WEIXIN_CONFIG = "conf/weixin.sdk.properties";
+	public final static String ADMIN_INSTALL_SQL = "/conf/sql/install.sql";
 	public final static String STRING_CONFIG = "classpath:conf/applicationContext.xml";
 	public final static String ERROR_500 = "/comn/500.html";
 	public final static String ERROR_404 = "/comn/404.html";
+	public   static String installHtml = "/install/index.html";
 	public   static String loginHtml = "/admin/login.html";
 	public   static String indexHtml = "/admin/index.html";
 	public final static String DEF = "1";

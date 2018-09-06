@@ -6,6 +6,7 @@ import com.jfinal.core.Controller;
 import com.jfinal.core.JFinal;
 import com.jfinal.plugin.activerecord.Record;
 import com.ofsoft.cms.admin.controller.system.SystemUtile;
+import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.ErrorCode;
 import com.ofsoft.cms.core.config.FrontConst;
 import com.ofsoft.cms.core.uitle.SiteUtile;
@@ -19,6 +20,10 @@ import java.util.List;
  */
 public class FrontInterceptor implements Interceptor {
     public void intercept(Invocation ai) {
+        if (!SystemUtile.isInstall()){
+            ai.getController().redirect(AdminConst.installHtml);
+            return;
+        }
         Controller controller = ai.getController();
         HttpServletRequest request = controller.getRequest();
         SiteUtile.setLocalRequest(request);

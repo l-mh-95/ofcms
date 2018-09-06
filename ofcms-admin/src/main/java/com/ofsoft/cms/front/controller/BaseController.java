@@ -28,7 +28,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * 
  * @author OF
  */
-@Before({ IocInterceptor.class, FrontInterceptor.class })
+@Before({  FrontInterceptor.class ,IocInterceptor.class})
 public abstract class BaseController extends Controller {
 	public Logger log = Logger.getLogger(getClass());
 	/**

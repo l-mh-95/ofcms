@@ -3,11 +3,15 @@ package com.ofsoft.cms.core.api;
 import com.jfinal.aop.Interceptor;
 import com.jfinal.aop.Invocation;
 import com.jfinal.core.Controller;
-import com.ofsoft.cms.core.api.check.*;
+import com.ofsoft.cms.core.api.check.AbstractCheck;
+import com.ofsoft.cms.core.api.check.CheckFactory;
+import com.ofsoft.cms.core.api.check.ParamsCheck;
+import com.ofsoft.cms.core.api.check.ParamsCheckType;
 import com.ofsoft.cms.core.utils.ResultUtil;
 import com.ofsoft.cms.core.utils.StringUtils;
 
 import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * @author OF
@@ -147,31 +151,40 @@ public abstract class AbstractsApi implements Interceptor {
         String isNotNull;
         // 获得传过来的参数
         Object param = params.get(checkType.name());
-        if (param == null)
-            throw new ApiException(ApiErrorCode.ERROR_CODE_1001, checkType.name() + "字段不能为空");
 
         // 判断传过来的参数是否存在(参数为必填，但传过来的参数为空)
-        if (checkType.isRequire() == true && StringUtils.isNull(param))
-            throw new ApiException(ApiErrorCode.ERROR_CODE_1001, checkType.name() + "字段不能为空");
-
-        // 参数值是否为空(参数为必填，但传过来的参数值为空)
-        if (checkType.isNotNull() != true && StringUtils.isNull(param)) {
+        if (checkType.isRequire() == true && param == null) {
+            throw new ApiException(ApiErrorCode.ERROR_CODE_1001,
+                    checkType.name() + " " + ("".equals(checkType.checkErrorMsg()) ? " 字段不能为空" : checkType.checkErrorMsg()));
+        }
+        // 参数值是否为空(参数为必填，但传过来的参数值为空) true 可以为空，false 不为空
+        if (checkType.isRequire() == true && checkType.isNotNull() != true) {
             if (StringUtils.isNull(param)) {
-                throw new ApiException(ApiErrorCode.ERROR_CODE_1001, checkType.name() + "字段值不能为空");
+                throw new ApiException(ApiErrorCode.ERROR_CODE_1001,
+                        checkType.name() +" "+ ( "".equals(checkType.checkErrorMsg())?" 字段值不能为空":checkType.checkErrorMsg()));
             }
         }
         // 校验参数最小长度
-        if (checkType.maxLength()  > 0 && param.toString().length() < checkType.minLength()) {
+        if (!StringUtils.isNull(param) && checkType.maxLength()  > 0 && param.toString().length() < checkType.minLength()) {
             throw new ApiException(ApiErrorCode.ERROR_CODE_1001,
                     checkType.name() + "规定最小长度：" + checkType.minLength() + ",实际长度：" + param.toString().length());
         }
         // 校验参数最大长度
-        if (checkType.maxLength() > 0 && param.toString().length() > checkType.maxLength()) {
+        if (!StringUtils.isNull(param) && checkType.maxLength() > 0 && param.toString().length() > checkType.maxLength()) {
             throw new ApiException(ApiErrorCode.ERROR_CODE_1001,
                     checkType.name() + "规定最大长度：" + checkType.maxLength() + ",实际长度：" + param.toString().length());
         }
+
+        // 校验参数正则表达式
+        if (!StringUtils.isNull(param) && !StringUtils.isNull(checkType.regexp() )) {
+            if(!Pattern.matches(checkType.regexp(), param.toString())){
+                throw new ApiException(ApiErrorCode.ERROR_CODE_1001,
+                        checkType.name() +" "+ ( "".equals(checkType.checkErrorMsg())?"数据校验失败":checkType.checkErrorMsg()));
+            }
+
+        }
         // 验证类型
-        if (!StringUtils.isNull(checkType.checkType() )) {
+        if (!StringUtils.isNull(param) && !StringUtils.isNull(checkType.checkType() )) {
             //策略加工厂方式实现自定义验证类型
             AbstractCheck checkMain = CheckFactory.getStrategy(checkType.checkType());
             if(checkMain != null &&!checkMain.check(param.toString())){
@@ -179,6 +192,7 @@ public abstract class AbstractsApi implements Interceptor {
                         checkType.name() +" "+ ( "".equals(checkType.checkErrorMsg())?checkMain.errorMsg():checkType.checkErrorMsg()));
             }
         }
+
     }
 
 

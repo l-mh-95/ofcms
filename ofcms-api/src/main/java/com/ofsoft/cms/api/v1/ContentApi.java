@@ -6,6 +6,7 @@ import com.ofsoft.cms.api.ApiBase;
 import com.ofsoft.cms.core.annotation.Action;
 import com.ofsoft.cms.core.api.ApiMapping;
 import com.ofsoft.cms.core.api.RequestMethod;
+import com.ofsoft.cms.core.api.check.EmailCheck;
 import com.ofsoft.cms.core.api.check.ParamsCheck;
 import com.ofsoft.cms.core.api.check.ParamsCheckType;
 
@@ -23,7 +24,7 @@ public class ContentApi extends ApiBase {
      * 获取内容信息
      */
     @ApiMapping(method = RequestMethod.GET)
-    @ParamsCheck({@ParamsCheckType(name = "content_id"), @ParamsCheckType(name = "site_id")})
+    @ParamsCheck({@ParamsCheckType(name = "content_id",isNotNull = true,checkType = EmailCheck.class), @ParamsCheckType(name = "site_id")})
     public void get() {
         try {
            Record record =  Db.findFirst(Db.getSqlPara("cms.content.detail",getParamsMap()));

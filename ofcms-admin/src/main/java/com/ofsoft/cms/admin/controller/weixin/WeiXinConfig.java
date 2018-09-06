@@ -26,12 +26,14 @@ public class WeiXinConfig  {
             synchronized (WeiXinConfig.class) {
                 if (ac == null) {
                     ac = new ApiConfig();
-                    // 配置微信 API 相关常量
-                    ac.setToken(SystemUtile.getParam("wx_app_token"));
-                    ac.setAppId(SystemUtile.getParam("wx_app_id"));
-                    ac.setAppSecret(SystemUtile.getParam("wx_app_secret"));
-                    ac.setEncryptMessage(SystemUtile.getParamBoolean("encryptMessage", false));
-                    ac.setEncodingAesKey(SystemUtile.getParam("encodingAesKey"));
+                    if (SystemUtile.isInstall()) {
+                        // 配置微信 API 相关常量
+                        ac.setToken(SystemUtile.getParam("wx_app_token"));
+                        ac.setAppId(SystemUtile.getParam("wx_app_id"));
+                        ac.setAppSecret(SystemUtile.getParam("wx_app_secret"));
+                        ac.setEncryptMessage(SystemUtile.getParamBoolean("encryptMessage", false));
+                        ac.setEncodingAesKey(SystemUtile.getParam("encodingAesKey"));
+                    }
                 }
             }
         }

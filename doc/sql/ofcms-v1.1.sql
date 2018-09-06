@@ -1300,6 +1300,11 @@ CREATE TABLE `of_sys_user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='系统用户表';
 
 -- ----------------------------
+-- Records of of_sys_user
+-- ----------------------------
+INSERT INTO `of_sys_user` VALUES ('1', 'admin', '管理员', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '1', '2018-01-08', '18867350835', '523648919@qq.com', '1', '1', '126', null, '1', null);
+
+-- ----------------------------
 -- Table structure for of_sys_user_role
 -- ----------------------------
 DROP TABLE IF EXISTS `of_sys_user_role`;

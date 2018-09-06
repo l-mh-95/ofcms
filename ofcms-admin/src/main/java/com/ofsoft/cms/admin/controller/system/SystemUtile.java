@@ -24,6 +24,7 @@ import freemarker.template.TemplateModelException;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -473,5 +474,20 @@ public class SystemUtile {
         site.set("user_agent", request.getHeader("User-Agent"));
         SqlPara sql = Db.getSqlPara("cms.count.save_access",site);
         Db.update(sql );
+    }
+
+
+    private static boolean isInstalled = false;
+
+    /**
+     *是否安装
+     * @return boolean
+     */
+    public static boolean isInstall() {
+        if (!isInstalled) {
+            File dbConfig = new File(PathKit.getRootClassPath(), AdminConst.ADMIN_DB_CONFIG);
+            isInstalled = dbConfig.exists();
+        }
+        return isInstalled;
     }
 }

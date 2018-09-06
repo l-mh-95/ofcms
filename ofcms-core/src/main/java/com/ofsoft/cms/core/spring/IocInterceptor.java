@@ -1,12 +1,11 @@
 package com.ofsoft.cms.core.spring;
 
-import java.lang.reflect.Field;
-
-import org.springframework.context.ApplicationContext;
-
 import com.jfinal.aop.Interceptor;
 import com.jfinal.aop.Invocation;
 import com.jfinal.core.Controller;
+import org.springframework.context.ApplicationContext;
+
+import java.lang.reflect.Field;
 
 /**
  * 注入拦截器
@@ -17,7 +16,6 @@ import com.jfinal.core.Controller;
 public class IocInterceptor implements Interceptor {
 
 	static ApplicationContext ctx;
-
 	public void intercept(Invocation ai) {
 		Controller controller = ai.getController();
 		Field[] fields = controller.getClass().getDeclaredFields();

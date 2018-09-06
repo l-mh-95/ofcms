@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Action(path = "/api")
 //@Before(IocInterceptor.class)
-@Before({IocInterceptor.class, ApiInterceptor.class})
+@Before({ ApiInterceptor.class,IocInterceptor.class})
 public abstract class ApiBase extends Controller {
     protected void rendSuccessJson(Object data) {
         rendJson(ApiUtil.genSuccessResult(data));

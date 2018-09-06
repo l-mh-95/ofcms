@@ -10,9 +10,9 @@ import com.jfinal.weixin.sdk.api.ApiConfig;
 import com.jfinal.weixin.sdk.jfinal.ApiController;
 import com.jfinal.weixin.sdk.jfinal.ApiInterceptor;
 import com.jfinal.weixin.sdk.utils.JsonUtils;
+import com.ofsoft.cms.admin.controller.weixin.WeiXinConfig;
 import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.RenderFactoryImpl;
-import com.ofsoft.cms.admin.controller.weixin.WeiXinConfig;
 import com.ofsoft.cms.core.spring.IocInterceptor;
 import com.ofsoft.cms.core.utils.CalendarUtil;
 import com.ofsoft.cms.core.utils.ResultUtil;
@@ -32,7 +32,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author OF
  */
-@Before({IocInterceptor.class, ApiInterceptor.class})
+@Before({ ApiInterceptor.class,IocInterceptor.class})
 public abstract class BaseController extends ApiController {
     public static final RenderFactoryImpl sykRender = new RenderFactoryImpl();
     /**
