@@ -1167,7 +1167,7 @@ CREATE TABLE `of_sys_param` (
 -- Records of of_sys_param
 -- ----------------------------
 INSERT INTO `of_sys_param` VALUES ('1', 'system_name', 'OFCMS', '系统名称', 'system', null, '1', '1', '');
-INSERT INTO `of_sys_param` VALUES ('2', 'version', '1.0.1', '版本号', 'system', null, '1', '1', '1');
+INSERT INTO `of_sys_param` VALUES ('2', 'version', '1.1.1', '版本号', 'system', null, '1', '1', '1');
 INSERT INTO `of_sys_param` VALUES ('3', 'copyright', '© www.ofosft.cn', '版权', 'system', null, '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('4', 'api', 'hosp', '医院信息缓存', 'cache', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('5', 'system', 'dict', '字典缓存', 'cache', '', '1', '1', '');
