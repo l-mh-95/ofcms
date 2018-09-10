@@ -48,6 +48,10 @@ public class IndexController extends BaseController {
     // @RequiresPermissions(value = "123")
     @ActionKey(value = "/admin/login")
     public void login() {
+        if(!SystemUtile.isInstall()) {
+            redirect("/");
+            return;
+        }
         render(AdminConst.loginHtml);
     }
 
