@@ -121,8 +121,11 @@ abpai ([https://gitee.com/abpai](https://gitee.com/abpai))
 
 #### 相关文档
 项目相关手册：[ https://blog.csdn.net/oufua](https://blog.csdn.net/oufua)
+
 1.0 IDEA 部署手册：[ https://blog.csdn.net/oufua/article/details/81210008](https://blog.csdn.net/oufua/article/details/81210008)
+
 1.1 IDEA 部署手册：[ https://blog.csdn.net/oufua/article/details/82584637](https://blog.csdn.net/oufua/article/details/82584637)
+
 模板手册：[ https://blog.csdn.net/oufua/article/details/82500673](https://blog.csdn.net/oufua/article/details/82500673)
 
 项目发展离不开你的支持：
