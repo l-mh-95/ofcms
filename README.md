@@ -7,7 +7,7 @@ java 版CMS系统、基于java技术研发的内容管理系统、功能：栏�
 特点：支持多站点、可以根据需求添加手机站、pc站。
 
 项目地址：https://gitee.com/oufu/ofcms   QQ 群: ①185948055 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=9c5f0bdc44402195be254668a80a6c5eeebb06f0336e8c5be26878930b88c672"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="OFCMS技术交流" title="OFCMS技术交流"></a> 
-欢迎喜欢开源的朋友一起加入，共同学习。
+欢迎喜欢开源的朋友一起加入，共同学习、群里有相关文档。
 
 #### 目前版本v1.1
 前台：
@@ -120,7 +120,10 @@ abpai ([https://gitee.com/abpai](https://gitee.com/abpai))
 博 客 [https://blog.csdn.net/oufua](https://blog.csdn.net/oufua)  
 
 #### 相关文档
-IDEA 部署手册：[ https://blog.csdn.net/oufua/article/details/81210008](https://blog.csdn.net/oufua/article/details/81210008)
+项目相关手册：[ https://blog.csdn.net/oufua](https://blog.csdn.net/oufua)
+1.0 IDEA 部署手册：[ https://blog.csdn.net/oufua/article/details/81210008](https://blog.csdn.net/oufua/article/details/81210008)
+1.1 IDEA 部署手册：[ https://blog.csdn.net/oufua/article/details/82584637](https://blog.csdn.net/oufua/article/details/82584637)
+模板手册：[ https://blog.csdn.net/oufua/article/details/82500673](https://blog.csdn.net/oufua/article/details/82500673)
 
 项目发展离不开你的支持：
 
