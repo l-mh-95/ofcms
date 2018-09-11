@@ -1194,7 +1194,7 @@ INSERT INTO `of_sys_param` VALUES ('25', 'front_copyright', 'Copyright◎ 2017-2
 INSERT INTO `of_sys_param` VALUES ('26', 'icp', '湘ICP备17023316号', '备案号', 'system', null, '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('27', 'tel', '0791-86538070　13576281815', '电话', 'system', null, '1', '1', '可以用,分开显示');
 INSERT INTO `of_sys_param` VALUES ('28', 'fax', '0731-86533320', '传真', 'system', null, '1', '1', '');
-INSERT INTO `of_sys_param` VALUES ('29', 'address', '南昌市西湖区沿江大道1299号力高滨江国际天郡A座503', '地址', 'system', null, '1', '1', '');
+INSERT INTO `of_sys_param` VALUES ('29', 'address', '长沙市岳麓区大道19号XX大楼A座22', '地址', 'system', null, '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('30', 'email_service', 'smtp.qq.com', '邮箱服务器', 'system', null, '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('31', 'email_port', '465', '邮件端口', 'system', null, '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('32', 'email_username', '333332270@qq.com', '邮件用户名', 'system', null, '1', '1', '');
