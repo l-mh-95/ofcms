@@ -130,3 +130,7 @@ QQ 群: ①185948055 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=9c
 项目发展离不开你的支持：
 
 ![捐赠](https://images.gitee.com/uploads/images/2018/0727/110232_49d5dc17_634828.png "项目成长离不开你的支持")
+
+感谢：
+
+@luoyafeng  100元 ，@luoyafeng 18.88元  @luoyafeng 8.88元
