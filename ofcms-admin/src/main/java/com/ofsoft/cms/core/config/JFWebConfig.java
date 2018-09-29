@@ -54,7 +54,6 @@ public final class JFWebConfig extends JFinalConfig {
     @Override
     public void configConstant(Constants me) {
         loadPropertyFile(AdminConst.ADMIN_CONFIG);
-//        PropKit.use(AdminConst.WEIXIN_CONFIG);
         PropKit.use(AdminConst.ADMIN_CONFIG);
         me.setEncoding("UTF-8");
         me.setI18nDefaultBaseName("i18n");
@@ -64,7 +63,6 @@ public final class JFWebConfig extends JFinalConfig {
         me.setError404View("/comn/404.html");
         me.setError500View("/comn/500.html");
         me.setRenderFactory(new RenderFactoryImpl());
-        // me.setDevMode(PropKit.getBoolean("jfinal.devmode", false));
         me.setViewType(ViewType.FREE_MARKER);
         // me.setJsonFactory(new FastJsonFactory());
         ApiConfigKit.setDevMode(getPropertyToBoolean("jfinal.devmode"));
