@@ -122,12 +122,15 @@ abpai ([https://gitee.com/abpai](https://gitee.com/abpai))
 #### 相关文档
 项目相关手册：[ https://blog.csdn.net/oufua](https://blog.csdn.net/oufua)
 
-1.0 IDEA 部署手册：[ https://blog.csdn.net/oufua/article/details/81210008](https://blog.csdn.net/oufua/article/details/81210008)
-
-1.1 IDEA 部署手册：[ https://blog.csdn.net/oufua/article/details/82584637](https://blog.csdn.net/oufua/article/details/82584637)
+加群有相关部署文档、一起学习、交流。
+QQ 群: ①185948055 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=9c5f0bdc44402195be254668a80a6c5eeebb06f0336e8c5be26878930b88c672"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="OFCMS技术交流" title="OFCMS技术交流"></a> 
 
 模板手册：[ https://blog.csdn.net/oufua/article/details/82500673](https://blog.csdn.net/oufua/article/details/82500673)
 
 项目发展离不开你的支持：
 
 ![捐赠](https://images.gitee.com/uploads/images/2018/0727/110232_49d5dc17_634828.png "项目成长离不开你的支持")
+
+感谢：
+
+@luoyafeng  100元 ，@luoyafeng 18.88元  @luoyafeng 8.88元
