@@ -5,7 +5,8 @@
 			<div class="layui-btn-container">
 				<#if queryresult.tab_buttons ??>
 					<#list queryresult.tab_buttons  as button>
-					<#if button.event == 'a'>
+					<@shiro.hasPermission name="${pannelConfig.page_config.module_name}/${button.event}">
+						<#if button.event == 'a'>
 					<a class="layui-btn  layui-btn-sm layui-btn-danger" href="${button.url}">${button.button_name!'按钮'}</a>
 					<#else>
 					<button 
@@ -40,6 +41,7 @@
 						${button.button_name!'按钮'}
 					 </button>
 					</#if>
+					</@shiro.hasPermission>
 					</#list>
 				</#if>
 			</div>
@@ -70,7 +72,8 @@
 			<#if queryresult.tools_buttons ??>
 			<script type="text/html" id="barTools">
 				<#list queryresult.tools_buttons  as tools>
-					<a
+					<@shiro.hasPermission name="${pannelConfig.page_config.module_name}/${tools.event}"> 
+					<a  
 					<#if tools.event == 'detail' >
 						class="${tools.class!'layui-btn layui-btn-primary layui-btn-xs'}" 
 						lay-event="top" topMode="readonly" topUrl="<#if queryresult.edit_action??>${queryresult.edit_action}<#else>f.html?p=${queryresult.edit_url!''}</#if>"  topWidth="${queryresult.width!'680px'}" topHeight="${queryresult.height!'400px'}" topTitle="${tools.title!'查看'}" inputs="${queryresult.inputs!''}"
@@ -87,6 +90,7 @@
 						lay-event="top"  topUrl="<#if tools.action??> ${tools.action}<#else>f.html?p=${tools.url!''}<#if tools.params??>&${tools.params}</#if></#if>"  <#if tools.topMode??> topMode="readonly"</#if>  topWidth="${tools.width!'680px'}" topHeight="${tools.height!'400px'}"   inputs="${queryresult.inputs!''}" topTitle="${tools.title!'编辑'}" inputs="${queryresult.inputs!''}"
 					</#if>
 					> ${tools.button_name!''}</a>
+				</@shiro.hasPermission>  
 				</#list>
 			</script>
 			</#if>
