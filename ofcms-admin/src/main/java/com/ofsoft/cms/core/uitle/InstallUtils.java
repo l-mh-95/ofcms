@@ -82,11 +82,13 @@ public class InstallUtils {
 
 	private static void executeBatchSql(Connection conn, String batchSql) throws SQLException {
 		Statement pst = conn.createStatement();
+		//增加跨平台换行符
+		String newLine = System.getProperty("line.separator");
 		if (null == batchSql) {
 			throw new SQLException("SQL IS NULL");
 		}
 		if (batchSql.contains(";")) {
-			String sqls[] = batchSql.split(";\r\n");
+			String sqls[] = batchSql.split(";"+newLine);
 			for (String sql : sqls) {
 				if (null != sql && !"".equals(sql.trim()))
 					pst.addBatch(sql);
