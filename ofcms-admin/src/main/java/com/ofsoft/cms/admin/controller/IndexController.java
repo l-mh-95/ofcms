@@ -9,6 +9,7 @@ import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.ShiroUtils;
 import com.ofsoft.cms.core.utils.CalendarUtil;
 import com.ofsoft.cms.core.utils.JsonUtil;
+import com.ofsoft.cms.model.SysUser;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -48,7 +49,7 @@ public class IndexController extends BaseController {
     // @RequiresPermissions(value = "123")
     @ActionKey(value = "/admin/login")
     public void login() {
-        if(!SystemUtile.isInstall()) {
+        if (!SystemUtile.isInstall()) {
             redirect("/");
             return;
         }
@@ -142,8 +143,10 @@ public class IndexController extends BaseController {
      */
     @ActionKey(value = "/admin/logout")
     public void logout() {
-        logService(ShiroUtils.getSysUser().getUserId().toString(), ShiroUtils
-                .getSysUser().getUserName(), "用户退出");
+        SysUser user = ShiroUtils.getSysUser();
+        if (null != user) {
+            logService(user.getUserId().toString(), user.getUserName(), "用户退出");
+        }
         SecurityUtils.getSubject().logout();
         // CookieUtil.setLogoutCookie(response);
         ShiroUtils.getSession().removeAttribute(AdminConst.USER_MENU_SESSION);
@@ -160,35 +163,36 @@ public class IndexController extends BaseController {
     public void main() {
         Map<String, Object> params = getParamsMap();
         try {
-            params.put("site_id",SystemUtile.getSiteId());
+            params.put("site_id", SystemUtile.getSiteId());
             params.put("count_date", CalendarUtil.getNowTime("yyyy-MM-dd"));
-            Record record =  Db.findFirst(Db.getSqlPara("cms.count.query",params));
-            if(record == null){
+            Record record = Db.findFirst(Db.getSqlPara("cms.count.query", params));
+            if (record == null) {
                 record = new Record();
             }
             // 系统属性
             Properties props = System.getProperties();
             record.set("java_version", props.getProperty("java.version"));
-            record.set("host_name",SystemUtile.getHostName());
+            record.set("host_name", SystemUtile.getHostName());
             record.set("os_name", props.getProperty("os.name"));
             record.set("os_arch", props.getProperty("os.arch"));
             record.set("os_version", props.getProperty("os.version"));
             record.set("local_ip", SystemUtile.getLocalHostIp());
-           List<Record> count =  Db.find(Db.getSqlPara("cms.count.index_query",params));
-           Map access = new HashMap();
-           access.put("date",recordToStringArrary(count,"count_date") );
-           access.put("data",recordToStringArrary(count,"day_access_count") );
-           record.set("access", JsonUtil.objectToJson(access));
-            setAttr("data",record);
+            List<Record> count = Db.find(Db.getSqlPara("cms.count.index_query", params));
+            Map access = new HashMap();
+            access.put("date", recordToStringArrary(count, "count_date"));
+            access.put("data", recordToStringArrary(count, "day_access_count"));
+            record.set("access", JsonUtil.objectToJson(access));
+            setAttr("data", record);
             render("/admin/main.html");
         } catch (Exception e) {
             e.printStackTrace();
             render("/admin/main.html");
         }
     }
-    public  List <String>   recordToStringArrary(List <Record> list,String key){
-        List <String> s = new ArrayList<String>(list.size());
-        for (Record record  :list){
+
+    public List<String> recordToStringArrary(List<Record> list, String key) {
+        List<String> s = new ArrayList<String>(list.size());
+        for (Record record : list) {
             s.add(record.getStr(key));
         }
         return s;

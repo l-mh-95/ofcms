@@ -224,7 +224,7 @@ public class InstallUtils {
 			fos = new FileOutputStream(pFile);
 			p.store(fos, "dataSource config");
 		} catch (Exception e) {
-			log.warn("InstallUtils save erro", e);
+			log.warn("InstallUtils save error", e);
 			return false;
 		} finally {
 			if (fos != null)
