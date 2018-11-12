@@ -2,7 +2,7 @@
 #### 项目介绍
 java 版CMS系统、基于java技术研发的内容管理系统、功能：栏目模板自定义、内容模型自定义、多个站点管理、在线模板页面编辑等功能、代码完全开源、MIT授权协议。
  
-技术选型：jfinal mybatis mysql  freemarker  redis spring 等 layui zTree bootstrap 。
+技术选型：jfinal Record mysql  freemarker  redis spring 等 layui zTree bootstrap 。
 
 特点：支持多站点、可以根据需求添加手机站、pc站。
 
@@ -43,6 +43,9 @@ firechou ([https://gitee.com/firechou](https://gitee.com/firechou))
 姚杰  ([https://gitee.com/yaojiecd](https://gitee.com/yaojiecd))
 
 abpai ([https://gitee.com/abpai](https://gitee.com/abpai))
+
+luoyafeng ([https://gitee.com/ExamSystem](https://gitee.com/ExamSystem))
+
 
 #### 项目功能
 
