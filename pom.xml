@@ -26,30 +26,26 @@
         </site>
     </distributionManagement>
     <!--指定项目中公有的模块-->
-
-
     <properties>
         <jfinal.version>3.2</jfinal.version>
         <servlet.api.version>3.0.1</servlet.api.version>
         <spring.bom.version>3.2.9.RELEASE</spring.bom.version>
         <spring.version>3.2.9.RELEASE</spring.version>
         <javassist_version>3.15.0-GA</javassist_version>
-        <servlet_version>3.0.1</servlet_version>
         <aspectj-version>1.6.8</aspectj-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java_source_version>1.8</java_source_version>
         <java_target_version>1.8</java_target_version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.jfinal</groupId>
             <artifactId>jfinal</artifactId>
             <version>${jfinal.version}</version>
         </dependency>
-
         <dependency>
             <groupId>com.jfinal</groupId>
             <artifactId>cos</artifactId>
@@ -72,14 +68,19 @@
             <version>1.7.25</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.1</version>
-        </dependency>
-        <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.6</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.10</version>
         </dependency>
         <dependency>
             <groupId>commons-collections</groupId>
@@ -100,11 +101,6 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.8.0</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet_version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -223,11 +219,6 @@
             <artifactId>fastjson</artifactId>
             <version>1.1.41</version>
         </dependency>
-        <!-- <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
-            <version>3.2.0</version>
-        </dependency> -->
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
@@ -237,21 +228,6 @@
             <groupId>com.squareup.okhttp</groupId>
             <artifactId>okhttp</artifactId>
             <version>2.7.5</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.6</version>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.okio</groupId>
-            <artifactId>okio</artifactId>
-            <version>1.9.0</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>

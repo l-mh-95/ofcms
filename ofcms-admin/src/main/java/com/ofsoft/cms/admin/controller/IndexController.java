@@ -148,7 +148,6 @@ public class IndexController extends BaseController {
             logService(user.getUserId().toString(), user.getUserName(), "用户退出");
         }
         SecurityUtils.getSubject().logout();
-        // CookieUtil.setLogoutCookie(response);
         ShiroUtils.getSession().removeAttribute(AdminConst.USER_MENU_SESSION);
         render(AdminConst.loginHtml);
     }

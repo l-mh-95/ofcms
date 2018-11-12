@@ -1,5 +1,12 @@
 package com.ofsoft.cms.admin.service.meesage;
 
+import com.alibaba.fastjson.JSON;
+import org.java_websocket.client.WebSocketClient;
+import org.java_websocket.drafts.Draft;
+import org.java_websocket.drafts.Draft_6455;
+import org.java_websocket.framing.Framedata;
+import org.java_websocket.handshake.ServerHandshake;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,14 +14,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.java_websocket.client.WebSocketClient;
-import org.java_websocket.drafts.Draft;
-import org.java_websocket.drafts.Draft_6455;
-import org.java_websocket.framing.Framedata;
-import org.java_websocket.handshake.ServerHandshake;
-
-import com.alibaba.fastjson.JSON;
 
 public class MsgWebSocket extends WebSocketClient {
 	public MsgWebSocket(URI serverUri, Draft draft) {
@@ -36,6 +35,7 @@ public class MsgWebSocket extends WebSocketClient {
 		System.out.println("接收: " + message);
 	}
 
+	@Override
 	public void onFragment(Framedata fragment) {
 		System.out.println("接收 fragment: "
 				+ new String(fragment.getPayloadData().array()));
