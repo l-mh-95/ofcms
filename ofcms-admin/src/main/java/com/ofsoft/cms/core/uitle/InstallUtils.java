@@ -176,8 +176,7 @@ public class InstallUtils {
 
 	private static DruidPlugin createDuidPlugin(String dbHost, String dbHostPort, String dbName, String dbUser,
 										String dbPassword) {
-		String jdbc_url = "jdbc:mysql://" + dbHost + ":" + dbHostPort + "/" + dbName + "?" + "useUnicode=true&"
-				+ "characterEncoding=utf8&" + "zeroDateTimeBehavior=convertToNull";
+		String jdbc_url = "jdbc:mysql://" + dbHost + ":" + dbHostPort + "/" + dbName + "?" + "useUnicode=true&" + "characterEncoding=UTF-8&" + "zeroDateTimeBehavior=convertToNull";
 		DruidPlugin druidPlugin = new DruidPlugin(jdbc_url, dbUser, dbPassword);
 		druidPlugin.setRemoveAbandoned(false);
 		druidPlugin.setRemoveAbandonedTimeoutMillis(1800);
@@ -214,7 +213,7 @@ public class InstallUtils {
 		Properties p = new Properties();
 		p.put("jdbc.username", dbUser);
 		p.put("jdbc.password", dbPassword);
-		p.put("jdbc.url", "jdbc:mysql://"+dbHost+":"+dbHostPort+"/"+dbName+"?characterEncoding\\=utf8&zeroDateTimeBehavior\\=convertToNull");
+		p.put("jdbc.url", "jdbc:mysql://" + dbHost + ":" + dbHostPort + "/" + dbName + "?" + "useUnicode=true&" + "characterEncoding=UTF-8&" + "zeroDateTimeBehavior=convertToNull");
 		File pFile = new File(PathKit.getRootClassPath(), AdminConst.ADMIN_DB_CONFIG);
 		return save(p, pFile);
 	}
