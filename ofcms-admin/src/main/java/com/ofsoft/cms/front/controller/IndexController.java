@@ -3,6 +3,7 @@ package com.ofsoft.cms.front.controller;
 import com.jfinal.core.ActionKey;
 import com.jfinal.plugin.activerecord.Record;
 import com.ofsoft.cms.core.annotation.Action;
+import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.config.FrontConst;
 import com.ofsoft.cms.core.uitle.SiteUtile;
 
@@ -16,9 +17,6 @@ import java.util.Map;
  */
 @Action()
 public class IndexController extends BaseController {
-    public void test() {
-        render("/front/index.html");
-    }
 
     /**
      * 首页页面
@@ -29,6 +27,14 @@ public class IndexController extends BaseController {
     }
 
     /**
+     * 管理台首页默认跳转
+     */
+    @ActionKey(value = "/admin")
+    public void admin() {
+        redirect(AdminConst.indexHtml);
+    }
+
+    /**
      * 首页面配置
      */
     @ActionKey(value = "/")
@@ -36,8 +42,8 @@ public class IndexController extends BaseController {
         Map params = getParamsMap();
         String page = getPara(0);
         //是否是首页
-        if("/".equals(page) || page == null || "index".equals(page)){
-            setAttr("site",  SiteUtile.getSite());
+        if ("/".equals(page) || page == null || "index".equals(page)) {
+            setAttr("site", SiteUtile.getSite());
             render(FrontConst.TEMPLATE_PATE + SiteUtile.getTemplatePath() + "/index.html");
             return;
         }
@@ -47,37 +53,37 @@ public class IndexController extends BaseController {
         params.put("page", page);
         Record record = SiteUtile.getColumn(params);
         String isContent = getPara(1);
-        if(record == null){
-            if("c".equals(isContent)){
-                params.put("content_id", getParaToInt(2,0));
+        if (record == null) {
+            if ("c".equals(isContent)) {
+                params.put("content_id", getParaToInt(2, 0));
                 setAttr("params", params);
                 render(FrontConst.TEMPLATE_PATE + SiteUtile.getTemplatePath() + "/article.html");
-                return ;
+                return;
             }
-            render(FrontConst.TEMPLATE_PATE +SiteUtile.getTemplatePath() + FrontConst.pageError);
-            return ;
+            render(FrontConst.TEMPLATE_PATE + SiteUtile.getTemplatePath() + FrontConst.pageError);
+            return;
         }
         setAttr("columns", record);
         setAttr("params", params);
         //是否是内容
-        if("c".equals(isContent)){
-            params.put("content_id", getParaToInt(2,0));
-            String templatePath = SiteUtile.getTemplatePath(record.getStr("column_content_page"),"/article.html");
+        if ("c".equals(isContent)) {
+            params.put("content_id", getParaToInt(2, 0));
+            String templatePath = SiteUtile.getTemplatePath(record.getStr("column_content_page"), "/article.html");
             render(FrontConst.TEMPLATE_PATE + SiteUtile.getTemplatePath() + templatePath);
             return;
         }
         //是否是单页
-        if("1".equals(record.getStr("is_open"))){
-            String templatePath =  SiteUtile.getTemplatePath(record.getStr("template_path"),"/sing.html");
+        if ("1".equals(record.getStr("is_open"))) {
+            String templatePath = SiteUtile.getTemplatePath(record.getStr("template_path"), "/sing.html");
             render(FrontConst.TEMPLATE_PATE + SiteUtile.getTemplatePath() + templatePath);
             return;
         }
         //当前页码 栏目页
         int pageNum = getParaToInt(1, 1);
-            setAttr("pageNum", pageNum);
-            String templatePath = SiteUtile.getTemplatePath(record.getStr("template_path"), "/list.html");
-            render(FrontConst.TEMPLATE_PATE + SiteUtile.getTemplatePath() + templatePath);
-            return;
+        setAttr("pageNum", pageNum);
+        String templatePath = SiteUtile.getTemplatePath(record.getStr("template_path"), "/list.html");
+        render(FrontConst.TEMPLATE_PATE + SiteUtile.getTemplatePath() + templatePath);
+        return;
     }
 
 

@@ -69,4 +69,16 @@ public class ColumnController extends BaseController {
         rendSuccessJson(result);
     }
 
+    public void singleDetail() {
+        Map<String, Object> params = getParamsMap();
+        try {
+            SqlPara sql = Db.getSqlPara("cms.single.detail", params);
+            Record record = Db.findFirst(sql);
+            setAttr("data", record);
+            render("/admin/cms/single/edit.html");
+        } catch (Exception e) {
+            e.printStackTrace();
+            render("/admin/cms/single/edit.html");
+        }
+    }
 }

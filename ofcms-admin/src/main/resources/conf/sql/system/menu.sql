@@ -44,3 +44,11 @@
 #sql("role_menu")
 	select m.* from  of_sys_role_menu r right join of_sys_menu m on r.menu_id = m.menu_id where m.status='1'  and r.role_id= #para(0)
 #end
+
+#sql("perms_menu")
+	select m.perms from of_sys_menu m
+#end
+
+#sql("sys_role_menu")
+	select m.perms from  of_sys_role_menu r right join of_sys_menu m on r.menu_id = m.menu_id where r.role_id=?
+#end

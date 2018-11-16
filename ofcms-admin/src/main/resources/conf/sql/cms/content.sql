@@ -23,8 +23,26 @@
 #end
  
 #sql("field_detail")
-  select
-	*
+select
+       f.content_id,
+       f.`name`,
+       f.`value`,
+       cf.field_id,
+		 	 cf.form_id,
+		 	 cf.field_name,
+		 	 cf.field_desc,
+		 	 cf.field_default_value,
+		 	 cf.field_type,
+		 	 cf.field_sub_type,
+		 	 cf.field_sort,
+		 	 cf.field_regular,
+		 	 cf.field_verification,
+		 	 cf.is_disabled,
+		 	 cf.is_required,
+		 	 cf.is_print,
+		 	 cf.is_default,
+		 	 cf.status,
+		 	 cf.remark
 from
 	of_cms_content_field f
 inner join of_cms_field cf on f.form_id = cf.form_id

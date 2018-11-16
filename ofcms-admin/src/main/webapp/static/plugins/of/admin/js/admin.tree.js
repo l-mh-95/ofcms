@@ -14,7 +14,7 @@ layui.define(['layer','admin.common','admin.config'], function(exports){
 	dataStatus = $.result(fsConfig,"global.result.dataStatus");
 	AdminTree = function (){
 		this.config = {
-			funcNo : undefined,//功能号  
+			funcNo : undefined,//地址
 			url : undefined,//请求url地址
 			id:"",
 			autoParam : ["id=parentId"],  //参数
@@ -47,7 +47,7 @@ layui.define(['layer','admin.common','admin.config'], function(exports){
     var url = _this.config.url;//请求url
     
     if($.isEmpty(funcNo) && $.isEmpty(url)){
-    	fsCommon.warnMsg("功能号或请求地址为空!");
+    	fsCommon.warnMsg("请求地址为空!");
 			return;
 		}
 		if($.isEmpty(url)){
@@ -97,7 +97,7 @@ layui.define(['layer','admin.common','admin.config'], function(exports){
 		var url = _this.config.url;//请求url
        
 		if($.isEmpty(funcNo) && $.isEmpty(url)){
-			fsCommon.warnMsg("功能号或请求地址为空!");
+			fsCommon.warnMsg("请求地址为空!");
 			return;
 		}
 		if($.isEmpty(url)){

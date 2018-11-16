@@ -42,7 +42,7 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
 		String password = new String((char[]) token.getCredentials());
 		user = SysUser.dao
 				.findFirst(
-						"select u.*,r.role_id from of_sys_user u left join of_sys_user_role r on u.user_id = r.user_id where login_name = ? ",
+						Db.getSql("system.user.user_role"),
 						username);
 		// 账号不存在
 		if (user == null) {
@@ -53,8 +53,8 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
 			throw new IncorrectCredentialsException("账号或密码不正确");
 		}
 		// 账号锁定
-		if (user.getStatus().equals(0)) {
-			throw new LockedAccountException("账号已被锁定,请联系管理员");
+		if (AdminConst.USER_STATUS.equals(user.getStatus())) {
+			throw new LockedAccountException("账号已被禁止使用,请联系管理员");
 		}
 		SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user,
 				user.getUserPassword(), getName());
@@ -77,10 +77,10 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
 		SysUser user = (SysUser) principals.getPrimaryPrincipal();
 		List<String> permsList = null;
 		if (SystemUtile.isAdmin()) {
-			permsList = Db.query("select m.perms from of_sys_menu m");
+			permsList = Db.query(Db.getSql("system.menu.perms_menu"));
 		} else {
 			permsList = Db
-					.query("select m.perms from  of_sys_role_menu r right join of_sys_menu m on r.menu_id = m.menu_id where r.role_id=?",
+					.query(Db.getSql("system.menu.sys_role_menu"),
 							user.getRoleId());
 		}
 		// 用户权限列表

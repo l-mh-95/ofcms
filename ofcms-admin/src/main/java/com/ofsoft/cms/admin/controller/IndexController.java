@@ -122,7 +122,7 @@ public class IndexController extends BaseController {
             msg = "登录失败次数过多,账户锁定10分钟";
             rendFailedJson(msg);
         } catch (LockedAccountException e) {
-            msg = "帐号已被锁定.";
+            msg = e.getMessage();
             rendFailedJson(msg);
         } catch (DisabledAccountException e) {
             msg = "帐号已被禁用.";

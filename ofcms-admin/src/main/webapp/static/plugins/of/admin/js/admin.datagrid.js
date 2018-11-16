@@ -106,7 +106,7 @@ layui.define(["admin.common","table",'laypage','admin.config','form','admin.butt
 	  	thisDatagrid.config.fsSortType = _table.attr("sortType");
 	  }
 	  
-	  var funcNo = _table.attr("funcNo");//功能号
+	  var funcNo = _table.attr("funcNo");//地址
 	  
 	  var isPage = _table.attr("isPage");//是否分页
 	  

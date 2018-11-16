@@ -36,7 +36,7 @@ public class SysMenuController extends BaseController {
 	 */
 
 	public void getMenu() {
-		// TODO 如果是管理刚查看全部 否则根据权限显示
+		// 如果是管理刚查看全部 否则根据权限显示
 		// 菜单存入到session中
 		String result = null;
 		Object obj = ShiroUtils

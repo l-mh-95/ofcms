@@ -1,4 +1,7 @@
 <#include "admin/template/page/head_lib.html">
+	<script type="text/javascript" charset="utf-8" src="${webroot}/static/plugins/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="${webroot}/static/plugins/ueditor/ueditor.all.min.js"> </script>
+	<script type="text/javascript" charset="utf-8" src="${webroot}/static/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<body>
 	<div class="layui-fluid">
 
@@ -11,36 +14,73 @@
 					<label class="layui-form-label">${data.field_desc}</label>
 					<div class="<#if data.field_type == 'image' || data.field_type == 'file'>layui-input-inline <#else> layui-input-block </#if>"  >
 						<#if data.field_type == 'select'>
-							<select class="sykSelect"  name="${data.field_name}"
-							  dict_type="${data.dict_type!''}" dict="${data.field_name}" addNull="1" required="" lay-verType="msg"
+							<select  name="${data.field_name}"
+							<#if data.remark=="" >  dict_type="${data.dict_type!''}" dict="${data.field_name}" addNull="1" </#if>
+							required="" lay-verType="msg"
 							<#if data.id?exists>  lay-filter="${data.id}"  childrenSelectId="${data.id}" </#if>
 							<#if data.field_name?exists>  select_name="${data.field_name}"   </#if>
 
 							<#if data.field_verification?? && data.field_verification!="" >  lay-verify="1${data.field_verification}"
 								<#elseif data.is_required=="1">  lay-verify="required" </#if>
 							>
+							<#if data.remark!="" >
+							   <#assign select=data.remark?eval>
+								<#list select.option as options>
+									<option value="${options.value}">${options.label}</option>
+								</#list>
+							</#if>
 							</select>
 
 						<#elseif data.field_type == 'image' || data.field_type == 'file'>
 							<div class="layui-input-inline">
 								<input required="" lay-verType="msg"
-								<#if data.field_verification?? && data.field_verification!="" >  lay-verify="1${data.field_verification}"
+								<#if data.field_verification?? && data.field_verification!="" >  lay-verify="${data.field_verification}"
 									<#elseif data.is_required=="1">  lay-verify="required" </#if>
 
 										type="text" id="filePath" name="${data.field_name}" autocomplete="off" disabled="disabled" class="layui-input"/>
 							</div>
 
 						<#elseif data.field_type == 'edit' >
-						 <textarea id="${data.field_name}" name="${data.field_name}"  placeholder="${item.placeholder}"
-								   class="sykLayedit" height="400" width="400"></textarea>
+							<script id="${data.field_name}" name="${data.field_name}" type="text/plain" style="width:100%;height:200px;"></script>
+
+                            <script type="text/javascript">
+                            var ue = UE.getEditor('${data.field_name}',{
+                                autoHeightEnabled: true
+                            });
+							</script>
 						<#elseif data.field_type == 'datetime' >
 							<input type="text" name='${data.field_name}'  datetype="datetime"
 								   required="" lay-verType="msg"
-							<#if data.field_verification?? && data.field_verification!="" >  lay-verify="1${data.field_verification}"
+							<#if data.field_verification?? && data.field_verification!="" >  lay-verify="${data.field_verification}"
 								<#elseif data.is_required=="1">  lay-verify="required" </#if>
 							placeholder="${data.placeholder}" autocomplete="off" class="layui-input sykDate">
 
 						<#elseif data.field_type == 'radio' >
+							<#assign radio=data.remark?eval>
+							<#list radio.option as option >
+								<input type="radio"
+								<#if data.is_disabled=='1'>  disabled="disabled"  </#if>
+								name='${(data.field_name)!""}' value='${(option.value)!""}' title="${option.title}"
+								<#if option.checked?exists>checked="checked" </#if>
+								>
+							</#list>
+							<#elseif data.field_type == 'checkbox' >
+							<#assign checkbox=data.remark?eval>
+							<#list checkbox.option as option >
+								<input type="checkbox"
+								<#if data.is_disabled=='1'>  disabled="disabled"  </#if>
+								name='${(data.field_name)!""}' value='${(option.value)!""}' title="${option.title}"
+								<#if option.checked?exists>checked="checked" </#if>
+								>
+							</#list>
+							<#elseif data.field_type == 'switch' >
+							<#assign switch=data.remark?eval>
+								<input type="checkbox" <#if item.id?exists> id='${idata.field_name}' </#if>
+								<#if data.is_disabled=='1'>  disabled="disabled"  </#if>
+								name='${(data.field_name)!""}'  lay-filter='${(data.field_name)!""}' checkbox_value='${(switch.checkbox_value)!""}'  lay-skin="switch"  <#if switch.checked?exists> checked="" </#if>
+								<#if data.field_verification?exists>  required="" lay-verType="msg" lay-verify="${data.field_verification}"   </#if>
+								lay-text="${switch.checkbox_text!'正常|停止'}" value="${switch.value!'1'}" >
+
 						<#else>
 							<input type="${data.field_type}" name="${data.field_name}"
 								   required="" lay-verType="msg"

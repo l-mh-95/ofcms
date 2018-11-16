@@ -44,10 +44,12 @@
 	    </div>
 	     <label class="layui-form-label">状态</label>
 	    <div class="layui-input-inline">
-	      <input type="checkbox" name="status" lay-skin="switch" lay-text="允许|禁止" value="1" checked>
+	    	<input type="checkbox" name="status" lay-filter = "status" lay-skin="switch"
+					   lay-text="允许|禁止" value="1" checkbox_value = "1|0" checked>
 	    </div>
 	  </div>
-	  <div class="layui-form-item layui-form-text">
+
+		<div class="layui-form-item layui-form-text">
 	    <label class="layui-form-label">描述</label>
 	    <div class="layui-input-block" style="width: 500px;">
 		      <textarea name="remark" placeholder="请输入描述" class="layui-textarea" height="80" width="400"></textarea>

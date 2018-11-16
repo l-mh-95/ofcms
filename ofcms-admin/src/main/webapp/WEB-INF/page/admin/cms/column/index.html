@@ -9,7 +9,7 @@
                     <div class="layui-row grid-demo">
                         <div class="layui-col-md12">
                             <div class="layui-btn-container">
-                                <button class="layui-btn layui-btn-sm" function="top"
+                                <button class="add layui-btn layui-btn-sm"
                                         topUrl="f.html?p=cms/column/add.html" topWidth="680px"
                                         isMaximize="0" topHeight="450px" topTitle="新增用户">
                                     <i class="layui-icon">&#xe654;</i>新增
@@ -32,8 +32,10 @@
             var _title = "编辑栏目";
             var _width = "680px";
             var _height = "450px";
-            adminCommon.open(_title, _width, _height, _url, function () {
+            adminCommon.open(_title, _width, _height, _url, function (result) {
+                location.reload('f.html?p=cms/column/index.html');
             });
+
         }
         function add(columnId) {
             var _this = $(this);
@@ -41,8 +43,9 @@
             var _title = "新增子栏目";
             var _width = "680px";
             var _height = "450px";
-            adminCommon.open(_title, _width, _height, _url, function () {
-            });
+            adminCommon.open(_title, _width, _height, _url, function (result) {
+                location.reload('f.html?p=cms/column/index.html');
+            })
         }
         function del(columnId) {
             var _this = $(this);
@@ -50,10 +53,27 @@
             {
                 layer.close(index);
                 utile.ajaxSubmit({"url": webrootAdmin + "/cms/column/del.json","data":{"column_id":columnId}}, function (result) {
-
+                    location.reload('f.html?p=cms/column/index.html');
                 });
             });
         }
+        $(".add").on("click",	function() {
+            var _this =  $(this);
+            var _url = _this.attr("topUrl");
+            if ($.isEmpty(_url)) {
+                adminCommon.warnMsg("url地址为空！");
+                return false;
+            }
+            var _title = _this.attr("topTitle");
+            var _width = _this.attr("topWidth");
+            var _height = _this.attr("topHeight");
+            var isMaximize = _this.attr("isMaximize");
+            adminCommon.open(_title, _width, _height, _url,function (result) {
+                location.reload('f.html?p=cms/column/index.html');
+            });
+            return false;
+        })
+
         layui.use(['form', 'tree', 'layer'], function () {
             var layer = layui.layer, form = layui.form, $ = layui.jquery;
             var layout = [
@@ -74,7 +94,7 @@
             utile.ajaxSubmit({"url": webrootAdmin + "/cms/column/menu.json"}, function (result) {
                 tree = layui.treeGird({
                     elem: '#adminDatagrid', //传入元素选择器
-                    spreadable: false, //设置是否全展开，默认不展开
+                    spreadable: true, //设置是否全展开，默认不展开
                     checkbox: false,
                     nodes:  result.data,
                     layout: layout

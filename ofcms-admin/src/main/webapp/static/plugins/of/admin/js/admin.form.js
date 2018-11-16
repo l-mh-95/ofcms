@@ -370,7 +370,7 @@ layui.define(['layer',"admin.common","form",'laydate',"admin.config",'layedit'],
 			$(thisForm.config.elem).setFormData(urlParam);
 		}
 		
-		//如果isLoad =1 并且功能号不为空，查询
+		//如果isLoad =1 并且地址不为空，查询
 		var _fsUuid = urlParam["_fsUuid"];
 		if(!$.isEmpty(_fsUuid)){
 			delete urlParam["_fsUuid"];
@@ -482,7 +482,7 @@ layui.define(['layer',"admin.common","form",'laydate',"admin.config",'layedit'],
 		
 		var url = $(obj.elem).attr("url");// 请求url
 		if ($.isEmpty(sqlid) && $.isEmpty(url)) {
-			adminCommon.warnMsg("功能号或请求地址为空！");
+			adminCommon.warnMsg("请求地址为空！");
 			return;
 		}
 		//判断请求地址是否为空
@@ -589,7 +589,7 @@ layui.define(['layer',"admin.common","form",'laydate',"admin.config",'layedit'],
     var url = _this.attr("url");//请求url
   	var funcNo = _this.attr("funcNo");
   	if($.isEmpty(funcNo) && $.isEmpty(url)){
-  		adminCommon.warnMsg('功能号或请求地址为空!');
+  		adminCommon.warnMsg('请求地址为空!');
   		return;
   	}
   	if($.isEmpty(url)){

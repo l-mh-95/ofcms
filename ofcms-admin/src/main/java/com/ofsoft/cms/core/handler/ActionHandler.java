@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ActionHandler extends Handler {
 	private String[] suffix = { ".html", ".jsp", ".json" };
-
+    public static final String exclusions = "static/";
 	// private String baseApi = "api";
 
 	public ActionHandler(String[] suffix) {
@@ -36,6 +36,10 @@ public class ActionHandler extends Handler {
 		 * if (!isSuffix(target) && !"/".equals(target) &&
 		 * !target.contains(baseApi)) { return; }
 		 */
+		//过虑静态文件
+		if(target.contains(exclusions)){
+			return;
+		}
 		target = isDisableAccess(target);
 		BaseController.setRequestParams();
 //		RequestSupport.setLocalRequest(request);

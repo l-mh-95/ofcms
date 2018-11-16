@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class FrontInterceptor implements Interceptor {
     public void intercept(Invocation ai) {
-        if (!SystemUtile.isInstall()){
+        if (!SystemUtile.isInstall()) {
             ai.getController().redirect(AdminConst.installHtml);
             return;
         }
@@ -44,16 +44,13 @@ public class FrontInterceptor implements Interceptor {
             if (site == null) {
                 SystemUtile.initSite();
                 site = SystemUtile.getDefualSitCache();
-            } else {
-                controller.setAttr(FrontConst.SITE_SESSION, site);
-                controller.setAttr("reroot", JFinal.me().getContextPath()+"/resource/"+site.get("template_path"));
-                SiteUtile.setSite(request, site);
-                SiteUtile.setSite(site);
             }
-//            controller.setAttr("p",controller.getRequest().getRequestURI());
-//            controller.redirect("/comn/service/page.html");
+            controller.setAttr(FrontConst.SITE_SESSION, site);
+            controller.setAttr("reroot", JFinal.me().getContextPath() + "/resource/" + site.get("template_path"));
+            SiteUtile.setSite(request, site);
+            SiteUtile.setSite(site);
             //增加访问记录
-            SystemUtile.addAccessLog(request,site);
+            SystemUtile.addAccessLog(request, site);
             ai.invoke();
         }
     }

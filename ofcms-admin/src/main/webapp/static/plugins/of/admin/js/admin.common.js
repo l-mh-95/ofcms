@@ -246,7 +246,7 @@ layui.define(['layer','form','admin.config','admin.buttion'], function (exports)
 		  function submitForm(){
 		    			var url = _this.attr("url");//请求url
 	            if($.isEmpty(_funcNo) && $.isEmpty(url)){
-	            	adminCommon.warnMsg("功能号或请求地址为空！");
+	            	adminCommon.warnMsg("请求地址为空！");
 	              return;
 	            }
 	            
@@ -469,7 +469,7 @@ layui.define(['layer','form','admin.config','admin.buttion'], function (exports)
 		    			var url = _this.attr("url");//请求url
 	            
 	            if($.isEmpty(_funcNo) && $.isEmpty(url)){
-	            	adminCommon.warnMsg("功能号或请求地址为空！");
+	            	adminCommon.warnMsg("请求地址为空！");
 	              return;
 	            }
 	            if($.isEmpty(url)){

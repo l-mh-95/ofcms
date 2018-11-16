@@ -63,9 +63,9 @@ public class SystemUtile {
     public static List<Map<String, Object>> getDictGroup(String dictName) {
         List<Record> list = getCache(AdminConst.SYSTEM, AdminConst.SYSTEM_DICT);
         List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
-        if (list == null) {
+        if (list == null || list.size() <= 0) {
             SystemUtile.initDict();
-            return null;
+            list = getCache(AdminConst.SYSTEM, AdminConst.SYSTEM_DICT);
         }
         for (Record r : list) {
             if (r.getStr("dict_group").equalsIgnoreCase(dictName)) {
@@ -82,9 +82,9 @@ public class SystemUtile {
      */
     public static String getDictToData(String group, String dictName) {
         List<Map<String, Object>> list = getDictGroup(group);
-        if (list == null) {
+        if (list == null || list.size() <= 0) {
             SystemUtile.initDict();
-            return "";
+            list = getDictGroup(group);
         }
         for (Map<String, Object> r : list) {
             if (r.get("dict_value").toString().equalsIgnoreCase(dictName)) {
@@ -101,9 +101,9 @@ public class SystemUtile {
      */
     public static String getDict(String dictName) {
         List<Record> list = getCache(AdminConst.SYSTEM, AdminConst.SYSTEM_DICT);
-        if (list == null) {
+        if (list == null || list.size() <= 0 ) {
             SystemUtile.initDict();
-            return "";
+            list = getCache(AdminConst.SYSTEM, AdminConst.SYSTEM_DICT);
         }
         for (Record r : list) {
             if (r.getStr("dict_name").equalsIgnoreCase(dictName)) {
@@ -131,9 +131,9 @@ public class SystemUtile {
      */
     public static String getParam(String paramName) {
         List<Record> list = getCache(AdminConst.SYSTEM, AdminConst.SYSTEM_PARAM);
-        if (list == null) {
+        if (list == null || list.size() <= 0) {
             SystemUtile.initParam();
-            return null;
+            list = getCache(AdminConst.SYSTEM, AdminConst.SYSTEM_PARAM);
         }
         for (Record r : list) {
             if (r.getStr("param_name").equalsIgnoreCase(paramName)) {
@@ -304,7 +304,7 @@ public class SystemUtile {
      */
     public static List<Record> getSitCache() {
         List<Record> records = CacheKit.get(AdminConst.SYSTEM, AdminConst.SYSTEM_SITE);
-        if (records == null) {
+        if (records == null || records.size() <=0) {
             records = initSite();
         }
         return records;

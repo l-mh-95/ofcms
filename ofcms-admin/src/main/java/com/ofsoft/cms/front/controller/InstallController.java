@@ -5,6 +5,7 @@ import com.jfinal.kit.StrKit;
 import com.ofsoft.cms.admin.controller.BaseController;
 import com.ofsoft.cms.admin.controller.system.SystemUtile;
 import com.ofsoft.cms.core.annotation.Action;
+import com.ofsoft.cms.core.config.AdminConst;
 import com.ofsoft.cms.core.uitle.InstallUtils;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 
@@ -48,11 +49,7 @@ public class InstallController extends BaseController {
         try {
             List<String> tableList= InstallUtils.getTableList();
             if (null != tableList && tableList.size() > 0) {
-                if (tableList.contains( "of_cms_role")
-                        || tableList.contains( "of_cms_content")
-                        || tableList.contains("of_sys_user")
-                        || tableList.contains("of_cms_form")
-                        || tableList.contains("of_cms_field")) {
+                if (tableList.contains( AdminConst.TABLE_OF_SYS_USER)) {
                     setAttr("ret_msg","数据表已经存在");
                     render("/admin/install/step2.html");
                     return;

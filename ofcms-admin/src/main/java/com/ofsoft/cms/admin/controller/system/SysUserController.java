@@ -51,7 +51,7 @@ public class SysUserController extends BaseController {
         Record record = new Record();
         record.setColumns(params);
         try {
-            Db.save("of_sys_user", record);
+            Db.save(AdminConst.TABLE_OF_SYS_USER, record);
             if (!StringUtils.isBlank(roleId)) {
                 SqlPara sql = Db.getSqlPara("system.user.role_save",
                         record.get("id"), roleId);
@@ -70,7 +70,7 @@ public class SysUserController extends BaseController {
         try {
             String[] user = userId.split(",");
             for (int i = 0; i < user.length; i++) {
-                Db.update("delete from of_sys_user where user_id = ?", user[i]);
+                Db.update("system.user.delete", user[i]);
             }
             rendSuccessJson();
         } catch (Exception e) {
@@ -98,7 +98,7 @@ public class SysUserController extends BaseController {
         Record record = new Record();
         record.setColumns(params);
         try {
-            Db.update("of_sys_user", "user_id", record);
+            Db.update(AdminConst.TABLE_OF_SYS_USER, "user_id", record);
             rendSuccessJson();
         } catch (Exception e) {
             e.printStackTrace();
@@ -121,7 +121,7 @@ public class SysUserController extends BaseController {
         }
         record.set("user_id", params.get("user_id"));
         try {
-            Db.update("of_sys_user", "user_id", record);
+            Db.update(AdminConst.TABLE_OF_SYS_USER, "user_id", record);
             rendSuccessJson();
         } catch (Exception e) {
             e.printStackTrace();
@@ -134,7 +134,7 @@ public class SysUserController extends BaseController {
         try {
             Record record = Db
                     .findFirst(
-                            "select u.*,r.role_id from of_sys_user u left join of_sys_user_role ur on u.user_id = ur.user_id left join of_sys_role r on ur.role_id = r.role_id   where u.user_id = ?",
+                            Db.getSql("system.user.detail"),
                             userId);
             rendSuccessJson(record);
         } catch (Exception e) {
@@ -167,11 +167,11 @@ public class SysUserController extends BaseController {
      * 获取在线用户
      */
     public void getOnlineUserList() {
-        setCookie("of", "123123", 120);
+//        setCookie("of", "123123", 120);
         setCookie("jsessionid", "", 0);
         setCookie("JSESSIONID", "", 0);
         getSession().removeAttribute("JSESSIONID");
-        CookieUtil.setLoginnameCookie("ofofo", getResponse());
+//        CookieUtil.setLoginnameCookie("ofofo", getResponse());
         List<UserOnline> list = new ArrayList<UserOnline>();
         @SuppressWarnings("unchecked")
         List<String> sessions = CacheKit.getKeys(AdminConst.USER_ONLINE_KEY);

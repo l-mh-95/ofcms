@@ -8,8 +8,22 @@ java 版CMS系统、基于java技术研发的内容管理系统、功能：栏�
 
 项目地址：https://gitee.com/oufu/ofcms   QQ 群: ①185948055 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=9c5f0bdc44402195be254668a80a6c5eeebb06f0336e8c5be26878930b88c672"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="OFCMS技术交流" title="OFCMS技术交流"></a> 
 欢迎喜欢开源的朋友一起加入，共同学习、群里有相关文档。
+#### 目前版本v1.1.2  2018-11-16
 
-#### 目前版本v1.1
+- 表单完善，功能增加单选、复选框、开关、选择框
+- 文章编辑器更换ueditor
+- 500页面修改  
+- 整理代码内部sql改到sql文件
+- 用户登录禁止功能、
+- 栏目刷新问题
+- 修改admin默认跳转管理首页
+- 未设置的访问地址为默认站点
+- 增加文章关键字
+- 首页图表显示不正确
+- 缓存过期问题、出现查询无空
+- 自动安装出现乱码
+
+#### 版本v1.1.1  2018-09-06
 前台：
 
 - 1、默认两套网站 ，pc mobile
