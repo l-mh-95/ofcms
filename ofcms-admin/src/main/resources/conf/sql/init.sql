@@ -39,6 +39,11 @@
 #namespace("weixin.reply")
 	#include("weixin/reply.sql")
 #end
+
+#namespace("weixin.sendMes")
+	#include("weixin/sendMes.sql")
+#end
+
 #namespace("cms.link")
 	#include("cms/link.sql")
 #end
