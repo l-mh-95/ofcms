@@ -1,11 +1,4 @@
 /**
- * @Description: 主页面
- * @Copyright: 2017 www.fallsea.com Inc. All rights reserved.
- * @author: fallsea
- * @version 1.6.3
- * @License：MIT
- */
-/**
  * 主页面
  * 
  * @author: OF
@@ -79,21 +72,6 @@ layui.use(['layim','admin.menu','layer','admin.tab','admin.common'], function(){
 	shadeMobile.on('click', function(){
 		$('body').removeClass('site-mobile');
 	});
-    $(".open").on("click",	function() {
-        var _this =  $(this);
-        var _url = _this.attr("topUrl");
-        if ($.isEmpty(_url)) {
-            adminCommon.warnMsg("url地址为空！");
-            return false;
-        }
-        var _title = _this.attr("topTitle");
-        var _width = _this.attr("topWidth");
-        var _height = _this.attr("topHeight");
-        var isMaximize = _this.attr("isMaximize");
-        adminCommon.open(_title, _width, _height, _url, null, isMaximize);
-
-    })
-
     //菜单绑定
 	
 	$(".sykSwitchMenu").on("click",function(){

@@ -8,13 +8,13 @@
 	select * from of_sys_role where role_id = #para(role_id)
 #end
 #sql("save")
-	insert into of_sys_role (role_name,role_desc,role_type,create_time, update_time,status) values( #para(role_name), #para(role_desc), #para(role_type),now(),now(),#para(status))
+	insert into of_sys_role (role_name,role_desc,role_type,create_time, update_time,status) values( #para(role_name), #para(role_desc), #para(role_type),now(),now(),'1')
 #end
 #sql("delete")
 	delete from of_sys_role where role_id = #para(role_id)
 #end
 #sql("update")
-	update  of_sys_role set role_name = #para(role_name),role_type = #para(role_type),role_desc = #para(role_desc),status = #para(status) where role_id = #para(role_id)
+	update  of_sys_role set role_name = #para(role_name),role_type = #para(role_type),role_desc = #para(role_desc) where role_id = #para(role_id)
 #end
 
 #sql("delete_role_menu")
