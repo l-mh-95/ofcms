@@ -201,7 +201,15 @@ public class InstallUtils {
 	 * @return
 	 */
 	public static String installSql() {
-		String SqlFilePath = PathKit.getRootClassPath()+ AdminConst.ADMIN_INSTALL_SQL;
+		String newLine = System.getProperty("line.separator");
+		String SqlFilePath =null;
+		if(AdminConst.LINUX_LIEN.equals(newLine)){
+			//linux
+			SqlFilePath	= PathKit.getRootClassPath()+ AdminConst.ADMIN_INSTALL_LINUX_SQL;
+		}else{
+			//windows
+			SqlFilePath	= PathKit.getRootClassPath()+ AdminConst.ADMIN_INSTALL_SQL;
+		}
 		String sql = FileUtils.readString(new File(SqlFilePath)) ;
 		return sql;
 	}

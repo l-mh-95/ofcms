@@ -24,6 +24,8 @@ public final class AdminConst {
 	public static final String ADMIN_DB_CONFIG = "conf/db.properties";
 	public static final String WEIXIN_CONFIG = "conf/weixin.sdk.properties";
 	public static final String ADMIN_INSTALL_SQL = "/conf/sql/install.sql";
+	public static final String ADMIN_INSTALL_LINUX_SQL = "/conf/sql/install.linux.sql";
+	public static final String LINUX_LIEN = "\n";
 	public static final String STRING_CONFIG = "classpath:conf/applicationContext.xml";
 	public static final String ERROR_500 = "/comn/500.html";
 	public static final String ERROR_404 = "/comn/404.html";
