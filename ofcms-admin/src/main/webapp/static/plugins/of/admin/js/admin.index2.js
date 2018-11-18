@@ -1,8 +1,13 @@
 /**
- * 主页面
- * 
+ * @Description: 主页面
+ * @Copyright: 2017 www.fallsea.com Inc. All rights reserved.
+ * @author: fallsea
+ * @version 1.6.3
+ * @License：MIT
+ */
+/**
+ * 增加锁屏等相关功能
  * @author: OF
- * @version 1.0.0
  */
 layui.use(['layim','admin.menu2','layer','admin.tab','admin.common'], function(){
 	var adminTab = layui['admin.tab'],

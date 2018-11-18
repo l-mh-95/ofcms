@@ -1,88 +1,28 @@
 /**
- * 通用框架
- * 
- * @author: OF
- * @version 1.0.0
+ * @Description: 通用框架
+ * @Copyright: 2017 www.fallsea.com Inc. All rights reserved.
+ * @author: fallsea
+ * @version 1.6.3
+ * @License：MIT
  */
-layui.use(['admin.form','admin.datagrid','admin.tree','admin.common','element'], function(){
+/**
+ * 去掉tree 默认使用zTree
+ * @author: OF
+ */
+layui.use(['admin.form','admin.datagrid','admin.common','element'], function(){
 	var adminForm = layui['admin.form'],
 	adminDatagrid = layui['admin.datagrid'],
-	adminTree = layui['admin.tree'],
 	element = layui.element;
 	adminCommon = layui['admin.common'];
 	/********* form 表单处理   start *************/
 	var formDoms =$("form");
-	  
 	if(formDoms.length>0){//如果没有查到form，自动关闭
     $(formDoms).each(function (index, domEle) { 
     	adminForm.render({elem:$(this)});
     });
 	}
 	/********* form 表单处理   end *************/
-	
-	/********* tree 处理   start *************/
-	
-	var trees = {};
-	
-	var treeDoms = $("ul.adminTree");
-	if(treeDoms.length>0){
-    $(treeDoms).each(function(i){
-        var treeId=$(this).attr("id");
-        var funcNo = $(this).attr("funcNo");
-        var url = $(this).attr("url");
-        trees[treeId] = adminTree.render({id:treeId,funcNo:funcNo,url:url,clickCallback:clickCallback});
-      });
-    //绑定按钮事件
-    adminCommon.buttionEvent("tree",getTree);
-	}
-	
-	function getTree(treeId){
-    if($.isEmpty(trees)){
-    	adminCommon.warnMsg("未配置tree！");
-      return;
-    }
-    if($.isEmpty(treeId)){
-      treeId = "treeDemo";
-    }
-    return trees[treeId];
-  }
-		
-  /**
-   * 树点击回调
-   */
-  function clickCallback(e,treeId, treeNode) {
-  	
-  	var _this = $("#"+treeId);
-    var tableId = _this.attr("tableId");
-    
-    if($.isEmpty(tableId)){
-    	tableId = _this.attr("datagridId");
-    }
-    
-    if($.isEmpty(tableId)){
-    	return;
-    }
-      
-    //获取表格对应的查询form
-    var defaultForm = $("#"+tableId).attr("defaultForm");
-    if($.isEmpty(defaultForm)){
-      defaultForm = "query_form";
-    }
-    var inputs = _this.attr("inputs");
-    if(!$.isEmpty(inputs))
-    {
-      //获取值存入form表单
-      var param = adminCommon.getParamByInputs(inputs,treeNode);
-      $("#"+defaultForm).setFormData(param);
-    }
-    if(!$.isEmpty(datagrids) && !$.isEmpty(datagrids[tableId])){
-      datagrids[tableId].query($("#"+defaultForm).getFormData());
-    }
-      
-  }
-  /********* tree 处理   end *************/
-	
-	
+
 	/********* datagrid 处理   start *************/
   var tabs = $("table.adminDatagrid");
   var datagrids= {};//datagrid集合

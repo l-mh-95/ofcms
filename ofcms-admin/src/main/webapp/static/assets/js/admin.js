@@ -11,7 +11,7 @@ var admin = function() {
 	// 版本
 	o.version = "1.0.0";
 	o.config = {
-		envDev : true,
+		envDev : false,
 		ajax : {
 			type : "POST",
 			dataType : "json",

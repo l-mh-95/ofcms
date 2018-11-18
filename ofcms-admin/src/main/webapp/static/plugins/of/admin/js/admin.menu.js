@@ -1,8 +1,14 @@
 /**
- * 菜单配置
+ * @Description: 菜单管理
+ * @Copyright: 2017 www.fallsea.com Inc. All rights reserved.
+ * @author: fallsea
+ * @version 1.6.3
+ * @License：MIT
+ */
+/**
+ * 增加三级菜单、修改相关变量
  * 
  * @author: OF
- * @version 1.0.0
  */
 layui.define(['element',"admin.config","admin.common"], function(exports){
 	

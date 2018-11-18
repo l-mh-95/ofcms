@@ -1,7 +1,13 @@
 /**
- * 核心文件
+ * @Description: 通用框架
+ * @Copyright: 2017 www.fallsea.com Inc. All rights reserved.
+ * @author: fallsea
+ * @version 1.6.3
+ * @License：MIT
+ */
+/**
+ * 文件重新命名、增加自定义模板、数据字典转换
  * @author: OF
- * @version 1.0.0
  */
 layui.config({
   base : webroot + "/static/plugins/of/admin/js/",//设定扩展的Layui模块的所在目录，一般用于外部模块扩展

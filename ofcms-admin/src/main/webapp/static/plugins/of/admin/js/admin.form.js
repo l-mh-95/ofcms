@@ -1,8 +1,13 @@
 /**
- * form表单工具
- * 
+ * @Description: form表单工具
+ * @Copyright: 2017 www.fallsea.com Inc. All rights reserved.
+ * @author: fallsea
+ * @version 1.6.3
+ * @License：MIT
+ */
+/**
+ * 增加字典、修改switch取值不上传等问题
  * @author: OF
- * @version 1.0.0
  */
 layui.define(['layer',"admin.common","form",'laydate',"admin.config",'layedit'], function(exports){
   var layer = layui.layer,

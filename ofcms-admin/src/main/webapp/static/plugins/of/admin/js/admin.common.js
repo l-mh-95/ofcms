@@ -1,14 +1,19 @@
 /**
- * 通用组件
- * @author: OF
- * @version 1.0.0
+ * @Description: 通用组件
+ * @Copyright: 2017 www.fallsea.com Inc. All rights reserved.
+ * @author: fallsea
+ * @version 1.6.3
+ * @License：MIT
  */
-layui.define(['layer','form','admin.config','admin.buttion'], function (exports) {
+/**
+ * 增加服务器地址、修改相关组件命名
+ * @author: OF
+ */
+layui.define(['layer','form','admin.config' ], function (exports) {
 	
   var form = layui.form,
     layer = layui.layer,
     adminConfig = layui['admin.config'],
-    adminButtion = layui['admin.buttion'],
     statusName = $.result(adminConfig,"global.result.statusName"),
     msgName = $.result(adminConfig,"global.result.msgName"),
     dataName = $.result(adminConfig,"global.result.dataName"),
@@ -537,12 +542,7 @@ layui.define(['layer','form','admin.config','admin.buttion'], function (exports)
 			      				if(null!=obj){
 			      					data = obj.getCheckData();
 			      				}
-				      				if(!$.isEmpty(adminButtion[_function])){
-				      					//执行
-				      					adminButtion[_function](_this,data,obj);
-				      				}else{
-				      					layui.buttion[_function](_this,data,obj);
-				      				}
+				      			 layui.buttion[_function](_this,data,obj);
 									} catch (e) {
 										console.error(e);
 									}

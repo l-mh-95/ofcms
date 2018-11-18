@@ -1,7 +1,13 @@
 /**
- *  字典配置
+ * @Description: 字典配置
+ * @Copyright: 2017 www.fallsea.com Inc. All rights reserved.
+ * @author: fallsea
+ * @version 1.6.3
+ * @License：MIT
+ */
+/**
+ *  增加后台字典配置、通过sql直接获取
  * @author: OF
- * @version 1.0.0
  */
 layui.sykDict = {
 		//性别

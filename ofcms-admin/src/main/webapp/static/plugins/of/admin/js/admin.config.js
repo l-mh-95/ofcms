@@ -1,4 +1,11 @@
 /**
+ * @Description: 基础配置
+ * @Copyright: 2017 www.fallsea.com Inc. All rights reserved.
+ * @author: fallsea
+ * @version 1.6.3
+ * @License：MIT
+ */
+/**
  *  基础配置
  * @author: OF
  * @version 1.0.0

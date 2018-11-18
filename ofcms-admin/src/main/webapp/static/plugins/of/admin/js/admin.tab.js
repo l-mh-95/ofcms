@@ -1,8 +1,13 @@
 /**
- * 菜单管理
- * 
+ * @Description: 菜单管理
+ * @Copyright: 2017 www.fallsea.com Inc. All rights reserved.
+ * @author: fallsea
+ * @version 1.6.3
+ * @License：MIT
+ */
+/**
+ * 修改相关命名
  * @author: OF
- * @version 1.0.0
  */
 layui.define([ 'element' ], function(exports) {
 	var element = layui.element, AdminTab = function() {

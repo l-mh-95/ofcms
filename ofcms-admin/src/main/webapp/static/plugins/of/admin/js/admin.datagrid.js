@@ -1,15 +1,20 @@
 /**
- * datagrid工具
- * @author: OF
- * @version 1.0.0
+ * @Description: datagrid工具
+ * @Copyright: 2017 www.fallsea.com Inc. All rights reserved.
+ * @author: fallsea
+ * @version 1.6.3
+ * @License：MIT
  */
-layui.define(["admin.common","table",'laypage','admin.config','form','admin.buttion'], function(exports){
+/**
+ * 修改数据字典转换与后台直接对应
+ * @author: OF
+ */
+layui.define(["admin.common","table",'laypage','admin.config','form'], function(exports){
   var adminCommon = layui['admin.common'],
   table = layui.table,
   form = layui.form,
   laypage = layui.laypage,
   adminConfig = layui['admin.config'],
-  adminButtion = layui['admin.buttion'],
   statusName = $.result(adminConfig,"global.result.statusName","errorNo"),
   msgName = $.result(adminConfig,"global.result.msgName","errorInfo"),
   dataName = $.result(adminConfig,"global.result.dataName","results.data"),
@@ -513,14 +518,7 @@ layui.define(["admin.common","table",'laypage','admin.config','form','admin.butt
       	default:
       		if(!$.isEmpty(layEvent)){
       			try {
-      				
-      				if(!$.isEmpty(adminButtion[layEvent])){
-      					//执行
-      					adminButtion[layEvent](_this,obj.data,getDatagrid(tableId));
-      				}else{
-      					layui.buttion[layEvent](_this,obj.data,getDatagrid(tableId));
-      				}
-      				
+      			layui.buttion[layEvent](_this,obj.data,getDatagrid(tableId));
 				 } catch (e) {
 					 console.error(e);
 				 }

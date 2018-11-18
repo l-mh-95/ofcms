@@ -475,7 +475,7 @@ layui.define(['laytpl', 'laypage', 'layer', 'form','admin.config'], function(exp
       var params = {};
       params[request.pageName] = curr;
       params[request.limitName] = options.limit;
-      console.log("request data : " + JSON.stringify(params));
+      //console.log("request data : " + JSON.stringify(params));
       $.ajax({
         type: options.method || 'get'
         ,url: options.url
@@ -483,7 +483,7 @@ layui.define(['laytpl', 'laypage', 'layer', 'form','admin.config'], function(exp
         ,timeout : 30000 
         ,dataType: 'json'
         ,success: function(res){
-         console.log("response data : " + JSON.stringify(res) );
+        // console.log("response data : " + JSON.stringify(res) );
            if($.result(res,response.statusName) != response.statusCode){
             //未登录处理
           	var filters = adminConfig["filters"];
