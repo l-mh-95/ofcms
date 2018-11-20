@@ -1195,10 +1195,6 @@ CREATE TABLE `of_sys_role` (
   PRIMARY KEY (`role_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='系统角色信息表';
 
--- ----------------------------
--- Records of of_sys_role
--- ----------------------------
-INSERT INTO `of_sys_role` VALUES ('1', '管理员', '后台管理员', '1', '2018-01-10 10:14:26', '2018-01-10 10:14:29', '1', '');
 
 -- ----------------------------
 -- Table structure for of_sys_role_menu

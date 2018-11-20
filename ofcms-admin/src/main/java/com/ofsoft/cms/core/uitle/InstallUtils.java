@@ -73,6 +73,7 @@ public class InstallUtils {
 
 		} catch (SQLException e) {
 			log.warn("InstallUtils executeSQL error", e);
+			throw  new SQLException(e.getMessage());
 		} finally {
 			pstmt.close();
 			conn.close();
