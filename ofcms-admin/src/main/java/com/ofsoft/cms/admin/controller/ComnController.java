@@ -49,6 +49,9 @@ public class ComnController extends BaseController {
 		}
 	}
 
+	/**
+	 * 删除
+	 */
 	public void del() {
 		try {
 			Map<String, Object> params = getParamsMap();

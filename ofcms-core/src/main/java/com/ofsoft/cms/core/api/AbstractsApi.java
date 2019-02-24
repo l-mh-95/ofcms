@@ -31,7 +31,7 @@ public abstract class AbstractsApi implements Interceptor {
             checkIp(controller);
         }
         // ip 访问次数
-        //获取请求方法
+        //1、获取请求方法
         String method = controller.getRequest().getMethod().toUpperCase();
         //验证请求方法
         checkMethod(controller, method, inv);

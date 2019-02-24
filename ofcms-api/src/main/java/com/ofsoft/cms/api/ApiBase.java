@@ -96,8 +96,8 @@ public abstract class ApiBase extends Controller {
     /**
      * 获取k/vMap 参数
      * <pre>
-     *     <b>getParaMap </b>
-     *     <code><@{@link com.jfinal.core.Controller getParaMap }</code>
+     *     <b>getParaMap 参数 </b>
+     *     <code> <@{@link com.jfinal.core.Controller getParaMap }</code>
      * </pre>
      *
      * @return Map
