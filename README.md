@@ -9,11 +9,11 @@ java 版CMS系统、基于java技术研发的内容管理系统、功能：栏�
 项目地址：https://gitee.com/oufu/ofcms   QQ 群: ①185948055 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=9c5f0bdc44402195be254668a80a6c5eeebb06f0336e8c5be26878930b88c672"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="OFCMS技术交流" title="OFCMS技术交流"></a> 
 欢迎喜欢开源的朋友一起加入，共同学习、群里有相关文档。
 #### 目前版本v1.1.3  2019-02-24
-1、新增公告失败
-2、用户删除失败
-3、PC端发布的文章在手机端访问报错
-4、增加公众号消息模版推送
-5、增加文章评论功能
+- 新增公告失败
+- 用户删除失败
+- PC端发布的文章在手机端访问报错
+- 增加公众号消息模版推送
+- 增加文章评论功能
 
 #### 目前版本v1.1.2  2018-11-16
 
