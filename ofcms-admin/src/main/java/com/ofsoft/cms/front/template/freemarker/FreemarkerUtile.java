@@ -23,6 +23,7 @@ public class FreemarkerUtile {
         data.put("topic",new TopicDirective());
         data.put("system",new SystemDirective());
         data.put("bbs",new BbsListDirective());
+        data.put("comment",new CommentListDirective());
         return  data;
     }
 }

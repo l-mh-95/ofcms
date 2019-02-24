@@ -1,6 +1,8 @@
 package com.ofsoft.cms.core.api;
 
 import com.jfinal.core.Controller;
+import com.jfinal.kit.HttpKit;
+import com.jfinal.weixin.sdk.utils.JsonUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,10 +20,12 @@ public final class ApiUtil {
 
     public static final String SUCCESS_CODE = "200";
     public static final String ERROR_CODE = "-1";
-    private static  List<String>  ip = new ArrayList<String>();
-    static{
+    private static List<String> ip = new ArrayList<String>();
+
+    static {
         ip.add("127.0.0.1");
     }
+
     public final static Map<String, Object> genSuccessResult() {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("code", SUCCESS_CODE);
@@ -43,7 +47,7 @@ public final class ApiUtil {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("success", false);
         map.put("code", ERROR_CODE);
-        map.put("data",  data == null ? new Object() : data);
+        map.put("data", data == null ? new Object() : data);
         return map;
     }
 
@@ -78,10 +82,10 @@ public final class ApiUtil {
      * @return
      */
     public static Map<String, Object> getParamsMap(Controller controller) {
-        Map<String, String[]> params = controller.getParaMap();
         Map<String, Object> result = new ConcurrentHashMap<String, Object>();
-        for (String value : params.keySet()) {
-            result.put(value, params.get(value)[0]);
+            Map<String, String[]> params = controller.getParaMap();
+            for (String value : params.keySet()) {
+                result.put(value, params.get(value)[0]);
         }
         return result;
     }
@@ -89,26 +93,48 @@ public final class ApiUtil {
     public static List<String> getIpList() {
         return ip;
     }
-    public static boolean isCheckIP(String value){
-        for (String s :ip){
-            if(s.equals(value)) {
+
+    public static void setIpList(List list) {
+        ip.addAll(list);
+    }
+
+    public static boolean isCheckIP(String value) {
+        for (String s : ip) {
+            if (s.equals(value)) {
                 return true;
             }
         }
         return false;
     }
-    public static void setIpList(List list) {
-          ip.addAll(list);
-    }
+
     public static void setIp(String value) {
-         ip.add(value);
+        ip.add(value);
     }
 
-    public static String getIPAddress(HttpServletRequest request)
-    {
+    public static String getIPAddress(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
-        if(StringUtils.isEmpty(ip) || "unknown".equalsIgnoreCase(ip))
+        if (StringUtils.isEmpty(ip) || "unknown".equalsIgnoreCase(ip))
             ip = request.getRemoteAddr();
         return ip;
+    }
+
+    /**
+     * 获取json参数
+     *
+     * @return json
+     */
+    public static String getParaJson(Controller controller) {
+        return HttpKit.readData(controller.getRequest());
+    }
+
+    /**
+     * 获取json Map
+     * <p>
+     * 参数名
+     *
+     * @return 参数值
+     */
+    public static Map<String, Object> getParaJsonMap(Controller controller) {
+        return JsonUtils.parse(getParaJson(controller), Map.class);
     }
 }

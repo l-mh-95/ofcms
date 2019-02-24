@@ -5,29 +5,33 @@ import com.ofsoft.cms.api.ApiBase;
 import com.ofsoft.cms.core.annotation.Action;
 import com.ofsoft.cms.core.api.ApiMapping;
 import com.ofsoft.cms.core.api.RequestMethod;
-import com.ofsoft.cms.core.api.check.NumberCheck;
 import com.ofsoft.cms.core.api.check.ParamsCheck;
 import com.ofsoft.cms.core.api.check.ParamsCheckType;
+import com.ofsoft.cms.core.utils.IpKit;
+
+import java.util.Map;
 
 
 /**
- * 内容接口
+ * 评论接口
  *
  * @author OF
- * @date 2018年9月4日
+ * @date 2019年2月24日
  */
-@Action(path = "/bbs")
-public class BbsApi extends ApiBase {
+@Action(path = "/comment")
+public class CommentApi extends ApiBase {
     /**
      * 获取内容信息
      */
-    @ApiMapping(method = RequestMethod.POST)
+    @ApiMapping(method = RequestMethod.GET)
     @ParamsCheck(
-            {@ParamsCheckType(name = "content"),
-             @ParamsCheckType(name = "site_id",checkType = NumberCheck.class)})
+            {@ParamsCheckType(name = "comment_content"), @ParamsCheckType(name = "content_id"),
+                    @ParamsCheckType(name = "site_id")})
     public void save() {
         try {
-           Db.update(Db.getSqlPara("cms.bbs.save",getParamsMap()));
+            Map params = getParamsMap();
+            params.put("comment_ip", IpKit.getRealIp(getRequest()));
+            Db.update(Db.getSqlPara("cms.comment.save", params));
             rendSuccessJson();
         } catch (Exception e) {
             e.printStackTrace();

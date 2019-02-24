@@ -28,7 +28,7 @@ CREATE TABLE `of_cms_access` (
   `access_date` date DEFAULT NULL COMMENT '访问日期',
   `access_time` time NOT NULL COMMENT '访问时间',
   `access_source` varchar(200) DEFAULT NULL COMMENT '访问来源',
-  `access_keyword` varchar(200) DEFAULT NULL COMMENT '访问关键字',
+  `access_keyword` varchar(2000) DEFAULT NULL COMMENT '访问关键字',
   PRIMARY KEY (`access_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=538 DEFAULT CHARSET=utf8 COMMENT='访问记录表';
 
@@ -1085,7 +1085,7 @@ INSERT INTO `of_sys_menu` VALUES ('122', '121', '微信设置', 'weixin/config/i
 INSERT INTO `of_sys_menu` VALUES ('123', '121', '菜单管理', 'weixin/menu/index.html', '#', '1', '<i class=\"layui-icon\">&#xe63a;</i>', '2', '1', null);
 INSERT INTO `of_sys_menu` VALUES ('124', '121', '自动回复', 'weixin/auto/index.html', '#', '1', '<i class=\"layui-icon\">&#xe63a;</i>', '3', '1', null);
 INSERT INTO `of_sys_menu` VALUES ('125', '121', '默认回复', 'weixin/reply/index.html', '#', '3', '<i class=\"layui-icon\">&#xe63a;</i>', '4', '1', null);
-INSERT INTO `of_sys_menu` VALUES ('126', '121', '信息推送', '#', '#', '1', '<i class=\"layui-icon\">&#xe63a;</i>', '5', '0', null);
+INSERT INTO `ofcms`.`of_sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`, `status`, `remark`) VALUES ('126', '121', '信息推送', 'weixin/sendMes/index.html', '#', '1', '<i class=\"layui-icon\">&#xe63a;</i>', '5', '1', NULL);
 INSERT INTO `of_sys_menu` VALUES ('127', '114', '数据统计', '#', '#', '1', '<i class=\"layui-icon\">&#xe629;</i>', '1', '1', null);
 INSERT INTO `of_sys_menu` VALUES ('128', '127', '访问统计', 'cms/count/access_index.html', '#', '1', '<i class=\"layui-icon\">&#xe629;</i>', '1', '1', null);
 INSERT INTO `of_sys_menu` VALUES ('129', '127', '评论统计', 'cms/count/comment_index.html', '#', '1', '<i class=\"layui-icon\">&#xe629;</i>', '2', '1', null);
@@ -1146,7 +1146,7 @@ CREATE TABLE `of_sys_param` (
 -- Records of of_sys_param
 -- ----------------------------
 INSERT INTO `of_sys_param` VALUES ('1', 'system_name', 'OFCMS', '系统名称', 'system', null, '1', '1', '');
-INSERT INTO `of_sys_param` VALUES ('2', 'version', '1.1.2', '版本号', 'system', null, '1', '1', '1');
+INSERT INTO `of_sys_param` VALUES ('2', 'version', '1.1.3', '版本号', 'system', null, '1', '1', '1');
 INSERT INTO `of_sys_param` VALUES ('3', 'copyright', '© www.ofosft.cn', '版权', 'system', null, '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('4', 'api', 'hosp', '医院信息缓存', 'cache', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('5', 'system', 'dict', '字典缓存', 'cache', '', '1', '1', '');
@@ -1423,3 +1423,24 @@ INSERT INTO `of_sys_weixin_menu` VALUES ('6', '1', '费用账单', 'view', 'http
 INSERT INTO `of_sys_weixin_menu` VALUES ('7', '2', '测试', 'click', '2', '', '', '0', '1', '2018-03-16 15:06:31', '2018-03-16 15:06:38');
 INSERT INTO `of_sys_weixin_menu` VALUES ('8', '2', '测试一下', 'view', 'https://gitee.com/oufu/ofcms', '', '', '1', '1', '2018-03-16 15:45:04', '2018-03-16 15:51:28');
 INSERT INTO `of_sys_weixin_menu` VALUES ('9', '0', '1', 'view', 'https://gitee.com/oufu/ofcms', '', '', '0', '1', '2018-03-16 15:52:48', null);
+
+
+-- ----------------------------
+-- Table structure for of_sys_weixin_template
+-- ----------------------------
+DROP TABLE IF EXISTS `of_sys_weixin_template`;
+CREATE TABLE `of_sys_weixin_template` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '序号',
+  `template_key` varchar(150) NOT NULL COMMENT '模版ID',
+  `title` varchar(50) NOT NULL COMMENT '标题',
+  `firstclass` varchar(50) NOT NULL COMMENT '一级行业',
+  `secondclass` varchar(50) NOT NULL COMMENT '二级行业',
+  `content` varchar(500) NOT NULL COMMENT '详情',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='系统微信模板消息推送';
+
+-- ----------------------------
+-- Records of of_sys_weixin_template
+-- ----------------------------
+INSERT INTO `of_sys_weixin_template` VALUES ('1', '3DtNZT3ILnHZxmYoiEHYxze8OMQZ4ZWPfS2jbVpwMhY', '商品已发出通知', 'IT科技', ' 互联网|电子商务', '{{first.DATA联系电话：0991-8777555或直接公众号账号中咨询。}}  快递公司：{{delivername.DATA阿凡提物}} 快递单号：{{ordername.DATA00001}} {{remark.DATA点击进入查看详情}} ');
+INSERT INTO `of_sys_weixin_template` VALUES ('2', 'WwHb22Rb7EILTpXpRIrIqlnDwi8udXBEV_9YeXvk6KU', '购买成功通知', 'IT科技', '互联网|电子商务', '您好，您已购买成功。  商品信息：{{name.DATA模版建站}} {{remark.DATA点击进入查看详情}}');

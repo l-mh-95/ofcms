@@ -1195,6 +1195,10 @@ CREATE TABLE `of_sys_role` (
   PRIMARY KEY (`role_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='系统角色信息表';
 
+-- ----------------------------
+-- Records of of_sys_role
+-- ----------------------------
+INSERT INTO `of_sys_role` VALUES ('1', '管理员', '后台管理员', '1', '2018-01-10 10:14:26', '2018-01-10 10:14:29', '1', '');
 
 -- ----------------------------
 -- Table structure for of_sys_role_menu
@@ -1329,6 +1333,12 @@ CREATE TABLE `of_sys_user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='系统用户表';
 
 -- ----------------------------
+-- Records of of_sys_user
+-- ----------------------------
+INSERT INTO `of_sys_user` VALUES ('1', 'admin', '管理员', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '1', '2018-01-08', '18867350835', '523648919@qq.com', '1', '1', '126', null, '1', null);
+INSERT INTO `of_sys_user` VALUES ('2', 'oufu', 'oufu', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '1', null, '', 'oufu@qq.com', null, null, null, null, '0', '');
+
+-- ----------------------------
 -- Table structure for of_sys_user_role
 -- ----------------------------
 DROP TABLE IF EXISTS `of_sys_user_role`;
@@ -1419,7 +1429,6 @@ INSERT INTO `of_sys_weixin_menu` VALUES ('6', '1', '费用账单', 'view', 'http
 INSERT INTO `of_sys_weixin_menu` VALUES ('7', '2', '测试', 'click', '2', '', '', '0', '1', '2018-03-16 15:06:31', '2018-03-16 15:06:38');
 INSERT INTO `of_sys_weixin_menu` VALUES ('8', '2', '测试一下', 'view', 'https://gitee.com/oufu/ofcms', '', '', '1', '1', '2018-03-16 15:45:04', '2018-03-16 15:51:28');
 INSERT INTO `of_sys_weixin_menu` VALUES ('9', '0', '1', 'view', 'https://gitee.com/oufu/ofcms', '', '', '0', '1', '2018-03-16 15:52:48', null);
-
 
 -- ----------------------------
 -- Table structure for of_sys_weixin_template

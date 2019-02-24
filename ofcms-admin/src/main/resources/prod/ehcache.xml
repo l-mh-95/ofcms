@@ -24,7 +24,7 @@
 		 timeToLiveSeconds=180；
 		表示此缓存最多可以存活3分钟，如果期间超过2分钟未访问 那么此缓存失效
 	-->
-	<defaultCache maxEntriesLocalHeap="10000" eternal="false"
+	<defaultCache maxEntriesLocalHeap="10000" eternal="true"
 		overflowToDisk="true" timeToIdleSeconds="120" timeToLiveSeconds="180">
 	</defaultCache>
 

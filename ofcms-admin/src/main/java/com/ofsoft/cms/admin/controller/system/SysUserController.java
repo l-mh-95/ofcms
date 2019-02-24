@@ -70,7 +70,7 @@ public class SysUserController extends BaseController {
         try {
             String[] user = userId.split(",");
             for (int i = 0; i < user.length; i++) {
-                Db.update("system.user.delete", user[i]);
+                Db.update(Db.getSql("system.user.delete"), user[i]);
             }
             rendSuccessJson();
         } catch (Exception e) {

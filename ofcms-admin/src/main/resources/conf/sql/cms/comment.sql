@@ -43,8 +43,7 @@
 
 #sql("save")
 	insert into of_cms_comment (
-		 	 comment_id, 
-		 	 site_id, 
+		 	 site_id,
 		 	 content_id, 
 		 	 comment_type, 
 		 	 comment_title, 
@@ -58,19 +57,18 @@
 		 	 status, 
 		 	 remark 
 	) values(
-		 	 #para(comment_id), 
-		 	 #para(site_id), 
+		 	 #para(site_id),
 		 	 #para(content_id), 
 		 	 #para(comment_type), 
 		 	 #para(comment_title), 
 		 	 #para(comment_url), 
 		 	 #para(comment_content), 
 		 	 #para(comment_name), 
-		 	 #para(comment_time), 
+		 	 now(),
 		 	 #para(comment_ip), 
-		 	 #para(create_time), 
+		 	 now(),
 		 	 #para(check_status), 
-		 	 #para(status), 
+		 	 '1',
 		 	 #para(remark) 
 	)
 #end
@@ -94,3 +92,16 @@
 	where  comment_id  = #para(comment_id)
 #end
  
+#sql("list")
+	select
+		 	 comment_type,
+		 	 comment_title,
+		 	 comment_content,
+		 	 comment_name,
+		 	 comment_time,
+		 	 comment_ip
+	  from
+		 of_cms_comment
+		 where check_status = '1' and site_id = #para(site_id) and content_id = #para(content_id)  order by create_time desc
+
+#end

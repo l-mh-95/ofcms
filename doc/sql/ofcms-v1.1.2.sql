@@ -28,7 +28,7 @@ CREATE TABLE `of_cms_access` (
   `access_date` date DEFAULT NULL COMMENT '访问日期',
   `access_time` time NOT NULL COMMENT '访问时间',
   `access_source` varchar(200) DEFAULT NULL COMMENT '访问来源',
-  `access_keyword` varchar(200) DEFAULT NULL COMMENT '访问关键字',
+  `access_keyword` varchar(2000) DEFAULT NULL COMMENT '访问关键字',
   PRIMARY KEY (`access_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=538 DEFAULT CHARSET=utf8 COMMENT='访问记录表';
 
@@ -1146,7 +1146,7 @@ CREATE TABLE `of_sys_param` (
 -- Records of of_sys_param
 -- ----------------------------
 INSERT INTO `of_sys_param` VALUES ('1', 'system_name', 'OFCMS', '系统名称', 'system', null, '1', '1', '');
-INSERT INTO `of_sys_param` VALUES ('2', 'version', '1.1.2', '版本号', 'system', null, '1', '1', '1');
+INSERT INTO `of_sys_param` VALUES ('2', 'version', '1.1.3', '版本号', 'system', null, '1', '1', '1');
 INSERT INTO `of_sys_param` VALUES ('3', 'copyright', '© www.ofosft.cn', '版权', 'system', null, '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('4', 'api', 'hosp', '医院信息缓存', 'cache', '', '1', '1', '');
 INSERT INTO `of_sys_param` VALUES ('5', 'system', 'dict', '字典缓存', 'cache', '', '1', '1', '');

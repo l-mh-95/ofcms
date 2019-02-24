@@ -84,7 +84,7 @@
 						<#else>
 							<input type="${data.field_type}" name="${data.field_name}"
 								   required="" lay-verType="msg"
-							<#if data.field_verification?? && data.field_verification!="" >  lay-verify="1${data.field_verification}"
+							<#if data.field_verification?? && data.field_verification!="" >  lay-verify="${data.field_verification}"
 								<#elseif data.is_required=="1">  lay-verify="required" </#if>
 								   value="${data.field_default_value}"  placeholder="${data.field_default_value}" autocomplete="off" class="layui-input"/>
 						</#if>
