@@ -109,7 +109,7 @@ luoyafeng ([https://gitee.com/ExamSystem](https://gitee.com/ExamSystem))
 1. 建议采用 idea 工具开发
 2. mysql 5.6+
 3. jdk 1.8
-4. tomcat 8  
+4. tomcat 8
 5.通过war包直接放TOMCAT下面   到附件中下载
 
 #### 前台展示：
