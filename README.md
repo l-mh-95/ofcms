@@ -143,6 +143,11 @@ luoyafeng ([https://gitee.com/ExamSystem](https://gitee.com/ExamSystem))
 
 博 客 [https://blog.csdn.net/oufua](https://blog.csdn.net/oufua)  
 
+#### 版权声明
+使用本项目请保留后台底部版权。
+
+任何个人或者企业团体使用本项目用于商业用途，出现纠纷、法律问题，作者不负责任何责任。
+
 #### 相关文档
 项目相关手册：[ https://blog.csdn.net/oufua](https://blog.csdn.net/oufua)
 
