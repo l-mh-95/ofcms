@@ -8,6 +8,14 @@ java 版CMS系统、基于java技术研发的内容管理系统、功能：栏�
 
 项目地址：https://gitee.com/oufu/ofcms   QQ 群: ①185948055 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=9c5f0bdc44402195be254668a80a6c5eeebb06f0336e8c5be26878930b88c672"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="OFCMS技术交流" title="OFCMS技术交流"></a> 
 欢迎喜欢开源的朋友一起加入，共同学习、群里有相关文档。
+#### 目前版本v1.1.4 2019-03-11
+1、修改评论不让IP提交
+2、删除.idea文件
+3、更新mysql驱动版本
+4、评论提交ip地址不能访问
+5、删除其它环境
+6、微信模板菜单sql文件修改
+
 #### 目前版本v1.1.3  2019-02-24
 - 新增公告失败
 - 用户删除失败
