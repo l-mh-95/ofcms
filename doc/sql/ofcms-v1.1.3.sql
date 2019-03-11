@@ -1085,7 +1085,7 @@ INSERT INTO `of_sys_menu` VALUES ('122', '121', '微信设置', 'weixin/config/i
 INSERT INTO `of_sys_menu` VALUES ('123', '121', '菜单管理', 'weixin/menu/index.html', '#', '1', '<i class=\"layui-icon\">&#xe63a;</i>', '2', '1', null);
 INSERT INTO `of_sys_menu` VALUES ('124', '121', '自动回复', 'weixin/auto/index.html', '#', '1', '<i class=\"layui-icon\">&#xe63a;</i>', '3', '1', null);
 INSERT INTO `of_sys_menu` VALUES ('125', '121', '默认回复', 'weixin/reply/index.html', '#', '3', '<i class=\"layui-icon\">&#xe63a;</i>', '4', '1', null);
-INSERT INTO `ofcms`.`of_sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`, `status`, `remark`) VALUES ('126', '121', '信息推送', 'weixin/sendMes/index.html', '#', '1', '<i class=\"layui-icon\">&#xe63a;</i>', '5', '1', NULL);
+INSERT INTO `of_sys_menu` VALUES ('126', '121', '信息推送', 'weixin/sendMes/index.html', '#', '1', '<i class=\"layui-icon\">&#xe63a;</i>', '5', '1', NULL);
 INSERT INTO `of_sys_menu` VALUES ('127', '114', '数据统计', '#', '#', '1', '<i class=\"layui-icon\">&#xe629;</i>', '1', '1', null);
 INSERT INTO `of_sys_menu` VALUES ('128', '127', '访问统计', 'cms/count/access_index.html', '#', '1', '<i class=\"layui-icon\">&#xe629;</i>', '1', '1', null);
 INSERT INTO `of_sys_menu` VALUES ('129', '127', '评论统计', 'cms/count/comment_index.html', '#', '1', '<i class=\"layui-icon\">&#xe629;</i>', '2', '1', null);

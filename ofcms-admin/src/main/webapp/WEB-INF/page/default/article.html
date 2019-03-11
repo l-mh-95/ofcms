@@ -55,7 +55,7 @@
         var form = layui.form;
         //监听提交
         form.on('submit(comment)', function(data) {
-            utile.ajaxSubmit({"url":"/ofcms-admin/api/v1/comment/save.json",data:data.field}, function(data) {
+            utile.ajaxSubmit({"url":"${webroot}/api/v1/comment/save.json",data:data.field}, function(data) {
                 if (data.code == '200') {
                     location.reload(this);
                 } else {

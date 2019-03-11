@@ -243,4 +243,8 @@ public class InstallUtils {
 		}
 		return true;
 	}
+	public static void main(String[] args){
+		String newLine = System.getProperty("line.separator");
+		System.out.println(newLine);
+	}
 }

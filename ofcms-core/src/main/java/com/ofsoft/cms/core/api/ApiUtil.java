@@ -23,7 +23,7 @@ public final class ApiUtil {
     private static List<String> ip = new ArrayList<String>();
 
     static {
-        ip.add("127.0.0.1");
+       // ip.add("127.0.0.1");
     }
 
     public final static Map<String, Object> genSuccessResult() {

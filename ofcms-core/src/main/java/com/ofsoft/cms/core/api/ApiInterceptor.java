@@ -22,6 +22,6 @@ public class ApiInterceptor extends AbstractsApi {
 	 */
 	@Override
 	public boolean isOpenIpCheck() {
-		return true;
+		return false;
 	}
 }
