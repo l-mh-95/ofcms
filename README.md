@@ -1,8 +1,8 @@
 ## OFCMS 
 #### 项目介绍
 java 版CMS系统、基于java技术研发的内容管理系统、功能：栏目模板自定义、内容模型自定义、多个站点管理、在线模板页面编辑等功能、代码完全开源、MIT授权协议。
- 
-技术选型：jfinal Record mysql  freemarker  redis spring 等 layui zTree bootstrap 。
+
+技术选型：jfinal DB+Record mysql  freemarker  Encache spring 等 layui zTree bootstrap 。
 
 特点：支持多站点、可以根据需求添加手机站、pc站。
 
@@ -64,11 +64,11 @@ java 版CMS系统、基于java技术研发的内容管理系统、功能：栏�
 #### 项目团队
 
 firechou ([https://gitee.com/firechou](https://gitee.com/firechou))
- 
+
 王雪峰 ([https://gitee.com/wangxfsh](https://gitee.com/wangxfsh))
 
 大寶   ([https://gitee.com/zhouzhangl](https://gitee.com/zhouzhangl))
- 
+
 姚杰  ([https://gitee.com/yaojiecd](https://gitee.com/yaojiecd))
 
 abpai ([https://gitee.com/abpai](https://gitee.com/abpai))
@@ -83,14 +83,14 @@ luoyafeng ([https://gitee.com/ExamSystem](https://gitee.com/ExamSystem))
 | 基本设置  | 模板编辑 | 栏目管理 | 文章管理 | 主题管理 | 标签管理 | 回收站 | 广告管理 |
 | 友情链接 | 评论管理 |  站点公告 | 站点管理 | 留言管理 | 微信管理 | 菜单管理 |自动回复 |
 | 默认回复 | 访问统计 |  评论统计 | 内容统计 | 表单管理 | 代码生成 | 通知管理 |单页管理 |
- 
+
 
 
 #### 使用说明
 
 1. 配置文件 resource/conf/admin.properties
 2. 微信配置文件 resource/conf/weixin.properties
-3. shior 文件 resource/shior.ini
+3. shiro 文件 resource/shiro.ini
 4. 缓存 resource/ehcache.xml
 5. 后台账号 http://localhost:8080/ofcms-admin/admin admin 密码 123456
 
@@ -128,7 +128,7 @@ luoyafeng ([https://gitee.com/ExamSystem](https://gitee.com/ExamSystem))
 
 分页
 ![输入图片说明](https://images.gitee.com/uploads/images/2018/0906/231332_bf0f5879_634828.png "7.png")
- 
+
 新闻
 ![输入图片说明](https://images.gitee.com/uploads/images/2018/0715/184524_0b210b8f_634828.png "屏幕截图.png")
 
