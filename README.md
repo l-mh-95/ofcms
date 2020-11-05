@@ -6,7 +6,7 @@ java 版CMS系统、基于java技术研发的内容管理系统、功能：栏�
 
 特点：支持多站点、可以根据需求添加手机站、pc站。
 
-项目地址：https://gitee.com/oufu/ofcms   QQ 群: ①185948055 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=9c5f0bdc44402195be254668a80a6c5eeebb06f0336e8c5be26878930b88c672"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="OFCMS技术交流" title="OFCMS技术交流"></a> 
+项目地址：https://gitee.com/oufu/ofcms   QQ 群: 185948056 
 欢迎喜欢开源的朋友一起加入，共同学习、群里有相关文档。
 #### 目前版本v1.1.4 2019-03-11
 1、修改评论不让IP提交
@@ -147,7 +147,7 @@ luoyafeng ([https://gitee.com/ExamSystem](https://gitee.com/ExamSystem))
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2018/0715/184626_9f85d46f_634828.png "屏幕截图.png")
 #### 技术交流
-官 网: [https://gitee.com/oufu](https://gitee.com/oufu)   QQ 群:  ①185948055 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=9c5f0bdc44402195be254668a80a6c5eeebb06f0336e8c5be26878930b88c672"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="OFCMS技术交流" title="OFCMS技术交流"></a> 
+官 网: [https://gitee.com/oufu](https://gitee.com/oufu)   QQ 群2:  185948056
 
 博 客 [https://blog.csdn.net/oufua](https://blog.csdn.net/oufua)  
 
@@ -160,7 +160,7 @@ luoyafeng ([https://gitee.com/ExamSystem](https://gitee.com/ExamSystem))
 项目相关手册：[ https://blog.csdn.net/oufua](https://blog.csdn.net/oufua)
 
 加群有相关部署文档、一起学习、交流。
-QQ 群: ①185948055 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=9c5f0bdc44402195be254668a80a6c5eeebb06f0336e8c5be26878930b88c672"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="OFCMS技术交流" title="OFCMS技术交流"></a> 
+QQ 群2:  185948056
 
 模板手册：[ https://blog.csdn.net/oufua/article/details/82500673](https://blog.csdn.net/oufua/article/details/82500673)
 
